@@ -78,7 +78,18 @@ def callsign_to_loc(callsign):
         #Likely result was none (aka nothing found in DB)
         return None
 
-
+def flightlevel_to_feet(flightlevel):
+    '''Function recieves something like 'FL360' and returns 36000'''
+    
+    flightlevel = str(flightlevel).lower()
+    if "fl" in flightlevel:
+        return int(flightlevel.replace("fl", "")) * 100
+    else:
+        try:
+            return int(flightlevel)
+        except ValueError:
+            return flightlevel
+            
 
 @app.route("/")
 def index():
@@ -100,20 +111,50 @@ def update():
         r = requests.get('http://data.vattastic.com/vatsim-data.txt').text
         #TO--DO: tupleise this injection ot prevent db attacks
         for line in r.split("\n"):
-            try:
-                vals = line.split(":")
-                inj = '''INSERT INTO 'onlines' ("callsign", "time_updated", "cid", "real_name", "frequency", "VATSIMlatitude", "VATSIMlongitude", "visible_range", "ATIS_msg", "time_logon", "type")''' + \
-                ''' VALUES ("%s", "%s", "%s", "%s", "%s", %s, %s, %s, "%s", "%s", "%s")''' % (vals[0], str(int(time.time())), vals[1], vals[2], vals[4] , float(vals[5]), float(vals[6]), int(vals[19]), \
-                vals[35].replace("\"", "").replace("'", ""), str(vals[37]), vals[3])
-                c.execute(inj)
+            vals = line.split(":")
+
+            if len(vals) != 42 or line[0] == ';' or not(vals[5] and vals[6]):
+                #No location specified
+                #Pilot and ATC lines have 42 entries, so if this line doesn't then continue
+                #or if line is a comment line
+                continue
+
+            #Check if pilot or ATC
+            if vals[3] == "ATC":
+                try:
+                    inj = '''INSERT INTO 'onlines' ("callsign", "time_updated", "cid", "real_name", "frequency", "VATSIMlatitude", "VATSIMlongitude", "visible_range", "ATIS_msg", "time_logon", "type")''' + \
+                    ''' VALUES ("%s", "%s", "%s", "%s", "%s", %s, %s, %s, "%s", "%s", "%s")''' % (vals[0], str(int(time.time())), vals[1], vals[2], vals[4] , float(vals[5]), float(vals[6]), int(vals[19]), \
+                    vals[35].replace("\"", "").replace("'", ""), str(vals[37]), vals[3])
+                    c.execute(inj)
+                except:
+                    print("Error", vals)
+                    continue
                 
-            except (ValueError, IndexError):
-                #probably a comment line, or otherwise non-data line
-                continue
-            except sqlite3.OperationalError:
+            elif vals[3] == "PILOT":
+            #try:
+                inj = '''INSERT INTO "onlines" ("callsign", "time_updated", "cid", "real_name", "VATSIMlatitude", "VATSIMlongitude", "time_logon", "type", "altitude", "groundspeed"''' + \
+                    ''', "planned_aircraft", "planned_tascruise", "planned_depairport", "planned_altitude", "planned_destairport", "planned_flighttype", "planned_deptime", "planned_altairport"''' + \
+                    ''', "planned_remarks", "planned_route", "heading") VALUES ("%s", "%s", "%s", "%s", %s, %s, "%s", "%s", %s, %s, "%s", "%s", "%s", %s, "%s", "%s", "%s", "%s", "%s", "%s", %s)''' % \
+                    (vals[0], str(int(time.time())), vals[1], vals[2], float(vals[5]), float(vals[6]), str(vals[37]), vals[3], int(vals[7]), int(vals[8]), vals[9], vals[10], vals[11], 
+                    flightlevel_to_feet(vals[12]), vals[13], vals[21], vals[22], vals[28], vals[29].replace("\"", "").replace("'", ""), vals[30].replace("\"", "").replace("'", ""), int(vals[38]))
+                
+                c.execute(inj)
+            #    except:
+            #        print("Error", vals)
+            #        continue
+            else:
+                #TO--DO: log this because its not ATC or pilot!
+                pass
+            
+                
+            #except (ValueError, IndexError):
+            #    #probably a comment line, or otherwise non-data line
+            #    print(inj)
+            #    continue
+           # except:# sqlite3.OperationalError:
                 #weird error, let's log it
-                print(inj)
-                continue
+        #        print("Error", inj) 
+         #       continue
         conn.commit()
     #else:
         #No update needed so just return memo, if it exists
@@ -174,6 +215,21 @@ def update():
             
             #TO--DO: ALSO RETURN A HISTORY OF THIS CALLSIGN+CID (javascript will use this to plot a path!)!!!
     
+    #CTR needs:     ATC_online      marker_latitude marker_longitude    atc_pic     id      polygon
+    #"atc": [
+    #  {
+    #    "atctype": 2, 
+    #    "atismsg": "$ rw.liveatc.net/AUS_GND", 
+    #    "callsign": "AUS_GND", 
+    #    "cid": "1331826", 
+    #    "freq": "121.900", 
+    #    "name": "Thomas Sotherland", 
+    #    "timelogon": "20170607031632", 
+    #    "visrange": 20
+    #  }
+    
+
+  
   #  pilots = []
 
         #TO--DO: only return releavnt part of map;
