@@ -1,0 +1,23 @@
+html, body, #map-canvas, .container-fluid
+{
+    /* height of these elements */
+    height: 100%;
+
+    /* no margin around these elements */
+    margin: 0;
+
+    /* disable scrollbars */
+    overflow: hidden;
+
+    /* no padding within these elements */
+    padding: 0;
+}
+
+.container-fluid {
+    width: 100%;
+    width: 75%;
+}
+
+body {
+    padding:5px;
+}
