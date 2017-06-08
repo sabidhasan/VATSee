@@ -81,14 +81,17 @@ def callsign_to_loc(callsign):
 def flightlevel_to_feet(flightlevel):
     '''Function recieves something like 'FL360' and returns 36000'''
     
+    if not(flightlevel):
+        return 0
+        
     flightlevel = str(flightlevel).lower()
-    if "fl" in flightlevel:
-        return int(flightlevel.replace("fl", "")) * 100
+    if "fl" in flightlevel or "f" in flightlevel:
+        return int(flightlevel.replace("fl", "").replace("f", "")) * 100
     else:
         try:
             return int(flightlevel)
         except ValueError:
-            return flightlevel
+            return 0
             
 
 @app.route("/")
@@ -127,118 +130,192 @@ def update():
                     vals[35].replace("\"", "").replace("'", ""), str(vals[37]), vals[3])
                     c.execute(inj)
                 except:
+                    #TO--DO Log the error here
                     print("Error", vals)
                     continue
                 
             elif vals[3] == "PILOT":
-            #try:
-                inj = '''INSERT INTO "onlines" ("callsign", "time_updated", "cid", "real_name", "VATSIMlatitude", "VATSIMlongitude", "time_logon", "type", "altitude", "groundspeed"''' + \
+                try:
+                    inj = '''INSERT INTO "onlines" ("callsign", "time_updated", "cid", "real_name", "VATSIMlatitude", "VATSIMlongitude", "time_logon", "type", "altitude", "groundspeed"''' + \
                     ''', "planned_aircraft", "planned_tascruise", "planned_depairport", "planned_altitude", "planned_destairport", "planned_flighttype", "planned_deptime", "planned_altairport"''' + \
                     ''', "planned_remarks", "planned_route", "heading") VALUES ("%s", "%s", "%s", "%s", %s, %s, "%s", "%s", %s, %s, "%s", "%s", "%s", %s, "%s", "%s", "%s", "%s", "%s", "%s", %s)''' % \
                     (vals[0], str(int(time.time())), vals[1], vals[2], float(vals[5]), float(vals[6]), str(vals[37]), vals[3], int(vals[7]), int(vals[8]), vals[9], vals[10], vals[11], 
                     flightlevel_to_feet(vals[12]), vals[13], vals[21], vals[22], vals[28], vals[29].replace("\"", "").replace("'", ""), vals[30].replace("\"", "").replace("'", ""), int(vals[38]))
-                
-                c.execute(inj)
-            #    except:
-            #        print("Error", vals)
-            #        continue
+                    c.execute(inj)
+                except:
+                    #TO--DO Log the error here
+                    print("Error", vals)
+                    continue
             else:
                 #TO--DO: log this because its not ATC or pilot!
                 pass
-            
-                
-            #except (ValueError, IndexError):
-            #    #probably a comment line, or otherwise non-data line
-            #    print(inj)
-            #    continue
-           # except:# sqlite3.OperationalError:
-                #weird error, let's log it
-        #        print("Error", inj) 
-         #       continue
         conn.commit()
     #else:
         #No update needed so just return memo, if it exists
     #    if memo: return jsonify(memo)
 
-    #Jsonify the ATC data - id, name, location, ATC {callsign, cid, name, freq, latitude, longitude, visrange, atismsg, timelogon}, planes {id, dep/arr}
-    airports = []
+    ###########################
+    #Jsonify the ATC data !!  #
+    ###########################
+    # - id, name, location, ATC {callsign, cid, name, freq, latitude, longitude, visrange, atismsg, timelogon}, planes {id, dep/arr}
+    #jsondata holds ATC, Planes, Centres
+    jsondata = [[], [], []]
     tmp_airport_ids = {}            #This keeps id mapping for airports as they are parsed
+    tmp_centres_ids = {}
+    pilot_counter = 0               #Keeps track of Pilot IDs
     
     #Get results from DB; returned as tuples
-    result = c.execute("SELECT * FROM 'onlines' WHERE ABS(time_updated - %s) < 60 AND type='ATC'" % time.time()).fetchall()
+    result = c.execute("SELECT * FROM 'onlines' WHERE ABS(time_updated - %s) < 60" % time.time()).fetchall()
 
-    #Index map for results from database
-    atc_indices = {"callsign":2, "cid":3, "name":4, "freq":5, "latitude":6, "longitude":7, "visrange":8, "atismsg":9, "timelogon":10}
-    
     for line in result:
-        curr_callsign = line[atc_indices["callsign"]]
-    #TO--DO: auto delet old entries when greater than one day
-        #Check for ATC by Callsign having underscore. There are some logins that say ATC when when piloting...
-        if "_" in curr_callsign and not("CTR" in curr_callsign or "OBS" in curr_callsign or "SUP" in curr_callsign):
-            #Get icao callsign (SEA --> KSEA)
-            icao = callsign_to_icao(curr_callsign)
-            #TO--DO : ppotentially make curr callsign anm object
-            
+        #Index map for results from database
+        atc_indices = {"callsign":2, "cid":3, "name":4, "freq":5, "latitude":6, "longitude":7, "visrange":8, "atismsg":9, "timelogon":10}
+        ctr_indices = {"callsign":2, "cid":3, "name":4, "freq":5, "visrange":8, "atismsg":9, "timelogon":10}
+        pilot_indices = {}
 
-            if not(icao in tmp_airport_ids):
-                #New airport! Make a new ID first
-                new_id = len(airports)
-                #Returns some data about airport from database, like latitude, long, altitude, full name
-                tmp = callsign_to_loc(curr_callsign)
+        curr_callsign = line[atc_indices["callsign"]]
+        row_type = line[11]         #"pilot" or "atc"
+        #TO--DO: auto delet old entries when greater than one day
+        #Check for ATC by Callsign having underscore. There are some logins that say ATC when when piloting...
+        if row_type == "ATC":
+            #Either normal ATC, or Centre
+            if "_" in curr_callsign and not("CTR" in curr_callsign or "OBS" in curr_callsign or "SUP" in curr_callsign):
+                #Get icao callsign (SEA --> KSEA)
+                icao = callsign_to_icao(curr_callsign)
+                #TO--DO : ppotentially make curr callsign anm object
                 
-                if not( tmp is None):
+                if not(icao in tmp_airport_ids):
+                    #New airport! Make a new ID first
+                    new_id = len(jsondata[0])
+                    #Returns some data about airport from database, like latitude, long, altitude, full name
+                    tmp = callsign_to_loc(curr_callsign)
+                    
+                    if not( tmp is None):
+                        new_lat, new_long, new_alt, new_name = tmp
+                    else:
+                        new_lat = line[atc_indices["latitude"]]
+                        new_long = line[atc_indices["longitude"]]
+                        new_alt = 0
+                        new_name = line[atc_indices["cid"]]
+                    
+                    #ATC_pic is which picture to use for the marker on the front end (it's a sorted concatenation of all available ATC). -1 is simple dot no atc
+                    new_data = {"id" : new_id, "name": new_name, "longitude": new_long, "latitude": new_lat, "altitude": new_alt, "atc": [], "atc_pic" : "-1", "planes": []}
+                    jsondata[0].append(new_data)
+    
+                    #Add to tmp airport directory
+                    tmp_airport_ids[icao] = new_id
+                else:
+                    #Airport already exists
+                    new_id = tmp_airport_ids[icao]
+
+                #Now, lets update the ATC dictionary of airports with current row's data    
+                tmp_atc = {item: line[value] for item, value in atc_indices.items()}
+                tmp_atc["atctype"] = callsign_to_ATC(curr_callsign)
+    
+                jsondata[0][new_id]["atc"].append(tmp_atc)
+                #5 is center which is plotted spearately
+                jsondata[0][new_id]["atc_pic"] = (''.join(sorted([str(item["atctype"]) for item in jsondata[0][new_id]["atc"]]))).replace('5', '')
+                
+            elif "_" in curr_callsign and "CTR" in curr_callsign:
+                
+                #See if centre present or not
+                if not(curr_callsign.split("_")[0] in tmp_centres_ids):
+                    #New airport! Make a new ID first
+                    new_id = len(jsondata[1])
+                    #Use ATC-idices because we dont want lat/long in ctr_indices (becuase they are kept at a differnet level that dictionarhy comprehension line)
+                    new_lat = line[atc_indices["latitude"]]
+                    new_lon = line[atc_indices["longitude"]]
+
+                    
+                    #ATC_pic is which picture to use for the marker on the front end (it's a sorted concatenation of all available ATC). -1 is simple dot no atc
+                    ctr_data = {"id": new_id, "marker_lat": new_lat, "marker_lon": new_lon, "atc_pic": "0", "atc": [], "polygon": []}
+                    jsondata[1].append(ctr_data)
+    
+                    #Add to tmp airport directory
+                    tmp_centres_ids[curr_callsign.split("_")[0]] = new_id
+                else:
+                    #Airport already exists
+                    new_id = tmp_centres_ids[curr_callsign.split("_")[0]]
+
+                tmp_ctr_atc = {item: line[value] for item, value in ctr_indices.items()}
+                tmp_ctr_atc["atctype"] = 5
+            
+                jsondata[1][new_id]["atc"].append(tmp_ctr_atc)
+                
+        elif row_type == "PILOT":
+            #Check for airport, create dummy if needed
+            #{id       callsign      cid    real_name   VATSIMlatitude  	VATSIMlongitude     time_logon      altitude    groundspeed     heading     planned_deptime 	planned_altairport
+            #planned_aircraft   planned_tascruise	planned_depairport	planned_altitude	planned_destairport	planned_flighttype  planned_remarks 	planned_route
+            #Arrivial_apt_id        dep_apt_id
+            #}
+            
+            plane_indices = {"callsign": , "cid": , "real_name": , "VATSIMlatitude":, "VATSIMlongitude": , 
+                "cid":3, "name":4, "freq":5, "visrange":8, "atismsg":9, "timelogon":10}
+
+
+            pilot_counter += 1
+            departure_icao = callsign_to_icao(line[16])
+            arrival_icao = callsign_to_icao(line[18])
+            
+            if not(departure_icao) in tmp_airport_ids:
+                #Create dummy airport
+                new_id = len(jsondata[0])
+                #Returns some data about airport from database, like latitude, long, altitude, full name
+                tmp = callsign_to_loc(departure_icao)
+                if not(tmp is None):
                     new_lat, new_long, new_alt, new_name = tmp
                 else:
-                    new_lat = line[atc_indices["latitude"]]
-                    new_long = line[atc_indices["longitude"]]
+                    new_lat = 0
+                    new_long = 0
                     new_alt = 0
-                    new_name = line[atc_indices["cid"]]
-                
+                    new_name = departure_icao
+                    
                 #ATC_pic is which picture to use for the marker on the front end (it's a sorted concatenation of all available ATC). -1 is simple dot no atc
                 new_data = {"id" : new_id, "name": new_name, "longitude": new_long, "latitude": new_lat, "altitude": new_alt, "atc": [], "atc_pic" : "-1", "planes": []}
-                airports.append(new_data)
-
-                #Add to tmp airport directory
-                tmp_airport_ids[icao] = new_id
+                jsondata[0].append(new_data)
+    
+                    #Add to tmp airport directory
+                tmp_airport_ids[departure_icao] = new_id
             else:
                 #Airport already exists
-                new_id = tmp_airport_ids[icao]
+                new_id = tmp_airport_ids[departure_icao]
+          
+            #Add this plane to the airport, whether newly created or not
+            jsondata[0][new_id]["planes"].append(pilot_counter)
             
-            #Now, lets update the ATC dictionary of airports with current row's data    
-            tmp_atc = {item: line[value] for item, value in atc_indices.items()}
-            tmp_atc["atctype"] = callsign_to_ATC(curr_callsign)
-
-            airports[new_id]["atc"].append(tmp_atc)
-            #5 is center which is plotted spearately
-            airports[new_id]["atc_pic"] = (''.join(sorted([str(item["atctype"]) for item in airports[new_id]["atc"]]))).replace('5', '')
-            
-            
-            #TO--DO: ALSO RETURN A HISTORY OF THIS CALLSIGN+CID (javascript will use this to plot a path!)!!!
+            if not(arrival_icao) in tmp_airport_ids:
+                #Create dummy airport
+                new_id = len(jsondata[0])
+                #Returns some data about airport from database, like latitude, long, altitude, full name
+                tmp = callsign_to_loc(arrival_icao)
+                if not(tmp is None):
+                    new_lat, new_long, new_alt, new_name = tmp
+                else:
+                    new_lat = 0
+                    new_long = 0
+                    new_alt = 0
+                    new_name = arrival_icao
+                    
+                #ATC_pic is which picture to use for the marker on the front end (it's a sorted concatenation of all available ATC). -1 is simple dot no atc
+                new_data = {"id" : new_id, "name": new_name, "longitude": new_long, "latitude": new_lat, "altitude": new_alt, "atc": [], "atc_pic" : "-1", "planes": []}
+                jsondata[0].append(new_data)
     
-    #CTR needs:     ATC_online      marker_latitude marker_longitude    atc_pic     id      polygon
-    #"atc": [
-    #  {
-    #    "atctype": 2, 
-    #    "atismsg": "$ rw.liveatc.net/AUS_GND", 
-    #    "callsign": "AUS_GND", 
-    #    "cid": "1331826", 
-    #    "freq": "121.900", 
-    #    "name": "Thomas Sotherland", 
-    #    "timelogon": "20170607031632", 
-    #    "visrange": 20
-    #  }
-    
+                #Add to tmp airport directory
+                tmp_airport_ids[arrival_icao] = new_id
+            else:
+                #airport already exists
+                new_id = tmp_airport_ids[arrival_icao]
 
-  
-  #  pilots = []
+            #Add this plane to the airport, whether newly created or not
+            jsondata[0][new_id]["planes"].append(pilot_counter)
 
+
+
+        #TO--DO: ALSO RETURN A HISTORY OF THIS CALLSIGN+CID (javascript will use this to plot a path!)!!!
         #TO--DO: only return releavnt part of map;
         #TO--DO: only return updated data rather than everytthing
 
 #TO--DO: ADD {PILOT DATA HERE!!!}
 
-#    try:
-#        if curr_line[3] == "PILOT":
-#            pilots.append(curr_line)
-    memo = airports
-    return jsonify(airports)
+  #  memo = airports
+    return jsonify(jsondata)
