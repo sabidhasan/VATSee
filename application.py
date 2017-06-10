@@ -42,15 +42,13 @@ def callsign_to_ATC(callsign):
     '''Gets callsign like 'ATL_GND' and returns a type code:
     0   ATIS    1   CLNC    2   GND    3   TWR    4   APP/DEP    5   CTR    6   UNKNOWN    '''
     
-    codes = {"ATIS": 0,
-        "CLNC" : 1,
-        #TO--DO: make sure clearance code is correct
-        "GND" : 2,        "TWR" : 3,        "APP" : 4,        "DEP" : 4,        "CTR" : 5,        "OBS" : 6    }
+    codes = {"ATIS": 0, "DEL" : 1, "GND" : 2, "TWR" : 3, "APP" : 4, "DEP" : 4, "CTR" : 5, "OBS" : 6}
     if callsign.split("_")[-1] in codes:
         #Foudn the type, return the proper code (This is used by front end to display )
         return codes[callsign.split("_")[-1]]
     else:
         #Unknown type, so it will be passed an unknown code!
+        #TO--DO: LOG THIS HERE
         return 6
 
 
@@ -158,7 +156,7 @@ def update():
     #Jsonify the ATC data !!  #
     ###########################
     # - id, name, location, ATC {callsign, cid, name, freq, latitude, longitude, visrange, atismsg, timelogon}, planes {id, dep/arr}
-    #jsondata holds ATC, Planes, Centres
+    #jsondata holds ATC, Planes, Centres, administrative data
     jsondata = [[], [], [], []]
     tmp_airport_ids = {}            #This keeps id mapping for airports as they are parsed
     tmp_centres_ids = {}
@@ -215,7 +213,10 @@ def update():
     
                 jsondata[0][new_id]["atc"].append(tmp_atc)
                 #5 is center which is plotted spearately
-                jsondata[0][new_id]["atc_pic"] = (''.join(sorted([str(item["atctype"]) for item in jsondata[0][new_id]["atc"]]))).replace('5', '')
+                jsondata[0][new_id]["atc_pic"] = ''.join(sorted(list({str(item["atctype"]) for item in jsondata[0][new_id]["atc"] if item["atctype"] != 5})))
+                #''.join(sorted(list({str(item["atctype"]) for item in jsondata[0][new_id]["atc"] if item["atctype"] != 5})))
+                #(''.join()).replace('5', '')
+                #(''.join(sorted([str(item["atctype"]) for item in jsondata[0][new_id]["atc"]]))).replace('5', '')
                 
             elif "_" in curr_callsign and "CTR" in curr_callsign:
                 callsign_initials = curr_callsign.split("_")[0]
@@ -321,6 +322,8 @@ def update():
     #Add admin stuff to final json column
     jsondata[3].append({"time_updated": result[0][1], "number_of_records": len(result), "size_bytes": sys.getsizeof(jsondata)})
 
+    #sort the ATCs
+    jsondata[0] = sorted(jsondata[0], key=lambda x: len(x["atc"]), reverse=True)
 
         #TO--DO: ALSO RETURN A HISTORY OF THIS CALLSIGN+CID (javascript will use this to plot a path!)!!!
         #TO--DO: only return releavnt part of map;
