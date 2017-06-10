@@ -11,13 +11,55 @@ html, body, #map-canvas, .container-fluid
 
     /* no padding within these elements */
     padding: 0;
-}
 
-.container-fluid {
-    width: 100%;
-    width: 75%;
+    font-family: Verdana;
 }
 
 body {
     padding:5px;
+}
+
+.container-fluid {
+    /*display: flex;*/
+    width: 100%;
+}
+
+#map-canvas {
+    float:left;
+    width: 75%;
+}
+
+#right {
+    /*flex-grow:1;*/
+    float:right;
+    width:25%;
+}
+
+/* Hover Window Related Stuff */
+#hoverwindow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: white;
+    padding:3px;
+    border: 2px solid black;
+    display:none;
+    text-align:right;
+    font-size: 70%;
+}
+#hoverwindow span {
+    font-weight:bold;
+    padding:4px;
+}
+#hoverwindow table {
+    width:100%;
+}
+#hoverinfo {
+    text-align: left;
+}
+#infoWindowTitle {
+    font-size: 125%;
+    font-weight: bold;
+    padding-bottom: 10px;
 }

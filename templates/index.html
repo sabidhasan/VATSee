@@ -21,16 +21,22 @@
         <!-- app's own JavaScript -->
         <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 
-        <title>VATSEE</title>
+        <title>VATSee</title>
     </head>
 
     <body>
         <!-- fill viewport -->
+        <div id = "hoverwindow">
+            <img id="infoclose" src="https://images.marksandspencerme.com/wcsstore/FashionStorefrontAssetStore/images/colors/color1/close_normal.png" />
+            <div id="hoverinfo"></div>
+        </div>
+        
         <div class="container-fluid">
 
             <!-- https://developers.google.com/maps/documentation/javascript/tutorial -->
             <div id="map-canvas"></div>
 
+            <div id="right">Crap</div>
             <!-- http://getbootstrap.com/css/#forms -->
 <!--            <form id="form">
                 <div class="form-group">
