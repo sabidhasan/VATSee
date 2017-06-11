@@ -25,18 +25,37 @@
     </head>
 
     <body>
-        <!-- fill viewport -->
+        <!-- top log in and logo bar -->
+        <div id="topbar"><span>VATSee</span></div>
+        
+        <!-- invisible hover window -->
         <div id = "hoverwindow">
             <img id="infoclose" src="https://images.marksandspencerme.com/wcsstore/FashionStorefrontAssetStore/images/colors/color1/close_normal.png" />
             <div id="hoverinfo"></div>
         </div>
         
+        <!-- holds main content -->
         <div class="container-fluid">
 
             <!-- https://developers.google.com/maps/documentation/javascript/tutorial -->
             <div id="map-canvas"></div>
 
-            <div id="right">Crap</div>
+            <!-- holds right details pane -->
+            <div id="right">
+                <div id="rightnav">
+                    <ul>
+                        <li>Online</li>
+                        <li>Planning</li>
+                        <li>Weather</li>
+                        <li>Events</li>
+                        <li>Delay</li>
+                        <li>Enroute</li>
+                        
+                    </ul>
+                    <button onclick="removeMarkers();">Click me</button>
+                </div>
+                
+            </div>
             <!-- http://getbootstrap.com/css/#forms -->
 <!--            <form id="form">
                 <div class="form-group">

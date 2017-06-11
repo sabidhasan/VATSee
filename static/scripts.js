@@ -1,7 +1,8 @@
 // Holds Google Map
 var map;
-//Stores all the airports on map currently, as GoogleMap marker objects
+//Stores all the airports and planes on map currently, as GoogleMap marker objects
 var airports = [];
+var planes = [];
 //Copy of the data fetched from server   //time of last update (stored in latest json)
 var latest_json = [];
 var update_time = 0;
@@ -10,6 +11,9 @@ var selected_airport = -1;
 //Global variable for current mouse position; Google map listeners supposedly don't supply event.pageX values?
 var mouseX;
 var mouseY;
+//Array
+var airportLines = [];
+var flightPath;
 
 // execute when the DOM is fully loaded
 $(document).ready(function() {
@@ -70,10 +74,9 @@ $(document).ready(function() {
     $("#infoclose").on("click", function() {
         hideHoverWindow();
     });
-//    
-
-
 });
+
+
 
 //Add listener for global mouse position; used to display hover window next to mouse
 $(document).on('mousemove', function(event){
@@ -83,9 +86,87 @@ $(document).on('mousemove', function(event){
 
 //Called for each airplane. Throws up airplanes on the map
 function addPlane(data) {
-    return
+    //create latitude and longitude
+    var lls = new google.maps.LatLng(parseFloat(data["latitude"]), parseFloat(data["longitude"]));
+
+    //var image = "http://wz5.resources.weatherzone.com.au/images/widgets/nav_trend_steady.gif";
     
+    var image = "http://abid.a2hosted.com/plane" + Math.round(data["heading"]/10) % 36 + ".gif";
+    
+    //create the marker, attach to map
+    var m = new google.maps.Marker({
+        position: lls,
+        map: map,
+        icon: image
+    });
+    
+
+
+    m.addListener('mouseover', function() {
+        //only if no airport is clicked upon, then show the hover for this
+        $("#hoverinfo").html(prettifyPlaneData(data));
+        $("#hoverwindow").css({"display":"inline", "top":0, "left": 0});//mouseY + 5, "left": mouseX + 10})
+        
+       // alert(data["depairport_id"] + ' drawing a line from ' + latest_json[0][data["depairport_id"]]["icao"] + ' to ' + latest_json[0][data["arrairport_id"]]['icao']);
+        //To do get AJAX to get full history
+         for (var j = 0; j < latest_json[0].length; j++) {
+             if (latest_json[0][j]["id"] === data["depairport_id"]) {
+                d_coord = {lat: latest_json[0][j]["latitude"], lng: latest_json[0][j]["longitude"]};
+                //alert("Departing "  + latest_json[0][j]["name"] + " icao " +  latest_json[0][j]["icao"])                 
+             }
+             if (latest_json[0][j]["id"] === data["arrairport_id"]) {
+                a_coord = {lat: latest_json[0][j]["latitude"], lng: latest_json[0][j]["longitude"]};
+                //alert("arriving "  + latest_json[0][j]["name"] + " icao "  + latest_json[0][j]["icao"])                 
+             }
+         };
+         
+         
+        var flightPlanCoordinates = [
+        // //Find departing latitude!
+         d_coord,
+         {lat: data["latitude"], lng: data["longitude"]},
+         //{lat: latest_json[0][data["depairport_id"]]["latitude"], lng: latest_json[0][data["depairport_id"]]["longitude"]},
+         //{lat: data["latitude"], lng: data["longitude"]},
+    //     {lat: latest_json[0][data["arrairport_id"]]["latitude"], lng: latest_json[0][data["arrairport_id"]]["longitude"]}
+        ];
+        
+        var flightPlanRemaining = [
+            {lat: data["latitude"], lng: data["longitude"]},
+            a_coord
+        ];
+        
+        flightPath = new google.maps.Polyline({
+          path: flightPlanCoordinates,
+          geodesic: false,
+          strokeColor: '#FF000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+          map: map
+        });
+        
+
+         flightPathRem = new google.maps.Polyline({
+          path: flightPlanRemaining,
+          geodesic: false,
+          strokeColor: '#FF000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+          map: map
+        });
+
+    });
+
+    m.addListener('mouseout', function() {
+        //if nothing has been clicked on, then hide the info window (ALSO SEE CONFIGURE FUNCTION FOR CLICK EVENT LISTERNERS!)
+        hideHoverWindow();
+        flightPath.setMap(null);
+        flightPathRem.setMap(null);
+    });
+    //add current marker to airports array
+    planes.push(m);
+
 }
+
 
 
 
@@ -94,16 +175,17 @@ function addPlane(data) {
 function addAirport(data) {
     //create latitude and longitude
     var lls = new google.maps.LatLng(parseFloat(data["latitude"]), parseFloat(data["longitude"]));
+    var image;
     
     //TO--DO: image size should scale based on zoom level; this should go in map event listener also
     if (data["atc"].length === 0) {// && map.getZoom() > 5) {
         //Just draw a dot
-        var image = "http://conferences.shrm.org/sites/all/themes/sessions/images/dot76923C.png";
+        image = "http://conferences.shrm.org/sites/all/themes/sessions/images/dot76923C.png";
         //"https://www.dining-out.co.za/ftp/themes/desk/images/reddot.png";
     } else {//if (map.getZoom() > 5) {
         //There is ATC avialabe, so show the proper icon for it
         
-        var image = "http://zaritsky.ca/wp-content/uploads/2014/05/dot2-2.png";
+        image = "http://zaritsky.ca/wp-content/uploads/2014/05/dot2-2.png";
         //"https://www.dining-out.co.za/ftp/themes/desk/images/reddot.png";
         //var image = "http://abid.a2hosted.com/" + data["atc_pic"] + ".png";
     }
@@ -125,9 +207,103 @@ function addAirport(data) {
     m.addListener('mouseover', function() {
         //only if no airport is clicked upon, then show the hover for this
         if (selected_airport === -1) {
-            $("#hoverinfo").html(prettifyData(data));
-            $("#hoverwindow").css({"display":"inline", "top":mouseY + 5, "left": mouseX + 10})
+            $("#hoverinfo").html(prettifyAirportData(data));
+            $("#hoverwindow").css({"display":"inline", "top":0, "left": 0});//mouseY + 5, "left": mouseX + 10})
         }
+        
+        //Draw lines
+        for (var i = 0, deplen = data["depplanes"].length; i < deplen; i++) {
+            //create marker
+            //var tmp = latest_json[2][data["depplanes"][i]]["arrairport_id"];
+ 
+          for (var j = 0; j < latest_json[2].length; j++) {
+             if (latest_json[2][j]["id"] === data["depplanes"][i]) {
+                var coord = {lat: latest_json[2][j]["latitude"], lng: latest_json[2][j]["longitude"]};
+                //var dest = {lat: latest_json[2][j]["latitude"], lng: latest_json[2][j]["longitude"]};
+             }
+             //if (latest_json[2][j]["id"] === data["depplanes"][i]) {
+             //   a_coord = {lat: latest_json[0][j]["latitude"], lng: latest_json[0][j]["longitude"]};
+                //alert("arriving "  + latest_json[0][j]["name"] + " icao "  + latest_json[0][j]["icao"])                 
+             //}
+         };
+
+
+           
+            var flightPlanCoordinates = [
+            {lat: data["latitude"], lng: data["longitude"]},
+            coord
+            //{lat: latest_json[2][data["depplanes"][i] ]["latitude"], lng: latest_json[2][data["depplanes"][i]]["longitude"]},
+            //{lat: latest_json[0][tmp]["latitude"], lng: latest_json[0][tmp]["longitude"]}
+//            latest_json[2][data["depplanes"][i]]["arrairport_id"]
+            //    data["depairport_id"]]["latitude"], lng: latest_json[0][data["depairport_id"]]["longitude"]},
+            
+            //{lat: latest_json[2][data["arrairport_id"]]["latitude"], lng: latest_json[0][data["arrairport_id"]]["longitude"]}
+            ];
+            
+            //alert(latest_json[0][tmp]["longitude"])
+
+          //  console.log(latest_json[2][data["depplanes"][i]]["callsign"])
+
+            var flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: false,
+            strokeColor: '#FF000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2,
+            map: map});
+            
+            airportLines.push(flightPath);
+        }
+
+
+
+
+
+        for (var i = 0, arrlen = data["arrplanes"].length; i < arrlen; i++) {
+            //create marker
+            //var tmp = latest_json[2][data["depplanes"][i]]["arrairport_id"];
+ 
+          for (var j = 0; j < latest_json[2].length; j++) {
+             if (latest_json[2][j]["id"] === data["arrplanes"][i]) {
+                var coord = {lat: latest_json[2][j]["latitude"], lng: latest_json[2][j]["longitude"]};
+                //var dest = {lat: latest_json[2][j]["latitude"], lng: latest_json[2][j]["longitude"]};
+             }
+             //if (latest_json[2][j]["id"] === data["depplanes"][i]) {
+             //   a_coord = {lat: latest_json[0][j]["latitude"], lng: latest_json[0][j]["longitude"]};
+                //alert("arriving "  + latest_json[0][j]["name"] + " icao "  + latest_json[0][j]["icao"])                 
+             //}
+         };
+
+
+           
+            var flightPlanCoordinates = [
+            {lat: data["latitude"], lng: data["longitude"]},
+            coord
+            //{lat: latest_json[2][data["depplanes"][i] ]["latitude"], lng: latest_json[2][data["depplanes"][i]]["longitude"]},
+            //{lat: latest_json[0][tmp]["latitude"], lng: latest_json[0][tmp]["longitude"]}
+//            latest_json[2][data["depplanes"][i]]["arrairport_id"]
+            //    data["depairport_id"]]["latitude"], lng: latest_json[0][data["depairport_id"]]["longitude"]},
+            
+            //{lat: latest_json[2][data["arrairport_id"]]["latitude"], lng: latest_json[0][data["arrairport_id"]]["longitude"]}
+            ];
+            
+            //alert(latest_json[0][tmp]["longitude"])
+
+          //  console.log(latest_json[2][data["depplanes"][i]]["callsign"])
+
+            var flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: false,
+            strokeColor: '#00F',
+            strokeOpacity: 1.0,
+            strokeWeight: 2,
+            map: map});
+            
+            airportLines.push(flightPath);
+        }
+
+
+
     });
 
     m.addListener('mouseout', function() {
@@ -135,13 +311,46 @@ function addAirport(data) {
         if (selected_airport === -1) {
             hideHoverWindow();
         }
+        //Hide all airport lines
+        for (var i = 0; i < airportLines.length; i++) {
+            airportLines[i].setMap(null);
+        }
+        airportLines = [];
     });
     //add current marker to airports array
     airports.push(m);
 }
 
-//Function for formatting data
-function prettifyData(data) {
+
+
+
+
+function prettifyPlaneData(data) {
+    //Returns displayable HTML for info window
+    var r = "<span id='infoWindowTitle'>" + data["callsign"] +"</span></br>";// + "dep id " + data["depairport_id"] + " from json " + latest_json[0][data["depairport_id"]]["icao"]
+    //"dep id " + data["depairport_id"] + ;
+    r += "<span>(Airline: " + data["airline"] + ")</span></br></br>";
+    
+    r += "<table><tr><td><span>Departure</span></td>" + "<td>" + data["depairport"] + " ft</td></tr>";
+    r += "<tr><td><span>Arrival (Alternate)</span></td>" + "<td>" + data["arrairport"] + " (" + data["altairport"] + ")</td></tr>";
+    r += "<tr><td><span>Aircraft</span></td>" + "<td>" + data["aircraft"] + "</td></tr>";
+    r += "<tr><td><span>Heading</span></td>" + "<td>" + data["heading"] + "</td></tr>";
+    r += "<tr><td><span>Speed (Planned)</span></td>" + "<td>" + data["speed"] + " kts)" + data["tascruise"] + " kts</td></tr>";
+    
+    r += "<tr><td><span>Altitude (Planned)</span></td>" + "<td>" + data["altitude"] + "ft (" + data["plannedaltitude"] + " ft) </td></tr>";
+    r += "<tr><td><span>Departure Time</span></td>" + "<td>" + data["deptime"] + "</td></tr>";
+    r += "<tr><td><span>Flight Type</span></td>" + "<td>" + data["flighttype"] + "</td></tr>";
+    r += "<tr><td><span>Route</span></td>" + "<td>" + data["route"] + "</td></tr>";
+
+    r += "</table>";
+    return r;
+}
+
+
+
+
+//Function for formatting data for hover window for airports
+function prettifyAirportData(data) {
     //Returns displayable HTML for info window
     var r = "<span id='infoWindowTitle'>" + data["name"] +"</span></br>";
     r += "<span>(" + data["icao"] + ")</span></br></br>";
@@ -196,6 +405,18 @@ function removeMarkers() {
         airports[i].setMap(null);
     }
     airports = [];
+    
+    for (var i = 0, plen = planes.length; i < plen; i++) {
+        planes[i].setMap(null);
+    }
+    planes = [];
+
+    //Hide all airport lines
+    for (var i = 0; i < airportLines.length; i++) {
+        airportLines[i].setMap(null);
+    }
+    airportLines = [];
+    
 }
 
 
@@ -256,6 +477,7 @@ function update()
             console.log("No change detected!")
             return null;
        }
+
        // remove old markers from map
        removeMarkers();
 
@@ -266,9 +488,10 @@ function update()
        }
        
        //Update the planes!
-       for (var i = 0, mlen = data[0].length; i < mlen; i++)
+       for (var i = 0, plen = data[2].length; i < plen; i++)
        {
-           addAirport(data[0][i]);
+           console.log(plen)
+           addPlane(data[2][i]);
        }
 
        latest_json = data;

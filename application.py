@@ -323,7 +323,8 @@ def update():
     jsondata[3].append({"time_updated": result[0][1], "number_of_records": len(result), "size_bytes": sys.getsizeof(jsondata)})
 
     #sort the ATCs
-    jsondata[0] = sorted(jsondata[0], key=lambda x: len(x["atc"]), reverse=True)
+    #TO--DO: this needs to be done in the front end
+    #jsondata[0] = sorted(jsondata[0], key=lambda x: len(x["atc"]), reverse=True)
 
         #TO--DO: ALSO RETURN A HISTORY OF THIS CALLSIGN+CID (javascript will use this to plot a path!)!!!
         #TO--DO: only return releavnt part of map;
