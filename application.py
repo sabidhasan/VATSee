@@ -11,6 +11,7 @@ JSGlue(app)
 
 #Memoization
 memo = []
+airlines = {}
 
 # ensure responses aren't cached
 if app.config["DEBUG"]:
@@ -91,6 +92,40 @@ def flightlevel_to_feet(flightlevel):
         except ValueError:
             return 0
             
+def decode_airline(callsign):
+    '''Gets a name like 'BAW156' or 'BA156' and returns a tuple such as ('British Airways', 'UK', 'Speedbird', 'BAW', '156')'''
+    airline_letter = ''
+    airline_num = ''
+    for c, letter in enumerate(callsign):
+        try:
+            int(letter)
+            if len(airline_letter) == 1:
+                return (callsign, callsign, callsign, callsign, callsign)
+            else:
+                airline_num = str(callsign[c:])
+                break
+        except ValueError:
+            airline_letter += letter
+            #TO--DO: add better support for VFR
+    #if no airline letter?
+    if not(airline_letter):
+        return (callsign, callsign, callsign, callsign, callsign)
+
+    #Now look in saved data, and if not found then the DB
+    if airline_letter in airlines:
+        row = airlines[airline_letter]
+    else:
+        #Search the database
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        result = c.execute("SELECT * FROM 'airlinecodes' WHERE iata=? OR icao=?", (airline_letter, airline_letter)).fetchone()
+        if result:
+            airlines[airline_letter] = (result[3], result[5], result[4])
+            row = airlines[airline_letter]
+        else:
+            return (callsign, callsign, callsign, callsign, callsign)
+    return (row[0], row[1], row[2], airline_letter, airline_num)
+
 
 @app.route("/")
 def index():
@@ -165,12 +200,13 @@ def update():
     #Get results from DB; returned as tuples
     result = c.execute("SELECT * FROM 'onlines' WHERE ABS(time_updated - %s) < 60 ORDER BY 'type'" % time.time()).fetchall()
     
-    for line in result:
-        #Index map for results from database
-        atc_indices = {"callsign":2, "cid":3, "name":4, "freq":5, "latitude":6, "longitude":7, "visrange":8, "atismsg":9, "timelogon":10}
-        ctr_indices = {"callsign":2, "cid":3, "name":4, "freq":5, "visrange":8, "atismsg":9, "timelogon":10}
-        plane_indices = {"callsign": 2, "cid": 3, "real_name": 4, "latitude": 6, "longitude": 7, "timelogon": 10, "altitude": 12, "speed": 13, "heading": 24, "deptime": 20, "altairport" : 21, \
+    #Index map for results from database
+    atc_indices = {"callsign":2, "cid":3, "name":4, "freq":5, "latitude":6, "longitude":7, "visrange":8, "atismsg":9, "timelogon":10}
+    ctr_indices = {"callsign":2, "cid":3, "name":4, "freq":5, "visrange":8, "atismsg":9, "timelogon":10}
+    plane_indices = {"callsign": 2, "cid": 3, "real_name": 4, "latitude": 6, "longitude": 7, "timelogon": 10, "altitude": 12, "speed": 13, "heading": 24, "deptime": 20, "altairport" : 21, \
             "aircraft": 14, "tascruise": 15, "depairport" :16, "arrairport": 18, "plannedaltitude": 17, "flighttype": 19, "remarks": 22, "route": 23}
+
+    for line in result:
 
         curr_callsign = line[atc_indices["callsign"]]
         row_type = line[11]         #"pilot" or "atc"
@@ -260,6 +296,8 @@ def update():
             departure_icao = callsign_to_icao(line[plane_indices["depairport"]])
             arrival_icao = callsign_to_icao(line[plane_indices["arrairport"]])
             
+            
+            
             if not(departure_icao in tmp_airport_ids):
                 #Create dummy airport
                 dep_new_id = len(jsondata[0])
@@ -312,11 +350,21 @@ def update():
             #Add this plane to the airport, whether newly created or not
             jsondata[0][arr_new_id]["arrplanes"].append(pilot_counter)
         
+            #Get airline name (eg. BAW ==> British Airways)
+            airline_name, airline_country, airline_callsign, airline_short, flight_num = decode_airline(curr_callsign)
+            
             #add plane to plane list
             tmp_pilot = {item: line[value] for item, value in plane_indices.items()}
             tmp_pilot["id"] = pilot_counter     #JSON id, tjat is reffrerd to by airports!
             tmp_pilot["depairport_id"] = dep_new_id
             tmp_pilot["arrairport_id"] = arr_new_id
+            
+            tmp_pilot["airline_name"] = airline_name
+            tmp_pilot["airline_country"] = airline_country
+            tmp_pilot["airline_callsign"] = airline_callsign
+            tmp_pilot["airline_short"] = airline_short
+            tmp_pilot["airline_flightnum"] = flight_num
+            
             jsondata[2].append(tmp_pilot)
             
     #Add admin stuff to final json column

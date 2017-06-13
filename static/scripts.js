@@ -125,14 +125,7 @@ function addPlane(data) {
         // //Find departing latitude!
          d_coord,
          {lat: data["latitude"], lng: data["longitude"]},
-         //{lat: latest_json[0][data["depairport_id"]]["latitude"], lng: latest_json[0][data["depairport_id"]]["longitude"]},
-         //{lat: data["latitude"], lng: data["longitude"]},
-    //     {lat: latest_json[0][data["arrairport_id"]]["latitude"], lng: latest_json[0][data["arrairport_id"]]["longitude"]}
-        ];
-        
-        var flightPlanRemaining = [
-            {lat: data["latitude"], lng: data["longitude"]},
-            a_coord
+         a_coord
         ];
         
         flightPath = new google.maps.Polyline({
@@ -144,23 +137,12 @@ function addPlane(data) {
           map: map
         });
         
-
-         flightPathRem = new google.maps.Polyline({
-          path: flightPlanRemaining,
-          geodesic: false,
-          strokeColor: '#FF000',
-          strokeOpacity: 1.0,
-          strokeWeight: 2,
-          map: map
-        });
-
     });
 
     m.addListener('mouseout', function() {
         //if nothing has been clicked on, then hide the info window (ALSO SEE CONFIGURE FUNCTION FOR CLICK EVENT LISTERNERS!)
         hideHoverWindow();
         flightPath.setMap(null);
-        flightPathRem.setMap(null);
     });
     //add current marker to airports array
     planes.push(m);
@@ -214,35 +196,40 @@ function addAirport(data) {
         //Draw lines
         for (var i = 0, deplen = data["depplanes"].length; i < deplen; i++) {
             //create marker
-            //var tmp = latest_json[2][data["depplanes"][i]]["arrairport_id"];
- 
-          for (var j = 0; j < latest_json[2].length; j++) {
-             if (latest_json[2][j]["id"] === data["depplanes"][i]) {
-                var coord = {lat: latest_json[2][j]["latitude"], lng: latest_json[2][j]["longitude"]};
-                //var dest = {lat: latest_json[2][j]["latitude"], lng: latest_json[2][j]["longitude"]};
-             }
-             //if (latest_json[2][j]["id"] === data["depplanes"][i]) {
-             //   a_coord = {lat: latest_json[0][j]["latitude"], lng: latest_json[0][j]["longitude"]};
-                //alert("arriving "  + latest_json[0][j]["name"] + " icao "  + latest_json[0][j]["icao"])                 
-             //}
-         };
-
-
+            for (var j = 0; j < latest_json[2].length; j++) {
+                if (latest_json[2][j]["id"] === data["depplanes"][i]) {
+                    var coord = {lat: latest_json[2][j]["latitude"], lng: latest_json[2][j]["longitude"]};
+                }
+            };
            
+            var flightPlanCoordinates = [
+                {lat: data["latitude"], lng: data["longitude"]},
+                coord
+            ];
+
+            var flightPath = new google.maps.Polyline({
+                path: flightPlanCoordinates,
+                geodesic: false,
+                strokeColor: '#FF000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2,
+                map: map});
+                
+                airportLines.push(flightPath);
+        }
+
+        for (var i = 0, arrlen = data["arrplanes"].length; i < arrlen; i++) {
+            //create marker
+            for (var j = 0; j < latest_json[2].length; j++) {
+                if (latest_json[2][j]["id"] === data["arrplanes"][i]) {
+                    var coord = {lat: latest_json[2][j]["latitude"], lng: latest_json[2][j]["longitude"]};
+                }
+            }
+
             var flightPlanCoordinates = [
             {lat: data["latitude"], lng: data["longitude"]},
             coord
-            //{lat: latest_json[2][data["depplanes"][i] ]["latitude"], lng: latest_json[2][data["depplanes"][i]]["longitude"]},
-            //{lat: latest_json[0][tmp]["latitude"], lng: latest_json[0][tmp]["longitude"]}
-//            latest_json[2][data["depplanes"][i]]["arrairport_id"]
-            //    data["depairport_id"]]["latitude"], lng: latest_json[0][data["depairport_id"]]["longitude"]},
-            
-            //{lat: latest_json[2][data["arrairport_id"]]["latitude"], lng: latest_json[0][data["arrairport_id"]]["longitude"]}
             ];
-            
-            //alert(latest_json[0][tmp]["longitude"])
-
-          //  console.log(latest_json[2][data["depplanes"][i]]["callsign"])
 
             var flightPath = new google.maps.Polyline({
             path: flightPlanCoordinates,
@@ -254,55 +241,6 @@ function addAirport(data) {
             
             airportLines.push(flightPath);
         }
-
-
-
-
-
-        for (var i = 0, arrlen = data["arrplanes"].length; i < arrlen; i++) {
-            //create marker
-            //var tmp = latest_json[2][data["depplanes"][i]]["arrairport_id"];
- 
-          for (var j = 0; j < latest_json[2].length; j++) {
-             if (latest_json[2][j]["id"] === data["arrplanes"][i]) {
-                var coord = {lat: latest_json[2][j]["latitude"], lng: latest_json[2][j]["longitude"]};
-                //var dest = {lat: latest_json[2][j]["latitude"], lng: latest_json[2][j]["longitude"]};
-             }
-             //if (latest_json[2][j]["id"] === data["depplanes"][i]) {
-             //   a_coord = {lat: latest_json[0][j]["latitude"], lng: latest_json[0][j]["longitude"]};
-                //alert("arriving "  + latest_json[0][j]["name"] + " icao "  + latest_json[0][j]["icao"])                 
-             //}
-         };
-
-
-           
-            var flightPlanCoordinates = [
-            {lat: data["latitude"], lng: data["longitude"]},
-            coord
-            //{lat: latest_json[2][data["depplanes"][i] ]["latitude"], lng: latest_json[2][data["depplanes"][i]]["longitude"]},
-            //{lat: latest_json[0][tmp]["latitude"], lng: latest_json[0][tmp]["longitude"]}
-//            latest_json[2][data["depplanes"][i]]["arrairport_id"]
-            //    data["depairport_id"]]["latitude"], lng: latest_json[0][data["depairport_id"]]["longitude"]},
-            
-            //{lat: latest_json[2][data["arrairport_id"]]["latitude"], lng: latest_json[0][data["arrairport_id"]]["longitude"]}
-            ];
-            
-            //alert(latest_json[0][tmp]["longitude"])
-
-          //  console.log(latest_json[2][data["depplanes"][i]]["callsign"])
-
-            var flightPath = new google.maps.Polyline({
-            path: flightPlanCoordinates,
-            geodesic: false,
-            strokeColor: '#00F',
-            strokeOpacity: 1.0,
-            strokeWeight: 2,
-            map: map});
-            
-            airportLines.push(flightPath);
-        }
-
-
 
     });
 
@@ -317,6 +255,7 @@ function addAirport(data) {
         }
         airportLines = [];
     });
+    
     //add current marker to airports array
     airports.push(m);
 }
@@ -329,10 +268,11 @@ function prettifyPlaneData(data) {
     //Returns displayable HTML for info window
     var r = "<span id='infoWindowTitle'>" + data["callsign"] +"</span></br>";// + "dep id " + data["depairport_id"] + " from json " + latest_json[0][data["depairport_id"]]["icao"]
     //"dep id " + data["depairport_id"] + ;
-    r += "<span>(Airline: " + data["airline"] + ")</span></br></br>";
+    r += "<span>(Airline: " + data["airline_name"] + ")</span></br></br>";
     
     r += "<table><tr><td><span>Departure</span></td>" + "<td>" + data["depairport"] + " ft</td></tr>";
-    r += "<tr><td><span>Arrival (Alternate)</span></td>" + "<td>" + data["arrairport"] + " (" + data["altairport"] + ")</td></tr>";
+    alt = data["altairport"] ? data["altairport"] : "None"
+    r += "<tr><td><span>Arrival (Alternate)</span></td>" + "<td>" + data["arrairport"] + " (" + alt + ")</td></tr>";
     r += "<tr><td><span>Aircraft</span></td>" + "<td>" + data["aircraft"] + "</td></tr>";
     r += "<tr><td><span>Heading</span></td>" + "<td>" + data["heading"] + "</td></tr>";
     r += "<tr><td><span>Speed (Planned)</span></td>" + "<td>" + data["speed"] + " kts)" + data["tascruise"] + " kts</td></tr>";
