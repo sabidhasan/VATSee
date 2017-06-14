@@ -6,14 +6,18 @@
         <meta charset="utf-8"/>
         <meta content="initial-scale=1, width=device-width" name="viewport"/>
 
+        <!-- http://jquery.com/ -->
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
         <!-- app's own CSS -->
         <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
 
         <!-- https://developers.google.com/maps/documentation/javascript/ -->
         <script src="https://maps.googleapis.com/maps/api/js?key={{ key | urlencode }}&v=3.exp"></script>
-
-        <!-- http://jquery.com/ -->
-        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
         <!-- http://stewartjpark.com/Flask-JSGlue/ -->
         {{ JSGlue.include() }}
@@ -42,17 +46,74 @@
 
             <!-- holds right details pane -->
             <div id="right">
-                <div id="rightnav">
-                    <ul>
-                        <li>Online</li>
-                        <li>Planning</li>
-                        <li>Weather</li>
-                        <li>Events</li>
-                        <li>Delay</li>
-                        <li>Enroute</li>
-                        
+                <div id="navigation-bar">
+                    <ul class="nav nav-pills nav-justified" role="tablist">
+                        <li class = "content-buttons" id = "home" class="active"><a href = "#">Home</a></li>
+                        <li class = "content-buttons" id = "online"><a href = "#">Online</a></li>
+                        <li class = "content-buttons" id = "planning"><a href = "#">Planning</a></li>
+                        <li class = "content-buttons" id = "wx"><a href = "#">Wx</a></li>
+                        <li class = "content-buttons" id = "events"><a href = "#">Events</a></li>
+                        <li class = "content-buttons" id = "preferences"><a href = "#">Preferences</a></li>
                     </ul>
-                    <button onclick="removeMarkers();">Click me</button>
+                </div>
+                
+                <div id="home" class = "content-div" >
+                    <div id = "selectedpointinfo">
+                        <h1>Selected Point</h1>
+                        <p id = "help">Click on a plane or airport to show more information here!</p>
+                        <div id = "selectedpointinfodata">
+                        <!--This shows either clicked on plane, or clicked on airport's data :
+                        <br />For a plane, show Flightaware type summary
+                        <br />for airport, show arrivals, departures, delay, how many : (on ground, taxiing, within 15 nm)</p> -->
+                        </div>
+                    </div>
+                    <div id = "enrouteinfo">
+                        <h1>Enroute</h1>
+                        <p>if LOGGED IN, show current plane, location, speed, direction, etc.
+                        <br />LINKS to current airport's METAR, airport diagram, ILS freq, runway heading, chartsetc.</p>
+                    </div>
+                </div>
+
+                <div id="online" class = "content-div" >
+                    <p>ONLINE</p>
+                    <p>show all onlines in tab (pilots and centres/ATCs</p>
+                </div>
+
+                <div id="planning" class = "content-div" >
+                    <p>PLANNING</p>
+                    <p>plan a real world flight
+                    <br />On right side, have dropdown for equipment, desired duration/time (preference for Arrival vs. Departure ATC)
+                    <br />If logged in, populate with Users' "owned planes"
+
+                    <br />It looks at current ATC'd airports' arrivals and departures with given equipment and duration.
+                    <br />Ranks those routes, based on how muhc ATC there is with SCORE. REturn sorted list
+                    <br />Real world route (from FA), callsign, number, duration, avg delay, gate, etc. Links to file flightplan, links to liveries.
+                </div>
+
+                <div id="wx" class = "content-div" >
+                    <p>WEATHER</p>
+                    <p><strong>Bad weather</strong>
+                    <br/>At ATC'd airpots
+                    <br/>worst weather - wind, gust, cloud. rain, etc. Use Python METAR packages for this task.</p>
+                </div>
+
+                <div id="events" class = "content-div" >
+                    <p>EVENTS</p>
+                    <br />events on VATSIM/VATUSA page, EUD API has something too
+                    <br />(if ATC message says "Online until XXXX zulu" take that into consideration) 
+                </div>
+
+                <div id="preferences" class = "content-div" >
+                    <p>show incoming flights on hover
+                    <br />units (nm/km/miles, kmph/mph/kts, C/F, ft/m etc.)</p>
+                    
+                    <p>VIEW OPTIONS
+                    <br />Select airport
+                    <br />Show arrivals only
+                    <br />Show departures only
+                    <br />Show all
+                    <br />Airborne only/ground/all flights
+                    <br />Airline - filter by airline</p>
                 </div>
                 
             </div>

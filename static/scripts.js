@@ -8,6 +8,7 @@ var latest_json = [];
 var update_time = 0;
 //Currently clicked on airport's index
 var selected_airport = -1;
+var selected_plane = -1;
 //Global variable for current mouse position; Google map listeners supposedly don't supply event.pageX values?
 var mouseX;
 var mouseY;
@@ -17,7 +18,6 @@ var flightPath;
 
 // execute when the DOM is fully loaded
 $(document).ready(function() {
-
     // styles for map
     // https://developers.google.com/maps/documentation/javascript/styling
     var styles = [
@@ -74,6 +74,20 @@ $(document).ready(function() {
     $("#infoclose").on("click", function() {
         hideHoverWindow();
     });
+    
+    
+    //Try hide show
+    $(".content-div#home").show();
+    $(".content-buttons#home").addClass("active");
+
+    $(".content-buttons").on("click", function() {
+       $(".content-buttons").removeClass("active");
+       $(this).addClass("active");
+       
+       $(".content-div").hide();
+       $(".content-div#" + this.id).show();
+        
+    });
 });
 
 
@@ -100,14 +114,21 @@ function addPlane(data) {
         icon: image
     });
     
+    m.addListener('click', function(){
+        //if clicked then show info
+        $("#hoverwindow").css("display", "inline")
+        selected_plane = data["id"]
+        showSelectedInfo();
+    });
 
 
     m.addListener('mouseover', function() {
         //only if no airport is clicked upon, then show the hover for this
-        $("#hoverinfo").html(prettifyPlaneData(data));
-        $("#hoverwindow").css({"display":"inline", "top":0, "left": 0});//mouseY + 5, "left": mouseX + 10})
-        
-       // alert(data["depairport_id"] + ' drawing a line from ' + latest_json[0][data["depairport_id"]]["icao"] + ' to ' + latest_json[0][data["arrairport_id"]]['icao']);
+        if (selected_plane === -1 && selected_airport === -1) {
+            $("#hoverinfo").html(prettifyPlaneData(data));
+            $("#hoverwindow").css({"display":"inline", "top":0, "left": 0});//mouseY + 5, "left": mouseX + 10})
+        }
+
         //To do get AJAX to get full history
          for (var j = 0; j < latest_json[0].length; j++) {
              if (latest_json[0][j]["id"] === data["depairport_id"]) {
@@ -130,7 +151,7 @@ function addPlane(data) {
         
         flightPath = new google.maps.Polyline({
           path: flightPlanCoordinates,
-          geodesic: false,
+          geodesic: true,
           strokeColor: '#FF000',
           strokeOpacity: 1.0,
           strokeWeight: 2,
@@ -141,8 +162,14 @@ function addPlane(data) {
 
     m.addListener('mouseout', function() {
         //if nothing has been clicked on, then hide the info window (ALSO SEE CONFIGURE FUNCTION FOR CLICK EVENT LISTERNERS!)
-        hideHoverWindow();
+       // hideHoverWindow();
         flightPath.setMap(null);
+        
+        if (selected_plane === -1 && selected_airport === -1) {
+            hideHoverWindow();
+        }
+
+
     });
     //add current marker to airports array
     planes.push(m);
@@ -183,12 +210,13 @@ function addAirport(data) {
     m.addListener('click', function(){
         //if clicked then show info
         $("#hoverwindow").css("display", "inline")
-        selected_airport = data["id"]
+        selected_airport = data["id"];
+        showSelectedInfo();
     });
     
     m.addListener('mouseover', function() {
         //only if no airport is clicked upon, then show the hover for this
-        if (selected_airport === -1) {
+        if (selected_plane === -1 && selected_airport === -1) {
             $("#hoverinfo").html(prettifyAirportData(data));
             $("#hoverwindow").css({"display":"inline", "top":0, "left": 0});//mouseY + 5, "left": mouseX + 10})
         }
@@ -209,7 +237,7 @@ function addAirport(data) {
 
             var flightPath = new google.maps.Polyline({
                 path: flightPlanCoordinates,
-                geodesic: false,
+                geodesic: true,
                 strokeColor: '#FF000',
                 strokeOpacity: 1.0,
                 strokeWeight: 2,
@@ -233,7 +261,7 @@ function addAirport(data) {
 
             var flightPath = new google.maps.Polyline({
             path: flightPlanCoordinates,
-            geodesic: false,
+            geodesic: true,
             strokeColor: '#FF000',
             strokeOpacity: 1.0,
             strokeWeight: 2,
@@ -246,7 +274,7 @@ function addAirport(data) {
 
     m.addListener('mouseout', function() {
         //if nothing has been clicked on, then hide the info window (ALSO SEE CONFIGURE FUNCTION FOR CLICK EVENT LISTERNERS!)
-        if (selected_airport === -1) {
+        if (selected_plane === -1 && selected_airport === -1) {
             hideHoverWindow();
         }
         //Hide all airport lines
@@ -315,6 +343,25 @@ function prettifyAirportData(data) {
     return r;
 }
 
+function showSelectedInfo() {
+    ///This function writes the currently selected airplane or airport's iforation to the main tab!
+    var data;
+    
+    if (selected_airport !== -1) {
+        //get data for selected airport
+        for (var j = 0, l = latest_json[0].length; j < l; j++) {
+            if (latest_json[0][j]["id"] === selected_airport) {
+                data = (latest_json[0][j]["icao"]) + (latest_json[0][j]["name"]);
+            }
+        };
+    } else {
+        //plane json is 1
+        //t = selected_plane;
+        0;
+    }
+    $("#selectedpointinfodata").html(data);
+    
+}
 
 function getCountry(lat, lng) {
     var latlng;
@@ -366,7 +413,7 @@ function removeMarkers() {
 function hideHoverWindow(){
     $("#hoverwindow").css("display", "none");
     selected_airport = -1;
-
+    selected_plane = -1;
 }
 
 
@@ -399,7 +446,6 @@ function configure()
 
     // update UI
     update();
-
 }
 
 
@@ -442,5 +488,5 @@ function update()
         // log error to browser's console
         console.log(errorThrown.toString());
     })
-    
+
 };
