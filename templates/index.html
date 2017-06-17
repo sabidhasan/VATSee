@@ -61,15 +61,44 @@
                     <div id = "selectedpointinfo">
                         <h1>Selected Point</h1>
                         <p id = "help">Click on a plane or airport to show more information here!</p>
-                        <div id = "selectedpointinfodata">
+                        <div>
                             <div id = "selectedairport">
                                 <h4>Arrivals</h4>
                                 <table id = "selectedarrivals">
-                                    <tbody></tbody>
+                                    <thead>
+                                        <tr>
+                                            <td>Flight #</td>
+                                            <td>Origin</td>
+                                            <td>Dist. (km)</td>
+                                            <td>Alt (ft)</td>
+                                            <td>Speed (kts)</td>
+                                            <td>Heading</td>
+                                            <td>Aircraft</td>
+                                            <td>Status</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody><!-- Will be populated by JS --></tbody>
+                                    <img src = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" id = "loadinggif" />
                                 </table>
                                 
                                 <h4>Departures</h4>
-                                <!--<ul id = "selectedarrivals"></ul>-->
+                                <table id = "selecteddepartures">
+                                    <thead>
+                                        <tr>
+                                            <td>Flight #</td>
+                                            <td>Departure Time</td>
+                                            <td>Destination</td>
+                                            <td>Dist (km)</td>
+                                            <td>Alt / Planned (ft)</td>
+                                            <td>Speed (kts)</td>
+                                            <td>Heading</td>
+                                            <td>Aircraft</td>
+                                            <td>Status</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody><!-- Will be populated by JS --></tbody>
+                                    <img src = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" id = "loadinggif" />
+                                </table>
                                 
                                 
 

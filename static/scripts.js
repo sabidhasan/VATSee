@@ -349,59 +349,102 @@ function showSelectedInfo() {
     ///This function writes the currently selected airplane or airport's iforation to the main tab!
     //if an airport is selected, then ship its data out
     if (selected_airport !== -1) {
+        //show the div containing data
+        $("#selectedairport").css("display", "block");
+        //Make loiading gif visible
+        $("#loadinggif").show();
         
-        //get data for selected airport by searching through JSON
+        //Loop through local JSON cache
         for (var j = 0, l = latest_json[0].length; j < l; j++) {
             if (latest_json[0][j]["id"] === selected_airport) {
                 //Ping server for more details
                 $.getJSON(Flask.url_for("history"), {data: latest_json[0][j], type: 'ATC'})
                 .done(function(data, textStatus, jqXHR) {
+            
+                    //if no arrivals
+                    if (data[0].length === 0) {
+                        $('#selectedarrivals tbody').html("<tr><td colspan = '8'>No scheduled arrivals</td></tr>");
+                    } else {
+                        $('#selectedarrivals tbody').html("");
+                    }
+
                     //Parse through arrivals
                     for (var k = 0; k < data[0].length; k++) {
 
-                        var tmp;
-                        tmp += "<td>" + data[0][k]['airline_short'] + " </td>"
-                        tmp += "<td>" + data[0][k]['airline_flightnum'] + " </td>"
-                        tmp += "<td>" + data[0][k]['distance_from_airport'] + " km</td>"
-                        tmp += "<td>" + data[0][k]['altitude'] + " </td>"
-                        tmp += "<td>" + data[0][k]['groundspeed'] + " </td>"
-                        tmp += "<td>" + data[0][k]['heading'] + " </td>"
-                        tmp += "<td>" + data[0][k]['planned_aircraft'] + " </td>"
-                        tmp += "<td>" + data[0][k]['status'] + " </td>"
-
+                        //This is the HTML that will be injected
+                        var tmp = "";
+                        //Set callsign (VFR flights have same name and fluightnum, so correctr for that)
+                        var callsign = "";
+                        if (data[0][k]['airline_name'] === data[0][k]['airline_flightnum']) {
+                            callsign = data[0][k]['airline_flightnum'];
+                        } else {
+                            callsign = data[0][k]['airline_name'] + " " + data[0][k]['airline_flightnum'];
+                        }
                         
+                        //Correct for distance = 0
+                        var distance = 0;
+                        if (data[0][k]['distance_from_airport'] === 0) {
+                            distance = "-";
+                        } else {
+                            distance = data[0][k]['distance_from_airport'];
+                        }
+                        tmp += "<td>" + callsign + " </td>";
+                        tmp += "<td>" + data[0][k]['planned_depairport'] + "</td>";
+                        tmp += "<td>" + distance + "</td>";
+                        tmp += "<td>" + data[0][k]['altitude'] + " </td>";
+                        tmp += "<td>" + data[0][k]['groundspeed'] + " </td>";
+                        tmp += "<td>" + data[0][k]['heading'] + " </td>";
+                        tmp += "<td>" + data[0][k]['planned_aircraft'] + " </td>";
+                        tmp += "<td>" + data[0][k]['status'] + " </td>";
                         
-                       // alert(tmp)
-                       // console.log(data[0][k]);
-                            $('#selectedarrivals tbody').append(tmp);
-
-
-                       // $("#selectedarrivals").append(tmp);
-//                        <li><a href="/user/messages"><span class="tab">Message Center</span></a></li>');
-
+                        $('#selectedarrivals tbody').append("<tr>" + tmp + "</tr>");
                     }
-                    
-                    //Parse through Departures
-                   // return $('#selectedpointinfodata').html(data);
-                  /// ///$("").html(data);
-                    
-       //check to see if update needed
-       //if (data[3][0]["time_updated"] - update_time === 0) {
-        //    //No change
-         //   console.log("No change detected!")
-          //  return null;
-       })
 
-       // update the airports
-       //for (var i = 0, mlen = data[0].length; i < mlen; i++)
-       //{
-        //   addAirport(data[0][i]);
-       //}
-              //  })
-           // .fail(function(jqXHR, textStatus, errorThrown) {
-                // log error to browser's console
-            //    console.log(errorThrown.toString());
-            //})
+                    //if no arrivals
+                    if (data[1].length === 0) {
+                        $('#selecteddepartures tbody').html("<tr><td colspan = '9'>No scheduled departures</td></tr>");
+                    } else {
+                        $('#selecteddepartures tbody').html("");
+                    }
+
+                    //Parse through departures
+                    for (var k = 0; k < data[1].length; k++) {
+                        //This is the HTML that will be injected
+                        tmp = "";
+                        //Set callsign (VFR flights have same name and fluightnum, so correctr for that)
+                        callsign = "";
+                        if (data[1][k]['airline_name'] === data[1][k]['airline_flightnum']) {
+                            callsign = data[1][k]['airline_flightnum'];
+                        } else {
+                            callsign = data[1][k]['airline_name'] + " " + data[1][k]['airline_flightnum'];
+                        }
+                        
+                        //Correct for distance = 0 (show '-' instead of 0)
+                        distance = 0;
+                        if (data[1][k]['distance_from_airport'] === 0) {
+                            distance = "-";
+                        } else {
+                            distance = data[1][k]['distance_from_airport'];
+                        }
+                        
+                        
+                        tmp += "<td>" + callsign + " </td>";
+                        tmp += "<td>" + data[1][k]['planned_deptime'] + " </td>";
+                        tmp += "<td>" + data[1][k]['planned_destairport'] + " </td>";
+                        tmp += "<td>" + distance + "</td>";
+                        tmp += "<td>" + data[1][k]['altitude'] + "(/" + data[1][k]['planned_altitude'] + ")</td>";
+                        tmp += "<td>" + data[1][k]['groundspeed'] + " </td>";
+                        tmp += "<td>" + data[1][k]['heading'] + " </td>";
+                        tmp += "<td>" + data[1][k]['planned_aircraft'] + " </td>";
+                        tmp += "<td>" + data[1][k]['status'] + " </td>";
+                        
+                        $('#selecteddepartures tbody').append("<tr>" + tmp + "</tr>");
+                    }
+
+                    //hide the loading gif!
+                    $("#loadinggif").hide();
+                    
+                })
             }
         }
     } else if (selected_plane !== -1){
@@ -514,7 +557,7 @@ function hideHoverWindow(){
     $("#hoverwindow").css("display", "none");
     if (selected_airport !== -1 || selected_plane !== -1) {
         //something is selected already, so let's reset the information pane
-       // $("#selectedpointinfodata").html("");
+        $("#selectedairport").css("display", "none");
     }
     selected_airport = -1;
     selected_plane = -1;

@@ -34,6 +34,8 @@ body {
     /*flex-grow:1;*/
     float:right;
     width:26%;
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 
 /* Hover Window Related Stuff */
@@ -70,7 +72,26 @@ body {
 .content-div {
     display: none;
     width: 99%;
-    border: 2px solid black;
     margin: 1% auto;
 }
 
+#selectedairport {
+    display:none;
+}
+
+#selectedarrivals td, #selecteddepartures td {
+    padding: 0 8px 0 8px;
+    font-size: 90%;
+    border: 1px solid black;
+}
+
+#selectedarrivals thead, #selecteddepartures thead {
+    font-weight:bold;
+}
+#selectedarrivals tr:nth-child(even), #selecteddepartures tr:nth-child(even) {
+    background-color: gray;
+}
+
+#loadinggif {
+    display:none;
+}

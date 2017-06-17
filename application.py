@@ -447,6 +447,10 @@ def history():
                 status = "Arriving"
             elif dist < 55 and j['data[icao]'][0] == callsign_to_icao(row[16]):
                 status = "Departing"
+            elif dist > 55 and speed == 0:
+                status = "Loading pax"
+            elif dist > 55 and speed < 55:
+                status = "Taxiing"
             else:
                 status = "Enroute"
             tmp_pilot['status'] = status
