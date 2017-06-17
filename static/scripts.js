@@ -432,7 +432,7 @@ function showSelectedInfo() {
                         tmp += "<td>" + data[1][k]['planned_deptime'] + " </td>";
                         tmp += "<td>" + data[1][k]['planned_destairport'] + " </td>";
                         tmp += "<td>" + distance + "</td>";
-                        tmp += "<td>" + data[1][k]['altitude'] + "(/" + data[1][k]['planned_altitude'] + ")</td>";
+                        tmp += "<td>" + data[1][k]['altitude'] + "</td>";
                         tmp += "<td>" + data[1][k]['groundspeed'] + " </td>";
                         tmp += "<td>" + data[1][k]['heading'] + " </td>";
                         tmp += "<td>" + data[1][k]['planned_aircraft'] + " </td>";
