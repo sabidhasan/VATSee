@@ -116,6 +116,7 @@ function addPlane(data) {
     
     m.addListener('click', function(){
         //if clicked then show info
+        hideHoverWindow();
         $("#hoverwindow").css("display", "inline")
         selected_plane = data["id"]
         showSelectedInfo();
@@ -209,6 +210,7 @@ function addAirport(data) {
     //Expected behavior: hover over marker ==> show window. Hover out ==> hide info window. Click on marker ==> show window until clicked elsewhere
     m.addListener('click', function(){
         //if clicked then show info
+        hideHoverWindow();
         $("#hoverwindow").css("display", "inline")
         selected_airport = data["id"];
         showSelectedInfo();
@@ -345,21 +347,119 @@ function prettifyAirportData(data) {
 
 function showSelectedInfo() {
     ///This function writes the currently selected airplane or airport's iforation to the main tab!
-    var data;
-    
+    //if an airport is selected, then ship its data out
     if (selected_airport !== -1) {
-        //get data for selected airport
+        
+        //get data for selected airport by searching through JSON
         for (var j = 0, l = latest_json[0].length; j < l; j++) {
             if (latest_json[0][j]["id"] === selected_airport) {
-                data = (latest_json[0][j]["icao"]) + (latest_json[0][j]["name"]);
+                //Ping server for more details
+                $.getJSON(Flask.url_for("history"), {data: latest_json[0][j], type: 'ATC'})
+                .done(function(data, textStatus, jqXHR) {
+                    //Parse through arrivals
+                    for (var k = 0; k < data[0].length; k++) {
+
+                        var tmp;
+                        tmp += "<td>" + data[0][k]['airline_short'] + " </td>"
+                        tmp += "<td>" + data[0][k]['airline_flightnum'] + " </td>"
+                        tmp += "<td>" + data[0][k]['distance_from_airport'] + " km</td>"
+                        tmp += "<td>" + data[0][k]['altitude'] + " </td>"
+                        tmp += "<td>" + data[0][k]['groundspeed'] + " </td>"
+                        tmp += "<td>" + data[0][k]['heading'] + " </td>"
+                        tmp += "<td>" + data[0][k]['planned_aircraft'] + " </td>"
+                        tmp += "<td>" + data[0][k]['status'] + " </td>"
+
+                        
+                        
+                       // alert(tmp)
+                       // console.log(data[0][k]);
+                            $('#selectedarrivals tbody').append(tmp);
+
+
+                       // $("#selectedarrivals").append(tmp);
+//                        <li><a href="/user/messages"><span class="tab">Message Center</span></a></li>');
+
+                    }
+                    
+                    //Parse through Departures
+                   // return $('#selectedpointinfodata').html(data);
+                  /// ///$("").html(data);
+                    
+       //check to see if update needed
+       //if (data[3][0]["time_updated"] - update_time === 0) {
+        //    //No change
+         //   console.log("No change detected!")
+          //  return null;
+       })
+
+       // update the airports
+       //for (var i = 0, mlen = data[0].length; i < mlen; i++)
+       //{
+        //   addAirport(data[0][i]);
+       //}
+              //  })
+           // .fail(function(jqXHR, textStatus, errorThrown) {
+                // log error to browser's console
+            //    console.log(errorThrown.toString());
+            //})
             }
-        };
-    } else {
+        }
+    } else if (selected_plane !== -1){
+        for (var j = 0, l = latest_json[0].length; j < l; j++) {
+            if (latest_json[0][j]["id"] === selected_airport) {
+                
+            }
+        }        
+        
+    }
+    
+    
+    
+
+
+
+                
+       /*           "aircraft": "C310", 
+      "airline_callsign": "ZPELK", 
+      "airline_country": "ZPELK", 
+      "airline_flightnum": "ZPELK", 
+      "airline_name": "ZPELK", 
+      "airline_short": "ZPELK", 
+      "altairport": "SGME", 
+      "altitude": 6023, 
+      "arrairport": "SGAS", 
+      "arrairport_id": 198, 
+      "callsign": "ZPELK", 
+      "cid": "1379430", 
+      "depairport": "SGES", 
+      "depairport_id": 197, 
+      "deptime": "300", 
+      "flighttype": "I", 
+      "heading": 278, 
+      "id": 223, 
+      "latitude": -25.32299, 
+      "longitude": -56.88972, 
+      "plannedaltitude": 6000, 
+      "real_name": "Diego Schlenker SGAS", 
+      "remarks": "OPR/AEROCENTRO S.A /v/ SEL/SGES", 
+      "route": "COSTA  A311 EKILO", 
+      "speed": 204, 
+      "tascruise": "180", 
+      "timelogon": "20170614025100"*/
+    //}
+    
+    
+    
+    
+               // data = (latest_json[0][j]["icao"]) + (latest_json[0][j]["name"]);
+            //}
+        //};
+   // } else {
         //plane json is 1
         //t = selected_plane;
-        0;
-    }
-    $("#selectedpointinfodata").html(data);
+    //    0;
+//    }
+  //  $("#selectedpointinfodata").html(data);
     
 }
 
@@ -412,6 +512,10 @@ function removeMarkers() {
 
 function hideHoverWindow(){
     $("#hoverwindow").css("display", "none");
+    if (selected_airport !== -1 || selected_plane !== -1) {
+        //something is selected already, so let's reset the information pane
+       // $("#selectedpointinfodata").html("");
+    }
     selected_airport = -1;
     selected_plane = -1;
 }

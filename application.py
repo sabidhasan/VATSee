@@ -4,6 +4,7 @@
 from flask import Flask, jsonify, render_template, request, url_for
 from flask_jsglue import JSGlue
 import time, requests, os, sqlite3, sys
+from math import radians, cos, sin, asin, sqrt
 
 # configure application
 app = Flask(__name__)
@@ -125,6 +126,23 @@ def decode_airline(callsign):
         else:
             return (callsign, callsign, callsign, callsign, callsign)
     return (row[0], row[1], row[2], airline_letter, airline_num)
+
+
+def haversine(lon1, lat1, lon2, lat2):
+    """
+    Haversine formula for calculating the great circle distance between two points 
+    on earth. From https://stackoverflow.com/questions/15736995/how-can-i-quickly-estimate-the-distance-between-two-latitude-longitude-points
+    """
+    # convert decimal degrees to radians 
+    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+    # haversine formula 
+    dlon = lon2 - lon1 
+    dlat = lat2 - lat1 
+    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
+    c = 2 * asin(sqrt(a)) 
+    km = 6367 * c
+    return km
+
 
 
 @app.route("/")
@@ -382,3 +400,66 @@ def update():
 
   #  memo = airports
     return jsonify(jsondata)
+    
+@app.route("/history")    
+def history():    
+    ''' This recieves a parameter (basically a JSON of either a plane or ATC), and returns an HTML to put with airport or airplane data '''
+    conn = sqlite3.connect('database.db')
+    c = conn.cursor()
+
+    j = dict(request.args)
+    
+    if j['type'][0] == "ATC":
+
+        #Arriving / departing
+        jsondata = [[], []]
+        #THis is Airport, so show how many ground, taxxing, within 15 nm 
+        x = "SELECT * FROM 'onlines' WHERE ABS(time_updated - %s) < 60 AND type = 'PILOT'" % time.time()
+        result = c.execute(x).fetchall()
+        
+        for row in result:
+            #If not arriving or departing from the given airport, then move on
+            if not(j['data[icao]'][0] in [callsign_to_icao(row[18]), callsign_to_icao(row[16])] ): continue
+            
+            #Calculate distance, speed, altitude
+            dist = haversine(float(j['data[longitude]'][0]), float(j['data[latitude]'][0]), float(row[7]), float(row[6]))
+            speed = row[13]
+            airport_altitude = int(j['data[altitude]'][0])
+            plane_altitude = row[12]
+            
+            #create pilot dictionary to be appended
+            tmp_pilot = {'callsign': row[2], 'cid': row[3], 'altitude': row[12], 'groundspeed': row[13], 'planned_aircraft': row[14], 'planned_tascruise': row[15], \
+            'planned_depairport': row[16], 'planned_altitude': row[17], 'planned_destairport': row[18], 'planned_deptime': row[20], 'heading': row[24], \
+            'airline_name': decode_airline(row[2])[0], 'airline_callsign': decode_airline(row[2])[2], 'airline_short': decode_airline(row[2])[3], 'airline_flightnum': decode_airline(row[2])[4]}
+            
+            #Distance from airport
+            tmp_pilot['distance_from_airport'] = int(dist)
+            
+            #close by (<10), speed 0 (menaing parked), and on the ground (altitude same)
+            if dist < 15 and speed == 0 and abs(airport_altitude - plane_altitude) < 50:
+                status = "In terminal"
+                #jsondata[0].append(tmp_pilot)
+            #moving on the ground
+            elif dist < 15 and speed > 0 and abs(airport_altitude - plane_altitude) < 50:
+                status = "Taxiing"
+            #distance is nearby (imminently arriving/departing)
+            elif dist < 55 and j['data[icao]'][0] == callsign_to_icao(row[18]):
+                status = "Arriving"
+            elif dist < 55 and j['data[icao]'][0] == callsign_to_icao(row[16]):
+                status = "Departing"
+            else:
+                status = "Enroute"
+            tmp_pilot['status'] = status
+            
+            #If arriving
+            if j['data[icao]'][0] == callsign_to_icao(row[18]):
+                jsondata[0].append(tmp_pilot)
+            elif j['data[icao]'][0] == callsign_to_icao(row[16]):
+                #departing aircraft
+                jsondata[1].append(tmp_pilot)
+        
+        return jsonify(jsondata)
+    elif j['type'][0] == "PLANE":
+        pass
+
+    #return render_template("index.html") #request.args.get("s")
