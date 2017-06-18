@@ -403,12 +403,11 @@ def update():
     
 @app.route("/history")    
 def history():    
-    ''' This recieves a parameter (basically a JSON of either a plane or ATC), and returns an HTML to put with airport or airplane data '''
+    ''' This recieves a parameter (basically a JSON of either a plane or ATC), and returns an JSON to put with airport data '''
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
 
     j = dict(request.args)
-    
     if j['type'][0] == "ATC":
 
         #Arriving / departing
@@ -464,6 +463,20 @@ def history():
         
         return jsonify(jsondata)
     elif j['type'][0] == "PLANE":
-        pass
+        # [distance from origin, distance to destination], [{time: altitude}], [{time: speed}]
+        jsondata = []
+        
+        #DO SQL search - TO--DO: limit this to one day hisotry only or something like that TO--DO: prevetnt database injections!
+        x = "SELECT * FROM 'onlines' WHERE cid = '%s' AND type = 'PILOT' ORDER BY time_updated" % j['data[cid]'][0]
+        print(x)
+        result = c.execute(x).fetchall()
+        
+        #Do time delta for plotting
+        orig_time = 0
+        for row in result:
+            if orig_time == 0:
+                orig_time = row[1]
+            time_delta = abs(orig_time - row[1])
+            jsondata.append({time_delta: {'altitude': row[12], 'speed': row[13]}})
 
-    #return render_template("index.html") #request.args.get("s")
+        return jsonify(jsondata)

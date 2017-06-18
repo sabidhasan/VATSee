@@ -58,64 +58,111 @@
                 </ul>
             </div>
 
+            <!-- Holds selected point and enroute information -->
             <div id="home" class="content-div">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" id="loadinggif" />
+
                 <div id="selectedpointinfo">
-                    <h1>Selected Point</h1>
+                    <h2 id="poitext">Selected Point</h2>
                     <p id="help">Click on a plane or airport to show more information here!</p>
-                    <div>
-                        <div id="selectedairport">
-                            <h4>Arrivals</h4>
-                            <table id="selectedarrivals">
-                                <thead>
-                                    <tr>
-                                        <td>Flight #</td>
-                                        <td>Origin</td>
-                                        <td>Dist. (km)</td>
-                                        <td>Alt (ft)</td>
-                                        <td>Speed (kts)</td>
-                                        <td>Heading</td>
-                                        <td>Aircraft</td>
-                                        <td>Status</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Will be populated by JS -->
-                                </tbody>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" id="loadinggif" />
-                            </table>
 
-                            </br>
-                            <h4>Departures</h4>
-                            <table id="selecteddepartures">
-                                <thead>
-                                    <tr>
-                                        <td>Flight #</td>
-                                        <td>Departure Time</td>
-                                        <td>Destination</td>
-                                        <td>Dist (km)</td>
-                                        <td>Alt (ft)</td>
-                                        <td>Speed (kts)</td>
-                                        <td>Heading</td>
-                                        <td>Aircraft</td>
-                                        <td>Status</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Will be populated by JS -->
-                                </tbody>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" id="loadinggif" />
-                            </table>
+                    <div id="selectedairport">
+                        <h4>Arrivals</h4>
+                        <table id="selectedarrivals">
+                            <thead>
+                                <tr>
+                                    <td>Flight #</td>
+                                    <td>Origin</td>
+                                    <td>Dist. (km)</td>
+                                    <td>Alt (ft)</td>
+                                    <td>Speed (kts)</td>
+                                    <td>Heading</td>
+                                    <td>Aircraft</td>
+                                    <td>Status</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Will be populated by JS -->
+                            </tbody>
+<!--                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" id="loadinggif" /> -->
+                        </table>
 
+                        </br>
+                        <h4>Departures</h4>
+                        <table id="selecteddepartures">
+                            <thead>
+                                <tr>
+                                    <td>Flight #</td>
+                                    <td>Dep Time</td>
+                                    <td>Dest</td>
+                                    <td>Dist (km)</td>
+                                    <td>Alt (ft)</td>
+                                    <td>Spd (kts)</td>
+                                    <td>Hdg</td>
+                                    <td>A/crft</td>
+                                    <td>Status</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Will be populated by JS -->
+                            </tbody>
+                        </table>
 
-
-                        </div>
-                        <!--
+                    </div>
+                    
+                                            <!--
                         <br />For a plane, show Flightaware type summary
                         <br />for airport, delay, how many : (on ground, taxiing, within 15 nm)</p> -->
+                    <div id="selectedplane">
+                        <div id="selectedplaneleft">
+                            <!-- Departure ICAO, City-->
+                            <span class="deparricao"></span>
+                            <span class="deparrname"></span>
+                            <span class="deparrtime"></span>
+                        </div>
+                        
+                        <div id="selectedplaneright">
+                            <!-- Arrival ICAO, City-->
+                            <span class="deparricao"></span>
+                            <span class="deparrname"></span>
+                        </div>
+                        
+                        <div id="selectedplaneinfo">
+                            <h4>Progress</h4>
+                            <div id="selectedprogbar">
+                                <div id="selectedprog"></div>
+                                <span><!-- Show total distance, distance to go, distance elapsed--></span>
+                            </div>
+                            
+                            <h4>Airline and Airport</h4>
+                            <p id="selectedalt">Alternate</p>
+                            <p id="selectedflightnum"><!-- Populated by JS --></p>
+                            <p id="selectedaircraft"><!-- Populated by JS --></p>
+                            <p id="selectedairline"><!-- Populated by JS --></p>
+                            <p id="selectedairlinecountry"><!-- Populated by JS --></p>
+                            
+                            <h4>Flight Data</h4>
+                            <p id="selectedspeed"></p>
+                            <p id="selectedheading"></p>
+                            <p id="selectedaltitude"><!-- current and filed --></p>
+                            <p id="selectedroute"></p>
+                            <p id="selectedposition"></p>
+                            <p id="selectedflyingover"></p>
+
+                            <h4>Pilot</h4>
+                            <p id="selectedpilotcid"></p>
+                            <p id="selectedpilotlogontime"></p>
+                        </div>
+                        <div id="selectedplanehistory">
+                            <!-- table of history (or graph?) of SPEED, ALTITUDE, -->
+                        </div>
+                        
                     </div>
+
                 </div>
                 <div id="enrouteinfo">
-                    <h1>Enroute</h1>
+                    <h2>Enroute</h2>
                     <p>if LOGGED IN, show current plane, location, speed, direction, etc.
                         <br />LINKS to current airport's METAR, airport diagram, ILS freq, runway heading, chartsetc.</p>
                 </div>
