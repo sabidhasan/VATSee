@@ -20,6 +20,9 @@
     <!-- https://developers.google.com/maps/documentation/javascript/ -->
     <script src="https://maps.googleapis.com/maps/api/js?key={{ key | urlencode }}&v=3.exp"></script>
 
+    <!-- Script for charting the Altidude/Time and Speed/Time graphs -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <!-- http://stewartjpark.com/Flask-JSGlue/ -->
     {{ JSGlue.include() }}
 
@@ -51,16 +54,16 @@
                 <ul class="nav nav-pills nav-justified" role="tablist">
                     <li class="content-buttons" id="home" class="active"><a href="#">Home</a></li>
                     <li class="content-buttons" id="online"><a href="#">Online</a></li>
-                    <li class="content-buttons" id="planning"><a href="#">Planning</a></li>
+                    <li class="content-buttons" id="planning"><a href="#">Plan</a></li>
                     <li class="content-buttons" id="wx"><a href="#">Wx</a></li>
                     <li class="content-buttons" id="events"><a href="#">Events</a></li>
-                    <li class="content-buttons" id="preferences"><a href="#">Preferences</a></li>
+                    <li class="content-buttons" id="preferences"><a href="#">Options</a></li>
+                    <li class="content-buttons" id="enroute"><a href="#">Enroute</a></li>
                 </ul>
             </div>
 
             <!-- Holds selected point and enroute information -->
             <div id="home" class="content-div">
-
                 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" id="loadinggif" />
 
                 <div id="selectedpointinfo">
@@ -108,20 +111,18 @@
                                 <!-- Will be populated by JS -->
                             </tbody>
                         </table>
-
                     </div>
                     
-                                            <!--
-                        <br />For a plane, show Flightaware type summary
-                        <br />for airport, delay, how many : (on ground, taxiing, within 15 nm)</p> -->
+                    <!--
+                    <br />For a plane, show Flightaware type summary
+                    <br />for airport, delay, how many : (on ground, taxiing, within 15 nm)</p> -->
                     <div id="selectedplane">
                         <div id="selectedplaneleft">
                             <!-- Departure ICAO, City-->
                             <span class="deparricao"></span>
                             <span class="deparrname"></span>
                             <span class="deparrtime"></span>
-                        </div>
-                        
+                        </div> 
                         <div id="selectedplaneright">
                             <!-- Arrival ICAO, City-->
                             <span class="deparricao"></span>
@@ -157,20 +158,51 @@
                         <div id="selectedplanehistory">
                             <!-- table of history (or graph?) of SPEED, ALTITUDE, -->
                         </div>
-                        
                     </div>
 
-                </div>
-                <div id="enrouteinfo">
-                    <h2>Enroute</h2>
-                    <p>if LOGGED IN, show current plane, location, speed, direction, etc.
-                        <br />LINKS to current airport's METAR, airport diagram, ILS freq, runway heading, chartsetc.</p>
                 </div>
             </div>
 
             <div id="online" class="content-div">
-                <p>ONLINE</p>
-                <p>show all onlines in tab (pilots and centres/ATCs</p>
+                <h4>Filter</h4>
+                <!-- Filter options -->
+                <label for="filtertext">Type to filter ATC and pilots</label>
+                <br /><input id="filtertext" type="text">
+                
+                <label for="filterATC">Show: ATC Aiports</label>
+                <input type="checkbox" id="filterATC" name="filterATC" class="filtercheckbox" value="ATC Airports" checked>
+                <label for="filterpilot">Pilots</label>
+                <input type="checkbox" id="filterpilot" name="filterpilot" class="filtercheckbox" value="Pilots" checked>
+                
+                <h4>Currently Online ATC</h4>
+                <!-- content tables -->
+                <table id="tablefilterATC">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Callsign</td>
+                            <td>Frequency</td>
+                            <td>Controller</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                
+                <br />
+                
+                <h4>Currently Online Pilots</h4>
+                <table id="tablefilterpilot">
+                    <thead>
+                        <tr>
+                            <td>Callsign</td>
+                            <td>Name</td>
+                            <td>Departure</td>
+                            <td>Arrival</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+  
             </div>
 
             <div id="planning" class="content-div">
@@ -209,7 +241,12 @@
                     <br />Airborne only/ground/all flights
                     <br />Airline - filter by airline</p>
             </div>
-
+            
+            <div id="enrouteinfo" class="content-div">
+                <h2>Enroute</h2>
+                <p>if LOGGED IN, show current plane, location, speed, direction, etc.
+                    <br />LINKS to current airport's METAR, airport diagram, ILS freq, runway heading, chartsetc.</p>
+            </div>
         </div>
         <!-- http://getbootstrap.com/css/#forms -->
         <!--            <form id="form">

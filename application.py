@@ -467,7 +467,7 @@ def history():
         jsondata = []
         
         #DO SQL search - TO--DO: limit this to one day hisotry only or something like that TO--DO: prevetnt database injections!
-        x = "SELECT * FROM 'onlines' WHERE cid = '%s' AND type = 'PILOT' ORDER BY time_updated" % j['data[cid]'][0]
+        x = "SELECT * FROM 'onlines' WHERE cid = '%s' AND type = 'PILOT' AND ABS(time_updated - %s) < 50000 ORDER BY time_updated" % (j['data[cid]'][0], time.time())
         print(x)
         result = c.execute(x).fetchall()
         
@@ -477,6 +477,7 @@ def history():
             if orig_time == 0:
                 orig_time = row[1]
             time_delta = abs(orig_time - row[1])
-            jsondata.append({time_delta: {'altitude': row[12], 'speed': row[13]}})
+            #sending back time_delta        altitude        speed
+            jsondata.append([float(time_delta), row[12], row[13]])
 
         return jsonify(jsondata)

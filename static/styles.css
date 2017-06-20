@@ -45,7 +45,6 @@ h4 {
     /*flex-grow:1;*/
     float:right;
     width:26%;
-    overflow-x:hidden;
 }
 
 /* Hover Window Related Stuff */
@@ -104,6 +103,10 @@ h4 {
     display: block;
     clear: both;
 }
+#selectedplaneinfo p {
+    margin: 0;
+    
+}
 #selectedplaneinfo span {
     font-weight:bold;
 }
@@ -154,4 +157,32 @@ h4 {
 
 #loadinggif {
     display:none;
+}
+
+
+/* ONLINE PAGE-----
+---TABLE STYLING */
+#tablefilterpilot tbody, #tablefilterATC tbody {
+    font-size:80%;
+}
+#tablefilterpilot thead tr, #tablefilterATC thead tr {
+    background-color:navy;
+    color:white;
+}
+#tablefilterpilot td, #tablefilterATC td {
+    margin: 0;
+    padding: 0 0 0 0;
+    width: 115px;
+}
+.onlinetablehide {
+    display:none;
+}
+.onlinetableshow {
+    display:block;
+}
+.onlinetableeven {
+    background-color:gray;
+}
+.onlinetableodd {
+    background-color: white;
 }

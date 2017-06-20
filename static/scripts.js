@@ -88,6 +88,7 @@ $(document).ready(function() {
 
 
     //Try hide show
+    $(".content-div").hide();
     $(".content-div#home").show();
     $(".content-buttons#home").addClass("active");
 
@@ -104,7 +105,34 @@ $(document).ready(function() {
     $(window).scroll(function() {
        $("#map-canvas").css('top', $(window).scrollTop() + 'px');
     });
+
+    //Charting function for plotting speed and altiitude vs time    
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    
+    //Online Tab Checkboxes (both have the filtercheckbox class)
+    $(".filtercheckbox").on("click", function() {
+        //Find the Table by ID of the clicked on Checkbox
+        var matched_table = $("#table" + $(this).attr("id"))
+        //Hide show the table based on clicked checkbox's clickstate
+        matched_table.toggle(this.checked);
+    });
+    
+    $("#filtertext").on("keyup", function() {
+        //Filter the list with the current value of the textbox
+        filterOnlines($("#filtertext").val());
+    });
+
+
+
 });
+
+
+
+
+
+
+
+
 
 
 
@@ -203,6 +231,10 @@ function addPlane(data) {
     });
     //add current marker to airports array
     planes.push(m);
+    
+    //Update online table
+    $("#tablefilterpilot tbody").append("<tr><td>"+data['callsign']+"</td><td>"+data['real_name']+"</td><td>"+data['depairport']+"</td><td>"+data['arrairport']+"</td></tr>");
+
 
 }
 
@@ -219,13 +251,21 @@ function addAirport(data) {
     if (data["atc"].length === 0) { // && map.getZoom() > 5) {
         //Just draw a dot
         image = "http://conferences.shrm.org/sites/all/themes/sessions/images/dot76923C.png";
-        //"https://www.dining-out.co.za/ftp/themes/desk/images/reddot.png";
     } else { //if (map.getZoom() > 5) {
         //There is ATC avialabe, so show the proper icon for it
 
         image = "http://zaritsky.ca/wp-content/uploads/2014/05/dot2-2.png";
-        //"https://www.dining-out.co.za/ftp/themes/desk/images/reddot.png";
         //var image = "http://abid.a2hosted.com/" + data["atc_pic"] + ".png";
+        
+        //Loop through each ATC and add to online table
+        data['atc'].forEach(function(val) {
+            
+//            airportname  callsign frequency name
+            //Update online table
+            $("#tablefilterATC tbody").append("<tr><td>"+data['name']+"</td><td>"+val['callsign']+"</td><td>"+val['freq']+"</td><td>"+val['name']+"</td></tr>");
+            
+        });
+
     }
 
     //create the marker, attach to map
@@ -516,6 +556,7 @@ function showSelectedInfo() {
                 $("#selectedplaneright .deparricao").html(latest_json[2][j]["arrairport"]);
                 //latitude and long for arriving departing airpott
                 var arrlong, arrlat, deplong, deplat;
+                var depaltitude, arraltitude
                 //Find the airport for its name 
                 for (var k = 0; k < latest_json[0].length; k++) {
                     if (latest_json[0][k]['id'] === latest_json[2][j]['depairport_id']) {
@@ -523,11 +564,13 @@ function showSelectedInfo() {
                         $("#selectedplaneleft .deparrname").text(latest_json[0][k]['name']);
                         arrlong = parseFloat(latest_json[0][k]['longitude']);
                         arrlat = parseFloat(latest_json[0][k]['latitude']);
+                        // depaltitude = parseFloat(latest_json[0][k]['altitude']); USED FOR STATUS - NOT IMPLEMENTED
                     } else if (latest_json[0][k]['id'] === latest_json[2][j]['arrairport_id']) {
                         //found the arrival airport
                         $("#selectedplaneright .deparrname").text(latest_json[0][k]['name']);
                         deplong = parseFloat(latest_json[0][k]['longitude']);
                         deplat = parseFloat(latest_json[0][k]['latitude']);
+                        // arraltitude = parseFloat(latest_json[0][k]['altitude']); USED FOR STATUS - NOT IMPLEMENTED
                     }
                 }
                 //Progress
@@ -539,7 +582,7 @@ function showSelectedInfo() {
 
                 //update the progress bar
                 $("#selectedprog").css("width", dist_left / (dist_trav + dist_left)*100 + "%");
-                $("#selectedprogbar span").text(Math.round(dist_trav) + ' / ' + Math.round(dist_left) + ' km flown');
+                $("#selectedprogbar span").text(Math.round(dist_left) + ' / ' + Math.round(dist_trav + dist_left) + ' km flown');
                 
                 $("#selectedalt").html('<span>Alternate Airport:</span> ' + latest_json[2][j]['altairport']);
                 $("#selectedflightnum").html('<span>Callsign:</span> ' + latest_json[2][j]['airline_short'] + latest_json[2][j]['airline_flightnum']);
@@ -552,19 +595,63 @@ function showSelectedInfo() {
                 $("#selectedaltitude").html('<span>Altitude:</span> ' + latest_json[2][j]['altitude'] + '(planned ' + latest_json[2][j]['plannedaltitude'] + ')');
                 $("#selectedroute").html('<span>Route:</span> ' + latest_json[2][j]['route']);
                 $("#selectedposition").html('<span>Current Position:</span> ' + latest_json[2][j]['latitude'] + ', ' + latest_json[2][j]['longitude']);
-                $("selectedflyingover").html('<span>Current Position:</span> ' + getCountry(plat, plong));
+                $("#selectedflyingover").html('<span>Current Position:</span> ' + getCountry(plat, plong));
     
                 $("#selectedpilotcid").html('<span>Pilot ID / Name:</span> ' + latest_json[2][j]['cid'] + ' ' + latest_json[2][j]['real_name']);
                 $("#selectedpilotlogontime").html('<span>Pilot Logon Time</span> ' + latest_json[2][j]['timelogon']);
-                alert('pinging server')
+
+                //TO--DO : add status (similar to backend) Status
+
                 //History - ping the server
                 $.getJSON(Flask.url_for("history"), {
                         data: latest_json[2][j],
                         type: 'PLANE'
                     })
                     .done(function(data, textStatus, jqXHR) {
-                        console.log(data);
-                        
+                        google.charts.setOnLoadCallback(function() {
+                            //To hold the data
+                            var chart_data = new google.visualization.DataTable();
+                            
+                            //Add columns
+                            chart_data.addColumn('number', 'Time');
+                            chart_data.addColumn('number', 'Altitude');
+                            chart_data.addColumn('number', 'Speed');
+                            
+                            //Loop through JSON data to add rows
+                            for (var m = 0; m < data.length; m++) {
+                                console.log(data[0])
+                                chart_data.addRows([[data[m][0]/3600, data[m][1], data[m][2]]]);
+                            }
+                            
+                            //Options for the chart
+                            var chart_options = {
+                                title: 'History',
+                                //width: 900,
+                                //height: 500,
+                                // Gives each series an axis that matches the vAxes number below.
+                                series: {
+                                  0: {targetAxisIndex: 0},
+                                  1: {targetAxisIndex: 1}
+                                },
+                             /*   hAxis: {
+                                    ticks: []
+        },*/
+
+                                vAxes: {
+                                  // Adds titles to each axis.
+                                  0: {title: 'Altitude (ft)'},
+                                  1: {title: 'Speed (kts)'}
+                                },
+                                /*vAxis: {
+                                  viewWindow: {
+                                    max: 30
+                                  }
+                                }*/
+                            };
+
+                        var chart = new google.visualization.LineChart(document.getElementById('selectedplanehistory'));
+                        chart.draw(chart_data, chart_options);
+                        });
                     })                
             }
         }
@@ -695,10 +782,17 @@ function update() {
                 console.log("No change detected!")
                 return null;
             }
+            
+            //Update local cache
+            latest_json = data;
 
             // remove old markers from map
             removeMarkers();
 
+            //Clear the onlines tables
+            $("#tablefilterATC tbody").html("");
+            $("#tablefilterpilot tbody").html("");
+            
             // update the airports
             for (var i = 0, mlen = data[0].length; i < mlen; i++) {
                 addAirport(data[0][i]);
@@ -706,11 +800,12 @@ function update() {
 
             //Update the planes!
             for (var i = 0, plen = data[2].length; i < plen; i++) {
-                console.log(plen)
                 addPlane(data[2][i]);
             }
 
-            latest_json = data;
+            //Filter the online users, based on what was entered in filter box
+            filterOnlines($("#filtertext").val());
+            
             console.log("Redrew map at " + data[3][0]["time_updated"])
             update_time = data[3][0]["time_updated"]
         })
@@ -719,3 +814,43 @@ function update() {
             console.log(errorThrown.toString());
         })
 };
+
+function filterOnlines(filtertext) {
+    //This function filters the ONLINE tab's tables based on whatever value is provided
+    var tableIDs = ["tablefilterATC", "tablefilterpilot"];
+    //Loop through the two tables in the tableIDs array
+    tableIDs.forEach(function(val) {
+        //for coloring rows odd vs even
+        var counter = 0;
+        //val is the tableID being looked at currently
+        var table = document.getElementById(val);
+        //Loop through rows
+        for (var i = 0, row; row = table.rows[i]; i++) {
+        //if header row, then don't filter (continue), and force it to show block
+            if (i === 0) {
+                row.style.display = "block";
+                continue;
+            }
+            //show keeps track of whethter to show the current row or not
+            var show = false;
+            //Loop through cells in current row
+            for (var j = 0, col; col = row.cells[j]; j++) {
+            //See if there is a match
+                if (col.innerHTML.toString().toLowerCase().indexOf(filtertext.toLowerCase()) !== -1) {
+                    show = true;
+                }
+            }
+            //Increment the counter if this row is being shown
+            if (show === true) {
+                counter += 1;
+            }
+            //cssclass holds the even vs odd class for the current row
+            var cssclass = counter % 2 === 0 ? "onlinetableeven" : "onlinetableodd"
+            if (show === true) {
+                row.className = "onlinetableshow " + cssclass;
+            } else {
+                row.className = "onlinetablehide " + cssclass;
+            }
+       }  
+    });
+}
