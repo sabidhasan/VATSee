@@ -173,9 +173,9 @@ function addPlane(data) {
             $("#hoverinfo").html(prettifyPlaneData(data));
             $("#hoverwindow").css({
                 "display": "inline",
-                "top": 0,
-                "left": 0
-            }); //mouseY + 5, "left": mouseX + 10})
+                "top": mouseY + 5,
+                "left": mouseX + 10
+            });
         }
 
         //To do get AJAX to get full history
@@ -233,7 +233,7 @@ function addPlane(data) {
     planes.push(m);
     
     //Update online table
-    $("#tablefilterpilot tbody").append("<tr><td>"+data['callsign']+"</td><td>"+data['real_name']+"</td><td>"+data['depairport']+"</td><td>"+data['arrairport']+"</td></tr>");
+    $("#tablefilterpilot tbody").append("<tr><td>"+data['callsign']+"</td><td>"+data['real_name']+"</td><td>"+data['depairport']+"</td><td>"+data['arrairport']+"</td><td><a href=\"#\" onclick=\"centerMapOnPlane("+data['id']+")\">Show</a></td></tr>");
 
 
 }
@@ -259,11 +259,8 @@ function addAirport(data) {
         
         //Loop through each ATC and add to online table
         data['atc'].forEach(function(val) {
-            
-//            airportname  callsign frequency name
             //Update online table
             $("#tablefilterATC tbody").append("<tr><td>"+data['name']+"</td><td>"+val['callsign']+"</td><td>"+val['freq']+"</td><td>"+val['name']+"</td></tr>");
-            
         });
 
     }
@@ -290,9 +287,9 @@ function addAirport(data) {
             $("#hoverinfo").html(prettifyAirportData(data));
             $("#hoverwindow").css({
                 "display": "inline",
-                "top": 0,
-                "left": 0
-            }); //mouseY + 5, "left": mouseX + 10})
+                "top": mouseY + 5,
+                "left": mouseX + 10
+            });
         }
 
         //Draw lines
@@ -375,7 +372,17 @@ function addAirport(data) {
 }
 
 
-
+function centerMapOnPlane(id) {
+    //Centers the map on the plane with the ID supplied
+    //loop through the latest json to find the plane first
+    for (var i = 0; i < latest_json[2].length; i++) {
+        if (latest_json[2][i]['id'] === id) {
+            //Found the plane in question, lets center the map onto it!
+            map.setZoom(9);
+            map.setCenter(new google.maps.LatLng(parseFloat(latest_json[2][i]['latitude']), parseFloat(latest_json[2][i]['longitude'])));
+        }
+    }
+}
 
 function prettifyPlaneData(data) {
     //Returns displayable HTML for info window
@@ -448,6 +455,31 @@ function showSelectedInfo() {
             if (latest_json[0][j]["id"] === selected_airport) {
                 $("#poitext").text("Selected point - " + latest_json[0][j]['icao']);
                 $("#help").text(latest_json[0][j]['name']);
+                
+                //Populate ATC information
+                var atc_html = "";
+                if (latest_json[0][j]['atc'].length === 0) {
+                    atc_html = "<h5>No ATC online</h5>"
+                } else {
+                    var tmp = latest_json[0][j]['atc'];
+                    tmp.forEach(function(val) {
+                        atc_html += "<h5>" + val['callsign'] + "</h5>";
+                        atc_html += "<p><strong>Frequency</strong>" + val['freq'] + "</p>";
+                        atc_html += "<p><strong>Name and ID</strong>" + val['name'] + " (CID " + val['cid'] + ")</p>";
+                        atc_html += "<p><strong>Message</strong>" + val['atismsg'] + "</p>";
+                        atc_html += "<p><strong>Logon Time</strong>" + val['timelogon'] + "</p>";
+                       
+                    });
+                    /*for (var m = 0 ; m < latest_json[0][j]['atc'].length; m++) {
+                        atc_html += "<h5>" + latest_json[0][j]['atc'][m]['callsign'] + "</h5>";
+                        atc_html += "<p><strong>Frequency</strong>" + latest_json[0][j]['atc'][m]['freq'] + "</p>";
+                        atc_html += "<p><strong>Name and ID</strong>" + latest_json[0][j]['atc'][m]['name'] + " (CID " + latest_json[0]['atc'][m]['cid'] + ")</p>";
+                        atc_html += "<p><strong>Message</strong>" + latest_json[0][j]['atc'][m]['atismsg'] + "</p>";
+                        atc_html += "<p><strong>Logon Time</strong>" + latest_json[0][j]['atc'][m]['timelogon'] + "</p>";
+                    }*/
+                }
+                $("#selectedatcdata").html(atc_html);
+                
                 //Ping server for more details
                 $.getJSON(Flask.url_for("history"), {
                         data: latest_json[0][j],
@@ -501,7 +533,7 @@ function showSelectedInfo() {
                             $('#selecteddepartures tbody').html("");
                         }
 
-                        //Parse through departures
+                        //Parse through arrivals
                         for (var k = 0; k < data[1].length; k++) {
                             //This is the HTML that will be injected
                             tmp = "";
@@ -760,7 +792,7 @@ function configure() {
 
     // update UI after zoom level changes
     google.maps.event.addListener(map, "zoom_changed", function() {
-        hideHoverWindow();
+        //hideHoverWindow();
         update();
     });
 

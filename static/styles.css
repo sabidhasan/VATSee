@@ -21,7 +21,7 @@ body {
 
 h4 {
     font-weight: bold;
-    font-size:175%;
+    font-size:190%;
     margin-top:25px;
 }
 
@@ -185,4 +185,8 @@ h4 {
 }
 .onlinetableodd {
     background-color: white;
+}
+h5 {
+    font-size: 115%;
+    font-weight: bold;
 }
