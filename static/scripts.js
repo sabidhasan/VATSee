@@ -122,7 +122,9 @@ $(document).ready(function() {
         filterOnlines($("#filtertext").val());
     });
 
-
+    $("#get_metar").on("click", function() {
+        get_metar($("#metarquery").val())
+    })
 
 });
 
@@ -885,4 +887,8 @@ function filterOnlines(filtertext) {
             }
        }  
     });
+}
+
+function get_metar(stationid) {
+    alert(stationid);
 }

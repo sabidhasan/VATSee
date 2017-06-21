@@ -156,54 +156,6 @@ def update():
     #Check for latest file from database
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
-    result = len(c.execute("SELECT * FROM 'onlines' WHERE %s - time_updated < 60" % time.time()).fetchall())
-
-    if result == 0:
-        #Need to update database!
-        #TO--DO randomize server
-        #http://status.vatsim.net/status.txt
-        r = requests.get('http://data.vattastic.com/vatsim-data.txt').text
-        #TO--DO: tupleise this injection ot prevent db attacks
-        for line in r.split("\n"):
-            vals = line.split(":")
-
-            if len(vals) != 42 or line[0] == ';' or not(vals[5] and vals[6]):
-                #No location specified
-                #Pilot and ATC lines have 42 entries, so if this line doesn't then continue
-                #or if line is a comment line
-                continue
-
-            #Check if pilot or ATC
-            if vals[3] == "ATC":
-                try:
-                    inj = '''INSERT INTO 'onlines' ("callsign", "time_updated", "cid", "real_name", "frequency", "VATSIMlatitude", "VATSIMlongitude", "visible_range", "ATIS_msg", "time_logon", "type")''' + \
-                    ''' VALUES ("%s", "%s", "%s", "%s", "%s", %s, %s, %s, "%s", "%s", "%s")''' % (vals[0], str(int(time.time())), vals[1], vals[2], vals[4] , float(vals[5]), float(vals[6]), int(vals[19]), \
-                    vals[35].replace("\"", "").replace("'", ""), str(vals[37]), vals[3])
-                    c.execute(inj)
-                except:
-                    #TO--DO Log the error here
-                    print("Error", vals)
-                    continue
-                
-            elif vals[3] == "PILOT":
-                try:
-                    inj = '''INSERT INTO "onlines" ("callsign", "time_updated", "cid", "real_name", "VATSIMlatitude", "VATSIMlongitude", "time_logon", "type", "altitude", "groundspeed"''' + \
-                    ''', "planned_aircraft", "planned_tascruise", "planned_depairport", "planned_altitude", "planned_destairport", "planned_flighttype", "planned_deptime", "planned_altairport"''' + \
-                    ''', "planned_remarks", "planned_route", "heading") VALUES ("%s", "%s", "%s", "%s", %s, %s, "%s", "%s", %s, %s, "%s", "%s", "%s", %s, "%s", "%s", "%s", "%s", "%s", "%s", %s)''' % \
-                    (vals[0], str(int(time.time())), vals[1], vals[2], float(vals[5]), float(vals[6]), str(vals[37]), vals[3], int(vals[7]), int(vals[8]), vals[9], vals[10], vals[11], 
-                    flightlevel_to_feet(vals[12]), vals[13], vals[21], vals[22], vals[28], vals[29].replace("\"", "").replace("'", ""), vals[30].replace("\"", "").replace("'", ""), int(vals[38]))
-                    c.execute(inj)
-                except:
-                    #TO--DO Log the error here
-                    print("Error", vals)
-                    continue
-            else:
-                #TO--DO: log this because its not ATC or pilot!
-                pass
-        conn.commit()
-    #else:
-        #No update needed so just return memo, if it exists
-    #    if memo: return jsonify(memo)
 
     ###########################
     #Jsonify the ATC data !!  #
@@ -429,7 +381,7 @@ def history():
             #create pilot dictionary to be appended
             tmp_pilot = {'callsign': row[2], 'cid': row[3], 'altitude': row[12], 'groundspeed': row[13], 'planned_aircraft': row[14], 'planned_tascruise': row[15], \
             'planned_depairport': row[16], 'planned_altitude': row[17], 'planned_destairport': row[18], 'planned_deptime': row[20], 'heading': row[24], \
-            'airline_name': decode_airline(row[2])[0], 'airline_callsign': decode_airline(row[2])[2], 'airline_short': decode_airline(row[2])[3], 'airline_flightnum': decode_airline(row[2])[4]}
+            'airline_name': decode_airline(row[2])[0], 'airline_callsign': decode_airline(row[2])[2], 'airline_short': decode_airline(row[2])[3], 'airline_flightnum': decode_airline(row[2])[4], 'id':row[0]}
             
             #Distance from airport
             tmp_pilot['distance_from_airport'] = int(dist)

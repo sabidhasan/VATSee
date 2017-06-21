@@ -213,6 +213,61 @@
   
             </div>
 
+            <div id="wx" class="content-div">
+                <h4>Weather</h4>
+                <label for="metarquery">Search for METAR (ICAO code)</label>
+                <br /><input id="metarquery" type="text">  <button type="button" id="get_metar">Get METAR</button>
+                
+                <div id="metarresults">
+                    <p>METAR for: <span id="metarresults_stationID"></span></p>
+                    
+                    <span id="metarresults_category"></span>
+                    
+                    <span id="metarresults_rawtext"></span>
+                    <a href="#" onclick="document.getElementById('metarresults_rawtext').hide();">Hide Raw</a>
+                    
+                    <table>
+                        <tr>
+                            <td>Issued</td><td><span id="metarresults_time"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Wind</td><td><span id="metarresults_winddirspeed"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Clouds</td><td><span id="metarresults_clouds"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Visibility</td><td><span id="metarresults_visibility"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Temperature</td><td><span id="metarresults_tempdewpoint"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Altimeter/QNH</td><td><span id="metarresults_altimeter"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Sea Level Pressure</td><td><span id="metarresults_sealevelpressure"></span></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- 
+                <p><strong>Bad weather</strong>
+                    <br/>At ATC'd airpots
+                    <br/>worst weather - wind, gust, cloud. rain, etc. Use Python METAR packages for this task.</p>
+                    
+Bad weather 
+At ATC'd airpots 
+worst weather - wind, gust, cloud. rain, etc. Use Python METAR packages for this task.
+
+
+(show VFR vs IFR) - especially on Clicked airports (also show METAR on clicked airports 
+Plus allow searching for METAR at a given airport
+-->
+
+            </div>
+
+
             <div id="planning" class="content-div">
                 <p>PLANNING</p>
                 <p>plan a real world flight
@@ -224,12 +279,6 @@
                     <br />Real world route (from FA), callsign, number, duration, avg delay, gate, etc. Links to file flightplan, links to liveries.
             </div>
 
-            <div id="wx" class="content-div">
-                <p>WEATHER</p>
-                <p><strong>Bad weather</strong>
-                    <br/>At ATC'd airpots
-                    <br/>worst weather - wind, gust, cloud. rain, etc. Use Python METAR packages for this task.</p>
-            </div>
 
             <div id="events" class="content-div">
                 <p>EVENTS</p>
