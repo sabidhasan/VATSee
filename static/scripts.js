@@ -123,9 +123,17 @@ $(document).ready(function() {
     });
 
     $("#get_metar").on("click", function() {
-        get_metar($("#metarquery").val())
+        get_metar($("#metarquery").val());
     })
 
+    $("#hidemetarraw").on("click", function() {
+        if(this.text === "Hide Raw"){
+            this.text("Show Raw");
+        } else {
+            this.text("Hide Raw");
+        }
+        $("#metarresults_rawtext").toggle();
+    });
 });
 
 
@@ -653,7 +661,6 @@ function showSelectedInfo() {
                             
                             //Loop through JSON data to add rows
                             for (var m = 0; m < data.length; m++) {
-                                console.log(data[0])
                                 chart_data.addRows([[data[m][0]/3600, data[m][1], data[m][2]]]);
                             }
                             
@@ -890,5 +897,22 @@ function filterOnlines(filtertext) {
 }
 
 function get_metar(stationid) {
-    alert(stationid);
+    //Contact server to return station ID data
+    $.getJSON(Flask.url_for("metar"), {
+        station: stationid
+    })
+    .done(function(data, textStatus, jqXHR) {
+        //console.log(data);
+        $("#metarresults_stationID").text(data['stationID']);
+        $("#metarresults_category").text(data['category']);
+        $("#metarresults_rawtext").text(data['raw_text']);
+        $("#metarresults_time").text(data['time']);
+        $("#metarresults_winddirspeed").html('img src="http://abid.a2hosted.com/plane' + Math.round(data["wind_dir"] / 10) % 36 + '.gif">   ' + data['wind']);
+        $("#metarresults_clouds").text(data['clouds']);
+        $("#metarresults_visibility").text(data['visibility']);
+        $("#metarresults_tempdewpoint").text(data['temp']);
+        $("#metarresults_altimeter").text(data['altimeter']);
+        $("#metarresults_sealevelpressure").text(data['sealevelpressure']);
+    });
+    
 }

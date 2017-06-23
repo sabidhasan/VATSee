@@ -22,7 +22,7 @@ def flightlevel_to_feet(flightlevel):
 
 
 def update_db():    
-    print("Updating database at ", datetime.now())
+    print("\nUpdating database at ", datetime.now())
 
     #Check for latest file from database
     conn = sqlite3.connect('database_working.db')

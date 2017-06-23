@@ -3,15 +3,16 @@
 
 from flask import Flask, jsonify, render_template, request, url_for
 from flask_jsglue import JSGlue
-import time, requests, os, sqlite3, sys
+import time, os, requests, sqlite3, sys, re
 from math import radians, cos, sin, asin, sqrt
+from metar import Metar
 
 # configure application
 app = Flask(__name__)
 JSGlue(app)
 
-#Memoization
-memo = []
+#Memoization for METAR data
+metars = {}
 airlines = {}
 
 # ensure responses aren't cached
@@ -39,6 +40,7 @@ def callsign_to_icao(callsign):
         except TypeError:
             #No results were found
             return callsign.split("_")[0]
+    
     
 def callsign_to_ATC(callsign):
     '''Gets callsign like 'ATL_GND' and returns a type code:
@@ -78,6 +80,7 @@ def callsign_to_loc(callsign):
         #Likely result was none (aka nothing found in DB)
         return None
 
+
 def flightlevel_to_feet(flightlevel):
     '''Function recieves something like 'FL360' and returns 36000'''
     
@@ -92,6 +95,7 @@ def flightlevel_to_feet(flightlevel):
             return int(flightlevel)
         except ValueError:
             return 0
+         
             
 def decode_airline(callsign):
     '''Gets a name like 'BAW156' or 'BA156' and returns a tuple such as ('British Airways', 'UK', 'Speedbird', 'BAW', '156')'''
@@ -142,6 +146,73 @@ def haversine(lon1, lat1, lon2, lat2):
     c = 2 * asin(sqrt(a)) 
     km = 6367 * c
     return km
+    
+
+def get_METAR(given_code):
+    if not(given_code) or len(given_code) != 4:
+        return None
+
+    #Check the cache
+    if metars.get(given_code):
+        #if younger than 1800 seconds, return from cache
+        if abs(metars[given_code][0] - time.time()) < 1800:
+            #Return the saved information
+            metars[given_code][1]["cached"] = "True"
+            return metars[given_code][1]
+        
+    url = 'https://aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=%s' % given_code
+    raw_metar_data = requests.get(url).text
+    
+    #Try to get code and flight conditions
+    code_data = re.findall(r"<raw_text>(.*)<\/raw_text>", raw_metar_data)
+    #Get Flight Condition
+    flight_category_data = re.findall(r"<flight_category>(.*)<\/flight_category>", raw_metar_data)
+    try:
+        code = code_data[0]
+    except IndexError:
+        #There was nothing found!
+        return None
+        
+    try:
+        flight_cat = flight_category_data[0]
+    except IndexError:
+        flight_cat = "UNKNOWN"
+
+    #Do the work!
+    obs = Metar.Metar(code)
+    
+    #Return dictionary, with some default values filled in
+    ret = {"category": flight_cat, "raw_text": code, "clouds": obs.sky_conditions()}
+    #Build return dictionary
+    if obs.station_id:
+        ret["stationID"] = obs.station_id
+    
+    if obs.time:
+        ret["time"] = obs.time.ctime()
+    if obs.wind_speed:
+        ret["wind"] = obs.wind()
+    if obs.wind_dir:
+        ret["wind_dir"] = obs.wind_dir.value()
+    if obs.vis:
+        ret["visibility"] = obs.visibility()
+    if obs.temp:
+        ret["temp"] = obs.temp.string("C")
+    if obs.dewpt:
+        ret["temp"] += obs.dewpt.string("C")
+    if obs.press:
+        ret["altimeter"] = obs.press.string("in")
+    if obs.press_sea_level:
+        ret["sealevelpressure"] = obs.press_sea_level.string("mb")
+    
+    #Cache it
+    ret["cached"] = "False"
+    metars[given_code] = (time.time(), ret)
+    
+    return ret
+    
+    
+    
+
 
 
 
@@ -433,3 +504,17 @@ def history():
             jsondata.append([float(time_delta), row[12], row[13]])
 
         return jsonify(jsondata)
+        
+        
+@app.route("/metar")    
+def metar():    
+    ''' This route returns JSON of requested METAR '''
+    #Get the METAR ID'
+    try:
+        metarID = dict(request.args)['station'][0]
+        ret = get_METAR(metarID)
+    except KeyError:
+        return jsonify(None)
+    return jsonify(ret)
+
+    
