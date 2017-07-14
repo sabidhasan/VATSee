@@ -15,6 +15,9 @@ var mouseY;
 //Array
 var airportLines = [];
 var flightPath;
+//holds latest weather
+var latest_weather;
+var single_weather;
 
 // execute when the DOM is fully loaded
 $(document).ready(function() {
@@ -125,15 +128,12 @@ $(document).ready(function() {
     $("#get_metar").on("click", function() {
         get_metar($("#metarquery").val());
     })
-
-    $("#hidemetarraw").on("click", function() {
-        if(this.text === "Hide Raw"){
-            this.text("Show Raw");
-        } else {
-            this.text("Hide Raw");
-        }
-        $("#metarresults_rawtext").toggle();
+    
+    //Get worst weather when weather is clicked
+    $("#wx").on('click', function() {
+       console.log(updateWorstWeather());
     });
+
 });
 
 
@@ -263,7 +263,6 @@ function addAirport(data) {
         image = "http://conferences.shrm.org/sites/all/themes/sessions/images/dot76923C.png";
     } else { //if (map.getZoom() > 5) {
         //There is ATC avialabe, so show the proper icon for it
-
         image = "http://zaritsky.ca/wp-content/uploads/2014/05/dot2-2.png";
         //var image = "http://abid.a2hosted.com/" + data["atc_pic"] + ".png";
         
@@ -272,7 +271,6 @@ function addAirport(data) {
             //Update online table
             $("#tablefilterATC tbody").append("<tr><td>"+data['name']+"</td><td>"+val['callsign']+"</td><td>"+val['freq']+"</td><td>"+val['name']+"</td></tr>");
         });
-
     }
 
     //create the marker, attach to map
@@ -581,6 +579,9 @@ function showSelectedInfo() {
                         $("#loadinggif").hide();
 
                     })
+              
+            //TO--DO: call Weather fuinction to show METAR at clicked airport!
+            console.log(updateWorstWeather(   latest_json[0][j]['icao']   ));
             }
         }
     } else if (selected_plane !== -1) {
@@ -827,7 +828,7 @@ function update() {
             //Update local cache
             latest_json = data;
 
-            // remove old markers from map
+           // remove old markers from map
             removeMarkers();
 
             //Clear the onlines tables
@@ -849,6 +850,7 @@ function update() {
             
             console.log("Redrew map at " + data[3][0]["time_updated"])
             update_time = data[3][0]["time_updated"]
+            
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             // log error to browser's console
@@ -903,16 +905,63 @@ function get_metar(stationid) {
     })
     .done(function(data, textStatus, jqXHR) {
         //console.log(data);
-        $("#metarresults_stationID").text(data['stationID']);
-        $("#metarresults_category").text(data['category']);
-        $("#metarresults_rawtext").text(data['raw_text']);
-        $("#metarresults_time").text(data['time']);
-        $("#metarresults_winddirspeed").html('img src="http://abid.a2hosted.com/plane' + Math.round(data["wind_dir"] / 10) % 36 + '.gif">   ' + data['wind']);
-        $("#metarresults_clouds").text(data['clouds']);
-        $("#metarresults_visibility").text(data['visibility']);
-        $("#metarresults_tempdewpoint").text(data['temp']);
-        $("#metarresults_altimeter").text(data['altimeter']);
-        $("#metarresults_sealevelpressure").text(data['sealevelpressure']);
+        if (data === null) {
+            $("#metarresults_stationID").text(stationid + ' is not available.');
+            $("#metardetails").hide();
+        } else {
+            $("#metarresults_stationID").text(' for ' + data['stationID']);
+            $("#metarresults_category").text(data['category']);
+            $("#metarresults_rawtext blockquote span").text(data['raw_text']);
+            $("#metarresults_time").text(data['time']);
+            $("#metarresults_winddirspeed").html('<img src="http://abid.a2hosted.com/plane' + Math.round(data["wind_dir"] / 10) % 36 + '.gif">   (' + data['wind_dir'] + ')  ' +  data['wind']);
+            $("#metarresults_clouds").text(data['clouds']);
+            $("#metarresults_visibility").text(data['visibility']);
+            $("#metarresults_tempdewpoint").text(data['temp']);
+            $("#metarresults_altimeter").text(data['altimeter']);
+            $("#metarresults_sealevelpressure").text(data['sealevelpressure']);
+            $("#metardetails").show();
+        }
     });
-    
+}
+
+
+function updateWorstWeather(airport) {
+    var type;
+    if (!airport) {
+        type = 'multi';
+        //No airport was supplied, so this means we need to build data for all active airports
+        //Gets worst weather from server and updates it
+        airport = '';
+        for (var i = 0; i < latest_json[0].length; i++) {
+            if (latest_json[0][i]['atc'].length !== 0) {
+                airport += ' ' + latest_json[0][i]['icao'];
+            }
+        }
+    } else {
+        type = 'single';
+    }
+
+    $.getJSON(Flask.url_for("worstweather"), {
+        airports: airport
+    })
+    .done(function(data, textStatus, jqXHR) {
+        if (type === 'multi') {
+            latest_weather = data;
+            drawWorstWeather();
+        } else {
+            single_weather = data;
+        }
+    });
+}
+
+
+function drawWorstWeather() {
+    //draw the worst weather from data variable
+    for (var key in latest_weather) {
+        console.log(latest_weather[key]);
+    }
+    //Update SPAN (this holds descrupotion of which sortint is currently used)
+
+    //Sort the table
+
 }

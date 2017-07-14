@@ -190,3 +190,35 @@ h5 {
     font-size: 115%;
     font-weight: bold;
 }
+/*METAR page styling*/
+#metardetails {
+    display:none;
+}
+#metarresults p{
+    font-size: 125%;
+    font-weight:bold;
+}
+#metarresults table{
+    width: 100%;
+    font-size:110%;
+}
+#metarresults table td{
+    padding: 1% 0 1% 0;
+}
+#metarresults_category {
+    float: right;
+    display: inline;
+    font-size: 300%;
+    font-weight: bold;
+    margin: 0;
+    background-color: lightseagreen;
+    border-radius: 15%;
+    padding: 15px;
+}
+#metarresults_rawtext blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}

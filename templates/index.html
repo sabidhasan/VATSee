@@ -219,46 +219,66 @@
                 <br /><input id="metarquery" type="text">  <button type="button" id="get_metar">Get METAR</button>
                 
                 <div id="metarresults">
-                    <p>METAR for: <span id="metarresults_stationID"></span></p>
+                    <p>METAR    <span id="metarresults_stationID"></span></p>
                     
-                    <span id="metarresults_category"></span>
-                    
-                    <span id="metarresults_rawtext"></span>
-                    <a href="#" id="hidemetarraw">Hide Raw</a>
-                    
-                    <table>
-                        <tr>
-                            <td>Issued</td><td><span id="metarresults_time"></span></td>
-                        </tr>
-                        <tr>
-                            <td>Wind</td><td><span id="metarresults_winddirspeed"></span></td>
-                        </tr>
-                        <tr>
-                            <td>Clouds</td><td><span id="metarresults_clouds"></span></td>
-                        </tr>
-                        <tr>
-                            <td>Visibility</td><td><span id="metarresults_visibility"></span></td>
-                        </tr>
-                        <tr>
-                            <td>Temperature</td><td><span id="metarresults_tempdewpoint"></span></td>
-                        </tr>
-                        <tr>
-                            <td>Altimeter/QNH</td><td><span id="metarresults_altimeter"></span></td>
-                        </tr>
-                        <tr>
-                            <td>Sea Level Pressure</td><td><span id="metarresults_sealevelpressure"></span></td>
-                        </tr>
-                    </table>
+                    <div id = "metardetails">
+                        <span id="metarresults_category"></span>
+                        
+                        <span id="metarresults_rawtext">
+                            <blockquote>Raw METAR Data:<br/><br/><span></span></blockquote>
+                        </span>
+                        <br><br>
+                        <table>
+                            <tr>
+                                <td><strong>Issued</strong></td><td><span id="metarresults_time"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Wind</strong></td><td><span id="metarresults_winddirspeed"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Clouds</strong></td><td><span id="metarresults_clouds"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Visibility</strong></td><td><span id="metarresults_visibility"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Temperature / Dewpoint</strong></td><td><span id="metarresults_tempdewpoint"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Altimeter/</strong></td><td><span id="metarresults_altimeter"></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sea Level Pressure</strong></td><td><span id="metarresults_sealevelpressure"></span></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
 
+                <h4>Worst Weather</h4>
+                <p>Show currently active (ATC) airports with the worst weather
+                <br/>Sorting criteria:</p>
+                
+                <div id="worstweather">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Airport</td>
+                                <td>Temp</td>
+                                <td>Vis</td>
+                                <td>Wind</td>
+                                <td>Temp Score</td>
+                                <td>Vis Score</td>
+                                <td>Wind Score</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
                 <!-- 
-                <p><strong>Bad weather</strong>
-                    <br/>At ATC'd airpots
-                    <br/>worst weather - wind, gust, cloud. rain, etc. Use Python METAR packages for this task.</p>
-                    
-Bad weather 
-At ATC'd airpots 
-worst weather - wind, gust, cloud. rain, etc. Use Python METAR packages for this task.
+
+
 
 
 (show VFR vs IFR) - especially on Clicked airports (also show METAR on clicked airports 
@@ -290,6 +310,8 @@ Plus allow searching for METAR at a given airport
                 <p>show incoming flights on hover
                     <br />units (nm/km/miles, kmph/mph/kts, C/F, ft/m etc.)</p>
 
+                <p>Relative importance of weather scoring functions (slider for wind vs temperature, etc.)</p>
+                
                 <p>VIEW OPTIONS
                     <br />Select airport
                     <br />Show arrivals only

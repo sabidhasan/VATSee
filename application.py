@@ -149,6 +149,9 @@ def haversine(lon1, lat1, lon2, lat2):
     
 
 def get_METAR(given_code):
+    #Conver to upper case
+    given_code = given_code.upper()
+    
     if not(given_code) or len(given_code) != 4:
         return None
 
@@ -182,7 +185,9 @@ def get_METAR(given_code):
     obs = Metar.Metar(code)
     
     #Return dictionary, with some default values filled in
-    ret = {"category": flight_cat, "raw_text": code, "clouds": obs.sky_conditions()}
+    ret = {"category": flight_cat, "raw_text": code, "clouds": obs.sky_conditions(), "time": None, "wind": None, "wind_value": None, "wind_gust_value": None, \
+        "wind_dir": None, "visibility": None, "visibility_value": None, "temp": None, "temp_value": None, "altimeter": None, "sealevelpressure": None}
+        
     #Build return dictionary
     if obs.station_id:
         ret["stationID"] = obs.station_id
@@ -191,14 +196,19 @@ def get_METAR(given_code):
         ret["time"] = obs.time.ctime()
     if obs.wind_speed:
         ret["wind"] = obs.wind()
+        ret['wind_value'] = obs.wind_speed.value()
+    if obs.wind_gust:
+        ret['wind_gust_value'] = obs.wind_gust.value()
     if obs.wind_dir:
         ret["wind_dir"] = obs.wind_dir.value()
     if obs.vis:
         ret["visibility"] = obs.visibility()
+        ret["visibility_value"] = obs.vis.value()
     if obs.temp:
         ret["temp"] = obs.temp.string("C")
+        ret["temp_value"] = obs.temp.value()
     if obs.dewpt:
-        ret["temp"] += obs.dewpt.string("C")
+        ret["temp"] += " / " + obs.dewpt.string("C")
     if obs.press:
         ret["altimeter"] = obs.press.string("in")
     if obs.press_sea_level:
@@ -239,7 +249,9 @@ def update():
     pilot_counter = 0               #Keeps track of Pilot IDs
     
     #Get results from DB; returned as tuples
-    result = c.execute("SELECT * FROM 'onlines' WHERE ABS(time_updated - %s) < 60 ORDER BY 'type'" % time.time()).fetchall()
+    result = c.execute("""SELECT * FROM "onlines" WHERE "latest"=1 ORDER BY 'type'""").fetchall()
+    
+    #ABS(time_updated - %s) < 60
     
     #Index map for results from database
     atc_indices = {"callsign":2, "cid":3, "name":4, "freq":5, "latitude":6, "longitude":7, "visrange":8, "atismsg":9, "timelogon":10}
@@ -436,7 +448,7 @@ def history():
         #Arriving / departing
         jsondata = [[], []]
         #THis is Airport, so show how many ground, taxxing, within 15 nm 
-        x = "SELECT * FROM 'onlines' WHERE ABS(time_updated - %s) < 60 AND type = 'PILOT'" % time.time()
+        x = """SELECT * FROM 'onlines' WHERE "latest" = '1' AND type = 'PILOT'"""
         result = c.execute(x).fetchall()
         
         for row in result:
@@ -517,4 +529,71 @@ def metar():
         return jsonify(None)
     return jsonify(ret)
 
+
+@app.route("/worstweather")    
+def worstweather():
+    '''Looks through currently online airports, and returns the worst weather '''
+    #Parse raw airports
+    try:
+        worst_weather_airports = dict(request.args)['airports'][0].split(" ")
+    except KeyError:
+        #log this; no METAR shouldnt be requested
+        return jsonify(None)
     
+    ret = {}
+    
+    #Loop through airports and get METARs on them, calculate wind, visibility, precipitation, temperature SCORES
+    for airport in worst_weather_airports:
+        #No airport given!
+        if not(airport): continue
+    
+        #get METAR 
+        curr_metar = get_METAR(airport)
+        
+        if curr_metar is None:
+            #SHould log this here, aiport ICAO code was invalid!
+            continue
+
+        #Calculate wind score
+        cur_wind = ((curr_metar['wind_value'] / 10) % 10)
+        try:
+            cur_wind += ((abs(curr_metar['wind_gust_value'] - curr_metar['wind_value']) / 10) % 10)
+        except TypeError:
+            #No gust data must exist
+            pass
+        
+        #Calculate visibility score\
+        #TO--DO: proper visiubilty score: pronblem is some stations report in metric units
+        cur_vis = 1#(curr_metar['visibility_value'] / 10) % 10
+
+        #Calculate precipitation score
+        #TO--DO
+        cur_precip = 1
+        #DZ Drizzle
+        #RA Rain
+        #SN Snow
+        #SG Snow Grains
+        #IC Ice Crystals
+        #PL Ice Pellets
+        #GR Hail
+        #GS Small Hail
+        #   and/or Snow
+        #   Pellets
+
+        #Calculate temperature score
+        if 10 < curr_metar['temp_value'] < 25:
+            cur_temp = 0
+        elif curr_metar['temp_value'] > 25:
+            #its too high or low
+            cur_temp = ((curr_metar['temp_value'] - 25) / 5) % 5
+        else:
+            #< 25
+            cur_temp = abs(curr_metar['temp_value'] - 10) / 5 % 5
+
+        #Build  return
+        ret[airport] = {'wind_score': round(cur_wind, 1), 'wind': curr_metar['wind'], 'visibility_score': cur_vis, 'visibility': curr_metar['visibility'], \
+        'precipitation_score': cur_precip, 'temperature_score': round(cur_temp, 1), 'temperature': curr_metar['temp'], \
+        'cached': curr_metar['cached']}
+#    return 0/0
+    return jsonify(ret)
+        
