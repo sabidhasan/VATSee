@@ -14,6 +14,8 @@ JSGlue(app)
 #Memoization for METAR data
 metars = {}
 airlines = {}
+#Memoization of Waypoint Data
+waypoints = {}
 
 # ensure responses aren't cached
 if app.config["DEBUG"]:
@@ -219,13 +221,82 @@ def get_METAR(given_code):
     metars[given_code] = (time.time(), ret)
     
     return ret
+
+#def all_alphabetical(text):
+#    ''' Recieves text, and returns whether it's all alphabetical'''
+#    if not(text):
+#        return False
+#        
+#    #Loop through string and try to check for numeracy
+#    for letter in text:
+#        try:
+#            int(letter)
+#            #If successful, there is a number and therefore this is false!
+#            return False
+#        except:
+#            pass
+#    #No number was found, so return True
+ #   return True
+
+
+def decode_route(route):
+    ''' This recieves a text route (KSFO WAYNE5 DCT BLAHH J20 BABAB STARR4 KLAX), and decodes it into tuples of locations'''
+    if not(route):
+        return []
+        
+    #To be returned
+    ret = []
+    
+    #Connect to database
+    conn = sqlite3.connect('database.db')
+    c = conn.cursor()
+    
+    previous_loc = []
+    #Loop through the waypoints as they are space separated
+    for waypoint in route.split(' '):
+        #In case it's not upper case, and get rid of extraneous information
+        waypoint = waypoint.upper().split("/")[0]
+        
+        #Look for airways (e.g. A56, B38, etc)
+        if len(waypoint) == 3:
+            if (waypoint[0].isalpha() == True and waypoint[1:].isalpha() == False) or waypoint == "DCT" or waypoint == "DIRECT":
+                #Ignore the waypoint!
+                continue
+
+        if len(waypoint) == 5 or len(waypoint) == 3:
+            #Look for waypoint in memo
+            if waypoint in waypoints:
+                #If it's none, then it wasnt found before, so no point in searhcig again!
+                if waypoints[waypoint] == None:
+                    continue
+                #See if distance from previous is too high
+                if previous_loc:
+                    if haversine(previous_loc[0], previous_loc[1], waypoints[waypoint][1], waypoints[waypoint][0]) > 8000:
+                        continue
+                ret.append((waypoint, waypoints[waypoint][0], waypoints[waypoint][1]))
+                previous_loc =  (waypoints[waypoint][1], waypoints[waypoint][0])
+            else:
+                #DB lookup
+                result = c.execute("""SELECT * FROM "waypoints" WHERE "Name" = "%s" """ % waypoint).fetchone()    
+                if result is not None:
+                    #Memoize it
+                    waypoints[waypoint] = (float(result[2])/1000000.0, float(result[3])/1000000.0)
+                    #Haversine formula takes latitude seocnd and lonigtude fist
+                    previous_loc = [float(result[3])/1000000.0, float(result[2])/1000000.0]
+                    ret.append((waypoint, float(result[2])/1000000.0, float(result[3])/1000000.0))
+                else:
+                    #Waypoint doesnt exist, so lets store None, and 
+                    waypoints[waypoint] = None
+    return ret
     
     
     
-
-
-
-
+    
+    
+    
+    
+    
+    
 @app.route("/")
 def index():
    # if not os.environ.get("API_KEY"):
@@ -363,6 +434,7 @@ def update():
                     new_long = 0
                     new_alt = 0
                     new_name = departure_icao
+                    #TO--DO: log here because airport was not found
                     
                 #ATC_pic is which picture to use for the marker on the front end (it's a sorted concatenation of all available ATC). -1 is simple dot no atc
                 new_data = {"id" : dep_new_id, "icao": departure_icao, "name": new_name, "longitude": new_long, "latitude": new_lat, "altitude": new_alt, "atc": [], "atc_pic" : "-1", "depplanes": [], "arrplanes": []}
@@ -418,6 +490,9 @@ def update():
             tmp_pilot["airline_short"] = airline_short
             tmp_pilot["airline_flightnum"] = flight_num
             
+            #Route is 23
+            #TO--DO: WORKING!!!
+            tmp_pilot["detailedroute"] = decode_route(line[23])
             jsondata[2].append(tmp_pilot)
             
     #Add admin stuff to final json column
@@ -482,7 +557,7 @@ def history():
             elif dist < 55 and j['data[icao]'][0] == callsign_to_icao(row[16]):
                 status = "Departing"
             elif dist > 55 and speed == 0:
-                status = "Loading pax"
+                status = "Not yet departed"
             elif dist > 55 and speed < 55:
                 status = "Taxiing"
             else:

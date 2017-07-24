@@ -25,6 +25,15 @@ h4 {
     margin-top:25px;
 }
 
+#topbar {
+    float:left;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#topbar p{
+    margin-left: 2%;
+}
 #map-canvas {
     /* height of these elements */
     height: 90%;
@@ -39,6 +48,7 @@ h4 {
     float:left;
     width: 73%;
     margin-right: 0.5%;
+    top: 90px;
 }
 
 #right {

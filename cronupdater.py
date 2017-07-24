@@ -35,7 +35,7 @@ def update_db():
   #  print ("About to delete %s old entries" % result)
     c.execute("DELETE FROM 'onlines' WHERE %s - time_updated > 2000" % time.time())
     final_len = len(c.execute("SELECT * FROM 'onlines'").fetchall())
-    print ("%s old entries have been deleted" % init_len - final_len)
+    print ("%s old entries have been deleted" % str(init_len - final_len))
     
     print ("Vacuuming database to reduce size...")
     c.execute("VACUUM")

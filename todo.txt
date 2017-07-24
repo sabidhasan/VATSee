@@ -1,39 +1,44 @@
-         Critical Features to Add / Bugfixes:
+         *  Critical Features to Add / Bugfixes:
               Size/color of circles
               Centre polygon
-              Heading for planes (pngs)
-              If no departure/arrival airport, then dont draw lines on hover!
-              Dela with aircraft that have no departure/arrival (should have no departure/arrival ID and not draw a line upon hover)
               Add logging
                               log airports at 0,0 lat/lon. These should be entered into database
                               log all non-parsable lines from reading vatsim txt file
+                              go through code and see possible logging (try except, if blocks, etc.)
+              History
+                    It should draw plane coordinates in a way that makes sense
+              
+              Styling - consult VATAWARE
+              
+              If no departure/arrival airport, then dont draw lines on hover!
+              Deal with aircraft that have no departure/arrival (should have no departure/arrival ID and not draw a line upon hover)
               Randomize VATSIM server access
-              JavaScript should add autoupdate every minute, as should Python
+              JavaScript should add autoupdate every minute
               REQUEST METAR method (on clicking an airport, it returns a JSON of the METAR)
               Show arrivals and departures sorted by time - currently unsorted (simple fix I think)!
 
               Tab: Clicked on plane (airports currently work)
-              Tab: Online (list of all online users / ATC)
               Tab: Flight Planning
               Tab: Weather
               Tab: Events
               Tab: Preferences
-              DB Cleanup: if someone in DB but not ONLINE, then DELETE
 
-          Non Critical relatively Easy:
+          *  Non Critical relatively Easy:
                 Which country airspace for hovered airplanes
 
                 Using which simulator for info window
 
                 Add hover for info window - time online, pilot; ALSO correct typos in that hover window
                If ZOOM is > x, then show ALL airports
+               
+               Styling - everythjig shoudl be styled well.
 
-          Nice to Have Features (hard):
+          *  Nice to Have Features (hard):
                ICAO/VATSIM/PE connection
                Make the backend into a Class, and call class methods in the "/Update" function, rahter than doing thigns there
 
-               get_history route, wihch returns history of given plane
-
+               Real route - using data from Xplane or something for navaids
+               
                Add hover for info window - time online, frequency, controller name, METAR, airport diagram/procedures etc.
 
                 DELAY
