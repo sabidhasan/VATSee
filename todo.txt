@@ -1,5 +1,9 @@
          *  Critical Features to Add / Bugfixes:
-              Size/color of circles
+              Major bug - multiple ATC on one Centre, currnelty only one is supported
+              
+              Decode_route should recieve staritng and ending airport locations, 
+                    this way compare those to each found point, to see which is the real point!
+                    
               Centre polygon
               Add logging
                               log airports at 0,0 lat/lon. These should be entered into database
@@ -7,6 +11,8 @@
                               go through code and see possible logging (try except, if blocks, etc.)
               History
                     It should draw plane coordinates in a way that makes sense
+              
+              Why is everything in Liverpool NS?
               
               Styling - consult VATAWARE
               
@@ -51,3 +57,6 @@
                          Airport rings (for ATC) should be generated in front end
                 Improve Performance
                          Searching through latest_json array      should not be necessary for drawing airport/airplane lines (on hover)
+                         
+          * Debugging
+                Debug the shit out of route drawing - many things are broken right now

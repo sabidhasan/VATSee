@@ -1,21 +1,24 @@
 #API KEY
 #AIzaSyBTK9GUrd7sMxjt6EUlHyN9TXPkqb6R0VA
 
+########################
+##       IMPORT       ##
+########################
+
 from flask import Flask, jsonify, render_template, request, url_for
 from flask_jsglue import JSGlue
 import time, os, requests, sqlite3, sys, re
 from math import radians, cos, sin, asin, sqrt
 from metar import Metar
 
-# configure application
+
+
+########################
+##       CONFIG       ##
+########################
+
 app = Flask(__name__)
 JSGlue(app)
-
-#Memoization for METAR data
-metars = {}
-airlines = {}
-#Memoization of Waypoint Data
-waypoints = {}
 
 # ensure responses aren't cached
 if app.config["DEBUG"]:
@@ -26,22 +29,54 @@ if app.config["DEBUG"]:
         response.headers["Pragma"] = "no-cache"
         return response
 
-# configure CS50 Library to use SQLite database
-#db = SQL("sqlite:///mashup.db")
+
+
+########################
+##       GLOBALS      ##
+########################
+
+#Memoization for METAR and airline data
+metars = {}
+airlines = {}
+#Waypoint Data will be stored in memory which significantly speeds up access
+waypoints = {}
+
+
+#TO--DO LOGGING: log application has started
+#Populate Waypoints into memory database
+conn = sqlite3.connect('static_data.db')
+c = conn.cursor()
+result = c.execute("""SELECT * FROM "waypoints";""").fetchall()
+#Store waypoints, for repeated waypoints :::: {'LINNG' : [ (-23, 43), (123, 56), (-43, 56)] etc.
+for line in result:
+    #Create list if not present in dictionary already
+    if not(line[1] in waypoints):
+        waypoints[line[1]] = []
+    #Append to dictionary
+    waypoints[line[1]].append((float(line[2])/1000000.0, float(line[3])/1000000.0))
+    
+    
+##############################################
+###Standard function definitions start here###
+##############################################
+
 def callsign_to_icao(callsign):
     ''' Gets a IATA callsign like SEA and return ICAO callsign like KSEA'''
+    #Something like "ASIA"
+    #TO--DO LOGGING: Log an unnatural callsign (4 letter callsigns are not normal)
     if len(callsign.split("_")[0]) == 4:
         return callsign.split("_")[0]
     else:
-        conn = sqlite3.connect('database.db')
+        conn = sqlite3.connect('static_data.db')
         c = conn.cursor()
         apt_code = tuple([callsign.split("_")[0]])
-        result = c.execute("SELECT * FROM 'airports' WHERE iata=?", apt_code).fetchone()
+        result = c.execute("SELECT * FROM 'airports' WHERE iata=? LIMIT 1", apt_code).fetchone()
         try:
             return result[5]
         except TypeError:
             #No results were found
             return callsign.split("_")[0]
+            #TO--DO LOGGING: An IATA code not present in the database, might be interesting to log
     
     
 def callsign_to_ATC(callsign):
@@ -54,14 +89,14 @@ def callsign_to_ATC(callsign):
         return codes[callsign.split("_")[-1]]
     else:
         #Unknown type, so it will be passed an unknown code!
-        #TO--DO: LOG THIS HERE
+        #TO--DO LOGGING: LOG THIS HERE, what ATC is this!!?
         return 6
 
 
 def callsign_to_loc(callsign):
     '''Function receives a callsign like "ATL_W_GND" or "KATL_CTR" and returns a geographical location for airport'''
     #Database connection
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('static_data.db')
     c = conn.cursor()
 
     #Determine the code friom the string
@@ -74,18 +109,20 @@ def callsign_to_loc(callsign):
         #ICAO code provided
         c.execute("SELECT * FROM 'airports' WHERE icao=?", apt_code)
     else:
+        #TO--DO LOGGING: log this unknown airport, this also messes with the map, so its important to add these airports later!
         return None
     result = c.fetchone()
     try:
+        #attempt to return data
         return tuple(list(result[6:9]) + [result[1]])
     except:
         #Likely result was none (aka nothing found in DB)
+        #TO--DO LOGGING: log this potential error
         return None
 
 
 def flightlevel_to_feet(flightlevel):
     '''Function recieves something like 'FL360' and returns 36000'''
-    
     if not(flightlevel):
         return 0
         
@@ -93,9 +130,11 @@ def flightlevel_to_feet(flightlevel):
     if "fl" in flightlevel or "f" in flightlevel:
         return int(flightlevel.replace("fl", "").replace("f", "")) * 100
     else:
+        #Some pilots file in feet rather than Flight Level, so just attempt to return the integer (eg. 33000)
         try:
-            return int(flightlevel)
+            return int(flightlevel.replace("ft", ""))
         except ValueError:
+            #TO--DO LOGGING: unknown altitude filed
             return 0
          
             
@@ -105,32 +144,39 @@ def decode_airline(callsign):
     airline_num = ''
     for c, letter in enumerate(callsign):
         try:
+            #See if we are at the airline number part yet
             int(letter)
             if len(airline_letter) == 1:
+                #TO--DO LOGGING: airline callsign is weird; potentially log to improve handling of these in the future
                 return (callsign, callsign, callsign, callsign, callsign)
             else:
+                #Found the airline number at a non-0 place
                 airline_num = str(callsign[c:])
                 break
         except ValueError:
+            #Encountered letter; could improve by keeping index rather than regenerating a string each time TO--DO
             airline_letter += letter
             #TO--DO: add better support for VFR
     #if no airline letter?
     if not(airline_letter):
         return (callsign, callsign, callsign, callsign, callsign)
+        #TO--DO LOGGING: callsign is weird
 
-    #Now look in saved data, and if not found then the DB
+    #Now look in memoized data, and if not found then the DB
     if airline_letter in airlines:
         row = airlines[airline_letter]
     else:
         #Search the database
-        conn = sqlite3.connect('database.db')
+        conn = sqlite3.connect('static_data.db')
         c = conn.cursor()
         result = c.execute("SELECT * FROM 'airlinecodes' WHERE iata=? OR icao=?", (airline_letter, airline_letter)).fetchone()
         if result:
+            #Add to cached data
             airlines[airline_letter] = (result[3], result[5], result[4])
             row = airlines[airline_letter]
         else:
             return (callsign, callsign, callsign, callsign, callsign)
+            #TO--DO LOGGING: airline is new, so add it to database in future
     return (row[0], row[1], row[2], airline_letter, airline_num)
 
 
@@ -151,7 +197,9 @@ def haversine(lon1, lat1, lon2, lat2):
     
 
 def get_METAR(given_code):
-    #Conver to upper case
+    '''Returns METAR data from aviation weather website from US Government; code is a METAR weather station code.
+    Uses 30 minute caching to prevent overaccessing of the Aviation Weather database'''
+    #Convert to upper case
     given_code = given_code.upper()
     
     if not(given_code) or len(given_code) != 4:
@@ -161,7 +209,7 @@ def get_METAR(given_code):
     if metars.get(given_code):
         #if younger than 1800 seconds, return from cache
         if abs(metars[given_code][0] - time.time()) < 1800:
-            #Return the saved information
+            #Return the saved information, indicating that it is indeed from the cache (more for debugging purposes)
             metars[given_code][1]["cached"] = "True"
             return metars[given_code][1]
         
@@ -169,6 +217,7 @@ def get_METAR(given_code):
     raw_metar_data = requests.get(url).text
     
     #Try to get code and flight conditions
+    #TO--DO: potentially use an XML parser here, rather than regex to improve speed of parsing
     code_data = re.findall(r"<raw_text>(.*)<\/raw_text>", raw_metar_data)
     #Get Flight Condition
     flight_category_data = re.findall(r"<flight_category>(.*)<\/flight_category>", raw_metar_data)
@@ -176,6 +225,7 @@ def get_METAR(given_code):
         code = code_data[0]
     except IndexError:
         #There was nothing found!
+        #TO--DO LOGGING: either website is down (perhaps include size of raw_metar_data to see if we even got anything!), or something is wrong
         return None
         
     try:
@@ -222,80 +272,72 @@ def get_METAR(given_code):
     
     return ret
 
-#def all_alphabetical(text):
-#    ''' Recieves text, and returns whether it's all alphabetical'''
-#    if not(text):
-#        return False
-#        
-#    #Loop through string and try to check for numeracy
-#    for letter in text:
-#        try:
-#            int(letter)
-#            #If successful, there is a number and therefore this is false!
-#            return False
-#        except:
-#            pass
-#    #No number was found, so return True
- #   return True
 
-
-def decode_route(route):
-    ''' This recieves a text route (KSFO WAYNE5 DCT BLAHH J20 BABAB STARR4 KLAX), and decodes it into tuples of locations'''
-    if not(route):
-        return []
-        
+def decode_route(route, departure_airport):
+    ''' This recieves a text route (KSFO WAYNE5 DCT BLAHH J20 BABAB STARR4 KLAX, (-123.22, 37.534)),
+    and decodes it into tuples of geographical locations'''
     #To be returned
     ret = []
+
+    if not(route):
+        return ret
+
+    #set previous waypoint to the departure
+    previous_waypoint = departure_airport
     
-    #Connect to database
-    conn = sqlite3.connect('database.db')
-    c = conn.cursor()
+    #Some pilots file their routes with periods!
+    route = route.replace(".", " ").upper()
     
-    previous_loc = []
-    #Loop through the waypoints as they are space separated
-    for waypoint in route.split(' '):
+    #Loop through the waypoints as they are now all space-separated
+    for count, waypoint in enumerate(route.split(' ')):
         #In case it's not upper case, and get rid of extraneous information
-        waypoint = waypoint.upper().split("/")[0]
+        waypoint = waypoint.split("/")[0]
         
-        #Look for airways (e.g. A56, B38, etc)
+        #If the waypoint is not 3 or 5, then we should move on.
+        if not(len(waypoint) in [3,5]):
+            continue
+        
+        #Look for airways (e.g. A56, B38, etc) and ignore them
         if len(waypoint) == 3:
-            if (waypoint[0].isalpha() == True and waypoint[1:].isalpha() == False) or waypoint == "DCT" or waypoint == "DIRECT":
-                #Ignore the waypoint!
+            if (waypoint[0].isalpha() == True and waypoint[1:].isalpha() == False) or waypoint == "DCT":
                 continue
 
-        if len(waypoint) == 5 or len(waypoint) == 3:
-            #Look for waypoint in memo
-            if waypoint in waypoints:
-                #If it's none, then it wasnt found before, so no point in searhcig again!
-                if waypoints[waypoint] == None:
-                    continue
-                #See if distance from previous is too high
-                if previous_loc:
-                    if haversine(previous_loc[0], previous_loc[1], waypoints[waypoint][1], waypoints[waypoint][0]) > 8000:
-                        continue
-                ret.append((waypoint, waypoints[waypoint][0], waypoints[waypoint][1]))
-                previous_loc =  (waypoints[waypoint][1], waypoints[waypoint][0])
-            else:
-                #DB lookup
-                result = c.execute("""SELECT * FROM "waypoints" WHERE "Name" = "%s" """ % waypoint).fetchone()    
-                if result is not None:
-                    #Memoize it
-                    waypoints[waypoint] = (float(result[2])/1000000.0, float(result[3])/1000000.0)
-                    #Haversine formula takes latitude seocnd and lonigtude fist
-                    previous_loc = [float(result[3])/1000000.0, float(result[2])/1000000.0]
-                    ret.append((waypoint, float(result[2])/1000000.0, float(result[3])/1000000.0))
+        #Look for waypoint in memory-stored dictionary of waypoints
+        #Data structure is ===>>    {'Waypoint': [(x, y), (x, y), (x, y)]} #May be one or more location tuples
+        if waypoint in waypoints:
+            #Initially, closest distance is first point in the dictionary, whose index is 0
+            closest_dist = haversine(waypoints[waypoint][0][1], waypoints[waypoint][0][0], previous_waypoint[1], previous_waypoint[0])
+            closest_index = 0
+            
+            #Loop through rest of list of same-named waypoints
+            for count, candidates in enumerate(waypoints[waypoint]):
+                #Compare the distance for current
+                candidate_dist = haversine(previous_waypoint[1], previous_waypoint[0], candidates[1], candidates[0])
+                #We found a candiudate that is even closer!
+                if candidate_dist < closest_dist:
+                    #update the closest dist, and index to current candidate waypoint
+                    closest_dist = candidate_dist
+                    closest_index = count
+                
+                #TO--DO: what is the best candidate waypoint??
+                if closest_dist < 2000:
+                    ret.append((waypoint, waypoints[waypoint][closest_index][0], waypoints[waypoint][closest_index][1]))
+                    previous_waypoint = waypoints[waypoint][count]
+                    #TO--DO LOGGING: log what the closest one was (compare to below in ELSE to see what the points being missed are too)
                 else:
-                    #Waypoint doesnt exist, so lets store None, and 
-                    waypoints[waypoint] = None
+                    #TO--DO LOGGING: we sholuld log the closest candidates - like if there are a bunch/even one ~5000 km away, then we should include them!
+                    pass
+        else:
+            #This is a waypoint that wasnt found (probably log it)
+            #TO-DO LOGGING: log an unknown waypoint?
+            continue
+        
     return ret
     
     
-    
-    
-    
-    
-    
-    
+##############################################
+###       Flask route definitions          ###
+##############################################
     
 @app.route("/")
 def index():
@@ -303,26 +345,31 @@ def index():
     #    raise RuntimeError("API_KEY not set")
     return render_template("index.html", key="AIzaSyBTK9GUrd7sMxjt6EUlHyN9TXPkqb6R0VA")     #os.environ.get("API_KEY"))
     
+    
 @app.route("/update")    
 def update():    
-    #Check for latest file from database
+    ''' This is called by AJAX to return a full update of the plane data '''
+
+    #Open file that is continuously updated by cronupdater.py
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
 
-    ###########################
-    #Jsonify the ATC data !!  #
-    ###########################
-    # - id, name, location, ATC {callsign, cid, name, freq, latitude, longitude, visrange, atismsg, timelogon}, planes {id, dep/arr}
-    #jsondata holds ATC, Planes, Centres, administrative data
+    #Data structure that will be returned;
+    #   holds [ATC, Planes, Centres, administrative data]
     jsondata = [[], [], [], []]
-    tmp_airport_ids = {}            #This keeps id mapping for airports as they are parsed
-    tmp_centres_ids = {}
-    pilot_counter = 0               #Keeps track of Pilot IDs
     
-    #Get results from DB; returned as tuples
+    #This keeps id mapping for airports and centres as they are parsed
+    tmp_airport_ids = {}
+    tmp_centres_ids = {}
+    #new pilots get assigned this ID
+    pilot_counter = 0
+    
+    #Get results from DB; returned as tuples; orderby TYPE (type is ATC or PILOT)
     result = c.execute("""SELECT * FROM "onlines" WHERE "latest"=1 ORDER BY 'type'""").fetchall()
     
-    #ABS(time_updated - %s) < 60
+    #TO--DO LOGGING: if result set length is 0
+    if len(result) == 0:
+        pass
     
     #Index map for results from database
     atc_indices = {"callsign":2, "cid":3, "name":4, "freq":5, "latitude":6, "longitude":7, "visrange":8, "atismsg":9, "timelogon":10}
@@ -330,28 +377,29 @@ def update():
     plane_indices = {"callsign": 2, "cid": 3, "real_name": 4, "latitude": 6, "longitude": 7, "timelogon": 10, "altitude": 12, "speed": 13, "heading": 24, "deptime": 20, "altairport" : 21, \
             "aircraft": 14, "tascruise": 15, "depairport" :16, "arrairport": 18, "plannedaltitude": 17, "flighttype": 19, "remarks": 22, "route": 23}
 
+    #Loop through the result set
     for line in result:
-
-        curr_callsign = line[atc_indices["callsign"]]
+        curr_callsign = line[atc_indices["callsign"]].upper()
         row_type = line[11]         #"pilot" or "atc"
-        #TO--DO: auto delet old entries when greater than one day
         #Check for ATC by Callsign having underscore. There are some logins that say ATC when when piloting...
         if row_type == "ATC":
-            #Either normal ATC, or Centre
-            if "_" in curr_callsign and not("CTR" in curr_callsign or "OBS" in curr_callsign or "SUP" in curr_callsign):
+            #If normal ATC (ASIA is a known ATC that does not have 'ctr' in name but is really a centre)
+            if "_" in curr_callsign and not("CTR" in curr_callsign or "OBS" in curr_callsign or "SUP" in curr_callsign) and not(curr_callsign in ["ASIA"]):
                 #Get icao callsign (SEA --> KSEA)
                 icao = callsign_to_icao(curr_callsign)
-                #TO--DO : ppotentially make curr callsign anm object
+                #TO--DO : ppotentially make curr callsign an object
                 
+                #See if we have run into the ICAO before
                 if not(icao in tmp_airport_ids):
                     #New airport! Make a new ID first
                     new_id = len(jsondata[0])
                     #Returns some data about airport from database, like latitude, long, altitude, full name
                     tmp = callsign_to_loc(curr_callsign)
                     
-                    if not( tmp is None):
+                    if not(tmp is None):
                         new_lat, new_long, new_alt, new_name = tmp
                     else:
+                        #TO--DO: We should log the Callsign, becuase these airports are very problematic!!!
                         new_lat = line[atc_indices["latitude"]]
                         new_long = line[atc_indices["longitude"]]
                         new_alt = 0
@@ -372,13 +420,12 @@ def update():
                 tmp_atc["atctype"] = callsign_to_ATC(curr_callsign)
     
                 jsondata[0][new_id]["atc"].append(tmp_atc)
+                
                 #5 is center which is plotted spearately
                 jsondata[0][new_id]["atc_pic"] = ''.join(sorted(list({str(item["atctype"]) for item in jsondata[0][new_id]["atc"] if item["atctype"] != 5})))
-                #''.join(sorted(list({str(item["atctype"]) for item in jsondata[0][new_id]["atc"] if item["atctype"] != 5})))
-                #(''.join()).replace('5', '')
-                #(''.join(sorted([str(item["atctype"]) for item in jsondata[0][new_id]["atc"]]))).replace('5', '')
-                
-            elif "_" in curr_callsign and "CTR" in curr_callsign:
+            
+            #ASIA is a known non underscore/'CTR' based centre callsign
+            elif ("_" in curr_callsign and "CTR" in curr_callsign) or (curr_callsign in ["ASIA"]):
                 callsign_initials = curr_callsign.split("_")[0]
                 
                 #See if centre present or not
@@ -388,7 +435,6 @@ def update():
                     #Use ATC-idices because we dont want lat/long in ctr_indices (becuase they are kept at a differnet level that dictionarhy comprehension line)
                     new_lat = line[atc_indices["latitude"]]
                     new_lon = line[atc_indices["longitude"]]
-
                     
                     #ATC_pic is which picture to use for the marker on the front end (it's a sorted concatenation of all available ATC). -1 is simple dot no atc
                     ctr_data = {"id": new_id, "icao": callsign_initials, "marker_lat": new_lat, "marker_lon": new_lon, "atc_pic": "0", "atc": [], "polygon": []}
@@ -492,7 +538,7 @@ def update():
             
             #Route is 23
             #TO--DO: WORKING!!!
-            tmp_pilot["detailedroute"] = decode_route(line[23])
+            tmp_pilot["detailedroute"] = decode_route(line[23], (jsondata[0][dep_new_id]["latitude"], jsondata[0][dep_new_id]["longitude"]))
             jsondata[2].append(tmp_pilot)
             
     #Add admin stuff to final json column
@@ -591,7 +637,6 @@ def history():
             jsondata.append([float(time_delta), row[12], row[13]])
 
         return jsonify(jsondata)
-        
         
 @app.route("/metar")    
 def metar():    

@@ -56,9 +56,9 @@
                     <li class="content-buttons" id="online"><a href="#">Online</a></li>
                     <li class="content-buttons" id="planning"><a href="#">Plan</a></li>
                     <li class="content-buttons" id="wx"><a href="#">Wx</a></li>
-                    <!--<li class="content-buttons" id="events"><a href="#">Events</a></li>
+                    <!--<li class="content-buttons" id="events"><a href="#">Events</a></li>-->
                     <li class="content-buttons" id="preferences"><a href="#">Options</a></li>
-                    <li class="content-buttons" id="enroute"><a href="#">Enroute</a></li>-->
+                    <!--<li class="content-buttons" id="enroute"><a href="#">Enroute</a></li>-->
                 </ul>
             </div>
 
@@ -304,10 +304,14 @@ Plus allow searching for METAR at a given airport
                 <p>EVENTS</p>
                 <br />events on VATSIM/VATUSA page, EUD API has something too
                 <br />(if ATC message says "Online until XXXX zulu" take that into consideration)
-            </div>
+            </div>-->
 
             <div id="preferences" class="content-div">
-                <p>show incoming flights on hover
+                <h2>Show</h2>
+                <p>Show Planes : <input type="checkbox" id="showplanes" name="showplanes" value="Show Planes" checked></p>
+                <p>Show Non-ATC Airports : <input type="checkbox" id="showairports" name="showairports" value="Show Airports" checked></p>
+                
+                <!--<p>show incoming flights on hover
                     <br />units (nm/km/miles, kmph/mph/kts, C/F, ft/m etc.)</p>
 
                 <p>Relative importance of weather scoring functions (slider for wind vs temperature, etc.)</p>
@@ -318,10 +322,10 @@ Plus allow searching for METAR at a given airport
                     <br />Show departures only
                     <br />Show all
                     <br />Airborne only/ground/all flights
-                    <br />Airline - filter by airline</p>
+                    <br />Airline - filter by airline</p> -->
             </div>
             
-            <div id="enrouteinfo" class="content-div">
+            <!--<div id="enrouteinfo" class="content-div">
                 <h2>Enroute</h2>
                 <p>if LOGGED IN, show current plane, location, speed, direction, etc.
                     <br />LINKS to current airport's METAR, airport diagram, ILS freq, runway heading, chartsetc.</p>

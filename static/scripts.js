@@ -15,6 +15,7 @@ var mouseY;
 //Array
 var airportLines = [];
 var flightPath;
+var airportCircles = []
 //holds latest weather
 var latest_weather;
 var single_weather;
@@ -53,7 +54,9 @@ var imgs = {0:   'data:image/gif;base64,R0lGODlhCgAKAIQWAA4ODp6enl1dXUZGRiUlJYuL
 16:  'data:image/gif;base64,R0lGODdhDgANAIQAAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f39HR0TMzMwUFBejo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAADgANAAAIlQABCBxIsKBBAA8IQADAsCFDChQYTIhAAYBFiwoCNIggYMGEAxQoABgpQcEEAwYmqBxAgQKAlwAoBJhAk6YEChQA6ARAAQKACUAnOHBAgQKAoxQoRIgwoWkBClABSAVAgQKCARMmQKDAFYBXABTCSpgAgIJZswDSUli7loAACnAByJVLoS6FAgkA6N2rl4JfAIADAwgIADs=',
 17:  'data:image/gif;base64,R0lGODdhDAAMAIQAAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHNHR0TMzMwUFBS4uLujo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAADAAMAAAIhQABCBxIsOBACw4iEJAAAACFBQEeWBDAoMIECwAAWGhQwcCECiAPWAAAwEKACihRDrBgAQAACxIAVJhZgYIFCwAAWLAwoYLPCgkgWLAAAIAFCwgqKC1goSkAABaiDqgAQIKFqwAAWNhKoYIAC2AtAABgoawFAgosqLUAAICFtxYKAJg7NyAAOw==',
 18:  'data:image/gif;base64,R0lGODlhCgAKAIQWAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHNHR0TMzMwUFBS4uLujo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABYALAAAAAAKAAoAAAhcACksCPDAggUHEQhIsNCggoEJAhhUmGDBQoAKGDMesGBBAoAKICsMsEDSwoQKKCtQsMDSAoIKMBNAsECT5oAKFQpY2MmTQgUAEiwIHWqBgAALSJMiLaDAglMLAQEAOw==',
-19:  'data:image/gif;base64,R0lGODdhDAAMAIQAAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHNHR0TMzMwUFBS4uLujo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAADAAMAAAIhAABCBxIkCCFBQEeWADAsCEACw0qGJhgwUEEAhIAALAQoIJHAQwqTLAAAIAFCQAqqFR5wAIAABYsTKhAs8IACxYAWLCAoIJPnxQsWABgoeiAChUSQLBgAQAAC1ApVKhQwIJVAAAsaLVAAIAEC2ABALBA1kIBARbSWgDAti0ABRbiWgAQEAA7'}
+19:  'data:image/gif;base64,R0lGODdhDAAMAIQAAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHNHR0TMzMwUFBS4uLujo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAADAAMAAAIhAABCBxIkCCFBQEeWADAsCEACw0qGJhgwUEEAhIAALAQoIJHAQwqTLAAAIAFCQAqqFR5wAIAABYsTKhAs8IACxYAWLCAoIJPnxQsWABgoeiAChUSQLBgAQAAC1ApVKhQwIJVAAAsaLVAAIAEC2ABALBA1kIBARbSWgDAti0ABRbiWgAQEAA7'
+    
+}
 
 // execute when the DOM is fully loaded
 $(document).ready(function() {
@@ -161,6 +164,28 @@ $(document).ready(function() {
         filterOnlines($("#filtertext").val());
     });
 
+    //Preferences
+    $("#showplanes").on("click", function() {
+        for (var i = 0; i < planes.length; i++) {
+            if (this.checked) {
+                planes[i].setMap(map);
+            } else {
+                planes[i].setMap(null);
+            }
+        }
+    });
+
+    $("#showairports").on("click", function() {
+        for (var i = 0; i < airports.length; i++) {
+            if (this.checked) {
+                airports[i].setMap(map);
+            } else {
+                //Hide if non-ATCd
+                airports[i].setMap(null);
+            }
+        }
+    });
+
     $("#get_metar").on("click", function() {
         get_metar($("#metarquery").val());
     })
@@ -185,8 +210,8 @@ $(document).ready(function() {
 
 //Add listener for global mouse position; used to display hover window next to mouse
 $(document).on('mousemove', function(event) {
-    mouseX = event.pageX;
-    mouseY = event.pageY;
+    mouseX = 0;//event.pageX;
+    mouseY = 0;//event.pageY;
 });
 
 //Called for each airplane. Throws up airplanes on the map
@@ -224,7 +249,7 @@ function addPlane(data) {
             });
         }
 
-        //To do get AJAX to get full history
+        //Get origin and destination locations
         for (var j = 0; j < latest_json[0].length; j++) {
             if (latest_json[0][j]["id"] === data["depairport_id"]) {
                 d_coord = {
@@ -243,6 +268,10 @@ function addPlane(data) {
         };
 
 
+        var plane_coord = {
+            lat: parseFloat(data["latitude"]),
+            lng: parseFloat(data["longitude"])
+        };
         var flightPlanCoordinates = [d_coord];
         
         for (var j = 0; j < data["detailedroute"].length; j++) {
@@ -250,9 +279,55 @@ function addPlane(data) {
                 lat: parseFloat(data["detailedroute"][j][1]),
                 lng: parseFloat(data["detailedroute"][j][2])
             };
+            var added_plane = false;
+            //See if plane is in a box from prev location to curr location
+            //if so, a line to it should be drawn
+            prev_point_lat = flightPlanCoordinates[flightPlanCoordinates.length - 1]['lat'];
+            prev_point_lng = flightPlanCoordinates[flightPlanCoordinates.length - 1]['lng'];
+            curr_point_lat = tmppush['lat'];
+            curr_point_lng = tmppush['lng'];
+            
+            //Define Bounding Box, we will check if plane is within this box!
+            var latLogBox = {
+                ix : (Math.min(prev_point_lng, curr_point_lng)) - 2,
+                iy : (Math.max(prev_point_lat, curr_point_lat)) + 2,
+                ax : (Math.max(prev_point_lng, curr_point_lng)) + 2,
+                ay : (Math.min(prev_point_lat, curr_point_lat)) - 2
+            };
+    console.log(latLogBox)
+    //draw box temp
+    /*var rectangle = new google.maps.Rectangle({
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    map: map,
+    bounds: {
+      north: latLogBox.iy,
+      south: latLogBox.ay,
+      east: latLogBox.ax,
+      west: latLogBox.ix
+    }
+  });*/
+
+
+
+            
+            if ((plane_coord.lat <= latLogBox.iy && plane_coord.lat >= latLogBox.ay) && (latLogBox.ix <= plane_coord.lng && plane_coord.lng <= latLogBox.ax)) {
+                //Plane is within bounds, let try pushing it
+                added_plane = true;
+                flightPlanCoordinates.push(plane_coord);
+            };
             flightPlanCoordinates.push(tmppush);
         };
         
+        /*if (added_plane === false) {
+            //Plane wasnt added yet (likely because its on its last leg of journey and the above loop only
+            //goes though total minus 1 legs)
+            flightPlanCoordinates.push(plane_coord);
+        }*/
+        //add arrival airport coordinates
         flightPlanCoordinates.push(a_coord);
         
 
@@ -293,28 +368,61 @@ function addPlane(data) {
 
 
 
+function addATCMarker(type, latitude, longitude){
+    //This function adds a marker of the given size at the given latitude and longitude
+    //Type definitions are as defined in the backend (0 for ATIS, 1 CLNC, etc.)
+    //For radii of circles
+    if (type === 5 || type === 6) {
+        return;
+    }
+    radii = {
+        //ATC Type: [Raduis of circle, color of circle]
+        0: [18000, "#cccc00"],
+        1: [55000, "#0066ff"],
+        2: [75000, "#009933"],
+        3: [100000, "#ff0000"],
+        4: [175000, "#9933ff"],
+        5: [0, "#fff"],
+        6: [0, "#fff"]
+    };
+
+//TO--DO: add logic for adding centres
+
+    var Circle = new google.maps.Circle({
+        strokeColor: radii[type][1],
+        strokeOpacity: 1,
+        strokeWeight: 2.5,
+        fillColor: radii[type][1],
+        fillOpacity: 0.45,
+        map: map,
+        center: {lat: latitude, lng: longitude},
+        radius: radii[type][0],
+        //Base is for our purposes
+        baseSize: radii[type][0]
+    });
+    //Add airport to circle
+    airportCircles.push(Circle);
+}
 
 //called as JSON data is being parsed, to add marker to map
 function addAirport(data) {
     //create latitude and longitude
     var lls = new google.maps.LatLng(parseFloat(data["latitude"]), parseFloat(data["longitude"]));
-    var image;
-
-    //TO--DO: image size should scale based on zoom level; this should go in map event listener also
-    if (data["atc"].length === 0) { // && map.getZoom() > 5) {
-        //Just draw a dot
-        image = "http://conferences.shrm.org/sites/all/themes/sessions/images/dot76923C.png";
-    } else { //if (map.getZoom() > 5) {
-        //There is ATC avialabe, so show the proper icon for it
-        image = "http://zaritsky.ca/wp-content/uploads/2014/05/dot2-2.png";
-        //var image = "http://abid.a2hosted.com/" + data["atc_pic"] + ".png";
+    var image = "http://conferences.shrm.org/sites/all/themes/sessions/images/dot76923C.png";
+    
+    if (data["atc"].length !== 0) {
+        //There is ATC so lets draw circles!
+        for (var i = data["atc_pic"].length - 1; i > -1; i--) {
+                addATCMarker(data["atc_pic"][i], data['latitude'], data['longitude']);
+        }
+    }
         
         //Loop through each ATC and add to online table
         data['atc'].forEach(function(val) {
             //Update online table
             $("#tablefilterATC tbody").append("<tr><td>"+data['name']+"</td><td>"+val['callsign']+"</td><td>"+val['freq']+"</td><td>"+val['name']+"</td></tr>");
         });
-    }
+    
 
     //create the marker, attach to map
     var m = new google.maps.Marker({
@@ -807,6 +915,11 @@ function removeMarkers() {
     }
     airportLines = [];
 
+    //Hide all airport circles
+    for (var i = 0; i < airportCircles.length; i++) {
+        airportCircles[i].setMap(null);
+    }
+    airportCircles = [];
 }
 
 
@@ -848,7 +961,12 @@ function configure() {
 
     // update UI after zoom level changes
     google.maps.event.addListener(map, "zoom_changed", function() {
-        //hideHoverWindow();
+        //Zoom the map Circles proportionately to the current zoom level 
+        if (map.getZoom() !== 0) {
+            airportCircles.forEach(function(airport) {
+                airport.setRadius(airport.baseSize * (1 / map.getZoom()) * 6);
+            });
+        }
         update();
     });
 
