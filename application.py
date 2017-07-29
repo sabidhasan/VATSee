@@ -399,7 +399,7 @@ def update():
                     if not(tmp is None):
                         new_lat, new_long, new_alt, new_name = tmp
                     else:
-                        #TO--DO: We should log the Callsign, becuase these airports are very problematic!!!
+                        #TO--DO LOGGING: We should log the Callsign, becuase these airports are very problematic!!!
                         new_lat = line[atc_indices["latitude"]]
                         new_long = line[atc_indices["longitude"]]
                         new_alt = 0
@@ -427,7 +427,10 @@ def update():
             #ASIA is a known non underscore/'CTR' based centre callsign
             elif ("_" in curr_callsign and "CTR" in curr_callsign) or (curr_callsign in ["ASIA"]):
                 callsign_initials = curr_callsign.split("_")[0]
-                
+
+                tmp_ctr_atc = {item: line[value] for item, value in ctr_indices.items()}
+                tmp_ctr_atc["atctype"] = 5
+
                 #See if centre present or not
                 if not(callsign_initials in tmp_centres_ids):
                     #New airport! Make a new ID first
@@ -446,8 +449,6 @@ def update():
                     #Airport already exists
                     new_id = tmp_centres_ids[callsign_initials]
 
-                tmp_ctr_atc = {item: line[value] for item, value in ctr_indices.items()}
-                tmp_ctr_atc["atctype"] = 5
             
                 jsondata[1][new_id]["atc"].append(tmp_ctr_atc)
                 

@@ -4,6 +4,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 import sqlite3, time, requests
 from datetime import datetime
 from shutil import copyfile
+import random
 
 def flightlevel_to_feet(flightlevel):
     '''Function recieves something like 'FL360' and returns 36000'''
@@ -51,10 +52,15 @@ def update_db():
         c.execute("""UPDATE "onlines" SET "latest"="0" """)
         print("Latest status for old entries set")
         #Need to update database!
+
         #TO--DO randomize server
         #http://status.vatsim.net/status.txt
+        vatsim_urls = ["http://info.vroute.net/vatsim-data.txt", "http://data.vattastic.com/vatsim-data.txt", \
+            "http://vatsim.aircharts.org/vatsim-data.txt", "http://vatsim-data.hardern.net/vatsim-data.txt", \
+            "http://wazzup.flightoperationssystem.com/vatsim/vatsim-data.txt"]
         print("Downloading latest file")
-        r = requests.get('http://data.vattastic.com/vatsim-data.txt').text
+        random_url = random.choice(vatsim_urls)
+        r = requests.get(random_url).text
         print("Downloaded successfully, now parsing")
         #TO--DO: tupleise this injection ot prevent db attacks
         for line in r.split("\n"):
