@@ -40,6 +40,9 @@ metars = {}
 airlines = {}
 #Waypoint Data will be stored in memory which significantly speeds up access
 waypoints = {}
+#List of countries (as Country objects) for purposes of testing whether a certian geographical point (that plane is at)
+#is within that country
+nations = []        
 
 
 #TO--DO LOGGING: log application has started
@@ -319,20 +322,86 @@ def decode_route(route, departure_airport):
                     closest_dist = candidate_dist
                     closest_index = count
                 
-                #TO--DO: what is the best candidate waypoint??
-                if closest_dist < 2000:
-                    ret.append((waypoint, waypoints[waypoint][closest_index][0], waypoints[waypoint][closest_index][1]))
-                    previous_waypoint = waypoints[waypoint][count]
-                    #TO--DO LOGGING: log what the closest one was (compare to below in ELSE to see what the points being missed are too)
-                else:
-                    #TO--DO LOGGING: we sholuld log the closest candidates - like if there are a bunch/even one ~5000 km away, then we should include them!
-                    pass
+            #TO--DO: what is the best candidate waypoint??
+            if closest_dist < 1000000:
+                ret.append((waypoint, waypoints[waypoint][closest_index][0], waypoints[waypoint][closest_index][1]))
+                previous_waypoint = waypoints[waypoint][count]
+                #TO--DO LOGGING: log what the closest one was (compare to below in ELSE to see what the points being missed are too)
+            else:
+                #TO--DO LOGGING: we sholuld log the closest candidates - like if there are a bunch/even one ~5000 km away, then we should include them!
+                pass
         else:
             #This is a waypoint that wasnt found (probably log it)
-            #TO-DO LOGGING: log an unknown waypoint?
+            #TO-DO LOGGING: log an unknown waypoint?, unless it has "/" in it
             continue
         
     return ret
+
+#Country memebership (for detemining whether plane is in certain country)
+#class countries():
+#    ''' This class represents a country, containing its name, polygonal coordinates, and an 'outer box' containing the
+#        country in its entirety. The purpose of it is to allow testing of membership of a point within a certain nation '''
+#        
+#    def __init__(self, name, data):
+#        #Name is country name, data is specialized data obtained from Longitude Latitude Dataset for Countries
+#        #https://fusiontables.google.com/DataSource?docid=1uL8KJV0bMb7A8-SkrIe0ko2DMtSypHX52DatEE4#rows:id=1
+#        self.name = name
+#        self.coords = [(float(item.split(',')[0]), float(item.split(',')[1])) for item in data if item]
+#        self.xmin = min(self.coords, key=lambda x: x[0])[0]
+#        self.xmax = max(self.coords, key=lambda x: x[0])[0]
+#        self.ymin = min(self.coords, key=lambda x: x[1])[1]
+#        self.ymax = max(self.coords, key=lambda x: x[1])[1]
+#
+#    def test_membership(self, x, y):
+#        #Determines whether given geographical point x, y is in this country
+#
+#        #First we do a rough test to see whether this point is within the outer box (this is a fast calculation)
+#        if (float(x) >= self.xmin and float(x) <= self.xmax and float(y) >= self.ymin and float(y) <= self.ymax) == False:
+#            return False
+#        
+#        #This is the RAY CASTING method, adapted from :
+#        #https://stackoverflow.com/questions/36399381/whats-the-fastest-way-of-checking-if-a-point-is-inside-a-polygon-in-python
+#        
+#        n = len(self.coords)
+#        inside = False
+#        
+#        x = float(x)
+#        y = float(y)
+#        
+#        p1x, p1y = self.coords[0]
+#        for i in range(n + 1):
+#            p2x, p2y = self.coords[i % n]
+#            if y > min(p1y, p2y):
+#                if y <= max(p1y, p2y):
+#                    if x <= max(p1x, p2x):
+#                        if p1y != p2y:
+#                            xints = (y - p1y) * (p2x - p1x) / (p2y - p1y) + p1x
+#                        if p1x == p2x or x <= xints:
+#                            inside = not inside
+#            p1x, p1y = p2x, p2y
+#        return inside        
+#
+#with open('countries.txt') as f:
+#    for line in f.readlines():
+#        try:
+#            tmp = line.strip().split('"')
+#            country = tmp[2].split(",")[-3]
+#            data = re.sub('<[/]?[A-Za-z]*>', '', tmp[1]).split(',0')
+#            nations.append(countries(country, data))
+#        except IndexError:
+#            continue
+#
+#def country_by_location(lat, lon):
+#    ''' This function loops through countries generated above to determine which country contains the given geographical point '''
+#    lat = float(lat)
+#    lon = float(lon)
+#    
+#    for nation in nations:
+##        return lat
+#        #return nation.test_membership()
+#        if nation.test_membership(lon, lat) == True:
+#            return nation.name
+#    return "International territory"
     
     
 ##############################################
@@ -536,7 +605,7 @@ def update():
             tmp_pilot["airline_callsign"] = airline_callsign
             tmp_pilot["airline_short"] = airline_short
             tmp_pilot["airline_flightnum"] = flight_num
-            
+#            tmp_pilot["current_country"] = country_by_location(tmp_pilot["latitude"], tmp_pilot["longitude"])
             #Route is 23
             #TO--DO: WORKING!!!
             tmp_pilot["detailedroute"] = decode_route(line[23], (jsondata[0][dep_new_id]["latitude"], jsondata[0][dep_new_id]["longitude"]))

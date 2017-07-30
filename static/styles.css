@@ -132,7 +132,17 @@ h4 {
     background-color: darkgreen;
     height: 5px;
 }
-
+#selectedpilotcid, #selectedlogontime {
+    float:left;
+}
+.selectedcommunication {
+    float: right;
+    width: 8%;
+    display: none;
+}
+#selectedplanehistory {
+    clear:both;
+}
 .deparricao {
     
     display: block;
@@ -231,4 +241,9 @@ h5 {
   margin: 1.5em 10px;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
+}
+
+#preferences select {
+    display: block;
+    margin: 0 25px 25px 25px;
 }

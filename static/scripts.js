@@ -175,17 +175,6 @@ $(document).ready(function() {
         }
     });
 
-    $("#showairports").on("click", function() {
-        for (var i = 0; i < airports.length; i++) {
-            if (this.checked) {
-                airports[i].setMap(map);
-            } else {
-                //Hide if non-ATCd
-                airports[i].setMap(null);
-            }
-        }
-    });
-
     $("#get_metar").on("click", function() {
         get_metar($("#metarquery").val());
     })
@@ -200,7 +189,10 @@ $(document).ready(function() {
 
 
 
-
+function convertUnits(value, origin) {
+    //This function converts units to desired units (as set on preferences page
+    //UPDATE ALL STATIC TABLE HEADINGS!!
+}
 
 
 
@@ -256,18 +248,15 @@ function addPlane(data) {
                     lat: latest_json[0][j]["latitude"],
                     lng: latest_json[0][j]["longitude"]
                 };
-                //alert("Departing "  + latest_json[0][j]["name"] + " icao " +  latest_json[0][j]["icao"])                 
             }
             if (latest_json[0][j]["id"] === data["arrairport_id"]) {
                 a_coord = {
                     lat: latest_json[0][j]["latitude"],
                     lng: latest_json[0][j]["longitude"]
                 };
-                //alert("arriving "  + latest_json[0][j]["name"] + " icao "  + latest_json[0][j]["icao"])                 
             }
         };
-
-
+        //Current plane position
         var plane_coord = {
             lat: parseFloat(data["latitude"]),
             lng: parseFloat(data["longitude"])
@@ -279,6 +268,7 @@ function addPlane(data) {
                 lat: parseFloat(data["detailedroute"][j][1]),
                 lng: parseFloat(data["detailedroute"][j][2])
             };
+
             var added_plane = false;
             //See if plane is in a box from prev location to curr location
             //if so, a line to it should be drawn
@@ -289,32 +279,13 @@ function addPlane(data) {
             
             //Define Bounding Box, we will check if plane is within this box!
             var latLogBox = {
-                ix : (Math.min(prev_point_lng, curr_point_lng)) - 2,
-                iy : (Math.max(prev_point_lat, curr_point_lat)) + 2,
-                ax : (Math.max(prev_point_lng, curr_point_lng)) + 2,
-                ay : (Math.min(prev_point_lat, curr_point_lat)) - 2
+                ix : (Math.min(prev_point_lng, curr_point_lng)) - 0,
+                iy : (Math.max(prev_point_lat, curr_point_lat)) + 0,
+                ax : (Math.max(prev_point_lng, curr_point_lng)) + 0,
+                ay : (Math.min(prev_point_lat, curr_point_lat)) - 0
             };
-    console.log(latLogBox)
-    //draw box temp
-    /*var rectangle = new google.maps.Rectangle({
-    strokeColor: '#FF0000',
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: '#FF0000',
-    fillOpacity: 0.35,
-    map: map,
-    bounds: {
-      north: latLogBox.iy,
-      south: latLogBox.ay,
-      east: latLogBox.ax,
-      west: latLogBox.ix
-    }
-  });*/
 
-
-
-            
-            if ((plane_coord.lat <= latLogBox.iy && plane_coord.lat >= latLogBox.ay) && (latLogBox.ix <= plane_coord.lng && plane_coord.lng <= latLogBox.ax)) {
+            if ((plane_coord.lat <= latLogBox.iy && plane_coord.lat >= latLogBox.ay) && (latLogBox.ix <= plane_coord.lng && plane_coord.lng <= latLogBox.ax) && added_plane === false) {
                 //Plane is within bounds, let try pushing it
                 added_plane = true;
                 flightPlanCoordinates.push(plane_coord);
@@ -322,11 +293,6 @@ function addPlane(data) {
             flightPlanCoordinates.push(tmppush);
         };
         
-        /*if (added_plane === false) {
-            //Plane wasnt added yet (likely because its on its last leg of journey and the above loop only
-            //goes though total minus 1 legs)
-            flightPlanCoordinates.push(plane_coord);
-        }*/
         //add arrival airport coordinates
         flightPlanCoordinates.push(a_coord);
         
@@ -561,9 +527,8 @@ function prettifyPlaneData(data) {
     r += "<tr><td><span>Flight Type</span></td>" + "<td>" + data["flighttype"] + "</td></tr>";
     r += "<tr><td><span>Route</span></td>" + "<td>" + data["route"] + "</td></tr>";
     
-    r += "<tr><td><span>Detailed Route</span></td>" + "<td>" + data["detailedroute"].length + "</td></tr>";
+//    r += "<tr><td><span>Current Country</span></td>" + "<td>" + data["current_country"] + "</td></tr>";
     
-
     r += "</table>";
     return r;
 }
@@ -674,12 +639,17 @@ function showSelectedInfo() {
                             if (data[0][k]['distance_from_airport'] === 0) {
                                 distance = "-";
                             } else {
+                                //convertUnits --- FUNCTION WILL PLAY HERE
                                 distance = data[0][k]['distance_from_airport'];
                             }
                             tmp += "<td>" + callsign + " </td>";
                             tmp += "<td>" + data[0][k]['planned_depairport'] + "</td>";
                             tmp += "<td>" + distance + "</td>";
+                            
+                            //convertUnits --- FUNCTION WILL PLAY HERE
                             tmp += "<td>" + data[0][k]['altitude'] + " </td>";
+                            
+                            //convertUnits --- FUNCTION WILL PLAY HERE
                             tmp += "<td>" + data[0][k]['groundspeed'] + " </td>";
                             tmp += "<td>" + data[0][k]['heading'] + " </td>";
                             tmp += "<td>" + data[0][k]['planned_aircraft'] + " </td>";
@@ -712,6 +682,7 @@ function showSelectedInfo() {
                             if (data[1][k]['distance_from_airport'] === 0) {
                                 distance = "-";
                             } else {
+                                //convertUnits --- FUNCTION WILL PLAY HERE
                                 distance = data[1][k]['distance_from_airport'];
                             }
 
@@ -720,7 +691,11 @@ function showSelectedInfo() {
                             tmp += "<td>" + data[1][k]['planned_deptime'] + " </td>";
                             tmp += "<td>" + data[1][k]['planned_destairport'] + " </td>";
                             tmp += "<td>" + distance + "</td>";
+                            
+                            //convertUnits --- FUNCTION WILL PLAY HERE
                             tmp += "<td>" + data[1][k]['altitude'] + "</td>";
+                            
+                            //convertUnits --- FUNCTION WILL PLAY HERE
                             tmp += "<td>" + data[1][k]['groundspeed'] + " </td>";
                             tmp += "<td>" + data[1][k]['heading'] + " </td>";
                             tmp += "<td>" + data[1][k]['planned_aircraft'] + " </td>";
@@ -779,6 +754,8 @@ function showSelectedInfo() {
 
                 //update the progress bar
                 $("#selectedprog").css("width", dist_left / (dist_trav + dist_left)*100 + "%");
+                
+                //convertUnits --- FUNCTION WILL PLAY HERE
                 $("#selectedprogbar span").text(Math.round(dist_left) + ' / ' + Math.round(dist_trav + dist_left) + ' km flown');
                 
                 $("#selectedalt").html('<span>Alternate Airport:</span> ' + latest_json[2][j]['altairport']);
@@ -788,14 +765,29 @@ function showSelectedInfo() {
                 $("#selectedairlinecountry").html('<span>Airline Country:</span> ' + latest_json[2][j]['airline_country']);
                 
                 $("#selectedheading").html('<span>Heading:</span> ' + latest_json[2][j]['heading']);
+                
+                //convertUnits --- FUNCTION WILL PLAY HERE
                 $("#selectedspeed").html('<span>Speed:</span> ' + latest_json[2][j]['speed']);
+                
+                //convertUnits --- FUNCTION WILL PLAY HERE
                 $("#selectedaltitude").html('<span>Altitude:</span> ' + latest_json[2][j]['altitude'] + '(planned ' + latest_json[2][j]['plannedaltitude'] + ')');
                 $("#selectedroute").html('<span>Route:</span> ' + latest_json[2][j]['route']);
                 $("#selectedposition").html('<span>Current Position:</span> ' + latest_json[2][j]['latitude'] + ', ' + latest_json[2][j]['longitude']);
-                $("#selectedflyingover").html('<span>Current Position:</span> ' + getCountry(plat, plong));
+//                $("#selectedflyingover").html('<span>Current Position:</span> ' + latest_json[2][j]['current_country']);
     
                 $("#selectedpilotcid").html('<span>Pilot ID / Name:</span> ' + latest_json[2][j]['cid'] + ' ' + latest_json[2][j]['real_name']);
                 $("#selectedpilotlogontime").html('<span>Pilot Logon Time</span> ' + latest_json[2][j]['timelogon']);
+                $("#selectedpilotremarks").html('<span>Remarks</span> ' + latest_json[2][j]['remarks']);
+
+                //Set voice or text only method (based on remarks from vatsim)
+                if (latest_json[2][j]["remarks"].indexOf('/v') != -1) {
+                    //Voice enabled!
+                    $("#selectedcommmic").show()
+                    $("#selectedcommtext").hide()
+                } else {
+                    $("#selectedcommmic").hide()
+                    $("#selectedcommtext").show()
+                }
 
                 //TO--DO : add status (similar to backend) Status
 
@@ -816,25 +808,24 @@ function showSelectedInfo() {
                             
                             //Loop through JSON data to add rows
                             for (var m = 0; m < data.length; m++) {
+                                
+                                //convertUnits --- FUNCTION WILL PLAY HERE
                                 chart_data.addRows([[data[m][0]/3600, data[m][1], data[m][2]]]);
                             }
                             
                             //Options for the chart
                             var chart_options = {
                                 title: 'History',
-                                //width: 900,
-                                //height: 500,
                                 // Gives each series an axis that matches the vAxes number below.
                                 series: {
                                   0: {targetAxisIndex: 0},
                                   1: {targetAxisIndex: 1}
                                 },
-                             /*   hAxis: {
-                                    ticks: []
-        },*/
 
                                 vAxes: {
                                   // Adds titles to each axis.
+                                  
+                                  //convertUnits --- FUNCTION WILL PLAY HERE
                                   0: {title: 'Altitude (ft)'},
                                   1: {title: 'Speed (kts)'}
                                 },
@@ -1077,9 +1068,17 @@ function get_metar(stationid) {
             $("#metarresults_category").text(data['category']);
             $("#metarresults_rawtext blockquote span").text(data['raw_text']);
             $("#metarresults_time").text(data['time']);
+            
+            //convertUnits --- FUNCTION WILL PLAY HERE
             $("#metarresults_winddirspeed").html('<img src="http://abid.a2hosted.com/plane' + Math.round(data["wind_dir"] / 10) % 36 + '.gif">   (' + data['wind_dir'] + ')  ' +  data['wind']);
+            
+            //convertUnits --- FUNCTION WILL PLAY HERE
             $("#metarresults_clouds").text(data['clouds']);
+            
+            //convertUnits --- FUNCTION WILL PLAY HERE
             $("#metarresults_visibility").text(data['visibility']);
+            
+            //convertUnits --- FUNCTION WILL PLAY HERE
             $("#metarresults_tempdewpoint").text(data['temp']);
             $("#metarresults_altimeter").text(data['altimeter']);
             $("#metarresults_sealevelpressure").text(data['sealevelpressure']);
