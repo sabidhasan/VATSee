@@ -19,6 +19,7 @@ var airportCircles = []
 //holds latest weather
 var latest_weather;
 var single_weather;
+//How often to update
 var imgs = {0:   'data:image/gif;base64,R0lGODlhCgAKAIQWAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHNHR0TMzMwUFBS4uLujo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABYALAAAAAAKAAoAAAhcAC0ItKCggIWDCA8KIGChoUMLEgBUoGChosUCFSoMsMCRI4QEFUIisEDSAoUKKCtMsMDSwoAKMCsAkGDBwoEKOHMGsGBhQgUGAiYYqNDAggQCERxYsPAgwAIKAQEAOw==',
 1: 'data:image/gif;base64,R0lGODdhDAAMAIQAAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHNHR0TMzMwUFBS4uLujo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAADAAMAAAIhAABCBxIkKCFgxYUAFjIEICFhxYEFLBA0QIAABYySgBAwIJHCwAAWBhZoEIFChZSAgBgwQKEBBUqDLBAE4AFCxQq6NSJwIIFABYsDKhAtMIECxYAALBwoIJTpwAkWAAAwMKECgwEVNgawAIAABIIRHBgYYKBCg0sAFjLFoCFBwEWUAAQEAA7',
 20:  'data:image/gif;base64,R0lGODdhDQAOAIQAAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHDMzMwUFBejo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAADQAOAAAImAABCBxIsKBACQASKlwIgAIFBQEaAJhIcSKFABMMRKBAgQGAjx8pQJhAUsCCBwQgAABAgQIEABNixoxAAQAAChQiTNg5YcCEAxQAAKBAAcGEoxMkUKAAAACFpxQGTJiQwAEFCgAAUNgqYQKAAhTCUgAAgIJZCgQAQKDAFoBbtxQKFBBAoS4FAHjz4qXAly+Av4ADA6AAoHBAADs=',
@@ -186,14 +187,6 @@ $(document).ready(function() {
     });
 
 });
-
-
-
-function convertUnits(value, origin) {
-    //This function converts units to desired units (as set on preferences page
-    //UPDATE ALL STATIC TABLE HEADINGS!!
-}
-
 
 
 
@@ -639,17 +632,12 @@ function showSelectedInfo() {
                             if (data[0][k]['distance_from_airport'] === 0) {
                                 distance = "-";
                             } else {
-                                //convertUnits --- FUNCTION WILL PLAY HERE
                                 distance = data[0][k]['distance_from_airport'];
                             }
                             tmp += "<td>" + callsign + " </td>";
                             tmp += "<td>" + data[0][k]['planned_depairport'] + "</td>";
                             tmp += "<td>" + distance + "</td>";
-                            
-                            //convertUnits --- FUNCTION WILL PLAY HERE
                             tmp += "<td>" + data[0][k]['altitude'] + " </td>";
-                            
-                            //convertUnits --- FUNCTION WILL PLAY HERE
                             tmp += "<td>" + data[0][k]['groundspeed'] + " </td>";
                             tmp += "<td>" + data[0][k]['heading'] + " </td>";
                             tmp += "<td>" + data[0][k]['planned_aircraft'] + " </td>";
@@ -682,7 +670,6 @@ function showSelectedInfo() {
                             if (data[1][k]['distance_from_airport'] === 0) {
                                 distance = "-";
                             } else {
-                                //convertUnits --- FUNCTION WILL PLAY HERE
                                 distance = data[1][k]['distance_from_airport'];
                             }
 
@@ -691,11 +678,7 @@ function showSelectedInfo() {
                             tmp += "<td>" + data[1][k]['planned_deptime'] + " </td>";
                             tmp += "<td>" + data[1][k]['planned_destairport'] + " </td>";
                             tmp += "<td>" + distance + "</td>";
-                            
-                            //convertUnits --- FUNCTION WILL PLAY HERE
                             tmp += "<td>" + data[1][k]['altitude'] + "</td>";
-                            
-                            //convertUnits --- FUNCTION WILL PLAY HERE
                             tmp += "<td>" + data[1][k]['groundspeed'] + " </td>";
                             tmp += "<td>" + data[1][k]['heading'] + " </td>";
                             tmp += "<td>" + data[1][k]['planned_aircraft'] + " </td>";
@@ -755,7 +738,6 @@ function showSelectedInfo() {
                 //update the progress bar
                 $("#selectedprog").css("width", dist_left / (dist_trav + dist_left)*100 + "%");
                 
-                //convertUnits --- FUNCTION WILL PLAY HERE
                 $("#selectedprogbar span").text(Math.round(dist_left) + ' / ' + Math.round(dist_trav + dist_left) + ' km flown');
                 
                 $("#selectedalt").html('<span>Alternate Airport:</span> ' + latest_json[2][j]['altairport']);
@@ -763,18 +745,12 @@ function showSelectedInfo() {
                 $("#selectedaircraft").html('<span>Aircraft:</span> ' + latest_json[2][j]['aircraft']);
                 $("#selectedairline").html('<span>Airline Name:</span> ' + latest_json[2][j]['airline_name']);
                 $("#selectedairlinecountry").html('<span>Airline Country:</span> ' + latest_json[2][j]['airline_country']);
-                
                 $("#selectedheading").html('<span>Heading:</span> ' + latest_json[2][j]['heading']);
-                
-                //convertUnits --- FUNCTION WILL PLAY HERE
                 $("#selectedspeed").html('<span>Speed:</span> ' + latest_json[2][j]['speed']);
-                
-                //convertUnits --- FUNCTION WILL PLAY HERE
                 $("#selectedaltitude").html('<span>Altitude:</span> ' + latest_json[2][j]['altitude'] + '(planned ' + latest_json[2][j]['plannedaltitude'] + ')');
                 $("#selectedroute").html('<span>Route:</span> ' + latest_json[2][j]['route']);
                 $("#selectedposition").html('<span>Current Position:</span> ' + latest_json[2][j]['latitude'] + ', ' + latest_json[2][j]['longitude']);
 //                $("#selectedflyingover").html('<span>Current Position:</span> ' + latest_json[2][j]['current_country']);
-    
                 $("#selectedpilotcid").html('<span>Pilot ID / Name:</span> ' + latest_json[2][j]['cid'] + ' ' + latest_json[2][j]['real_name']);
                 $("#selectedpilotlogontime").html('<span>Pilot Logon Time</span> ' + latest_json[2][j]['timelogon']);
                 $("#selectedpilotremarks").html('<span>Remarks</span> ' + latest_json[2][j]['remarks']);
@@ -808,8 +784,6 @@ function showSelectedInfo() {
                             
                             //Loop through JSON data to add rows
                             for (var m = 0; m < data.length; m++) {
-                                
-                                //convertUnits --- FUNCTION WILL PLAY HERE
                                 chart_data.addRows([[data[m][0]/3600, data[m][1], data[m][2]]]);
                             }
                             
@@ -824,8 +798,6 @@ function showSelectedInfo() {
 
                                 vAxes: {
                                   // Adds titles to each axis.
-                                  
-                                  //convertUnits --- FUNCTION WILL PLAY HERE
                                   0: {title: 'Altitude (ft)'},
                                   1: {title: 'Speed (kts)'}
                                 },
@@ -977,7 +949,7 @@ function update() {
             if (data[3][0]["time_updated"] - update_time === 0) {
                 //No change
                 console.log("No change detected!")
-                return null;
+                //return null;
             }
             
             //Update local cache
@@ -1069,16 +1041,9 @@ function get_metar(stationid) {
             $("#metarresults_rawtext blockquote span").text(data['raw_text']);
             $("#metarresults_time").text(data['time']);
             
-            //convertUnits --- FUNCTION WILL PLAY HERE
             $("#metarresults_winddirspeed").html('<img src="http://abid.a2hosted.com/plane' + Math.round(data["wind_dir"] / 10) % 36 + '.gif">   (' + data['wind_dir'] + ')  ' +  data['wind']);
-            
-            //convertUnits --- FUNCTION WILL PLAY HERE
             $("#metarresults_clouds").text(data['clouds']);
-            
-            //convertUnits --- FUNCTION WILL PLAY HERE
             $("#metarresults_visibility").text(data['visibility']);
-            
-            //convertUnits --- FUNCTION WILL PLAY HERE
             $("#metarresults_tempdewpoint").text(data['temp']);
             $("#metarresults_altimeter").text(data['altimeter']);
             $("#metarresults_sealevelpressure").text(data['sealevelpressure']);
@@ -1087,6 +1052,23 @@ function get_metar(stationid) {
     });
 }
 
+setInterval(function(){
+    var d = new Date();
+    $("#time").text(d.getUTCHours() + ':' + d.getUTCMinutes() + ":" + d.getUTCSeconds() + ' Z ');
+    
+}, 1000);
+
+//Auto update
+setInterval(function() {
+    if ($("#autoupdate").checked() === true) {
+        update();
+        console.log('autoupdate')
+    }
+}, 60000);
+
+$("#prefsrefresh").change(function() {
+    updateInterval = $(this).val();
+});
 
 /*function updateWorstWeather(airport) {
     var type;

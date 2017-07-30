@@ -50,7 +50,17 @@ h4 {
     margin-right: 0.5%;
     top: 90px;
 }
-
+#info-bar {
+    position:relative;
+    float:left;
+    width: 73%;
+    margin-right: 0.5%;
+    top: 90px;
+    border-radius: 2px;
+}
+#info-bar span {
+    float:right;
+}
 #right {
     /*flex-grow:1;*/
     float:right;
