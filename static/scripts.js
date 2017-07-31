@@ -949,7 +949,7 @@ function update() {
             if (data[3][0]["time_updated"] - update_time === 0) {
                 //No change
                 console.log("No change detected!")
-                //return null;
+                return null;
             }
             
             //Update local cache
@@ -1060,15 +1060,12 @@ setInterval(function(){
 
 //Auto update
 setInterval(function() {
-    if ($("#autoupdate").checked() === true) {
+    if (document.getElementById('autoupdate').checked) {
         update();
         console.log('autoupdate')
     }
 }, 60000);
 
-$("#prefsrefresh").change(function() {
-    updateInterval = $(this).val();
-});
 
 /*function updateWorstWeather(airport) {
     var type;

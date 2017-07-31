@@ -1,50 +1,64 @@
-         *  Critical Features to Add:
-              Units function in front end
-              
-              Centre polygon
-              
-              Add logging
-                              log airports at 0,0 lat/lon. These should be entered into database
-                              log all non-parsable lines from reading vatsim txt file
-                              go through code and see possible logging (try except, if blocks, etc.)
-              
-              Why is everything in Liverpool NS?
-              
-              Styling - consult VATAWARE
-              
-              If no departure/arrival airport, then dont draw lines on hover!
-              Deal with aircraft that have no departure/arrival (should have no departure/arrival ID and not draw a line upon hover)
+*  Critical Features to Add:
+      Centre polygons                               3 hr
+          
+      Logging                                       1 hr
+        log airports at 0,0. Entered these in db
+        find logable code (try/except, if)
+          
+      Why is everything in Liverpool NS?            1 hr
+          
+      Styling - consult VATAWARE                    3 hr
+      
+      Tidy hover window:                            0.5 hr
+        Time online, freq, name, METAR, apt diagram
+        Typos in hover window
 
-              JavaScript should add autoupdate every minute
-              
-              Tab: Flight Planning
-              Tab: Weather
-              Tab: Events
-              Tab: Preferences
+      If no airport, dont draw lines on hover!      1 hr
+        Deal with aircraft with no dep/arr
+        Should have no dep/arr ID
+      
+      Filtering
+        On filter, hide planes filtered out         1 hr
+            (keep the latest json index in onlines table - hidden)
+        After update, apply all filters             1 hr
+            (text filter, preferences)
+      
+      Tab: Flight Planning                          4 hr
+      Tab: Weather                                  4 hr
+      Tab: Events                                   4 hr
+          VAT Oceania
+              http://www.vatnz.net/events/org/vatnz/upcoming
+              https://calendar.vatpac.org/
+          VAT South America
+              https://www.vatsim.net.br/eventos/proximos-eventos
+          VAT North America
+              https://api.vatusa.net/events
+              https://www.vatcan.ca/ajax/events
+              https://www.vatame.org/
+          VAT Europe
+              http://api.vateud.net/events.xml
+              https://www.vatsim.net/events
 
-          *  Non Critical relatively Easy:
-               Logon time for ATC should be human readable
+*  Non Critical relatively Easy:
+       Zulu time formatting                         0.1 hr
 
-               Show arrivals and departures sorted by time - currently unsorted (simple fix I think)!
+       Legend for map
+           
+       Stats - users/ATC online, active airpts      0.5 hr
+      
+       Logon time for ATC should==> human readable  0.5 hr
 
-          *  Nice to Have Features (hard):
-                ICAO/VATSIM/PE connection
-                Make the backend into a Class, and call class methods in the "/Update" function, rahter than doing thigns there
+       Arrivals/departures sorted by time           1 hr
 
-                Add hover for info window - time online, frequency, controller name, METAR, airport diagram/procedures etc.
-                ALSO correct typos in that hover window
-                 
-                DELAY
-                        Also, show busiest airports (based on # of departuesx and arrivals)
-                        if not in DB and 0 AGL, then INJECT them into DB
-                        if ARE in DB and 0 AGL, do nothing
-                        if > 0 AGL but <5000 ft and IN DB, then calculate delay (started at 0, but now taken off), DELETE from DB
-                Reduce bandwidth
-                         Plane heading roatation should be done in front end to reduce bandwidth
-                         Airport rings (for ATC) should be generated in front end
-                Improve Performance
-                         Searching through latest_json array      should not be necessary for drawing airport/airplane lines (on hover)
 
-          * Debugging
-                Debug the shit out of route drawing - many things are broken right now (why points appear very far away)
-                Which country airspace for hovered airplanes                TRIED AND FAILED
+
+*  Nice to Have Features (hard):
+        Make the backend into Class
+        Call class methods in the "/Update"
+
+        Improve Performance
+             Searching through latest_json array      should not be necessary for drawing airport/airplane lines (on hover)
+
+* Debugging
+       * Debug route drawing (far away points, no connect to planes)    3 hr
+       * Which country airspace for hovered airplanes                   
