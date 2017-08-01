@@ -7,7 +7,9 @@
           
       Why is everything in Liverpool NS?            1 hr
           
-      Styling - consult VATAWARE                    3 hr
+      Get METAR link under airport for status       0.5 hr
+      
+      Styling - consult VATAWARE                    4 hr
       
       Tidy hover window:                            0.5 hr
         Time online, freq, name, METAR, apt diagram

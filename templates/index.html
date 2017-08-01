@@ -38,7 +38,6 @@
 
     <!-- invisible hover window -->
     <div id="hoverwindow">
-        <img id="infoclose" src="https://images.marksandspencerme.com/wcsstore/FashionStorefrontAssetStore/images/colors/color1/close_normal.png" />
         <div id="hoverinfo"></div>
     </div>
 
@@ -67,7 +66,7 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" id="loadinggif" />
 
                 <div id="selectedpointinfo">
-                    <h2 id="poitext">Selected Point</h2>
+                    <h2 id="poitext"><!-- Javascript will put title of selected point here--></h2>
                     <p id="help">Click on a plane or airport to show more information here!</p>
 
                     <div id="selectedairport">
@@ -99,7 +98,6 @@
                                     <td>Flight #</td>
                                     <td>Dep Time</td>
                                     <td>Dest</td>
-                                    <td>Dist (km)</td>
                                     <td>Alt (ft)</td>
                                     <td>Spd (kts)</td>
                                     <td>Hdg</td>
@@ -130,6 +128,7 @@
                             <span class="deparrname"></span>
                             <span class="deparrtime"></span>
                         </div> 
+                        <img id="selectedrouteimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAN5AAADeQELGyzWAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAR1QTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGXzGQAAAF50Uk5TAAMFBwkKDBATFBkaHyAlJicoKissLzA5P0BBQkVGR01OT1BbXF9gYWhvcHN0d3+AgYKDhI6PkJien6ChpK2vsLy9vr/Awc7P0NjZ2tze3+Dh5Onq6+zt9fb4+fz9/s9AlesAAAKbSURBVHja7ZvXUgMxDEUJvffQO4RO6ITQIfTeO/v/nwEkQNYbO3icQQdmuO/aOQPWjSxLeXn/+hsa2vepHwAIez7dlAEEJ36CZQBg3g/gtcsDtCgARwXiAKFrhWBK/k8QVwAe68QBehUAb1scoPBOJRgSJ1hTAeTNIKICyJtB6VOAQNwMEgGAQ2kzGAkAiJtBZRBA3Az2ggTSZhANAkibQTgDQNoMTjMIlsiiIKk2sCgAzCB0k0kwCRYFKTOoBYuCpBJkUZDUIFgUyJtBRAMgagYZRYG4GSR0AJJmMKIDkDSDKi3Ag6AZ7GkJBM0gqgUQNIOwHkDQDE71BHExgAU9gNcqBdBqADiQMgNdUZBU1LH/NfyhbtuIJQOAoxlsfsa/dFlG9BkAvC0ngPGv+KsKu4iiexNBxAWgIR2/E7ILWTcBXJe6EJynPzBrFzFoAnAzg1g6/qUzh6LA2Qz8hablMdg2AriYQfGj/75rdQxGjQBOZrDp/8CMe1GQMoOaXBLxTc8dNiH7ZgIHM6hXPnBZbhEyaQZwMYNztbixOAZNWQAczCCmfmHaIuQsC0E8p0R8PwaLsW917GUj+D5+bqDalIhiup3J/yLY8BDtNn4CjDEA3kOHNhEFdVGiTURBregTUVDNKYAeDGCCTMR3rbKJ+HYMfwkA/i/ADyGehrQR4VaM/xjRP8d4QYKXZHhRSpfl+MUEv5rRl1P8eo43KPAWDd2kwtt0eKMSb9XizWq8Xf/3HizwJxv60Qp/tsMfLumnW/zxGn++pwcY8BEOfIiFHuPBB5nwUS56mA0f58MHGvGRTnqoFR/rxQeb6dFufLgdH++nFxzwFQ98yYVe88EXnfBVL3rZDV/3wxce8ZVPeukVX/vFF5//9XN6Baqm1LuueiTlAAAAAElFTkSuQmCC" alt=""/>
                         <div id="selectedplaneright">
                             <!-- Arrival ICAO, City-->
                             <span class="deparricao"></span>
@@ -145,7 +144,6 @@
                             
                             <h4>Airline and Airport</h4>
                             <p id="selectedalt">Alternate</p>
-                            <p id="selectedflightnum"><!-- Populated by JS --></p>
                             <p id="selectedaircraft"><!-- Populated by JS --></p>
                             <p id="selectedairline"><!-- Populated by JS --></p>
                             <p id="selectedairlinecountry"><!-- Populated by JS --></p>
@@ -157,7 +155,9 @@
                             <p id="selectedroute"></p>
                             <p id="selectedposition"></p>
                             <p id="selectedflyingover"></p>
-
+                            <p id="selecteddeparturetime"></p>
+                            <p id="selectedflighttype"></p>
+                            
                             <h4>Pilot</h4>
                             <span>
                                 <img class = "selectedcommunication" id = "selectedcommtext" src = "data:image/png;base64,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"/>

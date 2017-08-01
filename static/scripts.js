@@ -124,12 +124,6 @@ $(document).ready(function() {
     // configure UI once Google Map is idle (i.e., loaded)
     google.maps.event.addListenerOnce(map, "idle", configure);
 
-    //info window close button
-    $("#infoclose").on("click", function() {
-        hideHoverWindow();
-    });
-
-
     //Try hide show
     $(".content-div").hide();
     $(".content-div#home").show();
@@ -188,11 +182,6 @@ $(document).ready(function() {
 
 });
 
-
-
-
-
-
 //Add listener for global mouse position; used to display hover window next to mouse
 $(document).on('mousemove', function(event) {
     mouseX = 0;//event.pageX;
@@ -216,8 +205,8 @@ function addPlane(data) {
 
     m.addListener('click', function() {
         //if clicked then show info
-        hideHoverWindow();
-        $("#hoverwindow").css("display", "inline")
+        //hideHoverWindow();
+      //  $("#hoverwindow").css("display", "inline")
         selected_plane = data["id"]
         showSelectedInfo();
     });
@@ -225,14 +214,15 @@ function addPlane(data) {
 
     m.addListener('mouseover', function() {
         //only if no airport is clicked upon, then show the hover for this
-        if (selected_plane === -1 && selected_airport === -1) {
+     //   if (selected_plane === -1 && selected_airport === -1) {
             $("#hoverinfo").html(prettifyPlaneData(data));
             $("#hoverwindow").css({
                 "display": "inline",
                 "top": mouseY + 5,
                 "left": mouseX + 10
             });
-        }
+    
+    
 
         //Get origin and destination locations
         for (var j = 0; j < latest_json[0].length; j++) {
@@ -310,9 +300,10 @@ function addPlane(data) {
         // hideHoverWindow();
         flightPath.setMap(null);
 
-        if (selected_plane === -1 && selected_airport === -1) {
-            hideHoverWindow();
-        }
+       // if (selected_plane === -1 && selected_airport === -1) {
+            $("#hoverwindow").css("display", "none");
+            //hideHoverWindow();
+        //}
 
 
     });
@@ -393,22 +384,19 @@ function addAirport(data) {
     //Expected behavior: hover over marker ==> show window. Hover out ==> hide info window. Click on marker ==> show window until clicked elsewhere
     m.addListener('click', function() {
         //if clicked then show info
-        hideHoverWindow();
-        $("#hoverwindow").css("display", "inline")
         selected_airport = data["id"];
         showSelectedInfo();
     });
 
     m.addListener('mouseover', function() {
-        //only if no airport is clicked upon, then show the hover for this
-        if (selected_plane === -1 && selected_airport === -1) {
+    //only if no airport is clicked upon, then show the hover for this
+//        if (selected_plane === -1 && selected_airport === -1) {
             $("#hoverinfo").html(prettifyAirportData(data));
             $("#hoverwindow").css({
                 "display": "inline",
                 "top": mouseY + 5,
                 "left": mouseX + 10
             });
-        }
 
         //Draw lines
         for (var i = 0, deplen = data["depplanes"].length; i < deplen; i++) {
@@ -475,9 +463,11 @@ function addAirport(data) {
 
     m.addListener('mouseout', function() {
         //if nothing has been clicked on, then hide the info window (ALSO SEE CONFIGURE FUNCTION FOR CLICK EVENT LISTERNERS!)
-        if (selected_plane === -1 && selected_airport === -1) {
-            hideHoverWindow();
-        }
+        $("#hoverwindow").css("display", "none");
+
+//        if (selected_plane === -1 && selected_airport === -1) {
+  //          hideHoverWindow();
+    //    }
         //Hide all airport lines
         for (var i = 0; i < airportLines.length; i++) {
             airportLines[i].setMap(null);
@@ -504,32 +494,11 @@ function centerMapOnPlane(id) {
 
 function prettifyPlaneData(data) {
     //Returns displayable HTML for info window
-    var r = "<span id='infoWindowTitle'>" + data["callsign"] + "</span></br>"; // + "dep id " + data["depairport_id"] + " from json " + latest_json[0][data["depairport_id"]]["icao"]
-    //"dep id " + data["depairport_id"] + ;
-    r += "<span>(Airline: " + data["airline_name"] + ")</span></br></br>";
-
-    r += "<table><tr><td><span>Departure</span></td>" + "<td>" + data["depairport"] + " ft</td></tr>";
-    alt = data["altairport"] ? data["altairport"] : "None"
-    r += "<tr><td><span>Arrival (Alternate)</span></td>" + "<td>" + data["arrairport"] + " (" + alt + ")</td></tr>";
-    r += "<tr><td><span>Aircraft</span></td>" + "<td>" + data["aircraft"] + "</td></tr>";
-    r += "<tr><td><span>Heading</span></td>" + "<td>" + data["heading"] + "</td></tr>";
-    r += "<tr><td><span>Speed (Planned)</span></td>" + "<td>" + data["speed"] + " kts)" + data["tascruise"] + " kts</td></tr>";
-
-    r += "<tr><td><span>Altitude (Planned)</span></td>" + "<td>" + data["altitude"] + "ft (" + data["plannedaltitude"] + " ft) </td></tr>";
-    r += "<tr><td><span>Departure Time</span></td>" + "<td>" + data["deptime"] + "</td></tr>";
-    r += "<tr><td><span>Flight Type</span></td>" + "<td>" + data["flighttype"] + "</td></tr>";
-    r += "<tr><td><span>Route</span></td>" + "<td>" + data["route"] + "</td></tr>";
-    
-//    r += "<tr><td><span>Current Country</span></td>" + "<td>" + data["current_country"] + "</td></tr>";
-    
-    r += "</table>";
-    return r;
+    return "<h4>" + data["callsign"] + "</h4>" + "<p>" + data["depairport"] + " -> " + data["arrairport"] + "</p>";
 }
 
 
 
-
-//Function for formatting data for hover window for airports
 function prettifyAirportData(data) {
     //Returns displayable HTML for info window
     var r = "<span id='infoWindowTitle'>" + data["name"] + "</span></br>";
@@ -568,13 +537,18 @@ function showSelectedInfo() {
         //show the div containing data
         $("#selectedairport").css("display", "block");
         //Make loiading gif visible
-        $("#loadinggif").show();
-
+//        $("#loadinggif").show();
+        var selectedlat, selectedlon;
         //Loop through local JSON cache
         for (var j = 0, l = latest_json[0].length; j < l; j++) {
             if (latest_json[0][j]["id"] === selected_airport) {
-                $("#poitext").text("Selected point - " + latest_json[0][j]['icao']);
-                $("#help").text(latest_json[0][j]['name']);
+                $("#poitext").text(latest_json[0][j]['icao']);
+                $("#help").html(latest_json[0][j]['name'] + '<br/>Altitude: ' + latest_json[0][j]['altitude'] + ' ft');
+                
+                //Set latitude and longitude
+                selectedlat = latest_json[0][j]['latitude'];
+                selectedlon = latest_json[0][j]['longitude'];
+                selectedalt = latest_json[0][j]['altitude']
                 
                 //Populate ATC information
                 var atc_html = "";
@@ -590,19 +564,97 @@ function showSelectedInfo() {
                         atc_html += "<p><strong>Logon Time</strong>" + val['timelogon'] + "</p>";
                        
                     });
-                    /*for (var m = 0 ; m < latest_json[0][j]['atc'].length; m++) {
-                        atc_html += "<h5>" + latest_json[0][j]['atc'][m]['callsign'] + "</h5>";
-                        atc_html += "<p><strong>Frequency</strong>" + latest_json[0][j]['atc'][m]['freq'] + "</p>";
-                        atc_html += "<p><strong>Name and ID</strong>" + latest_json[0][j]['atc'][m]['name'] + " (CID " + latest_json[0]['atc'][m]['cid'] + ")</p>";
-                        atc_html += "<p><strong>Message</strong>" + latest_json[0][j]['atc'][m]['atismsg'] + "</p>";
-                        atc_html += "<p><strong>Logon Time</strong>" + latest_json[0][j]['atc'][m]['timelogon'] + "</p>";
-                    }*/
                 }
                 $("#selectedatcdata").html(atc_html);
                 
+                //NOW, lETS LOOK FOR PLANE DATA LOCALLY
+                var departures = latest_json[0][j]['depplanes'];
+                var arrivals = latest_json[0][j]['arrplanes'];
+                break;
+            }
+        }
+        
+        var depCount = 0;
+        $('#selecteddepartures tbody').html("");
+        var arrCount = 0;
+        $('#selectedarrivals tbody').html("");
+        
+        for (var j = 0, l = latest_json[2].length; j < l; j++) {
+            //distance for current airplane from airport (really only used if in departures or arrivals array)
+            var dist = parseInt(distance(parseFloat(latest_json[2][j]['longitude']), parseFloat(latest_json[2][j]['latitude']), parseFloat(selectedlon), parseFloat(selectedlat)));
+
+                var tmpSpeed = latest_json[2][j]['speed'];
+                var tmpPlaneAlt = latest_json[2][j]['altitude'];
+                var status;
+                
+            //Calculate status
+            if (dist < 20 && tmpSpeed === 0 && Math.abs(selectedalt - tmpPlaneAlt) < 50) {
+                status = "In terminal";
+            } else if (dist < 20 && tmpSpeed > 0 && Math.abs(selectedalt - tmpPlaneAlt) < 50) {
+                status = "Taxiing"
+            } else if (dist > 20 && dist < 120) {
+                //distance is nearby (imminently arriving/departing)
+                status = "*";
+            } else if (dist > 100 && tmpSpeed === 0) {
+                status = "*2";
+            } else {
+                status = "Enroute";
+            }
+            
+            //Find arrivals and departures
+            if ($.inArray(latest_json[2][j]['id'], departures) !== -1) {
+                if (status === "*") {
+                    status = "Departing";
+                } else if (status === "*2") {
+                    status = "Arrived";
+                }
+                //Write the departures
+                tmp = "<td>" + latest_json[2][j]['callsign'] + " </td>";
+                tmp += "<td>" + latest_json[2][j]['deptime'] + " </td>";
+                tmp += "<td>" + latest_json[2][j]['arrairport'] + " </td>";
+                tmp += "<td>" + latest_json[2][j]['altitude'] + "</td>";
+                tmp += "<td>" + latest_json[2][j]['speed'] + " </td>";
+                tmp += "<td>" + latest_json[2][j]['heading'] + " </td>";
+                tmp += "<td>" + latest_json[2][j]['aircraft'] + " </td>";
+//                tmp += "<td>" + latest_json[2][j]['status'] + " </td>";
+    
+                $('#selecteddepartures tbody').append("<tr>" + tmp + "</tr>");
+
+                depCount++;
+                            
+            }
+            if ($.inArray(latest_json[2][j]['id'], arrivals) !== -1) {
+                if (status === "*") {
+                    status = "Arriving";
+                } else if (status === "*2") {
+                    status = "Not yet departed";
+                }
+            
+                tmp = '<td><a href="#" onclick = "centerMapOnPlane(' + latest_json[2][j]['id'] + ')">' 
+                tmp += latest_json[2][j]['callsign'] + "</a></td>";
+                tmp += "<td>" + latest_json[2][j]['depairport'] + "</td>";
+                tmp += "<td>" + dist + "</td>";
+                tmp += "<td>" + latest_json[2][j]['altitude'] + "</td>";
+                tmp += "<td>" + latest_json[2][j]['speed'] + "</td>";
+                tmp += "<td>" + latest_json[2][j]['heading'] + "</td>";
+                tmp += "<td>" + latest_json[2][j]['aircraft'] + "</td>";
+                tmp += "<td>" + status + " </td>";
+                
+                $('#selectedarrivals tbody').append("<tr>" + tmp + "</tr>");
+                arrCount++;
+            }
+        }
+            
+            if (depCount === 0) {
+                $('#selecteddepartures tbody').html("<tr><td colspan = '8'>No scheduled departures</td></tr>");
+            }
+            if (arrCount === 0) {
+                $('#selectedarrivals tbody').html("<tr><td colspan = '8'>No scheduled departures</td></tr>");
+            }
+    
                 //Ping server for more details
-                $.getJSON(Flask.url_for("history"), {
-                        data: latest_json[0][j],
+            //    $.getJSON(Flask.url_for("history"), {
+             /*           data: latest_json[0][j],
                         type: 'ATC'
                     })
                     .done(function(data, textStatus, jqXHR) {
@@ -690,19 +742,19 @@ function showSelectedInfo() {
                         //hide the loading gif!
                         $("#loadinggif").hide();
 
-                    })
+                    })*/
               
             //TO--DO: call Weather fuinction to show METAR at clicked airport!
-            console.log(updateWorstWeather(   latest_json[0][j]['icao']   ));
-            }
-        }
+            //console.log(updateWorstWeather(   latest_json[0][j]['icao']   ));
+            //}
+        //}
     } else if (selected_plane !== -1) {
         $("#selectedairport").hide();
         $("#selectedplane").show();
 
         for (var j = 0, l = latest_json[2].length; j < l; j++) {
             if (latest_json[2][j]["id"] === selected_plane) {
-                $("#poitext").text("Selected Point - " + latest_json[2][j]['callsign']);
+                $("#poitext").text(latest_json[2][j]['callsign']);
                 $("#help").text("");
 
                 //Found the plane, lets build up data
@@ -711,7 +763,7 @@ function showSelectedInfo() {
                 $("#selectedplaneright .deparricao").html(latest_json[2][j]["arrairport"]);
                 //latitude and long for arriving departing airpott
                 var arrlong, arrlat, deplong, deplat;
-                var depaltitude, arraltitude
+                var depaltitude, arraltitude;
                 //Find the airport for its name 
                 for (var k = 0; k < latest_json[0].length; k++) {
                     if (latest_json[0][k]['id'] === latest_json[2][j]['depairport_id']) {
@@ -741,16 +793,19 @@ function showSelectedInfo() {
                 $("#selectedprogbar span").text(Math.round(dist_left) + ' / ' + Math.round(dist_trav + dist_left) + ' km flown');
                 
                 $("#selectedalt").html('<span>Alternate Airport:</span> ' + latest_json[2][j]['altairport']);
-                $("#selectedflightnum").html('<span>Callsign:</span> ' + latest_json[2][j]['airline_short'] + latest_json[2][j]['airline_flightnum']);
                 $("#selectedaircraft").html('<span>Aircraft:</span> ' + latest_json[2][j]['aircraft']);
                 $("#selectedairline").html('<span>Airline Name:</span> ' + latest_json[2][j]['airline_name']);
                 $("#selectedairlinecountry").html('<span>Airline Country:</span> ' + latest_json[2][j]['airline_country']);
+
                 $("#selectedheading").html('<span>Heading:</span> ' + latest_json[2][j]['heading']);
-                $("#selectedspeed").html('<span>Speed:</span> ' + latest_json[2][j]['speed']);
-                $("#selectedaltitude").html('<span>Altitude:</span> ' + latest_json[2][j]['altitude'] + '(planned ' + latest_json[2][j]['plannedaltitude'] + ')');
+                $("#selectedspeed").html('<span>Speed:</span> ' + latest_json[2][j]['speed'] + 'kts (' + latest_json[2][j]['tascruise'] + ' kts planned)');
+                $("#selectedaltitude").html('<span>Altitude:</span> ' + latest_json[2][j]['altitude'] + ' ft (planned ' + latest_json[2][j]['plannedaltitude'] + ' ft)');
                 $("#selectedroute").html('<span>Route:</span> ' + latest_json[2][j]['route']);
                 $("#selectedposition").html('<span>Current Position:</span> ' + latest_json[2][j]['latitude'] + ', ' + latest_json[2][j]['longitude']);
 //                $("#selectedflyingover").html('<span>Current Position:</span> ' + latest_json[2][j]['current_country']);
+                $("#selectedflighttype").html('<span>Flight Type:</span> ' + latest_json[2][j]['flighttype']);
+                $("#selecteddeparturetime").html('<span>Departure Time:</span> ' + latest_json[2][j]['deptime']);
+
                 $("#selectedpilotcid").html('<span>Pilot ID / Name:</span> ' + latest_json[2][j]['cid'] + ' ' + latest_json[2][j]['real_name']);
                 $("#selectedpilotlogontime").html('<span>Pilot Logon Time</span> ' + latest_json[2][j]['timelogon']);
                 $("#selectedpilotremarks").html('<span>Remarks</span> ' + latest_json[2][j]['remarks']);
@@ -834,33 +889,6 @@ function distance(lon1, lat1, lon2, lat2) {
     return km
 }
 
-
-function getCountry(lat, lng) {
-    var latlng;
-    latlng = new google.maps.LatLng(lat, lng);
-
-    new google.maps.Geocoder().geocode({
-        'latLng': latlng
-    }, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            if (results[0]) {
-                var add = results[0].formatted_address;
-                var value = add.split(",");
-                var count = value.length;
-                country = value[count - 1];
-                return country;
-            } else {
-                return "International";
-            }
-        } else {
-            return "Unknown";
-        }
-    });
-};
-
-
-
-
 function removeMarkers() {
     for (var i = 0, aplen = airports.length; i < aplen; i++) {
         airports[i].setMap(null);
@@ -889,12 +917,12 @@ function removeMarkers() {
 
 
 function hideHoverWindow() {
-    $("#hoverwindow").css("display", "none");
+    //$("#hoverwindow").css("display", "none");
     if (selected_airport !== -1 || selected_plane !== -1) {
         //something is selected already, so let's reset the information pane
         $("#selectedairport").css("display", "none");
         $("#selectedplane").css("display", "none");
-        $("#poitext").text('Selected Point');
+        $("#poitext").text('');
         $("#help").text('Click on a plane or airport to show more information here!');
     }
     selected_airport = -1;
@@ -913,9 +941,9 @@ function configure() {
     });
 
     //Hide hvoer window if starting drag
-    google.maps.event.addListener(map, "dragstart", function() {
+/*    google.maps.event.addListener(map, "dragstart", function() {
         hideHoverWindow();
-    });
+    });*/
 
     // update UI after map has been dragged
     google.maps.event.addListener(map, "dragend", function() {
