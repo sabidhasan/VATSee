@@ -42,15 +42,11 @@
               https://www.vatsim.net/events
 
 *  Non Critical relatively Easy:
-       Zulu time formatting                         0.1 hr
-
-       Legend for map
+       Legend for map                               0.5 hr
            
        Stats - users/ATC online, active airpts      0.5 hr
       
        Logon time for ATC should==> human readable  0.5 hr
-
-       Arrivals/departures sorted by time           1 hr
 
 
 

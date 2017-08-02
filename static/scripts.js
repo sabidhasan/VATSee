@@ -133,26 +133,29 @@ $(document).ready(function() {
         $(".content-buttons").removeClass("active");
         $(this).addClass("active");
 
-        $(".content-div").hide();
-        $(".content-div#" + this.id).show();
+        $(".content-div").fadeOut('fast');
+        $(".content-div#" + this.id).fadeIn('fast');
 
     });
     
     //Make sure the map stays put when scrolling page
     $(window).scroll(function() {
-       $("#map-canvas").css('top', $(window).scrollTop() + 90 + 'px');
+       $("#map-canvas").css('top', $(window).scrollTop() + 65 + 'px');
     });
 
     //Charting function for plotting speed and altiitude vs time    
     google.charts.load('current', {packages: ['corechart', 'line']});
     
-    //Online Tab Checkboxes (both have the filtercheckbox class)
-    $(".filtercheckbox").on("click", function() {
-        //Find the Table by ID of the clicked on Checkbox
-        var matched_table = $("#table" + $(this).attr("id"))
-        //Hide show the table based on clicked checkbox's clickstate
-        matched_table.toggle(this.checked);
-    });
+    //show hide ATC and Pilots on ONLINE page
+    $('.showHideATC').on('click', function () {
+        $('.showHideATC').toggle();
+        $('#tablefilterATC').fadeToggle('fast');
+    })
+
+    $('.showHidePilot').on('click', function () {
+        $('.showHidePilot').toggle();
+        $('#tablefilterpilot').fadeToggle('fast');
+    })
     
     $("#filtertext").on("keyup", function() {
         //Filter the list with the current value of the textbox
@@ -309,9 +312,10 @@ function addPlane(data) {
     });
     //add current marker to airports array
     planes.push(m);
-    
+
     //Update online table
-    $("#tablefilterpilot tbody").append("<tr><td>"+data['callsign']+"</td><td>"+data['real_name']+"</td><td>"+data['depairport']+"</td><td>"+data['arrairport']+"</td><td><a href=\"#\" onclick=\"centerMapOnPlane("+data['id']+")\">Show</a></td></tr>");
+    //MADE CHANGE HERE
+    $("#tablefilterpilot tbody").append("<tr><td class='tablefilterhide'>" + data['id'] + "</td><td>"+data['callsign']+"</td><td>"+data['real_name']+"</td><td>"+data['depairport']+"</td><td>"+data['arrairport']+"</td><td><a href=\"#\" onclick=\"centerMapOnPlane("+data['id']+")\">Show</a></td></tr>");
 
 
 }
@@ -370,7 +374,8 @@ function addAirport(data) {
         //Loop through each ATC and add to online table
         data['atc'].forEach(function(val) {
             //Update online table
-            $("#tablefilterATC tbody").append("<tr><td>"+data['name']+"</td><td>"+val['callsign']+"</td><td>"+val['freq']+"</td><td>"+val['name']+"</td></tr>");
+            //MADE CHANGE HERE
+            $("#tablefilterATC tbody").append("<tr><td class='tablefilterhide'>" + data['id'] +  "</td><td>"+data['name']+"</td><td>"+val['callsign']+"</td><td>"+val['freq']+"</td><td>"+val['name']+"</td></tr>");
         });
     
 
@@ -609,15 +614,16 @@ function showSelectedInfo() {
                     status = "Arrived";
                 }
                 //Write the departures
-                tmp = "<td>" + latest_json[2][j]['callsign'] + " </td>";
-                tmp += "<td>" + latest_json[2][j]['deptime'] + " </td>";
-                tmp += "<td>" + latest_json[2][j]['arrairport'] + " </td>";
+                tmp = '<td><a href="#" onclick="centerMapOnPlane(' + latest_json[2][j]['id'] + ')">';
+                tmp += latest_json[2][j]['callsign'] + "</a></td>";
+                tmp += "<td>" + latest_json[2][j]['deptime'] + "</td>";
+                tmp += "<td>" + latest_json[2][j]['arrairport'] + "</td>";
                 tmp += "<td>" + latest_json[2][j]['altitude'] + "</td>";
                 tmp += "<td>" + latest_json[2][j]['speed'] + " </td>";
-                tmp += "<td>" + latest_json[2][j]['heading'] + " </td>";
-                tmp += "<td>" + latest_json[2][j]['aircraft'] + " </td>";
-//                tmp += "<td>" + latest_json[2][j]['status'] + " </td>";
-    
+                tmp += "<td>" + latest_json[2][j]['heading'] + "</td>";
+                tmp += "<td>" + latest_json[2][j]['aircraft'] + "</td>";
+                tmp += "<td>" + status + "</td>";
+
                 $('#selecteddepartures tbody').append("<tr>" + tmp + "</tr>");
 
                 depCount++;
@@ -649,105 +655,9 @@ function showSelectedInfo() {
                 $('#selecteddepartures tbody').html("<tr><td colspan = '8'>No scheduled departures</td></tr>");
             }
             if (arrCount === 0) {
-                $('#selectedarrivals tbody').html("<tr><td colspan = '8'>No scheduled departures</td></tr>");
+                $('#selectedarrivals tbody').html("<tr><td colspan = '8'>No scheduled arrivals</td></tr>");
             }
     
-                //Ping server for more details
-            //    $.getJSON(Flask.url_for("history"), {
-             /*           data: latest_json[0][j],
-                        type: 'ATC'
-                    })
-                    .done(function(data, textStatus, jqXHR) {
-
-                        //if no arrivals
-                        if (data[0].length === 0) {
-                            $('#selectedarrivals tbody').html("<tr><td colspan = '8'>No scheduled arrivals</td></tr>");
-                        } else {
-                            $('#selectedarrivals tbody').html("");
-                        }
-
-                        //Parse through arrivals
-                        for (var k = 0; k < data[0].length; k++) {
-
-                            //This is the HTML that will be injected
-                            var tmp = "";
-                            //Set callsign (VFR flights have same name and fluightnum, so correctr for that)
-                            var callsign = "";
-                            if (data[0][k]['airline_name'] === data[0][k]['airline_flightnum']) {
-                                callsign = data[0][k]['airline_flightnum'];
-                            } else {
-                                callsign = data[0][k]['airline_name'] + " " + data[0][k]['airline_flightnum'];
-                            }
-
-                            //Correct for distance = 0
-                            var distance = 0;
-                            if (data[0][k]['distance_from_airport'] === 0) {
-                                distance = "-";
-                            } else {
-                                distance = data[0][k]['distance_from_airport'];
-                            }
-                            tmp += "<td>" + callsign + " </td>";
-                            tmp += "<td>" + data[0][k]['planned_depairport'] + "</td>";
-                            tmp += "<td>" + distance + "</td>";
-                            tmp += "<td>" + data[0][k]['altitude'] + " </td>";
-                            tmp += "<td>" + data[0][k]['groundspeed'] + " </td>";
-                            tmp += "<td>" + data[0][k]['heading'] + " </td>";
-                            tmp += "<td>" + data[0][k]['planned_aircraft'] + " </td>";
-                            tmp += "<td>" + data[0][k]['status'] + " </td>";
-
-                            $('#selectedarrivals tbody').append("<tr>" + tmp + "</tr>");
-                        }
-
-                        //if no arrivals
-                        if (data[1].length === 0) {
-                            $('#selecteddepartures tbody').html("<tr><td colspan = '9'>No scheduled departures</td></tr>");
-                        } else {
-                            $('#selecteddepartures tbody').html("");
-                        }
-
-                        //Parse through arrivals
-                        for (var k = 0; k < data[1].length; k++) {
-                            //This is the HTML that will be injected
-                            tmp = "";
-                            //Set callsign (VFR flights have same name and fluightnum, so correctr for that)
-                            callsign = "";
-                            if (data[1][k]['airline_name'] === data[1][k]['airline_flightnum']) {
-                                callsign = data[1][k]['airline_flightnum'];
-                            } else {
-                                callsign = data[1][k]['airline_name'] + " " + data[1][k]['airline_flightnum'];
-                            }
-
-                            //Correct for distance = 0 (show '-' instead of 0)
-                            distance = 0;
-                            if (data[1][k]['distance_from_airport'] === 0) {
-                                distance = "-";
-                            } else {
-                                distance = data[1][k]['distance_from_airport'];
-                            }
-
-
-                            tmp += "<td>" + callsign + " </td>";
-                            tmp += "<td>" + data[1][k]['planned_deptime'] + " </td>";
-                            tmp += "<td>" + data[1][k]['planned_destairport'] + " </td>";
-                            tmp += "<td>" + distance + "</td>";
-                            tmp += "<td>" + data[1][k]['altitude'] + "</td>";
-                            tmp += "<td>" + data[1][k]['groundspeed'] + " </td>";
-                            tmp += "<td>" + data[1][k]['heading'] + " </td>";
-                            tmp += "<td>" + data[1][k]['planned_aircraft'] + " </td>";
-                            tmp += "<td>" + data[1][k]['status'] + " </td>";
-
-                            $('#selecteddepartures tbody').append("<tr>" + tmp + "</tr>");
-                        }
-
-                        //hide the loading gif!
-                        $("#loadinggif").hide();
-
-                    })*/
-              
-            //TO--DO: call Weather fuinction to show METAR at clicked airport!
-            //console.log(updateWorstWeather(   latest_json[0][j]['icao']   ));
-            //}
-        //}
     } else if (selected_plane !== -1) {
         $("#selectedairport").hide();
         $("#selectedplane").show();
@@ -800,10 +710,10 @@ function showSelectedInfo() {
                 $("#selectedheading").html('<span>Heading:</span> ' + latest_json[2][j]['heading']);
                 $("#selectedspeed").html('<span>Speed:</span> ' + latest_json[2][j]['speed'] + 'kts (' + latest_json[2][j]['tascruise'] + ' kts planned)');
                 $("#selectedaltitude").html('<span>Altitude:</span> ' + latest_json[2][j]['altitude'] + ' ft (planned ' + latest_json[2][j]['plannedaltitude'] + ' ft)');
-                $("#selectedroute").html('<span>Route:</span> ' + latest_json[2][j]['route']);
+                $("#selectedroute").html('<span>Route:</span></br> ' + latest_json[2][j]['route']);
                 $("#selectedposition").html('<span>Current Position:</span> ' + latest_json[2][j]['latitude'] + ', ' + latest_json[2][j]['longitude']);
 //                $("#selectedflyingover").html('<span>Current Position:</span> ' + latest_json[2][j]['current_country']);
-                $("#selectedflighttype").html('<span>Flight Type:</span> ' + latest_json[2][j]['flighttype']);
+                $("#selectedflighttype").html('<span>Flight Type:</span> ' + (latest_json[2][j]['flighttype'] === 'V' ? 'VFR' : 'IFR'));
                 $("#selecteddeparturetime").html('<span>Departure Time:</span> ' + latest_json[2][j]['deptime']);
 
                 $("#selectedpilotcid").html('<span>Pilot ID / Name:</span> ' + latest_json[2][j]['cid'] + ' ' + latest_json[2][j]['real_name']);
@@ -823,10 +733,8 @@ function showSelectedInfo() {
                 //TO--DO : add status (similar to backend) Status
 
                 //History - ping the server
-                $.getJSON(Flask.url_for("history"), {
-                        data: latest_json[2][j],
-                        type: 'PLANE'
-                    })
+                $.getJSON(Flask.url_for("history"), {'cid' : latest_json[2][j]['cid']})
+//                        type: 'PLANE'
                     .done(function(data, textStatus, jqXHR) {
                         google.charts.setOnLoadCallback(function() {
                             //To hold the data
@@ -1041,6 +949,30 @@ function filterOnlines(filtertext) {
             //Increment the counter if this row is being shown
             if (show === true) {
                 counter += 1;
+    
+                //This row's plane must be shown
+                if (val === "tablefilterpilot") {
+                    //Show the ATC; first column contains ID number of plane (in planes[] array)
+                    planes[parseInt(row.cells[0].innerHTML) - 1].setMap(map)
+                }
+                 // Uncomment to allow hiding/showing on the map the ATCs; comment to show/hide PLANES only
+                 // else {
+                 //       //Show the Plane
+                 //       console.log('showng plane' + row.cells[0].innerHTML)
+                 //       airports[parseInt(row.cells[0].innerHTML) - 1].setMap(map)
+                 //   }
+            } else {
+                //This row's plane must be hidden
+                if (val === "tablefilterpilot") {
+                    //Hide the ATC; first column contains ID number of plane
+                    planes[parseInt(row.cells[0].innerHTML) - 1].setMap(null)
+                }
+                 // Uncomment to allow hiding/showing on map of ATCs; comment to show hide planes ONLY
+                 //else {
+                 //       //Hide the Plane
+                 //       console.log('hiding plane' + row.cells[0].innerHTML)
+                 //       airports[parseInt(row.cells[0].innerHTML) - 1].setMap(null)
+                 //   }                    
             }
             //cssclass holds the even vs odd class for the current row
             var cssclass = counter % 2 === 0 ? "onlinetableeven" : "onlinetableodd"
@@ -1082,7 +1014,10 @@ function get_metar(stationid) {
 
 setInterval(function(){
     var d = new Date();
-    $("#time").text(d.getUTCHours() + ':' + d.getUTCMinutes() + ":" + d.getUTCSeconds() + ' Z ');
+    var hrs = d.getUTCHours() > 9 ? d.getUTCHours() : '0' + d.getUTCHours();
+    var min = d.getUTCMinutes() > 9 ? d.getUTCMinutes() : '0' + d.getUTCMinutes();
+    var sec = d.getUTCSeconds() > 9 ? d.getUTCSeconds() : '0' + d.getUTCSeconds();
+    $("#time").text(hrs + ':' + min + ":" + sec + ' Z ');
     
 }, 1000);
 

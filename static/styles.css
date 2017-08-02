@@ -12,12 +12,12 @@ body {
 
 /*    HEADERS    */
 h4 {
-    font-weight: bold;
+    font-weight: 300; /*bold*/
     font-size:170%;
     margin-top:20px;
 }
 h2 {
-    font-weight: bold;
+    font-weight: 300; /*bold*/
     text-align: center;
 }
 
@@ -45,18 +45,20 @@ h2 {
     float:left;
     width: 73%;
     margin-right: 0.5%;
-    top: 90px;
+    top: 65px;
 }
 #info-bar {
     position:relative;
     float:left;
     width: 73%;
     margin-right: 0.5%;
-    top: 90px;
+    top: 65px;
     border-radius: 2px;
 }
 #info-bar span {
-    float:right;
+    float: right;
+    font-weight: 300; /*bold*/
+    font-size: 110%;
 }
 #right {
     /*flex-grow:1;*/
@@ -79,7 +81,7 @@ h2 {
     max-width:25%;
 }
 #hoverwindow span {
-    font-weight:bold;
+    font-weight: 300; /*bold*/
     padding:4px;
 }
 #hoverwindow table {
@@ -90,7 +92,7 @@ h2 {
 }
 #infoWindowTitle {
     font-size: 125%;
-    font-weight: bold;
+    font-weight: 300; /*bold*/
     padding-bottom: 10px;
 }
 
@@ -127,11 +129,14 @@ h2 {
     clear: both;
 }
 #selectedplaneinfo p {
+    width: 100%;
+    text-align: right;
     margin: 0;
-    
+    clear: both; /*some p's have no text in them, so they float left of the spans screws things up*/
 }
 #selectedplaneinfo span {
-    font-weight:bold;
+    font-weight: 300; /*bold*/
+    float:left;
 }
 #selectedprogbar {
     height: 5px;
@@ -148,6 +153,9 @@ h2 {
 #selectedpilotcid, #selectedlogontime {
     float:left;
 }
+#selectedcomm {
+    width: 100%;
+}
 .selectedcommunication {
     float: right;
     width: 8%;
@@ -160,7 +168,7 @@ h2 {
     
     display: block;
     font-size: 165%;
-    font-weight: bold;
+    font-weight: 300; /*bold*/
 
 }
 .deparrname {
@@ -182,7 +190,7 @@ h2 {
 }
 
 #selectedarrivals thead, #selecteddepartures thead {
-    font-weight:bold;
+    font-weight: 300; /*bold*/
 }
 #selectedarrivals tr:nth-child(even), #selecteddepartures tr:nth-child(even) {
     background-color: gray;
@@ -195,6 +203,35 @@ h2 {
 
 /* ONLINE PAGE-----
 ---TABLE STYLING */
+#showhideATChidden, #showHidePilothidden {
+    display: none;
+    display: none;
+}
+.showHideATC, .showHidePilot {
+    float: right;
+}
+#filtertext {
+    width: 100%;
+    padding: 4px 4px 4px 30px;
+    margin: 1% 0 1% 0;
+    border: 1px solid black;
+    background-color: lightgray;
+    -webkit-appearance: none;
+    outline:none;
+    background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAAHeEJUAAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUIwMDlCRDdCNzkxMTFFNkIxRkI4QTNFQzcxNDgyM0EiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUIwMDlCRDhCNzkxMTFFNkIxRkI4QTNFQzcxNDgyM0EiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxQjAwOUJENUI3OTExMUU2QjFGQjhBM0VDNzE0ODIzQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxQjAwOUJENkI3OTExMUU2QjFGQjhBM0VDNzE0ODIzQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpiTdMQAAAKvSURBVHjaYvj//z9DbW3tQxDN8O3bN0swg4HhPwOIwc7O/g/EAQggRqgoGDAxIAEwZ9++fVtBNEAAgfUsW7bsFIgG4c2bN+8HawURf//+5YVJ5OfnPwPRKAYjA4AAAqt69epVand39y2YLgZLS8uvMA6MzSQoKPgHpuvYsWPcYAYrK+s/mMp169Ydgbuira3troaGxo/3798HwgWRMchSgACCcyQlJX8rKyv/2rBhw6G5c+deAAVGZmbmC2QNYD8wMoKo/4zYvIIsBw4vLi4uHL7GEgiwCIGFJQhXV1c/hEgjnIHhEXR87969FpCmf//+8QIEEIrE0qVLT5WUlDw5cuTIOnRNYPdevnx5NsgT9+/fF/H09Lw4depUexAfxZP4QgElBEJDQ989evSoBpuHU1NTX506dWoZUgBg98yFCxfmlZaWPgG70czM7DvYV1jA2bNnjYyNjZ+COaBIFxcX/4PNRGTbwERVVdVDeXn5X7B0C04YQKmIiIi3GIH+5s2beKAzvoF8ClMA0hwTE/OGqNgRERH5ExYW9g53jkADAAGGYcK7d+8iQWkTnHuxYHV19Z9r1qw5hs8VcMaTJ0/KuLm5wbm/q6vrNi4NwKQxHeRvkLqsrKznOA3dvn37bpCi+Pj414TCAoZfvnyZCgpQJSWlXxiGgiIclD1VVFR+EmsgDG/ZsmU/yDE9PT23UFL7nz9/JD5+/MgMSiQMJAIxMbHnIPrDhw/sGBHV0dFxB8QkFAHo2MLC4itIH6y4woio+fPnnwMpcHFx+fT7928pfIaBMjgbG9s/5GIUbxEye/bsi7DkIyAg8DcgIOA9KEWbmJh8g4kHBga+BxkIYoeHh78jaCg6/vHjh/7379/1scmBkiEokkGGJyQkvCbaUGLwlStXpoOyXUZGxgtQagIAMN+oZm7WR8IAAAAASUVORK5CYII=');
+    background-position: 5px;
+    background-repeat: no-repeat;
+    font-weight: bold;    
+}
+#filtertext:focus {
+    background-color: darkgray;
+    border: 3px solid black;
+    -webkit-appearance: none;
+    outline:none;
+}
+.tablefilterhide {
+    display: none;
+}
 #tablefilterpilot tbody, #tablefilterATC tbody {
     font-size:80%;
 }
@@ -221,7 +258,7 @@ h2 {
 }
 h5 {
     font-size: 115%;
-    font-weight: bold;
+    font-weight: 300; /*bold*/
 }
 /*METAR page styling*/
 #metardetails {
@@ -229,7 +266,7 @@ h5 {
 }
 #metarresults p{
     font-size: 125%;
-    font-weight:bold;
+    font-weight: 300; /*bold*/
 }
 #metarresults table{
     width: 100%;
@@ -242,7 +279,7 @@ h5 {
     float: right;
     display: inline;
     font-size: 300%;
-    font-weight: bold;
+    font-weight: 300; /*bold*/
     margin: 0;
     background-color: lightseagreen;
     border-radius: 15%;

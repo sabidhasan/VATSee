@@ -633,80 +633,23 @@ def history():
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
 
-    j = dict(request.args)
-    if j['type'][0] == "ATC":
+    arguments = dict(request.args)
+    jsondata = []
+        
+    #DO SQL search - TO--DO: limit this to one day hisotry only or something like that TO--DO: prevetnt database injections!
+    x = "SELECT * FROM 'onlines' WHERE cid = '%s' AND type = 'PILOT' AND ABS(time_updated - %s) < 50000 ORDER BY time_updated" % (arguments['cid'][0], time.time())
+    result = c.execute(x).fetchall()
+        
+    #Do time delta for plotting
+    orig_time = 0
+    for row in result:
+        if orig_time == 0:
+            orig_time = row[1]
+        time_delta = abs(orig_time - row[1])
+        #sending back time_delta        altitude        speed
+        jsondata.append([float(time_delta), row[12], row[13]])
 
-        #Arriving / departing
-        jsondata = [[], []]
-        #THis is Airport, so show how many ground, taxxing, within 15 nm 
-        x = """SELECT * FROM 'onlines' WHERE "latest" = '1' AND type = 'PILOT'"""
-        result = c.execute(x).fetchall()
-        
-        for row in result:
-            #If not arriving or departing from the given airport, then move on
-            if not(j['data[icao]'][0] in [callsign_to_icao(row[18]), callsign_to_icao(row[16])] ): continue
-            
-            #Calculate distance, speed, altitude
-            dist = haversine(float(j['data[longitude]'][0]), float(j['data[latitude]'][0]), float(row[7]), float(row[6]))
-            speed = row[13]
-            airport_altitude = int(j['data[altitude]'][0])
-            plane_altitude = row[12]
-            
-            #create pilot dictionary to be appended
-            tmp_pilot = {'callsign': row[2], 'cid': row[3], 'altitude': row[12], 'groundspeed': row[13], 'planned_aircraft': row[14], 'planned_tascruise': row[15], \
-            'planned_depairport': row[16], 'planned_altitude': row[17], 'planned_destairport': row[18], 'planned_deptime': row[20], 'heading': row[24], \
-            'airline_name': decode_airline(row[2])[0], 'airline_callsign': decode_airline(row[2])[2], 'airline_short': decode_airline(row[2])[3], 'airline_flightnum': decode_airline(row[2])[4], 'id':row[0]}
-            
-            #Distance from airport
-            tmp_pilot['distance_from_airport'] = int(dist)
-            
-            #close by (<10), speed 0 (menaing parked), and on the ground (altitude same)
-            if dist < 15 and speed == 0 and abs(airport_altitude - plane_altitude) < 50:
-                status = "In terminal"
-                #jsondata[0].append(tmp_pilot)
-            #moving on the ground
-            elif dist < 15 and speed > 0 and abs(airport_altitude - plane_altitude) < 50:
-                status = "Taxiing"
-            #distance is nearby (imminently arriving/departing)
-            elif dist < 55 and j['data[icao]'][0] == callsign_to_icao(row[18]):
-                status = "Arriving"
-            elif dist < 55 and j['data[icao]'][0] == callsign_to_icao(row[16]):
-                status = "Departing"
-            elif dist > 55 and speed == 0:
-                status = "Not yet departed"
-            elif dist > 55 and speed < 55:
-                status = "Taxiing"
-            else:
-                status = "Enroute"
-            tmp_pilot['status'] = status
-            
-            #If arriving
-            if j['data[icao]'][0] == callsign_to_icao(row[18]):
-                jsondata[0].append(tmp_pilot)
-            elif j['data[icao]'][0] == callsign_to_icao(row[16]):
-                #departing aircraft
-                jsondata[1].append(tmp_pilot)
-        
-        return jsonify(jsondata)
-    elif j['type'][0] == "PLANE":
-        # [distance from origin, distance to destination], [{time: altitude}], [{time: speed}]
-        jsondata = []
-        
-        #DO SQL search - TO--DO: limit this to one day hisotry only or something like that TO--DO: prevetnt database injections!
-        x = "SELECT * FROM 'onlines' WHERE cid = '%s' AND type = 'PILOT' AND ABS(time_updated - %s) < 50000 ORDER BY time_updated" % (j['data[cid]'][0], time.time())
-        print(x)
-        result = c.execute(x).fetchall()
-        
-        #Do time delta for plotting
-        orig_time = 0
-        for row in result:
-            if orig_time == 0:
-                orig_time = row[1]
-            time_delta = abs(orig_time - row[1])
-            #sending back time_delta        altitude        speed
-            jsondata.append([float(time_delta), row[12], row[13]])
-
-        return jsonify(jsondata)
+    return jsonify(jsondata)
         
 @app.route("/metar")    
 def metar():    
@@ -784,6 +727,5 @@ def worstweather():
         ret[airport] = {'wind_score': round(cur_wind, 1), 'wind': curr_metar['wind'], 'visibility_score': cur_vis, 'visibility': curr_metar['visibility'], \
         'precipitation_score': cur_precip, 'temperature_score': round(cur_temp, 1), 'temperature': curr_metar['temp'], \
         'cached': curr_metar['cached']}
-#    return 0/0
     return jsonify(ret)
         
