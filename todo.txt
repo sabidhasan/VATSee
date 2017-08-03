@@ -10,20 +10,17 @@
       Get METAR link under airport for status       0.5 hr
       
       Styling - consult VATAWARE                    4 hr
+        add flags to status/ytable
+        style ATC for selected airport d
+        style hover window
+        style weather
       
       Tidy hover window:                            0.5 hr
         Time online, freq, name, METAR, apt diagram
-        Typos in hover window
 
       If no airport, dont draw lines on hover!      1 hr
         Deal with aircraft with no dep/arr
         Should have no dep/arr ID
-      
-      Filtering
-        On filter, hide planes filtered out         1 hr
-            (keep the latest json index in onlines table - hidden)
-        After update, apply all filters             1 hr
-            (text filter, preferences)
       
       Tab: Flight Planning                          4 hr
       Tab: Weather                                  4 hr

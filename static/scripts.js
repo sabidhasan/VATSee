@@ -315,9 +315,7 @@ function addPlane(data) {
 
     //Update online table
     //MADE CHANGE HERE
-    $("#tablefilterpilot tbody").append("<tr><td class='tablefilterhide'>" + data['id'] + "</td><td>"+data['callsign']+"</td><td>"+data['real_name']+"</td><td>"+data['depairport']+"</td><td>"+data['arrairport']+"</td><td><a href=\"#\" onclick=\"centerMapOnPlane("+data['id']+")\">Show</a></td></tr>");
-
-
+    $("#tablefilterpilot tbody").append("<tr><td class='tablefilterhide'>" + data['id'] + "</td><td class='tablefilterhide'>" + data['airline_name'] + "</td><td><a href=\"#\" onclick=\"centerMapOnPlane("+data['id']+")\">"+data['callsign']+"</a></td><td>"+data['real_name']+"</td><td>"+data['depairport']+"</td><td>"+data['arrairport']+"</td></tr>");
 }
 
 

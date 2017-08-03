@@ -234,6 +234,7 @@ h2 {
 }
 #tablefilterpilot tbody, #tablefilterATC tbody {
     font-size:80%;
+    font-weight: 300;
 }
 #tablefilterpilot thead tr, #tablefilterATC thead tr {
     background-color:navy;
@@ -241,8 +242,11 @@ h2 {
 }
 #tablefilterpilot td, #tablefilterATC td {
     margin: 0;
-    padding: 0 0 0 0;
+    padding: 5px;
     width: 115px;
+}
+#tablefilterpilot thead tr, #tablefilterATC thead tr {
+    border-radius: 5px 5px 0 0;
 }
 .onlinetablehide {
     display:none;
