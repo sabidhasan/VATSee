@@ -63,8 +63,6 @@
 
             <!-- Holds selected point and enroute information -->
             <div id="home" class="content-div">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" id="loadinggif" />
-
                 <div id="selectedpointinfo">
                     <h2 id="poitext"><!-- Javascript will put title of selected point here--></h2>
                     <p id="help">Click on a plane or airport to show more information here!</p>
@@ -87,7 +85,6 @@
                             <tbody>
                                 <!-- Will be populated by JS -->
                             </tbody>
-<!--                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" id="loadinggif" /> -->
                         </table>
 
                         </br>
@@ -217,13 +214,14 @@
 
             <div id="wx" class="content-div">
                 <h2>Weather</h2>
-                <label for="metarquery">Search for METAR (ICAO code)</label>
-                <br /><input id="metarquery" type="text">  <button type="button" id="get_metar">Get METAR</button>
-                
+                <br /><input id="metarquery" type="text" placeholder="Search for METAR (ICAO code)">
+
                 <div id="metarresults">
-                    <p>METAR    <span id="metarresults_stationID"></span></p>
                     
                     <div id = "metardetails">
+                        <p>
+                            <span id="metarresults_stationID"></span>
+                        </p>
                         <span id="metarresults_category"></span>
                         
                         <span id="metarresults_rawtext">
@@ -257,20 +255,18 @@
                 </div>
 
                 <h2>Worst Weather</h2>
-                <p>Show currently active (ATC) airports with the worst weather
-                <br/>Sorting criteria:</p>
-                
+                <p>Airports that are currently active (ATC) with the worst weather.
+
                 <div id="worstweather">
                     <table>
                         <thead>
                             <tr>
                                 <td>Airport</td>
-                                <td>Temp</td>
-                                <td>Vis</td>
-                                <td>Wind</td>
-                                <td>Temp Score</td>
-                                <td>Vis Score</td>
+                                <td>Precip. Score</td>
+                                <td>Temp. Score</td>
+                                <td>Visibility Score</td>
                                 <td>Wind Score</td>
+                                <td>Total Score</td>
                             </tr>
                         </thead>
                         <tbody>

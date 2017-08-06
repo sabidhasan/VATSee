@@ -770,6 +770,7 @@ def metar():
 @app.route("/worstweather")    
 def worstweather():
     '''Looks through currently online airports, and returns the worst weather '''
+
     #Parse raw airports
     try:
         worst_weather_airports = dict(request.args)['airports'][0].split(" ")
@@ -777,7 +778,7 @@ def worstweather():
         #log this; no METAR shouldnt be requested
         return jsonify(None)
     
-    ret = {}
+    ret = []
     
     #Loop through airports and get METARs on them, calculate wind, visibility, precipitation, temperature SCORES
     for airport in worst_weather_airports:
@@ -798,7 +799,8 @@ def worstweather():
         except TypeError:
             #No wind gust data exist (it is None)
             pass
-
+        curr_wind = round(curr_wind, 1)
+        
         #Calculate visibility score
         if 'meter' in curr_metar['visibility']:
             #convert to feet; in metric units
@@ -813,37 +815,34 @@ def worstweather():
             visibility_feet = curr_metar['visibility_value'] * 5280
         #Score
         curr_visi = round((visibility_feet * (-5 / 53000)) + 5, 1)
- #       cur_vis = 1#(curr_metar['visibility_value'] / 10) % 10
 
+
+        #Calculate Temperature Score
+        if 0 <= curr_metar['temp_value'] <= 25:
+            #Mild weather, score is 0
+            curr_temp = 0
+        elif curr_metar['temp_value'] < -20 or curr_metar['temp_value'] > 40:
+            #Extreme weather, score is 5
+            curr_temp = 5
+        elif -20 <= curr_metar['temp_value'] <= 0:
+            curr_temp = round((curr_metar['temp_value'] * (-5 / 20)) + 5, 1)
+        elif 25 < curr_metar['temp_value'] <= 40:
+            curr_temp = round((curr_metar['temp_value'] * (5 / 15)) - 8.33333, 1)
+            
         #Calculate precipitation score
-        #TO--DO
-  #      cur_precip = 1
-        #DZ Drizzle
-        #RA Rain
-        #SN Snow
-        #SG Snow Grains
-        #IC Ice Crystals
-        #PL Ice Pellets
-        #GR Hail
-        #GS Small Hail
-        #   and/or Snow
-        #   Pellets
-
-        #Calculate temperature score
-   #     if 10 < curr_metar['temp_value'] < 25:
-##            cur_temp = 0
- #       elif curr_metar['temp_value'] > 25:
-            #its too high or low
- #           cur_temp = ((curr_metar['temp_value'] - 25) / 5) % 5
- #       else:
-            #< 25
- #           cur_temp = abs(curr_metar['temp_value'] - 10) / 5 % 5
+        curr_weather = 0
+        curr_weather_remark = ""
+        precip_dict = {'DZ' : ('Drizzle', 1), 'RA' : ('Rain', 3), 'SN' : ('Snow', 5), 'SG' : ('Snow Grains', 3), 'IC' : ('Ice', 3.5), \
+            'PL' : ('Ice Pellets', 3), 'GR' : ('Hail', 4.5), 'GS' : ('Small Hail', 3.5)}
+        for item, value in precip_dict.items():
+            if item in curr_metar['raw_text']:
+                curr_weather += value[1]
+                curr_weather_remark += " " + value[0]
+        if curr_weather_remark == "": curr_weather_remark = "None"
 
         #Build  return
-        ret[airport] = str(curr_visi) + '    ' + curr_metar['visibility'] #['wind_gust_value']) #+ '  ' + str(curr_wind)
-#        ret[airport] = {'wind_score': round(cur_wind, 1), 'wind': curr_metar['wind'], 'visibility_score': cur_vis, 'visibility': curr_metar['visibility'], \
-  #      'precipitation_score': cur_precip, 'temperature_score': round(cur_temp, 1), 'temperature': curr_metar['temp'], \
-  #      'cached': curr_metar['cached']}
-#    return 0/0
+        ret.append({'airport': airport, 'wind_score': curr_wind, 'wind': curr_metar['wind'], 'visibility_score': curr_visi, 'visibility': curr_metar['visibility'], \
+            'precipitation_score': curr_weather, 'precipitation': curr_weather_remark, 'temperature_score': curr_temp, 'temperature': curr_metar['temp'], \
+            'total_score': round(curr_wind + curr_visi + curr_weather + curr_temp, 1)})
     return jsonify(ret)
         

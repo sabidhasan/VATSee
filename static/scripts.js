@@ -173,9 +173,17 @@ $(document).ready(function() {
         }
     });
 
-    $("#get_metar").on("click", function() {
-        get_metar($("#metarquery").val());
-    })
+    //METAR textbox
+    $("#metarquery").keyup(function(event){
+        if(event.keyCode == 13){
+            get_metar($("#metarquery").val());
+        }
+        console.log($("#metarquery").val())
+        if ($("#metarquery").val() === '') {
+            $("#metardetails").hide();
+        }
+    });
+
     
     //Get worst weather when weather is clicked
     $("#wx").on('click', function() {
@@ -187,8 +195,8 @@ $(document).ready(function() {
 
 //Add listener for global mouse position; used to display hover window next to mouse
 $(document).on('mousemove', function(event) {
-    mouseX = 0;//event.pageX;
-    mouseY = 0;//event.pageY;
+    mouseX = event.pageX;
+    mouseY = event.pageY;
 });
 
 //Called for each airplane. Throws up airplanes on the map
@@ -286,7 +294,7 @@ function addPlane(data) {
         flightPath = new google.maps.Polyline({
             path: flightPlanCoordinates,
             geodesic: false,
-            strokeColor: '#FF000',
+            strokeColor: '#0000FF',
             strokeOpacity: 1.0,
             strokeWeight: 2,
             map: map
@@ -314,8 +322,7 @@ function addPlane(data) {
     planes.push(m);
 
     //Update online table
-    //MADE CHANGE HERE
-    $("#tablefilterpilot tbody").append("<tr><td class='tablefilterhide'>" + data['id'] + "</td><td class='tablefilterhide'>" + data['airline_name'] + "</td><td><a href=\"#\" onclick=\"centerMapOnPlane("+data['id']+")\">"+data['callsign']+"</a></td><td>"+data['real_name']+"</td><td>"+data['depairport']+"</td><td>"+data['arrairport']+"</td></tr>");
+    $("#tablefilterpilot tbody").append("<tr><td class='tablefilterhide'>" + data['id'] + "</td><td class='tablefilterhide'>" + data['airline_name'] + "</td><td><a href=\"#\" onclick=\"centerMap("+data['id']+", 2)\">"+data['callsign']+"</a></td><td>"+data['real_name']+"</td><td>"+data['depairport']+"</td><td>"+data['arrairport']+"</td></tr>");
 }
 
 
@@ -377,7 +384,7 @@ function addAirport(data) {
         data['atc'].forEach(function(val) {
             //Update online table
             //MADE CHANGE HERE
-            $("#tablefilterATC tbody").append("<tr><td class='tablefilterhide'>" + data['id'] +  "</td><td>"+data['name']+"</td><td>"+val['callsign']+"</td><td>"+val['freq']+"</td><td>"+val['name']+"</td></tr>");
+            $("#tablefilterATC tbody").append("<tr><td class='tablefilterhide'>" + data['id'] +  "</td><td><a href='#' onclick='centerMap("+data['id']+",0);'>"+data['name']+"</a></td><td>"+val['callsign']+"</td><td>"+val['freq']+"</td><td>"+val['name']+"</td></tr>");
         });
     
 
@@ -487,21 +494,26 @@ function addAirport(data) {
 }
 
 
-function centerMapOnPlane(id) {
-    //Centers the map on the plane with the ID supplied
+function centerMap(id, type) {
+    //Centers the map on something with the ID supplied; loops through latest_json's type'th index
     //loop through the latest json to find the plane first
-    for (var i = 0; i < latest_json[2].length; i++) {
-        if (latest_json[2][i]['id'] === id) {
+    for (var i = 0; i < latest_json[type].length; i++) {
+        if (latest_json[type][i]['id'] === id) {
             //Found the plane in question, lets center the map onto it!
             map.setZoom(9);
-            map.setCenter(new google.maps.LatLng(parseFloat(latest_json[2][i]['latitude']), parseFloat(latest_json[2][i]['longitude'])));
+            map.setCenter(new google.maps.LatLng(parseFloat(latest_json[type][i]['latitude']), parseFloat(latest_json[type][i]['longitude'])));
         }
     }
 }
 
 function prettifyPlaneData(data) {
     //Returns displayable HTML for info window
-    return "<h4>" + data["callsign"] + "</h4>" + "<p>" + data["depairport"] + " -> " + data["arrairport"] + "</p>";
+    var depair = data['depairport'] === '' ? 'None' : data['depairport'];
+    var arrair = data['arrairport'] === '' ? 'None' : data['arrairport'];
+    var x = "<h4>" + data["callsign"] + "</h4>" + "<p>" + depair; 
+    x += " <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAN5AAADeQELGyzWAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAR1QTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGXzGQAAAF50Uk5TAAMFBwkKDBATFBkaHyAlJicoKissLzA5P0BBQkVGR01OT1BbXF9gYWhvcHN0d3+AgYKDhI6PkJien6ChpK2vsLy9vr/Awc7P0NjZ2tze3+Dh5Onq6+zt9fb4+fz9/s9AlesAAAKbSURBVHja7ZvXUgMxDEUJvffQO4RO6ITQIfTeO/v/nwEkQNYbO3icQQdmuO/aOQPWjSxLeXn/+hsa2vepHwAIez7dlAEEJ36CZQBg3g/gtcsDtCgARwXiAKFrhWBK/k8QVwAe68QBehUAb1scoPBOJRgSJ1hTAeTNIKICyJtB6VOAQNwMEgGAQ2kzGAkAiJtBZRBA3Az2ggTSZhANAkibQTgDQNoMTjMIlsiiIKk2sCgAzCB0k0kwCRYFKTOoBYuCpBJkUZDUIFgUyJtBRAMgagYZRYG4GSR0AJJmMKIDkDSDKi3Ag6AZ7GkJBM0gqgUQNIOwHkDQDE71BHExgAU9gNcqBdBqADiQMgNdUZBU1LH/NfyhbtuIJQOAoxlsfsa/dFlG9BkAvC0ngPGv+KsKu4iiexNBxAWgIR2/E7ILWTcBXJe6EJynPzBrFzFoAnAzg1g6/qUzh6LA2Qz8hablMdg2AriYQfGj/75rdQxGjQBOZrDp/8CMe1GQMoOaXBLxTc8dNiH7ZgIHM6hXPnBZbhEyaQZwMYNztbixOAZNWQAczCCmfmHaIuQsC0E8p0R8PwaLsW917GUj+D5+bqDalIhiup3J/yLY8BDtNn4CjDEA3kOHNhEFdVGiTURBregTUVDNKYAeDGCCTMR3rbKJ+HYMfwkA/i/ADyGehrQR4VaM/xjRP8d4QYKXZHhRSpfl+MUEv5rRl1P8eo43KPAWDd2kwtt0eKMSb9XizWq8Xf/3HizwJxv60Qp/tsMfLumnW/zxGn++pwcY8BEOfIiFHuPBB5nwUS56mA0f58MHGvGRTnqoFR/rxQeb6dFufLgdH++nFxzwFQ98yYVe88EXnfBVL3rZDV/3wxce8ZVPeukVX/vFF5//9XN6Baqm1LuueiTlAAAAAElFTkSuQmCC' alt=''> ";
+    x += arrair + "</p>";
+    return x;
 }
 
 
@@ -565,10 +577,10 @@ function showSelectedInfo() {
                     var tmp = latest_json[0][j]['atc'];
                     tmp.forEach(function(val) {
                         atc_html += "<h5>" + val['callsign'] + "</h5>";
-                        atc_html += "<p><strong>Frequency</strong>" + val['freq'] + "</p>";
-                        atc_html += "<p><strong>Name and ID</strong>" + val['name'] + " (CID " + val['cid'] + ")</p>";
-                        atc_html += "<p><strong>Message</strong>" + val['atismsg'] + "</p>";
-                        atc_html += "<p><strong>Logon Time</strong>" + val['timelogon'] + "</p>";
+                        atc_html += "<p><strong>Frequency</strong>: " + val['freq'] + "</p>";
+                        atc_html += "<p><strong>Name and ID</strong>: " + val['name'] + " (CID " + val['cid'] + ")</p>";
+                        atc_html += "<p><strong>Message</strong>: " + val['atismsg'] + "</p>";
+                        atc_html += "<p><strong>Logon Time</strong>: " + val['timelogon'] + "</p>";
                        
                     });
                 }
@@ -616,7 +628,7 @@ function showSelectedInfo() {
                     status = "Arrived";
                 }
                 //Write the departures
-                tmp = '<td><a href="#" onclick="centerMapOnPlane(' + latest_json[2][j]['id'] + ')">';
+                tmp = '<td><a href="#" onclick="centerMap(' + latest_json[2][j]['id'] + ', 2)">';
                 tmp += latest_json[2][j]['callsign'] + "</a></td>";
                 tmp += "<td>" + latest_json[2][j]['deptime'] + "</td>";
                 tmp += "<td>" + latest_json[2][j]['arrairport'] + "</td>";
@@ -638,7 +650,7 @@ function showSelectedInfo() {
                     status = "Not yet departed";
                 }
             
-                tmp = '<td><a href="#" onclick = "centerMapOnPlane(' + latest_json[2][j]['id'] + ')">' 
+                tmp = '<td><a href="#" onclick = "centerMap(' + latest_json[2][j]['id'] + ', 2)">' 
                 tmp += latest_json[2][j]['callsign'] + "</a></td>";
                 tmp += "<td>" + latest_json[2][j]['depairport'] + "</td>";
                 tmp += "<td>" + dist + "</td>";
@@ -917,6 +929,8 @@ function update() {
             //Filter the online users, based on what was entered in filter box
             filterOnlines($("#filtertext").val());
             
+            updateWorstWeather();
+            
             console.log("Redrew map at " + data[3][0]["time_updated"])
             update_time = data[3][0]["time_updated"]
             
@@ -999,15 +1013,15 @@ function get_metar(stationid) {
     .done(function(data, textStatus, jqXHR) {
         //console.log(data);
         if (data === null) {
-            $("#metarresults_stationID").text(stationid + ' is not available.');
+            $("#metarresults_stationID").text('METAR for ' + stationid + ' is not available.');
             $("#metardetails").hide();
         } else {
-            $("#metarresults_stationID").text(' for ' + data['stationID']);
+            $("#metarresults_stationID").text('METAR for ' + data['stationID']);
             $("#metarresults_category").text(data['category']);
             $("#metarresults_rawtext blockquote span").text(data['raw_text']);
             $("#metarresults_time").text(data['time']);
             
-            $("#metarresults_winddirspeed").html('<img src="http://abid.a2hosted.com/plane' + Math.round(data["wind_dir"] / 10) % 36 + '.gif">   (' + data['wind_dir'] + ')  ' +  data['wind']);
+            $("#metarresults_winddirspeed").html('<img src="' + imgs[Math.round(data["wind_dir"] / 10) % 36] + '"/>   (' + data['wind_dir'] + ')  ' +  data['wind']);
             $("#metarresults_clouds").text(data['clouds']);
             $("#metarresults_visibility").text(data['visibility']);
             $("#metarresults_tempdewpoint").text(data['temp']);
@@ -1038,9 +1052,11 @@ setInterval(function() {
 
 function updateWorstWeather() {
     var airport = '';
+    var apts_tmp = {};
     for (var i = 0; i < latest_json[0].length; i++) {
         if (latest_json[0][i]['atc'].length !== 0) {
             airport += ' ' + latest_json[0][i]['icao'];
+            apts_tmp[latest_json[0][i]['icao']] = [latest_json[0][i]['id'], latest_json[0][i]['name']];
         }
     }
 
@@ -1048,27 +1064,34 @@ function updateWorstWeather() {
         airports: airport
     })
     .done(function(data, textStatus, jqXHR) {
-        console.log(data);
-        
-//        if (type === 'multi') {
-//            latest_weather = data;
-//            drawWorstWeather();
-//        } else {
-//            single_weather = data;
-//        }
+        $("#worstweather tbody").html('');
+        for (var i = 0; i < data.length; i++) {
+            var max = -10;
+            var ind = null;
+            var table_data = '';
+    
+            for (var k = 0; k < data.length; k++) {
+                if (data[k]['total_score'] > max) { // || max === null) {
+                    if (data[k]['precipitation'] === null) {
+                        data[k]['precipitation'] = "None";
+                    }
+                    max = data[k]['total_score'];
+                    ind = k;
+                }
+            }
+            var tmp = data[ind];
+            //Draw max one in table
+            table_data += '<tr><td><a href = "#" onclick="centerMap(' + apts_tmp[tmp['airport']][0] + ', 0);">' + tmp['airport'] + '</a><span class = "worstweatherhover">' + apts_tmp[tmp['airport']][1] + '</span></td>'
+            table_data += '<td>' + tmp['precipitation_score'] + '<span class = "worstweatherhover">' + tmp['precipitation'] + '</span></td>';
+            table_data += '<td>' + tmp['temperature_score'] + '<span class = "worstweatherhover">' + tmp['temperature'] + '</span></td>';
+            table_data += '<td>' + tmp['visibility_score'] + '<span class = "worstweatherhover">' + tmp['visibility'] + '</span></td>';
+            
+            
+            table_data += '<td>' + tmp['wind_score'] + '<span class = "worstweatherhover">' + tmp['wind'] + '</span></td>';
+            table_data += '<td>' + tmp['total_score'] + '</td>';
+            $("#worstweather tbody").append(table_data)
+            
+            data[ind]['total_score'] = null;
+        }
     });
 }
-
-/*
-function drawWorstWeather() {
-    //draw the worst weather from data variable
-    for (var key in latest_weather) {
-        var tmp = "<tr><td>"+latest_weather[]
-    }
-    
-    $("#worstweather tbody")
-    //Update SPAN (this holds descrupotion of which sortint is currently used)
-
-    //Sort the table
-
-}*/
