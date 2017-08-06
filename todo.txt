@@ -1,15 +1,12 @@
 *  Critical Features to Add:
-      Centre polygons                               3 hr
+      Centre polygons                               2 hr
           
       Logging                                       1 hr
-        log airports at 0,0. Entered these in db
-        find logable code (try/except, if)
-          
-      Why is everything in Liverpool NS?            1 hr
-          
+
+
       Get METAR link under airport for status       0.5 hr
       
-      Styling - consult VATAWARE                    4 hr
+      Styling - consult VATAWARE                    2 hr
         add flags to status/ytable
         style ATC for selected airport d
         style hover window
@@ -18,25 +15,7 @@
       Tidy hover window:                            0.5 hr
         Time online, freq, name, METAR, apt diagram
 
-      If no airport, dont draw lines on hover!      1 hr
-        Deal with aircraft with no dep/arr
-        Should have no dep/arr ID
-      
       Tab: Flight Planning                          4 hr
-      Tab: Weather                                  4 hr
-      Tab: Events                                   4 hr
-          VAT Oceania
-              http://www.vatnz.net/events/org/vatnz/upcoming
-              https://calendar.vatpac.org/
-          VAT South America
-              https://www.vatsim.net.br/eventos/proximos-eventos
-          VAT North America
-              https://api.vatusa.net/events
-              https://www.vatcan.ca/ajax/events
-              https://www.vatame.org/
-          VAT Europe
-              http://api.vateud.net/events.xml
-              https://www.vatsim.net/events
 
 *  Non Critical relatively Easy:
        Legend for map                               0.5 hr
@@ -53,6 +32,20 @@
 
         Improve Performance
              Searching through latest_json array      should not be necessary for drawing airport/airplane lines (on hover)
+
+        Tab: Events
+          VAT Oceania
+              http://www.vatnz.net/events/org/vatnz/upcoming
+              https://calendar.vatpac.org/
+          VAT South America
+              https://www.vatsim.net.br/eventos/proximos-eventos
+          VAT North America
+              https://api.vatusa.net/events
+              https://www.vatcan.ca/ajax/events
+              https://www.vatame.org/
+          VAT Europe
+              http://api.vateud.net/events.xml
+              https://www.vatsim.net/events
 
 * Debugging
        * Debug route drawing (far away points, no connect to planes)    3 hr
