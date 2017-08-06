@@ -1,0 +1,1398 @@
+INFO :: 2017-08-05 20:49:44,384 :: Application started
+WARNING :: 2017-08-05 20:49:46,752 :: Airline callsign provided to decode_airline in unexpected format - "A1001"
+WARNING :: 2017-08-05 20:49:46,905 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-05 20:49:47,041 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "AFRN_FSS"
+ERROR :: 2017-08-05 20:49:47,041 :: Unknown ATC type from callsign_to_ATC - "AFRN_FSS"
+WARNING :: 2017-08-05 20:49:47,064 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KMYF"
+WARNING :: 2017-08-05 20:49:47,099 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+WARNING :: 2017-08-05 20:49:47,279 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "0CL3"
+WARNING :: 2017-08-05 20:49:47,282 :: Airline callsign provided to decode_airline in unexpected format - "C7E35"
+WARNING :: 2017-08-05 20:49:47,307 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-05 20:49:47,348 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CZVL"
+WARNING :: 2017-08-05 20:49:47,351 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CKU7"
+WARNING :: 2017-08-05 20:49:47,375 :: Airline callsign provided to decode_airline in unexpected format - "D7NA"
+INFO :: 2017-08-05 20:49:47,432 :: Center found - "DEN_CTR"
+INFO :: 2017-08-05 20:49:47,499 :: Center found - "EHAA_E_CTR"
+INFO :: 2017-08-05 20:49:47,500 :: Center found - "EHAA_W_CTR"
+INFO :: 2017-08-05 20:49:47,525 :: Center found - "ESOS_1_CTR"
+INFO :: 2017-08-05 20:49:47,525 :: Center found - "EURM_CTR"
+WARNING :: 2017-08-05 20:49:47,579 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KMVM"
+WARNING :: 2017-08-05 20:49:47,583 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CSK3"
+INFO :: 2017-08-05 20:49:47,611 :: Center found - "FTW_48_CTR"
+INFO :: 2017-08-05 20:49:47,611 :: Center found - "FTW_96_CTR"
+WARNING :: 2017-08-05 20:49:47,631 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WAHS"
+WARNING :: 2017-08-05 20:49:47,692 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SEJD"
+INFO :: 2017-08-05 20:49:47,703 :: Center found - "HOU_CTR"
+INFO :: 2017-08-05 20:49:47,751 :: Center found - "IND_CTR"
+INFO :: 2017-08-05 20:49:47,809 :: Center found - "KC_41_CTR"
+INFO :: 2017-08-05 20:49:47,809 :: Center found - "KC_I_CTR"
+INFO :: 2017-08-05 20:49:47,860 :: Center found - "MDCS_N_CTR"
+INFO :: 2017-08-05 20:49:47,863 :: Center found - "MEM_05_CTR"
+INFO :: 2017-08-05 20:49:47,865 :: Center found - "MKJK_CTR"
+INFO :: 2017-08-05 20:49:47,880 :: Center found - "MSP_A1_CTR"
+WARNING :: 2017-08-05 20:49:47,896 :: Airline callsign provided to decode_airline in unexpected format - "N104KN"
+WARNING :: 2017-08-05 20:49:47,899 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KANW"
+WARNING :: 2017-08-05 20:49:47,902 :: Airline callsign provided to decode_airline in unexpected format - "N129DC"
+WARNING :: 2017-08-05 20:49:47,906 :: Airline callsign provided to decode_airline in unexpected format - "N1537S"
+WARNING :: 2017-08-05 20:49:47,911 :: Airline callsign provided to decode_airline in unexpected format - "N1626K"
+WARNING :: 2017-08-05 20:49:47,913 :: Airline callsign provided to decode_airline in unexpected format - "N1701"
+WARNING :: 2017-08-05 20:49:47,914 :: Airline callsign provided to decode_airline in unexpected format - "N172SP"
+WARNING :: 2017-08-05 20:49:47,914 :: Airline callsign provided to decode_airline in unexpected format - "N1975"
+WARNING :: 2017-08-05 20:49:47,918 :: Airline callsign provided to decode_airline in unexpected format - "N1997"
+WARNING :: 2017-08-05 20:49:47,922 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KBRY"
+WARNING :: 2017-08-05 20:49:47,923 :: Airline callsign provided to decode_airline in unexpected format - "N214HK"
+WARNING :: 2017-08-05 20:49:47,929 :: Airline callsign provided to decode_airline in unexpected format - "N2355G"
+WARNING :: 2017-08-05 20:49:47,933 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KHSD"
+WARNING :: 2017-08-05 20:49:47,937 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KGDJ"
+WARNING :: 2017-08-05 20:49:47,938 :: Airline callsign provided to decode_airline in unexpected format - "N241"
+WARNING :: 2017-08-05 20:49:47,946 :: Airline callsign provided to decode_airline in unexpected format - "N2436W"
+WARNING :: 2017-08-05 20:49:47,950 :: Airline callsign provided to decode_airline in unexpected format - "N253CF"
+WARNING :: 2017-08-05 20:49:47,957 :: Airline callsign provided to decode_airline in unexpected format - "N3001W"
+WARNING :: 2017-08-05 20:49:47,962 :: Airline callsign provided to decode_airline in unexpected format - "N399CK"
+WARNING :: 2017-08-05 20:49:47,964 :: Airline callsign provided to decode_airline in unexpected format - "N3MA"
+WARNING :: 2017-08-05 20:49:47,967 :: Airline callsign provided to decode_airline in unexpected format - "N4163K"
+WARNING :: 2017-08-05 20:49:47,969 :: Airline callsign provided to decode_airline in unexpected format - "N4236B"
+WARNING :: 2017-08-05 20:49:47,974 :: Airline callsign provided to decode_airline in unexpected format - "N42MT"
+WARNING :: 2017-08-05 20:49:47,976 :: Airline callsign provided to decode_airline in unexpected format - "N495LM"
+WARNING :: 2017-08-05 20:49:47,979 :: Airline callsign provided to decode_airline in unexpected format - "N508AE"
+WARNING :: 2017-08-05 20:49:47,979 :: Airline callsign provided to decode_airline in unexpected format - "N530EP"
+WARNING :: 2017-08-05 20:49:47,983 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KASL"
+WARNING :: 2017-08-05 20:49:47,986 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "M18"
+WARNING :: 2017-08-05 20:49:47,986 :: Airline callsign provided to decode_airline in unexpected format - "N531MD"
+WARNING :: 2017-08-05 20:49:47,986 :: Airline callsign provided to decode_airline in unexpected format - "N564LL"
+WARNING :: 2017-08-05 20:49:47,986 :: Airline callsign provided to decode_airline in unexpected format - "N637BL"
+WARNING :: 2017-08-05 20:49:47,986 :: Airline callsign provided to decode_airline in unexpected format - "N658BL"
+WARNING :: 2017-08-05 20:49:47,991 :: Airline callsign provided to decode_airline in unexpected format - "N700BN"
+WARNING :: 2017-08-05 20:49:47,995 :: Airline callsign provided to decode_airline in unexpected format - "N777MT"
+WARNING :: 2017-08-05 20:49:47,999 :: Airline callsign provided to decode_airline in unexpected format - "N78JO"
+WARNING :: 2017-08-05 20:49:48,004 :: Airline callsign provided to decode_airline in unexpected format - "N864MB"
+WARNING :: 2017-08-05 20:49:48,009 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "V99"
+WARNING :: 2017-08-05 20:49:48,012 :: Airline callsign provided to decode_airline in unexpected format - "N8665R"
+WARNING :: 2017-08-05 20:49:48,017 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-05 20:49:48,017 :: Airline callsign provided to decode_airline in unexpected format - "N965RS"
+WARNING :: 2017-08-05 20:49:48,020 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "HE32"
+WARNING :: 2017-08-05 20:49:48,022 :: Airline callsign provided to decode_airline in unexpected format - "N990"
+WARNING :: 2017-08-05 20:49:48,025 :: Airline callsign provided to decode_airline in unexpected format - "N990CP"
+WARNING :: 2017-08-05 20:49:48,072 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJO"
+WARNING :: 2017-08-05 20:49:48,074 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SLMG"
+WARNING :: 2017-08-05 20:49:48,089 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "25LL"
+WARNING :: 2017-08-05 20:49:48,150 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+WARNING :: 2017-08-05 20:49:48,169 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SYEC"
+INFO :: 2017-08-05 20:49:48,238 :: Center found - "SBCW_CTR"
+WARNING :: 2017-08-05 20:49:48,245 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SBXP_APP"
+INFO :: 2017-08-05 20:49:48,523 :: Center found - "UUWV_CTR"
+WARNING :: 2017-08-05 20:49:48,606 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZFW_ATM"
+ERROR :: 2017-08-05 20:49:48,606 :: Unknown ATC type from callsign_to_ATC - "ZFW_ATM"
+WARNING :: 2017-08-05 20:49:48,611 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZMP_EC"
+ERROR :: 2017-08-05 20:49:48,611 :: Unknown ATC type from callsign_to_ATC - "ZMP_EC"
+INFO :: 2017-08-05 20:52:47,308 :: Center found - "OAK_CTR"
+WARNING :: 2017-08-05 20:52:47,642 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBGD"
+WARNING :: 2017-08-05 20:55:54,800 :: Airline callsign provided to decode_airline in unexpected format - "N645SW"
+WARNING :: 2017-08-05 20:55:56,621 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UUML"
+WARNING :: 2017-08-05 20:55:56,634 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZA8G"
+WARNING :: 2017-08-05 20:57:21,240 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UKBV_APP"
+WARNING :: 2017-08-05 20:58:46,659 :: Airline callsign provided to decode_airline in unexpected format - "D82460"
+INFO :: 2017-08-05 21:02:48,265 :: Center found - "SJU_CTR"
+WARNING :: 2017-08-05 21:03:48,360 :: Airline callsign provided to decode_airline in unexpected format - "N964MA"
+WARNING :: 2017-08-05 21:05:48,056 :: Airline callsign provided to decode_airline in unexpected format - "N87JA"
+WARNING :: 2017-08-05 21:07:48,059 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CAP3"
+WARNING :: 2017-08-05 21:08:48,204 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KJVY"
+WARNING :: 2017-08-05 21:09:47,800 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KBNL"
+WARNING :: 2017-08-05 21:09:48,158 :: Airline callsign provided to decode_airline in unexpected format - "N250LG"
+WARNING :: 2017-08-05 21:11:47,563 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KFDK"
+WARNING :: 2017-08-05 21:12:48,251 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "HLMS"
+WARNING :: 2017-08-05 21:15:47,933 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CCN2"
+WARNING :: 2017-08-05 21:15:48,183 :: Airline callsign provided to decode_airline in unexpected format - "N21CV"
+WARNING :: 2017-08-05 21:15:48,257 :: Airline callsign provided to decode_airline in unexpected format - "N88745"
+WARNING :: 2017-08-05 21:16:48,003 :: Airline callsign provided to decode_airline in unexpected format - "N9CE"
+WARNING :: 2017-08-05 21:17:47,846 :: Airline callsign provided to decode_airline in unexpected format - "N2822D"
+WARNING :: 2017-08-05 21:17:47,870 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KGAF"
+WARNING :: 2017-08-05 21:20:48,002 :: Airline callsign provided to decode_airline in unexpected format - "N86166"
+INFO :: 2017-08-05 21:22:47,517 :: Center found - "CLE_64_CTR"
+WARNING :: 2017-08-05 21:28:47,877 :: Airline callsign provided to decode_airline in unexpected format - "N850HP"
+WARNING :: 2017-08-05 21:31:47,958 :: Airline callsign provided to decode_airline in unexpected format - "N474EP"
+WARNING :: 2017-08-05 21:31:47,970 :: Airline callsign provided to decode_airline in unexpected format - "N6423"
+WARNING :: 2017-08-05 21:32:47,776 :: Airline callsign provided to decode_airline in unexpected format - "N233BC"
+WARNING :: 2017-08-05 21:32:47,796 :: Airline callsign provided to decode_airline in unexpected format - "N328BP"
+WARNING :: 2017-08-05 21:34:48,033 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CVN7"
+INFO :: 2017-08-06 07:19:26,572 :: Application started
+WARNING :: 2017-08-06 07:19:56,244 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+INFO :: 2017-08-06 07:20:52,920 :: Application started
+WARNING :: 2017-08-06 07:20:53,708 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:20:53,762 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:20:53,825 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+WARNING :: 2017-08-06 07:20:53,875 :: Airline callsign provided to decode_airline in unexpected format - "B757T"
+INFO :: 2017-08-06 07:20:53,923 :: Center found - "BN-DOS_CTR"
+INFO :: 2017-08-06 07:20:54,021 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:20:54,173 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:20:54,176 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+ERROR :: 2017-08-06 07:20:54,214 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+INFO :: 2017-08-06 07:20:54,223 :: Center found - "MKJK_CTR"
+INFO :: 2017-08-06 07:20:54,225 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:20:54,229 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:20:54,235 :: Airline callsign provided to decode_airline in unexpected format - "N172T"
+WARNING :: 2017-08-06 07:20:54,239 :: Airline callsign provided to decode_airline in unexpected format - "N1735E"
+WARNING :: 2017-08-06 07:20:54,243 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:20:54,244 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:20:54,248 :: Airline callsign provided to decode_airline in unexpected format - "N55RC"
+WARNING :: 2017-08-06 07:20:54,248 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:20:54,252 :: Airline callsign provided to decode_airline in unexpected format - "N6144P"
+WARNING :: 2017-08-06 07:20:54,252 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:20:54,253 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:20:54,256 :: Airline callsign provided to decode_airline in unexpected format - "N765LA"
+WARNING :: 2017-08-06 07:20:54,261 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:20:54,263 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:20:54,265 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+INFO :: 2017-08-06 07:20:54,292 :: Center found - "OMAE_CTR"
+WARNING :: 2017-08-06 07:20:54,432 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:20:54,470 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:20:54,488 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:20:54,494 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+INFO :: 2017-08-06 07:20:54,566 :: Center found - "SCEZ_N_CTR"
+ERROR :: 2017-08-06 07:20:54,614 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:20:54,681 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:20:54,691 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:20:54,767 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+ERROR :: 2017-08-06 07:21:05,346 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:21:05,358 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:21:05,530 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:21:06,430 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:21:06,443 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:21:06,596 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:21:07,175 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:21:07,186 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:21:07,343 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:21:07,920 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:21:07,930 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:21:08,115 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:21:09,934 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:21:09,944 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:21:10,092 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:21:10,626 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:21:10,637 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:21:10,798 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:21:11,312 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:21:11,323 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:21:11,471 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:21:13,337 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:21:13,347 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:21:13,492 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:21:22,011 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:21:22,022 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:21:22,167 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:21:23,370 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:21:23,380 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:21:23,526 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:21:25,247 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:21:25,257 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:21:25,419 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:01,489 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:01,500 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:01,656 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:13,927 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:13,938 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:14,092 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:15,515 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:15,526 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:15,682 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:19,026 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:19,036 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:19,193 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:21,928 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:21,938 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:22,092 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:27,684 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:27,695 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:27,859 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:30,250 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:30,262 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:30,428 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:31,263 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:31,274 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:31,444 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:32,269 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:32,292 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:32,566 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:32,587 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:32,679 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:32,917 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:33,396 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:33,408 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:33,565 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:34,283 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:34,294 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:34,447 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:53,168 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:53,179 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:53,332 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:22:54,763 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:22:54,774 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:22:54,930 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:23:13,674 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:23:13,685 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:23:13,837 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:23:26,295 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:23:26,306 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:23:26,459 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:23:27,073 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:23:27,083 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:23:27,237 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:23:28,131 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:23:28,142 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:23:28,292 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:23:39,125 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:23:39,136 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:23:39,288 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:23:40,580 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:23:40,591 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:23:40,742 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:23:44,692 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:23:44,703 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:23:44,858 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:24:14,206 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:24:14,215 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:24:14,370 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:25:05,807 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:25:05,816 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:25:05,974 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:25:06,709 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:25:06,719 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:25:06,879 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:25:07,436 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:25:07,444 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:25:07,621 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:25:08,144 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:25:08,152 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:25:08,305 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:25:08,967 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LN_TWR"
+ERROR :: 2017-08-06 07:25:08,978 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:25:09,141 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:26:06,248 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:26:06,412 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:26:13,507 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:26:13,671 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:29:00,580 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:29:00,758 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:29:00,758 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:29:00,840 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NZNE"
+ERROR :: 2017-08-06 07:29:24,189 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:29:24,369 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:30:23,919 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:30:24,093 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:31:23,999 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:31:24,250 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:32:24,171 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:32:24,338 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:33:24,219 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:33:24,388 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:34:24,687 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:34:24,864 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:34:51,488 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:34:51,505 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+ERROR :: 2017-08-06 07:34:51,654 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:35:14,771 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:35:14,950 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:36:15,206 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:36:15,376 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:37:15,204 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:37:15,423 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:38:15,298 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:38:15,608 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+INFO :: 2017-08-06 07:38:17,223 :: Application started
+WARNING :: 2017-08-06 07:38:21,530 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:38:21,591 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:38:21,647 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+WARNING :: 2017-08-06 07:38:21,679 :: Airline callsign provided to decode_airline in unexpected format - "B757T"
+INFO :: 2017-08-06 07:38:21,835 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:38:21,968 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:38:21,970 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:38:21,996 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:38:21,999 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:38:22,005 :: Airline callsign provided to decode_airline in unexpected format - "N1735E"
+WARNING :: 2017-08-06 07:38:22,009 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:38:22,011 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:38:22,012 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:38:22,015 :: Airline callsign provided to decode_airline in unexpected format - "N6144P"
+WARNING :: 2017-08-06 07:38:22,019 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:38:22,019 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:38:22,020 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:38:22,023 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:38:22,025 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:38:22,028 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:38:22,106 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:38:22,141 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:38:22,153 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:38:22,156 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+INFO :: 2017-08-06 07:38:22,164 :: Center found - "SCEZ_N_CTR"
+ERROR :: 2017-08-06 07:38:22,220 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:38:22,220 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:38:22,275 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:38:22,298 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:38:22,317 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+WARNING :: 2017-08-06 07:38:22,330 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NZNE"
+INFO :: 2017-08-06 07:38:23,457 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:38:23,580 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:38:23,616 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 699
+INFO :: 2017-08-06 07:38:23,621 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:38:23,723 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:38:23,760 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 619
+INFO :: 2017-08-06 07:38:28,890 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:38:29,031 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:38:29,071 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 619
+ERROR :: 2017-08-06 07:39:22,171 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:39:22,344 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+INFO :: 2017-08-06 07:40:16,858 :: Application started
+INFO :: 2017-08-06 07:40:21,767 :: Starting new HTTPS connection (1): aviationweather.gov
+WARNING :: 2017-08-06 07:40:21,818 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:40:21,884 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+DEBUG :: 2017-08-06 07:40:21,929 :: Setting read timeout to None
+WARNING :: 2017-08-06 07:40:21,941 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+DEBUG :: 2017-08-06 07:40:21,964 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 700
+INFO :: 2017-08-06 07:40:21,969 :: Starting new HTTPS connection (1): aviationweather.gov
+WARNING :: 2017-08-06 07:40:21,977 :: Airline callsign provided to decode_airline in unexpected format - "B757T"
+DEBUG :: 2017-08-06 07:40:22,074 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:40:22,112 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 620
+INFO :: 2017-08-06 07:40:22,127 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:40:22,256 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:40:22,258 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:40:22,287 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:40:22,291 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:40:22,297 :: Airline callsign provided to decode_airline in unexpected format - "N1735E"
+WARNING :: 2017-08-06 07:40:22,301 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:40:22,304 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:40:22,305 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:40:22,310 :: Airline callsign provided to decode_airline in unexpected format - "N6144P"
+WARNING :: 2017-08-06 07:40:22,314 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:40:22,314 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:40:22,314 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:40:22,318 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:40:22,320 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:40:22,323 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:40:22,405 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:40:22,442 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:40:22,454 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:40:22,458 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+INFO :: 2017-08-06 07:40:22,466 :: Center found - "SCEZ_N_CTR"
+ERROR :: 2017-08-06 07:40:22,535 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:40:22,536 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:40:22,592 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:40:22,616 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:40:22,636 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+WARNING :: 2017-08-06 07:40:22,649 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NZNE"
+INFO :: 2017-08-06 07:40:40,891 :: Application started
+INFO :: 2017-08-06 07:40:41,820 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:40:41,929 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:40:41,965 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 699
+INFO :: 2017-08-06 07:40:41,969 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:40:42,079 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:40:42,115 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 618
+INFO :: 2017-08-06 07:40:58,686 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:40:58,805 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:40:58,841 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 619
+INFO :: 2017-08-06 07:41:00,161 :: Application started
+INFO :: 2017-08-06 07:41:10,610 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:10,720 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:10,760 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 699
+INFO :: 2017-08-06 07:41:10,766 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:10,877 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:10,918 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 619
+ERROR :: 2017-08-06 07:41:10,921 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+WARNING :: 2017-08-06 07:41:21,799 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:41:21,864 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:41:21,922 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+WARNING :: 2017-08-06 07:41:21,953 :: Airline callsign provided to decode_airline in unexpected format - "B757T"
+INFO :: 2017-08-06 07:41:22,103 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:41:22,222 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:41:22,225 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:41:22,250 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:41:22,254 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:41:22,260 :: Airline callsign provided to decode_airline in unexpected format - "N1735E"
+WARNING :: 2017-08-06 07:41:22,264 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:41:22,266 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:41:22,267 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:41:22,271 :: Airline callsign provided to decode_airline in unexpected format - "N6144P"
+WARNING :: 2017-08-06 07:41:22,275 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:41:22,275 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:41:22,275 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:41:22,279 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:41:22,281 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:41:22,283 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:41:22,363 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:41:22,395 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:41:22,406 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:41:22,410 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+INFO :: 2017-08-06 07:41:22,418 :: Center found - "SCEZ_N_CTR"
+ERROR :: 2017-08-06 07:41:22,489 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:41:22,490 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:41:22,545 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:41:22,569 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:41:22,589 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+WARNING :: 2017-08-06 07:41:22,601 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NZNE"
+INFO :: 2017-08-06 07:41:25,153 :: Application started
+INFO :: 2017-08-06 07:41:25,933 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:26,046 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:26,083 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 699
+INFO :: 2017-08-06 07:41:26,088 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:26,192 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:26,232 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 619
+ERROR :: 2017-08-06 07:41:26,234 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:41:26,235 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:26,355 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:26,393 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 687
+INFO :: 2017-08-06 07:41:26,396 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:26,506 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:26,543 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 645
+INFO :: 2017-08-06 07:41:26,547 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:26,660 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:26,700 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 694
+INFO :: 2017-08-06 07:41:26,704 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:26,816 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:26,857 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 707
+INFO :: 2017-08-06 07:41:26,861 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:26,971 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:27,011 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 681
+ERROR :: 2017-08-06 07:41:27,013 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:41:27,014 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:27,117 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:27,156 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 637
+INFO :: 2017-08-06 07:41:27,159 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:27,262 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:27,299 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 657
+INFO :: 2017-08-06 07:41:27,303 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:27,411 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:27,449 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 622
+INFO :: 2017-08-06 07:41:27,453 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:27,561 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:27,597 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 633
+INFO :: 2017-08-06 07:41:27,601 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:27,711 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:27,749 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 636
+INFO :: 2017-08-06 07:41:27,752 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:27,865 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:27,905 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 768
+ERROR :: 2017-08-06 07:41:27,908 :: METAR parsing error for airport YPAD with code "YPAD 060735Z 28021G31KT 7000 -RA FEW018 BKN050 11/07 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0735/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1035 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:41:27,909 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:28,009 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:28,045 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 663
+INFO :: 2017-08-06 07:41:28,049 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:41:28,150 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:41:28,184 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 663
+WARNING :: 2017-08-06 07:42:21,990 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:42:22,055 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:42:22,112 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+WARNING :: 2017-08-06 07:42:22,146 :: Airline callsign provided to decode_airline in unexpected format - "B757T"
+INFO :: 2017-08-06 07:42:22,308 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 07:42:22,308 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:42:22,434 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:42:22,436 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:42:22,465 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:42:22,469 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:42:22,478 :: Airline callsign provided to decode_airline in unexpected format - "N1735E"
+WARNING :: 2017-08-06 07:42:22,485 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:42:22,488 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:42:22,489 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:42:22,493 :: Airline callsign provided to decode_airline in unexpected format - "N6144P"
+WARNING :: 2017-08-06 07:42:22,497 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:42:22,497 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:42:22,501 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:42:22,503 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:42:22,506 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:42:22,587 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:42:22,619 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:42:22,629 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:42:22,632 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+INFO :: 2017-08-06 07:42:22,640 :: Center found - "SCEZ_N_CTR"
+ERROR :: 2017-08-06 07:42:22,701 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:42:22,701 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:42:22,757 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:42:22,780 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:42:22,802 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+WARNING :: 2017-08-06 07:42:22,815 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NZNE"
+INFO :: 2017-08-06 07:43:21,644 :: Application started
+INFO :: 2017-08-06 07:43:22,362 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:22,482 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:22,518 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 None
+INFO :: 2017-08-06 07:43:22,522 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:22,627 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:22,663 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 622
+ERROR :: 2017-08-06 07:43:22,666 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+WARNING :: 2017-08-06 07:43:22,729 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:43:22,801 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:43:22,856 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+WARNING :: 2017-08-06 07:43:22,889 :: Airline callsign provided to decode_airline in unexpected format - "B757T"
+INFO :: 2017-08-06 07:43:23,168 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 07:43:23,168 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:43:23,296 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:43:23,358 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:43:23,384 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:43:23,388 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:43:23,394 :: Airline callsign provided to decode_airline in unexpected format - "N1735E"
+WARNING :: 2017-08-06 07:43:23,398 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:43:23,400 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:43:23,400 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:43:23,404 :: Airline callsign provided to decode_airline in unexpected format - "N6144P"
+WARNING :: 2017-08-06 07:43:23,408 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:43:23,408 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:43:23,412 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:43:23,414 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:43:23,416 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:43:23,495 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:43:23,589 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:43:23,599 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:43:23,602 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+INFO :: 2017-08-06 07:43:23,610 :: Center found - "SCEZ_N_CTR"
+ERROR :: 2017-08-06 07:43:23,671 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:43:23,671 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:43:23,797 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:43:23,821 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:43:23,841 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+WARNING :: 2017-08-06 07:43:23,854 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NZNE"
+INFO :: 2017-08-06 07:43:40,895 :: Application started
+INFO :: 2017-08-06 07:43:42,299 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:42,449 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:42,486 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 699
+INFO :: 2017-08-06 07:43:42,492 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:42,599 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:42,635 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 623
+ERROR :: 2017-08-06 07:43:42,639 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:43:42,641 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:42,753 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:42,787 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 685
+INFO :: 2017-08-06 07:43:42,791 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:42,904 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:42,939 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 644
+INFO :: 2017-08-06 07:43:42,943 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:43,054 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:43,090 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 694
+INFO :: 2017-08-06 07:43:43,095 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:43,209 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:43,243 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 706
+INFO :: 2017-08-06 07:43:43,248 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:43,361 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:43,397 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 684
+ERROR :: 2017-08-06 07:43:43,401 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:43:43,403 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:43,527 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:43,562 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 635
+INFO :: 2017-08-06 07:43:43,567 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:43,684 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:43,723 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 657
+INFO :: 2017-08-06 07:43:43,726 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:43,828 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:43,862 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 621
+INFO :: 2017-08-06 07:43:43,873 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:43,983 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:44,016 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 633
+INFO :: 2017-08-06 07:43:44,020 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:44,131 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:44,167 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 636
+INFO :: 2017-08-06 07:43:44,170 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:44,280 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:44,320 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 766
+ERROR :: 2017-08-06 07:43:44,323 :: METAR parsing error for airport YPAD with code "YPAD 060735Z 28021G31KT 7000 -RA FEW018 BKN050 11/07 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0735/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1035 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:43:44,325 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:44,434 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:44,469 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 662
+INFO :: 2017-08-06 07:43:44,473 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:43:44,588 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:43:44,622 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 662
+WARNING :: 2017-08-06 07:44:21,807 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:44:21,882 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:44:21,934 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+WARNING :: 2017-08-06 07:44:21,967 :: Airline callsign provided to decode_airline in unexpected format - "B757T"
+INFO :: 2017-08-06 07:44:22,128 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 07:44:22,128 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:44:22,257 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:44:22,259 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:44:22,287 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:44:22,291 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:44:22,297 :: Airline callsign provided to decode_airline in unexpected format - "N1735E"
+WARNING :: 2017-08-06 07:44:22,301 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:44:22,303 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:44:22,303 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:44:22,308 :: Airline callsign provided to decode_airline in unexpected format - "N6144P"
+WARNING :: 2017-08-06 07:44:22,312 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:44:22,312 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:44:22,312 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:44:22,317 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:44:22,319 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:44:22,321 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:44:22,341 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CN68"
+WARNING :: 2017-08-06 07:44:22,417 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:44:22,450 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:44:22,459 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:44:22,464 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+INFO :: 2017-08-06 07:44:22,471 :: Center found - "SCEZ_N_CTR"
+ERROR :: 2017-08-06 07:44:22,533 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:44:22,533 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:44:22,593 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:44:22,620 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:44:22,640 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+WARNING :: 2017-08-06 07:44:22,654 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NZNE"
+INFO :: 2017-08-06 07:44:43,952 :: Application started
+INFO :: 2017-08-06 07:44:44,830 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:44,947 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:44,982 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 699
+INFO :: 2017-08-06 07:44:44,987 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:45,108 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:45,144 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 623
+ERROR :: 2017-08-06 07:44:45,147 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:44:45,148 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:45,251 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:45,285 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 688
+INFO :: 2017-08-06 07:44:45,289 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:45,397 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:45,432 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 644
+INFO :: 2017-08-06 07:44:45,436 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:45,559 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:45,599 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 694
+INFO :: 2017-08-06 07:44:45,605 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:45,719 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:45,755 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 705
+INFO :: 2017-08-06 07:44:45,760 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:45,874 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:45,910 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 684
+ERROR :: 2017-08-06 07:44:45,913 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:44:45,914 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:46,021 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:46,058 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 638
+INFO :: 2017-08-06 07:44:46,067 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:46,180 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:46,216 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 657
+INFO :: 2017-08-06 07:44:46,220 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:46,331 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:46,367 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 621
+INFO :: 2017-08-06 07:44:46,371 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:46,478 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:46,514 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 634
+INFO :: 2017-08-06 07:44:46,519 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:46,628 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:46,665 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 634
+INFO :: 2017-08-06 07:44:46,670 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:46,777 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:46,816 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 766
+ERROR :: 2017-08-06 07:44:46,819 :: METAR parsing error for airport YPAD with code "YPAD 060735Z 28021G31KT 7000 -RA FEW018 BKN050 11/07 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0735/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1035 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:44:46,820 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:46,924 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:46,960 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 663
+INFO :: 2017-08-06 07:44:46,964 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:44:47,069 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:44:47,102 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 663
+WARNING :: 2017-08-06 07:45:21,804 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:45:21,877 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:45:21,929 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+WARNING :: 2017-08-06 07:45:21,960 :: Airline callsign provided to decode_airline in unexpected format - "B757T"
+INFO :: 2017-08-06 07:45:22,116 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 07:45:22,116 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:45:22,241 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:45:22,244 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:45:22,279 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:45:22,283 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:45:22,289 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:45:22,291 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:45:22,291 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:45:22,295 :: Airline callsign provided to decode_airline in unexpected format - "N6144P"
+WARNING :: 2017-08-06 07:45:22,299 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:45:22,300 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:45:22,300 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:45:22,304 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:45:22,305 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:45:22,308 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:45:22,328 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CN68"
+WARNING :: 2017-08-06 07:45:22,387 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:45:22,419 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:45:22,428 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:45:22,432 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+INFO :: 2017-08-06 07:45:22,438 :: Center found - "SCEZ_N_CTR"
+ERROR :: 2017-08-06 07:45:22,520 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:45:22,520 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:45:22,609 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:45:22,636 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:45:22,655 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+WARNING :: 2017-08-06 07:45:22,668 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NZNE"
+INFO :: 2017-08-06 07:45:33,103 :: Application started
+INFO :: 2017-08-06 07:45:33,980 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:34,110 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:34,144 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 699
+INFO :: 2017-08-06 07:45:34,149 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:34,258 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:34,297 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 622
+ERROR :: 2017-08-06 07:45:34,300 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:45:34,301 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:34,416 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:34,453 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 686
+INFO :: 2017-08-06 07:45:34,457 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:34,566 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:34,605 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 644
+INFO :: 2017-08-06 07:45:34,608 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:34,712 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:34,748 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 696
+INFO :: 2017-08-06 07:45:34,752 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:34,852 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:34,886 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 705
+INFO :: 2017-08-06 07:45:34,890 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:34,994 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:35,031 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 684
+ERROR :: 2017-08-06 07:45:35,034 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:45:35,035 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:35,138 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:35,179 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 638
+INFO :: 2017-08-06 07:45:35,183 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:35,297 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:35,334 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 657
+INFO :: 2017-08-06 07:45:35,338 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:35,449 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:35,826 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 624
+INFO :: 2017-08-06 07:45:35,830 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:35,940 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:35,977 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 634
+INFO :: 2017-08-06 07:45:35,981 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:36,085 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:36,120 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 636
+INFO :: 2017-08-06 07:45:36,124 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:36,231 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:36,267 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 764
+ERROR :: 2017-08-06 07:45:36,269 :: METAR parsing error for airport YPAD with code "YPAD 060735Z 28021G31KT 7000 -RA FEW018 BKN050 11/07 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0735/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1035 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:45:36,271 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:36,383 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:36,425 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 662
+INFO :: 2017-08-06 07:45:36,429 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:45:36,542 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:45:36,579 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 664
+INFO :: 2017-08-06 07:46:10,409 :: Application started
+INFO :: 2017-08-06 07:46:11,450 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:11,558 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:11,593 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 699
+INFO :: 2017-08-06 07:46:11,599 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:11,701 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:11,737 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 622
+ERROR :: 2017-08-06 07:46:11,739 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:46:11,741 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:11,868 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:11,906 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 687
+INFO :: 2017-08-06 07:46:11,910 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:12,026 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:12,064 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 646
+INFO :: 2017-08-06 07:46:12,067 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:12,167 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:12,202 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 694
+INFO :: 2017-08-06 07:46:12,206 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:12,311 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:12,348 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 704
+INFO :: 2017-08-06 07:46:12,352 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:12,465 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:12,503 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 684
+ERROR :: 2017-08-06 07:46:12,507 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:46:12,509 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:12,613 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:12,649 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 637
+INFO :: 2017-08-06 07:46:12,653 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:12,757 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:12,794 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 658
+INFO :: 2017-08-06 07:46:12,798 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:12,928 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:12,970 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 622
+INFO :: 2017-08-06 07:46:12,974 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:13,085 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:13,123 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 632
+INFO :: 2017-08-06 07:46:13,127 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:13,231 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:13,270 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 635
+INFO :: 2017-08-06 07:46:13,275 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:13,388 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:13,426 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 767
+ERROR :: 2017-08-06 07:46:13,429 :: METAR parsing error for airport YPAD with code "YPAD 060735Z 28021G31KT 7000 -RA FEW018 BKN050 11/07 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0735/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1035 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:46:13,430 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:13,539 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:13,577 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 662
+INFO :: 2017-08-06 07:46:13,581 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:46:13,693 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:46:13,731 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 None
+WARNING :: 2017-08-06 07:46:21,803 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:46:21,877 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:46:21,931 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+WARNING :: 2017-08-06 07:46:21,962 :: Airline callsign provided to decode_airline in unexpected format - "B757T"
+INFO :: 2017-08-06 07:46:22,118 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 07:46:22,119 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:46:22,244 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:46:22,246 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:46:22,282 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:46:22,286 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:46:22,292 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:46:22,294 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:46:22,295 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:46:22,299 :: Airline callsign provided to decode_airline in unexpected format - "N6144P"
+WARNING :: 2017-08-06 07:46:22,303 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:46:22,303 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:46:22,303 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:46:22,307 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:46:22,309 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:46:22,311 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:46:22,331 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CN68"
+WARNING :: 2017-08-06 07:46:22,391 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:46:22,423 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:46:22,432 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:46:22,436 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+INFO :: 2017-08-06 07:46:22,442 :: Center found - "SCEZ_N_CTR"
+ERROR :: 2017-08-06 07:46:22,518 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:46:22,519 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:46:22,574 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:46:22,601 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:46:22,621 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+WARNING :: 2017-08-06 07:46:22,634 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NZNE"
+INFO :: 2017-08-06 07:46:45,820 :: Application started
+WARNING :: 2017-08-06 07:47:21,822 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:47:21,992 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:47:22,043 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+WARNING :: 2017-08-06 07:47:22,074 :: Airline callsign provided to decode_airline in unexpected format - "B757T"
+INFO :: 2017-08-06 07:47:22,529 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 07:47:22,529 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:47:22,796 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:47:22,799 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:47:22,860 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:47:22,867 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:47:22,878 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:47:22,882 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:47:22,882 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:47:22,889 :: Airline callsign provided to decode_airline in unexpected format - "N6144P"
+WARNING :: 2017-08-06 07:47:22,896 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:47:22,897 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:47:22,960 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:47:22,965 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:47:22,969 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:47:22,994 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CN68"
+WARNING :: 2017-08-06 07:47:23,085 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:47:23,186 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:47:23,196 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:47:23,200 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+INFO :: 2017-08-06 07:47:23,207 :: Center found - "SCEZ_N_CTR"
+ERROR :: 2017-08-06 07:47:23,279 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:47:23,279 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:47:23,432 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:47:23,470 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:47:23,492 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+WARNING :: 2017-08-06 07:47:23,562 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NZNE"
+INFO :: 2017-08-06 07:47:49,172 :: Application started
+INFO :: 2017-08-06 07:47:49,908 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:50,019 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:50,055 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 699
+INFO :: 2017-08-06 07:47:50,060 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:50,165 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:50,201 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 623
+ERROR :: 2017-08-06 07:47:50,204 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:47:50,205 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:50,311 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:50,346 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 686
+INFO :: 2017-08-06 07:47:50,350 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:50,451 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:50,485 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 643
+INFO :: 2017-08-06 07:47:50,489 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:50,631 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:50,666 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 693
+INFO :: 2017-08-06 07:47:50,670 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:50,827 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:50,861 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 706
+INFO :: 2017-08-06 07:47:50,865 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:50,970 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:51,007 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 683
+ERROR :: 2017-08-06 07:47:51,009 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:47:51,010 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:51,131 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:51,169 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 636
+INFO :: 2017-08-06 07:47:51,173 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:51,282 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:51,317 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 657
+INFO :: 2017-08-06 07:47:51,320 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:51,424 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:51,458 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 621
+INFO :: 2017-08-06 07:47:51,462 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:51,571 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:51,606 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 632
+INFO :: 2017-08-06 07:47:51,611 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:51,720 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:51,756 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 635
+INFO :: 2017-08-06 07:47:51,760 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:51,872 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:51,907 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 768
+ERROR :: 2017-08-06 07:47:51,909 :: METAR parsing error for airport YPAD with code "YPAD 060735Z 28021G31KT 7000 -RA FEW018 BKN050 11/07 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0735/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1035 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:47:51,911 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:52,023 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:52,059 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 663
+INFO :: 2017-08-06 07:47:52,064 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:47:52,179 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:47:52,213 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 663
+WARNING :: 2017-08-06 07:48:21,828 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:48:21,908 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:48:21,960 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+WARNING :: 2017-08-06 07:48:21,995 :: Airline callsign provided to decode_airline in unexpected format - "B757T"
+INFO :: 2017-08-06 07:48:22,175 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 07:48:22,176 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:48:22,326 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:48:22,328 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:48:22,366 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:48:22,370 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:48:22,375 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:48:22,378 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:48:22,378 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:48:22,382 :: Airline callsign provided to decode_airline in unexpected format - "N6144P"
+WARNING :: 2017-08-06 07:48:22,386 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:48:22,386 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:48:22,386 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:48:22,390 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:48:22,392 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:48:22,394 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:48:22,420 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CN68"
+WARNING :: 2017-08-06 07:48:22,529 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:48:22,584 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:48:22,600 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:48:22,606 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+ERROR :: 2017-08-06 07:48:22,718 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+WARNING :: 2017-08-06 07:48:22,718 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:48:22,821 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:48:22,857 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:48:22,882 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+WARNING :: 2017-08-06 07:48:22,895 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NZNE"
+ERROR :: 2017-08-06 07:49:22,420 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:49:22,611 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_APP"
+ERROR :: 2017-08-06 07:50:22,278 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:51:22,224 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:52:22,246 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:53:22,190 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:54:22,248 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+ERROR :: 2017-08-06 07:55:22,263 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+INFO :: 2017-08-06 07:55:34,492 :: Application started
+INFO :: 2017-08-06 07:55:39,223 :: Application started
+INFO :: 2017-08-06 07:55:39,937 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:40,052 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:40,295 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 700
+INFO :: 2017-08-06 07:55:40,300 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:40,401 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:40,439 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 622
+ERROR :: 2017-08-06 07:55:40,442 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:55:40,443 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:40,552 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:40,588 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 687
+INFO :: 2017-08-06 07:55:40,592 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:40,702 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:40,738 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 642
+INFO :: 2017-08-06 07:55:40,743 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:40,846 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:40,882 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 694
+INFO :: 2017-08-06 07:55:40,886 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:41,002 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:41,042 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 707
+INFO :: 2017-08-06 07:55:41,046 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:41,157 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:41,352 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 684
+ERROR :: 2017-08-06 07:55:41,356 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:55:41,357 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:41,466 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:41,502 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 638
+INFO :: 2017-08-06 07:55:41,506 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:41,618 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:41,655 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 657
+INFO :: 2017-08-06 07:55:41,661 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:41,779 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:41,817 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 637
+INFO :: 2017-08-06 07:55:41,822 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:41,928 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:41,963 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 633
+INFO :: 2017-08-06 07:55:41,967 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:42,080 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:42,118 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 635
+INFO :: 2017-08-06 07:55:42,122 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:42,242 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:42,289 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 765
+ERROR :: 2017-08-06 07:55:42,293 :: METAR parsing error for airport YPAD with code "YPAD 060744Z 27019G31KT 9999 VCSH FEW018 BKN045 11/06 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0744/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1044 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:55:42,295 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:42,406 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:42,516 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 690
+INFO :: 2017-08-06 07:55:42,521 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:55:42,622 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:55:42,659 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 663
+WARNING :: 2017-08-06 07:56:21,798 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:56:21,870 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:56:21,924 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+INFO :: 2017-08-06 07:56:22,118 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 07:56:22,118 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:56:22,248 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:56:22,250 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:56:22,288 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:56:22,292 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:56:22,300 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:56:22,302 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:56:22,302 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:56:22,306 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:56:22,306 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:56:22,306 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:56:22,310 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:56:22,312 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:56:22,314 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:56:22,332 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CN68"
+WARNING :: 2017-08-06 07:56:22,385 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:56:22,411 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:56:22,419 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:56:22,422 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+WARNING :: 2017-08-06 07:56:22,488 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:56:22,546 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:56:22,566 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:56:22,585 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+INFO :: 2017-08-06 07:56:37,357 :: Application started
+INFO :: 2017-08-06 07:56:38,151 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:38,265 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:38,301 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 730
+INFO :: 2017-08-06 07:56:38,305 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:38,412 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:38,451 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 622
+ERROR :: 2017-08-06 07:56:38,455 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:56:38,457 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:38,562 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:38,600 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 687
+INFO :: 2017-08-06 07:56:38,604 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:38,719 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:38,759 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 644
+INFO :: 2017-08-06 07:56:38,762 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:38,864 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:38,899 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 695
+INFO :: 2017-08-06 07:56:38,903 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:39,008 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:39,044 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 708
+INFO :: 2017-08-06 07:56:39,048 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:39,147 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:39,182 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 683
+ERROR :: 2017-08-06 07:56:39,185 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:56:39,186 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:39,294 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:39,532 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 640
+INFO :: 2017-08-06 07:56:39,536 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:39,646 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:39,685 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 658
+INFO :: 2017-08-06 07:56:39,688 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:39,792 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:39,827 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 637
+INFO :: 2017-08-06 07:56:39,831 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:39,941 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:39,981 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 633
+INFO :: 2017-08-06 07:56:39,985 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:40,090 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:40,127 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 635
+INFO :: 2017-08-06 07:56:40,130 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:40,234 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:40,965 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 766
+ERROR :: 2017-08-06 07:56:40,968 :: METAR parsing error for airport YPAD with code "YPAD 060744Z 27019G31KT 9999 VCSH FEW018 BKN045 11/06 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0744/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1044 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:56:40,969 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:41,079 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:41,769 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 691
+INFO :: 2017-08-06 07:56:41,773 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:56:41,886 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:56:41,930 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 663
+INFO :: 2017-08-06 07:57:01,305 :: Application started
+INFO :: 2017-08-06 07:57:02,021 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:02,145 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:02,186 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 733
+INFO :: 2017-08-06 07:57:02,191 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:02,295 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:02,333 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 623
+ERROR :: 2017-08-06 07:57:02,335 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:57:02,337 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:02,440 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:02,480 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 688
+INFO :: 2017-08-06 07:57:02,484 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:02,585 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:02,622 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 645
+INFO :: 2017-08-06 07:57:02,625 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:02,741 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:02,779 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 694
+INFO :: 2017-08-06 07:57:02,783 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:02,887 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:03,011 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 708
+INFO :: 2017-08-06 07:57:03,016 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:03,128 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:03,165 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 683
+ERROR :: 2017-08-06 07:57:03,169 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:57:03,171 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:03,281 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:03,316 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 638
+INFO :: 2017-08-06 07:57:03,320 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:03,432 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:03,468 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 657
+INFO :: 2017-08-06 07:57:03,471 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:03,576 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:03,613 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 638
+INFO :: 2017-08-06 07:57:03,617 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:03,720 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:03,755 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 632
+INFO :: 2017-08-06 07:57:03,760 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:03,884 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:03,922 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 636
+INFO :: 2017-08-06 07:57:03,926 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:04,040 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:04,082 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 764
+ERROR :: 2017-08-06 07:57:04,086 :: METAR parsing error for airport YPAD with code "YPAD 060744Z 27019G31KT 9999 VCSH FEW018 BKN045 11/06 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0744/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1044 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:57:04,088 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:04,199 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:04,233 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 690
+INFO :: 2017-08-06 07:57:04,237 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:04,348 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:04,385 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 664
+WARNING :: 2017-08-06 07:57:21,824 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:57:21,896 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:57:21,979 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+INFO :: 2017-08-06 07:57:22,178 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 07:57:22,178 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:57:22,308 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:57:22,310 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:57:22,345 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:57:22,349 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:57:22,357 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:57:22,359 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:57:22,359 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:57:22,363 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:57:22,363 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:57:22,363 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:57:22,367 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:57:22,369 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:57:22,371 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:57:22,390 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CN68"
+WARNING :: 2017-08-06 07:57:22,445 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:57:22,471 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:57:22,479 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:57:22,483 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+WARNING :: 2017-08-06 07:57:22,543 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:57:22,604 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:57:22,624 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:57:22,644 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+INFO :: 2017-08-06 07:57:58,498 :: Application started
+INFO :: 2017-08-06 07:57:59,634 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:59,743 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:59,778 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 734
+INFO :: 2017-08-06 07:57:59,783 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:57:59,883 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:57:59,920 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 623
+ERROR :: 2017-08-06 07:57:59,922 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:57:59,923 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:00,034 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:00,071 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 688
+INFO :: 2017-08-06 07:58:00,075 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:00,176 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:00,211 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 645
+INFO :: 2017-08-06 07:58:00,215 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:00,317 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:00,352 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 695
+INFO :: 2017-08-06 07:58:00,356 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:00,466 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:00,505 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 707
+INFO :: 2017-08-06 07:58:00,509 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:00,620 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:00,657 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 684
+ERROR :: 2017-08-06 07:58:00,660 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:58:00,661 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:00,764 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:00,799 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 638
+INFO :: 2017-08-06 07:58:00,803 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:00,909 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:00,946 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 657
+INFO :: 2017-08-06 07:58:00,950 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:01,059 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:01,783 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 638
+INFO :: 2017-08-06 07:58:01,787 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:01,894 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:01,932 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 634
+INFO :: 2017-08-06 07:58:01,935 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:02,042 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:02,291 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 637
+INFO :: 2017-08-06 07:58:02,294 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:02,403 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:02,449 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 765
+ERROR :: 2017-08-06 07:58:02,453 :: METAR parsing error for airport YPAD with code "YPAD 060744Z 27019G31KT 9999 VCSH FEW018 BKN045 11/06 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0744/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1044 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:58:02,454 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:02,572 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:02,612 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 689
+INFO :: 2017-08-06 07:58:02,616 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:02,735 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:02,772 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 663
+WARNING :: 2017-08-06 07:58:21,873 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:58:21,945 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:58:21,999 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+INFO :: 2017-08-06 07:58:22,201 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 07:58:22,201 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:58:22,329 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:58:22,331 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:58:22,365 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:58:22,369 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:58:22,377 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:58:22,379 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:58:22,380 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:58:22,384 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:58:22,384 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:58:22,384 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:58:22,388 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:58:22,390 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:58:22,393 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:58:22,409 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CN68"
+WARNING :: 2017-08-06 07:58:22,464 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZYRD"
+INFO :: 2017-08-06 07:58:22,490 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:58:22,499 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:58:22,503 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+WARNING :: 2017-08-06 07:58:22,563 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:58:22,574 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LTFG"
+WARNING :: 2017-08-06 07:58:22,623 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:58:22,643 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:58:22,662 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+INFO :: 2017-08-06 07:58:40,859 :: Starting new HTTPS connection (1): aviationweather.gov
+INFO :: 2017-08-06 07:58:41,611 :: Application started
+INFO :: 2017-08-06 07:58:43,435 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:43,543 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:43,578 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 733
+INFO :: 2017-08-06 07:58:43,583 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:43,693 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:43,730 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 622
+ERROR :: 2017-08-06 07:58:43,733 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:58:43,734 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:43,841 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:43,877 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 687
+INFO :: 2017-08-06 07:58:43,880 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:43,984 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:44,022 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 645
+INFO :: 2017-08-06 07:58:44,026 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:44,134 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:44,170 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 695
+INFO :: 2017-08-06 07:58:44,174 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:44,277 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:44,318 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 708
+INFO :: 2017-08-06 07:58:44,322 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:44,430 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:44,468 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 684
+ERROR :: 2017-08-06 07:58:44,470 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:58:44,472 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:44,582 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:44,619 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 638
+INFO :: 2017-08-06 07:58:44,623 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:44,732 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:44,768 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 657
+INFO :: 2017-08-06 07:58:44,771 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:44,889 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:44,930 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 637
+INFO :: 2017-08-06 07:58:44,934 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:45,036 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:45,078 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 633
+INFO :: 2017-08-06 07:58:45,081 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:45,184 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:45,218 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 632
+INFO :: 2017-08-06 07:58:45,222 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:45,332 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:45,368 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 764
+ERROR :: 2017-08-06 07:58:45,371 :: METAR parsing error for airport YPAD with code "YPAD 060744Z 27019G31KT 9999 VCSH FEW018 BKN045 11/06 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0744/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1044 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:58:45,372 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:45,476 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:45,515 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 690
+INFO :: 2017-08-06 07:58:45,519 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:58:45,621 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:58:45,657 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 663
+WARNING :: 2017-08-06 07:59:21,838 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 07:59:21,978 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 07:59:22,031 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+INFO :: 2017-08-06 07:59:22,232 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 07:59:22,233 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 07:59:22,361 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 07:59:22,363 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 07:59:22,411 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 07:59:22,418 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 07:59:22,424 :: Airline callsign provided to decode_airline in unexpected format - "N130CH"
+WARNING :: 2017-08-06 07:59:22,431 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 07:59:22,435 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 07:59:22,435 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 07:59:22,442 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 07:59:22,443 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 07:59:22,443 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 07:59:22,450 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 07:59:22,453 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 07:59:22,457 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 07:59:22,486 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CN68"
+INFO :: 2017-08-06 07:59:22,562 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 07:59:22,572 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 07:59:22,575 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+WARNING :: 2017-08-06 07:59:22,637 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 07:59:22,648 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LTFG"
+WARNING :: 2017-08-06 07:59:22,700 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 07:59:22,720 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 07:59:22,740 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+INFO :: 2017-08-06 07:59:53,849 :: Application started
+INFO :: 2017-08-06 07:59:54,574 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:54,689 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:54,725 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 732
+INFO :: 2017-08-06 07:59:54,729 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:54,832 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:54,867 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 622
+ERROR :: 2017-08-06 07:59:54,870 :: METAR parsing error for airport YSSY with code "YSSY 060730Z 34015KT CAVOK 20/02 Q1008 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:59:54,871 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:54,977 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:55,013 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=NZAA HTTP/1.1" 200 687
+INFO :: 2017-08-06 07:59:55,019 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:55,126 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:55,163 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 645
+INFO :: 2017-08-06 07:59:55,168 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:55,286 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:55,322 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=WSSS HTTP/1.1" 200 695
+INFO :: 2017-08-06 07:59:55,326 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:55,436 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:55,470 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 708
+INFO :: 2017-08-06 07:59:55,476 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:55,607 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:55,646 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YMML HTTP/1.1" 200 683
+ERROR :: 2017-08-06 07:59:55,649 :: METAR parsing error for airport YMML with code "YMML 060730Z 02011KT 9999 SCT049 BKN190 09/04 Q1001 INTER 0830/1030 4000 SHRA BKN015 FM0730 MOD TURB BLW 5000FT"
+INFO :: 2017-08-06 07:59:55,651 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:55,766 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:55,803 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 639
+INFO :: 2017-08-06 07:59:55,807 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:55,919 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:55,956 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZGGG HTTP/1.1" 200 657
+INFO :: 2017-08-06 07:59:55,960 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:56,073 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:56,109 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGAA HTTP/1.1" 200 638
+INFO :: 2017-08-06 07:59:56,114 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:56,223 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:56,258 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=HECA HTTP/1.1" 200 634
+INFO :: 2017-08-06 07:59:56,263 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:56,379 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:56,415 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=RKSS HTTP/1.1" 200 636
+INFO :: 2017-08-06 07:59:56,420 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:56,530 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:56,567 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YPAD HTTP/1.1" 200 768
+ERROR :: 2017-08-06 07:59:56,571 :: METAR parsing error for airport YPAD with code "YPAD 060744Z 27019G31KT 9999 VCSH FEW018 BKN045 11/06 Q1005 FM0750 27030G42KT 9999 -SHRA FEW015 BKN025 FM0900 25020G35KT 9999 -SHRA SCT025 BKN035 INTER 0744/0800 28035G45KT 3000 SHRAGS SCT010 BKN020 INTER 0800/1044 28025G40KT 5000 SHRAGS SCT020 BKN025"
+INFO :: 2017-08-06 07:59:56,572 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:56,685 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:56,722 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LSZH HTTP/1.1" 200 689
+INFO :: 2017-08-06 07:59:56,728 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 07:59:56,838 :: Setting read timeout to None
+DEBUG :: 2017-08-06 07:59:56,874 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSSS HTTP/1.1" 200 663
+WARNING :: 2017-08-06 08:00:21,794 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+WARNING :: 2017-08-06 08:00:21,872 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-08-06 08:00:21,928 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "FAOR"
+INFO :: 2017-08-06 08:00:22,141 :: Center found - "EDYY_M_CTR"
+INFO :: 2017-08-06 08:00:22,142 :: Center found - "EFES_D_CTR"
+WARNING :: 2017-08-06 08:00:22,290 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "JABB"
+WARNING :: 2017-08-06 08:00:22,293 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ROTM"
+INFO :: 2017-08-06 08:00:22,325 :: Center found - "ML-SNO_CTR"
+ERROR :: 2017-08-06 08:00:22,329 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+WARNING :: 2017-08-06 08:00:22,333 :: Airline callsign provided to decode_airline in unexpected format - "N130CH"
+WARNING :: 2017-08-06 08:00:22,338 :: Airline callsign provided to decode_airline in unexpected format - "N34XC"
+WARNING :: 2017-08-06 08:00:22,342 :: Airline callsign provided to decode_airline in unexpected format - "N4902F"
+WARNING :: 2017-08-06 08:00:22,342 :: Airline callsign provided to decode_airline in unexpected format - "N585BG"
+WARNING :: 2017-08-06 08:00:22,349 :: Airline callsign provided to decode_airline in unexpected format - "N6508K"
+WARNING :: 2017-08-06 08:00:22,349 :: Airline callsign provided to decode_airline in unexpected format - "N702AK"
+WARNING :: 2017-08-06 08:00:22,350 :: Airline callsign provided to decode_airline in unexpected format - "N739JE"
+WARNING :: 2017-08-06 08:00:22,357 :: Airline callsign provided to decode_airline in unexpected format - "N7920P"
+WARNING :: 2017-08-06 08:00:22,360 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAEG"
+WARNING :: 2017-08-06 08:00:22,364 :: Airline callsign provided to decode_airline in unexpected format - "N8782R"
+WARNING :: 2017-08-06 08:00:22,391 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CN68"
+INFO :: 2017-08-06 08:00:22,473 :: Center found - "SAEF_CTR"
+WARNING :: 2017-08-06 08:00:22,482 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WA0B"
+WARNING :: 2017-08-06 08:00:22,486 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+WARNING :: 2017-08-06 08:00:22,548 :: Airline callsign provided to decode_airline in unexpected format - "T14"
+WARNING :: 2017-08-06 08:00:22,561 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LTFG"
+WARNING :: 2017-08-06 08:00:22,610 :: Airline callsign provided to decode_airline in unexpected format - "V5-RNF"
+WARNING :: 2017-08-06 08:00:22,632 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "YBSU"
+WARNING :: 2017-08-06 08:00:22,647 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "LYPR"
+ERROR :: 2017-08-06 08:01:22,386 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ML_APP"
+INFO :: 2017-08-06 08:01:41,759 :: Application started

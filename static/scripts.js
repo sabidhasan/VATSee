@@ -358,6 +358,10 @@ function addATCMarker(type, latitude, longitude){
 
 //called as JSON data is being parsed, to add marker to map
 function addAirport(data) {
+    //There is one special airport - for thjose planes with no arrival or departure. In this case, ignore it (don't draw on map)
+    if (data['longitude'] === 0 && data['latitude'] === 0 && data['name'] === null) {
+        return
+    }
     //create latitude and longitude
     var lls = new google.maps.LatLng(parseFloat(data["latitude"]), parseFloat(data["longitude"]));
     var image = "http://conferences.shrm.org/sites/all/themes/sessions/images/dot76923C.png";
@@ -676,13 +680,17 @@ function showSelectedInfo() {
                 for (var k = 0; k < latest_json[0].length; k++) {
                     if (latest_json[0][k]['id'] === latest_json[2][j]['depairport_id']) {
                         //found the departure airport
-                        $("#selectedplaneleft .deparrname").text(latest_json[0][k]['name']);
+                        if (latest_json[0][k]['name'] !== null) {
+                            $("#selectedplaneleft .deparrname").text(latest_json[0][k]['name']);
+                        }
                         arrlong = parseFloat(latest_json[0][k]['longitude']);
                         arrlat = parseFloat(latest_json[0][k]['latitude']);
                         // depaltitude = parseFloat(latest_json[0][k]['altitude']); USED FOR STATUS - NOT IMPLEMENTED
                     } else if (latest_json[0][k]['id'] === latest_json[2][j]['arrairport_id']) {
                         //found the arrival airport
-                        $("#selectedplaneright .deparrname").text(latest_json[0][k]['name']);
+                        if (latest_json[0][k]['name'] !== null) {
+                            $("#selectedplaneright .deparrname").text(latest_json[0][k]['name']);
+                        }
                         deplong = parseFloat(latest_json[0][k]['longitude']);
                         deplat = parseFloat(latest_json[0][k]['latitude']);
                         // arraltitude = parseFloat(latest_json[0][k]['altitude']); USED FOR STATUS - NOT IMPLEMENTED
@@ -1028,36 +1036,30 @@ setInterval(function() {
 }, 60000);
 
 
-/*function updateWorstWeather(airport) {
-    var type;
-    if (!airport) {
-        type = 'multi';
-        //No airport was supplied, so this means we need to build data for all active airports
-        //Gets worst weather from server and updates it
-        airport = '';
-        for (var i = 0; i < latest_json[0].length; i++) {
-            if (latest_json[0][i]['atc'].length !== 0) {
-                airport += ' ' + latest_json[0][i]['icao'];
-            }
+function updateWorstWeather() {
+    var airport = '';
+    for (var i = 0; i < latest_json[0].length; i++) {
+        if (latest_json[0][i]['atc'].length !== 0) {
+            airport += ' ' + latest_json[0][i]['icao'];
         }
-    } else {
-        type = 'single';
     }
 
     $.getJSON(Flask.url_for("worstweather"), {
         airports: airport
     })
     .done(function(data, textStatus, jqXHR) {
-        if (type === 'multi') {
-            latest_weather = data;
-            drawWorstWeather();
-        } else {
-            single_weather = data;
-        }
+        console.log(data);
+        
+//        if (type === 'multi') {
+//            latest_weather = data;
+//            drawWorstWeather();
+//        } else {
+//            single_weather = data;
+//        }
     });
 }
 
-
+/*
 function drawWorstWeather() {
     //draw the worst weather from data variable
     for (var key in latest_weather) {

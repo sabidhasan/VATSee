@@ -10,6 +10,7 @@ from flask_jsglue import JSGlue
 import time, os, requests, sqlite3, sys, re
 from math import radians, cos, sin, asin, sqrt
 from metar import Metar
+import logging
 
 
 
@@ -29,6 +30,12 @@ if app.config["DEBUG"]:
         response.headers["Pragma"] = "no-cache"
         return response
 
+#Set up logging for Flask server
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
+#Setup VatSee internal logging
+logging.basicConfig(filename='vatsee.log', level=logging.DEBUG, format='%(levelname)s :: %(asctime)s :: %(message)s')
+
+
 
 
 ########################
@@ -42,10 +49,12 @@ airlines = {}
 waypoints = {}
 #List of countries (as Country objects) for purposes of testing whether a certian geographical point (that plane is at)
 #is within that country
-nations = []        
-
+#nations = []        
+#Logging Messages written
+log_msgs = []
 
 #TO--DO LOGGING: log application has started
+logging.info('Application started')
 #Populate Waypoints into memory database
 conn = sqlite3.connect('static_data.db')
 c = conn.cursor()
@@ -63,12 +72,30 @@ for line in result:
 ###Standard function definitions start here###
 ##############################################
 
+def add_to_log(message, value):
+    ''' Recieves a message in text, and a value in LOGGING.x format, and writes to log if it wasnt already written '''
+    if not(message in log_msgs):
+        #Write to log
+        if value == logging.INFO:
+            logging.info(message)
+        elif value == logging.DEBUG:
+            logging.debug(message)
+        elif value == logging.ERROR:
+            logging.error(message)
+        elif value == logging.WARNING:
+            logging.warning(message)
+        log_msgs.append(message)
+        
 def callsign_to_icao(callsign):
     ''' Gets a IATA callsign like SEA and return ICAO callsign like KSEA'''
     #Something like "ASIA"
     #TO--DO LOGGING: Log an unnatural callsign (4 letter callsigns are not normal)
+    if not(callsign):
+        return None
+        
     if len(callsign.split("_")[0]) == 4:
         return callsign.split("_")[0]
+        add_to_log('Unknown IATA from callsign_to_icao (4 letters long) - "%s"' % callsign, logging.ERROR)
     else:
         conn = sqlite3.connect('static_data.db')
         c = conn.cursor()
@@ -80,8 +107,9 @@ def callsign_to_icao(callsign):
             #No results were found
             return callsign.split("_")[0]
             #TO--DO LOGGING: An IATA code not present in the database, might be interesting to log
-    
-    
+            add_to_log('Unknown IATA from callsign_to_icao. Not found in database - "%s"' % callsign, logging.ERROR)
+
+
 def callsign_to_ATC(callsign):
     '''Gets callsign like 'ATL_GND' and returns a type code:
     0   ATIS    1   CLNC    2   GND    3   TWR    4   APP/DEP    5   CTR    6   UNKNOWN    '''
@@ -93,6 +121,7 @@ def callsign_to_ATC(callsign):
     else:
         #Unknown type, so it will be passed an unknown code!
         #TO--DO LOGGING: LOG THIS HERE, what ATC is this!!?
+        add_to_log('Unknown ATC type from callsign_to_ATC - "%s"' % callsign, logging.ERROR)
         return 6
 
 
@@ -102,8 +131,12 @@ def callsign_to_loc(callsign):
     conn = sqlite3.connect('static_data.db')
     c = conn.cursor()
 
+    if callsign is None:
+        return None
+
     #Determine the code friom the string
     apt_code = tuple([callsign.split("_")[0]])
+
 
     if len(apt_code[0]) == 3:
         #IATA code provided
@@ -113,6 +146,7 @@ def callsign_to_loc(callsign):
         c.execute("SELECT * FROM 'airports' WHERE icao=?", apt_code)
     else:
         #TO--DO LOGGING: log this unknown airport, this also messes with the map, so its important to add these airports later!
+        logging.error('Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "%s"' % callsign)
         return None
     result = c.fetchone()
     try:
@@ -121,6 +155,7 @@ def callsign_to_loc(callsign):
     except:
         #Likely result was none (aka nothing found in DB)
         #TO--DO LOGGING: log this potential error
+        add_to_log('Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "%s"' % callsign, logging.WARNING)
         return None
 
 
@@ -138,6 +173,7 @@ def flightlevel_to_feet(flightlevel):
             return int(flightlevel.replace("ft", ""))
         except ValueError:
             #TO--DO LOGGING: unknown altitude filed
+            add_to_log('Could not convert filed altitude to numeric in flightlevel_to_feet - "%s"' % flightlevel, logging.INFO)
             return 0
          
             
@@ -151,6 +187,7 @@ def decode_airline(callsign):
             int(letter)
             if len(airline_letter) == 1:
                 #TO--DO LOGGING: airline callsign is weird; potentially log to improve handling of these in the future
+                add_to_log('Airline callsign provided to decode_airline in unexpected format - "%s"' % callsign, logging.WARNING)
                 return (callsign, callsign, callsign, callsign, callsign)
             else:
                 #Found the airline number at a non-0 place
@@ -164,6 +201,7 @@ def decode_airline(callsign):
     if not(airline_letter):
         return (callsign, callsign, callsign, callsign, callsign)
         #TO--DO LOGGING: callsign is weird
+        logging.error('Airline Callsign is very unexpected format for decode_airline - "%s"' % callsign)
 
     #Now look in memoized data, and if not found then the DB
     if airline_letter in airlines:
@@ -180,6 +218,7 @@ def decode_airline(callsign):
         else:
             return (callsign, callsign, callsign, callsign, callsign)
             #TO--DO LOGGING: airline is new, so add it to database in future
+            add_to_log('Airline callsign not found in database - "%s"' % callsign, logging.WARNING)
     return (row[0], row[1], row[2], airline_letter, airline_num)
 
 
@@ -229,6 +268,7 @@ def get_METAR(given_code):
     except IndexError:
         #There was nothing found!
         #TO--DO LOGGING: either website is down (perhaps include size of raw_metar_data to see if we even got anything!), or something is wrong
+        add_to_log("Critical error in get_METAR method; size of raw_metar_data - %s" % len(raw_metar_data), logging.ERROR)
         return None
         
     try:
@@ -237,7 +277,11 @@ def get_METAR(given_code):
         flight_cat = "UNKNOWN"
 
     #Do the work!
-    obs = Metar.Metar(code)
+    try:
+        obs = Metar.Metar(code)
+    except Metar.ParserError:
+        add_to_log('METAR parsing error for airport %s with code "%s"' % (given_code, code), logging.ERROR)
+        return None
     
     #Return dictionary, with some default values filled in
     ret = {"category": flight_cat, "raw_text": code, "clouds": obs.sky_conditions(), "time": None, "wind": None, "wind_value": None, "wind_gust_value": None, \
@@ -495,6 +539,9 @@ def update():
             
             #ASIA is a known non underscore/'CTR' based centre callsign
             elif ("_" in curr_callsign and "CTR" in curr_callsign) or (curr_callsign in ["ASIA"]):
+                #TO--DO LOGGING - log the newly found center
+                add_to_log('Center found - "%s"' % curr_callsign, logging.INFO)
+
                 callsign_initials = curr_callsign.split("_")[0]
 
                 tmp_ctr_atc = {item: line[value] for item, value in ctr_indices.items()}
@@ -633,23 +680,80 @@ def history():
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
 
-    arguments = dict(request.args)
-    jsondata = []
-        
-    #DO SQL search - TO--DO: limit this to one day hisotry only or something like that TO--DO: prevetnt database injections!
-    x = "SELECT * FROM 'onlines' WHERE cid = '%s' AND type = 'PILOT' AND ABS(time_updated - %s) < 50000 ORDER BY time_updated" % (arguments['cid'][0], time.time())
-    result = c.execute(x).fetchall()
-        
-    #Do time delta for plotting
-    orig_time = 0
-    for row in result:
-        if orig_time == 0:
-            orig_time = row[1]
-        time_delta = abs(orig_time - row[1])
-        #sending back time_delta        altitude        speed
-        jsondata.append([float(time_delta), row[12], row[13]])
+    j = dict(request.args)
+    if j['type'][0] == "ATC":
 
-    return jsonify(jsondata)
+        #Arriving / departing
+        jsondata = [[], []]
+        #THis is Airport, so show how many ground, taxxing, within 15 nm 
+        x = """SELECT * FROM 'onlines' WHERE "latest" = '1' AND type = 'PILOT'"""
+        result = c.execute(x).fetchall()
+        
+        for row in result:
+            #If not arriving or departing from the given airport, then move on
+            if not(j['data[icao]'][0] in [callsign_to_icao(row[18]), callsign_to_icao(row[16])] ): continue
+            
+            #Calculate distance, speed, altitude
+            dist = haversine(float(j['data[longitude]'][0]), float(j['data[latitude]'][0]), float(row[7]), float(row[6]))
+            speed = row[13]
+            airport_altitude = int(j['data[altitude]'][0])
+            plane_altitude = row[12]
+            
+            #create pilot dictionary to be appended
+            tmp_pilot = {'callsign': row[2], 'cid': row[3], 'altitude': row[12], 'groundspeed': row[13], 'planned_aircraft': row[14], 'planned_tascruise': row[15], \
+            'planned_depairport': row[16], 'planned_altitude': row[17], 'planned_destairport': row[18], 'planned_deptime': row[20], 'heading': row[24], \
+            'airline_name': decode_airline(row[2])[0], 'airline_callsign': decode_airline(row[2])[2], 'airline_short': decode_airline(row[2])[3], 'airline_flightnum': decode_airline(row[2])[4], 'id':row[0]}
+            
+            #Distance from airport
+            tmp_pilot['distance_from_airport'] = int(dist)
+            
+            #close by (<10), speed 0 (menaing parked), and on the ground (altitude same)
+            if dist < 15 and speed == 0 and abs(airport_altitude - plane_altitude) < 50:
+                status = "In terminal"
+                #jsondata[0].append(tmp_pilot)
+            #moving on the ground
+            elif dist < 15 and speed > 0 and abs(airport_altitude - plane_altitude) < 50:
+                status = "Taxiing"
+            #distance is nearby (imminently arriving/departing)
+            elif dist < 55 and j['data[icao]'][0] == callsign_to_icao(row[18]):
+                status = "Arriving"
+            elif dist < 55 and j['data[icao]'][0] == callsign_to_icao(row[16]):
+                status = "Departing"
+            elif dist > 55 and speed == 0:
+                status = "Not yet departed"
+            elif dist > 55 and speed < 55:
+                status = "Taxiing"
+            else:
+                status = "Enroute"
+            tmp_pilot['status'] = status
+            
+            #If arriving
+            if j['data[icao]'][0] == callsign_to_icao(row[18]):
+                jsondata[0].append(tmp_pilot)
+            elif j['data[icao]'][0] == callsign_to_icao(row[16]):
+                #departing aircraft
+                jsondata[1].append(tmp_pilot)
+        
+        return jsonify(jsondata)
+    elif j['type'][0] == "PLANE":
+        # [distance from origin, distance to destination], [{time: altitude}], [{time: speed}]
+        jsondata = []
+        
+        #DO SQL search - TO--DO: limit this to one day hisotry only or something like that TO--DO: prevetnt database injections!
+        x = "SELECT * FROM 'onlines' WHERE cid = '%s' AND type = 'PILOT' AND ABS(time_updated - %s) < 50000 ORDER BY time_updated" % (j['data[cid]'][0], time.time())
+        print(x)
+        result = c.execute(x).fetchall()
+        
+        #Do time delta for plotting
+        orig_time = 0
+        for row in result:
+            if orig_time == 0:
+                orig_time = row[1]
+            time_delta = abs(orig_time - row[1])
+            #sending back time_delta        altitude        speed
+            jsondata.append([float(time_delta), row[12], row[13]])
+
+        return jsonify(jsondata)
         
 @app.route("/metar")    
 def metar():    
@@ -683,25 +787,37 @@ def worstweather():
         #get METAR 
         curr_metar = get_METAR(airport)
         
+        #Check to see if nothing was returned
         if curr_metar is None:
-            #SHould log this here, aiport ICAO code was invalid!
             continue
 
         #Calculate wind score
-        cur_wind = ((curr_metar['wind_value'] / 10) % 10)
+        curr_wind = (curr_metar['wind_value'] / 10)
         try:
-            cur_wind += ((abs(curr_metar['wind_gust_value'] - curr_metar['wind_value']) / 10) % 10)
+            curr_wind += (curr_metar['wind_gust_value'] / 10)
         except TypeError:
-            #No gust data must exist
+            #No wind gust data exist (it is None)
             pass
-        
-        #Calculate visibility score\
-        #TO--DO: proper visiubilty score: pronblem is some stations report in metric units
-        cur_vis = 1#(curr_metar['visibility_value'] / 10) % 10
+
+        #Calculate visibility score
+        if 'meter' in curr_metar['visibility']:
+            #convert to feet; in metric units
+            #If it's 10000, then it's really like 10 miles, so assume it's 10 miles (formula below) is normailzed for 10 miles
+            #that is: "10 miles" and "10,000 meters" are functionally equivalent
+            if curr_metar['visibility_value'] == 10000:
+                visibility_feet = 5280 * 10
+            else:
+                visibility_feet = curr_metar['visibility_value'] * 3.28
+        else:
+            #in miles!
+            visibility_feet = curr_metar['visibility_value'] * 5280
+        #Score
+        curr_visi = round((visibility_feet * (-5 / 53000)) + 5, 1)
+ #       cur_vis = 1#(curr_metar['visibility_value'] / 10) % 10
 
         #Calculate precipitation score
         #TO--DO
-        cur_precip = 1
+  #      cur_precip = 1
         #DZ Drizzle
         #RA Rain
         #SN Snow
@@ -714,18 +830,20 @@ def worstweather():
         #   Pellets
 
         #Calculate temperature score
-        if 10 < curr_metar['temp_value'] < 25:
-            cur_temp = 0
-        elif curr_metar['temp_value'] > 25:
+   #     if 10 < curr_metar['temp_value'] < 25:
+##            cur_temp = 0
+ #       elif curr_metar['temp_value'] > 25:
             #its too high or low
-            cur_temp = ((curr_metar['temp_value'] - 25) / 5) % 5
-        else:
+ #           cur_temp = ((curr_metar['temp_value'] - 25) / 5) % 5
+ #       else:
             #< 25
-            cur_temp = abs(curr_metar['temp_value'] - 10) / 5 % 5
+ #           cur_temp = abs(curr_metar['temp_value'] - 10) / 5 % 5
 
         #Build  return
-        ret[airport] = {'wind_score': round(cur_wind, 1), 'wind': curr_metar['wind'], 'visibility_score': cur_vis, 'visibility': curr_metar['visibility'], \
-        'precipitation_score': cur_precip, 'temperature_score': round(cur_temp, 1), 'temperature': curr_metar['temp'], \
-        'cached': curr_metar['cached']}
+        ret[airport] = str(curr_visi) + '    ' + curr_metar['visibility'] #['wind_gust_value']) #+ '  ' + str(curr_wind)
+#        ret[airport] = {'wind_score': round(cur_wind, 1), 'wind': curr_metar['wind'], 'visibility_score': cur_vis, 'visibility': curr_metar['visibility'], \
+  #      'precipitation_score': cur_precip, 'temperature_score': round(cur_temp, 1), 'temperature': curr_metar['temp'], \
+  #      'cached': curr_metar['cached']}
+#    return 0/0
     return jsonify(ret)
         
