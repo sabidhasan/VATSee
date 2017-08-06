@@ -9739,3 +9739,576 @@ DEBUG :: 2017-08-06 18:49:24,105 :: "GET /adds/dataserver_current/httpparam?data
 INFO :: 2017-08-06 18:49:24,110 :: Starting new HTTPS connection (1): aviationweather.gov
 DEBUG :: 2017-08-06 18:49:24,221 :: Setting read timeout to None
 DEBUG :: 2017-08-06 18:49:24,258 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=VABB HTTP/1.1" 200 703
+INFO :: 2017-08-06 18:50:00,798 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:50:00,935 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:50:00,970 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:50:00,974 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:50:01,084 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:50:01,119 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 18:50:09,084 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:50:09,324 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:50:09,324 :: Unknown ATC type from callsign_to_ATC - "LH_INS"
+WARNING :: 2017-08-06 18:50:09,368 :: Airline callsign provided to decode_airline in unexpected format - "N77994"
+INFO :: 2017-08-06 18:50:11,754 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:50:11,875 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:50:11,911 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:50:11,915 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:50:12,042 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:50:12,080 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 293
+ERROR :: 2017-08-06 18:51:08,547 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:51:08,730 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+WARNING :: 2017-08-06 18:51:08,764 :: Airline callsign provided to decode_airline in unexpected format - "N737W"
+INFO :: 2017-08-06 18:51:11,110 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:51:11,225 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:51:11,267 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KFLL HTTP/1.1" 200 None
+INFO :: 2017-08-06 18:51:11,272 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:51:11,385 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:51:11,425 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 291
+INFO :: 2017-08-06 18:51:11,428 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:51:11,543 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:51:11,578 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:51:20,345 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:51:20,457 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:51:20,493 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:51:20,496 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:51:20,608 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:51:20,645 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 291
+ERROR :: 2017-08-06 18:51:36,410 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:51:36,640 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:52:08,930 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:52:09,117 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+WARNING :: 2017-08-06 18:52:09,136 :: Airline callsign provided to decode_airline in unexpected format - "N192X"
+WARNING :: 2017-08-06 18:52:09,149 :: Airline callsign provided to decode_airline in unexpected format - "N525DT"
+INFO :: 2017-08-06 18:52:11,737 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:52:11,850 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:52:11,886 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:52:11,890 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:52:12,003 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:52:12,039 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 18:53:09,055 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:53:09,254 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+INFO :: 2017-08-06 18:53:11,324 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:53:11,433 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:53:11,470 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 291
+INFO :: 2017-08-06 18:53:11,473 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:53:11,575 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:53:11,612 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 291
+INFO :: 2017-08-06 18:53:23,961 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:53:24,081 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:53:24,116 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:53:24,121 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:53:24,247 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:53:24,280 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 290
+INFO :: 2017-08-06 18:53:30,962 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:53:31,077 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:53:31,112 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 291
+INFO :: 2017-08-06 18:53:31,117 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:53:31,227 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:53:31,259 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 291
+ERROR :: 2017-08-06 18:54:08,800 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:09,145 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+WARNING :: 2017-08-06 18:54:09,211 :: Airline callsign provided to decode_airline in unexpected format - "N80991"
+INFO :: 2017-08-06 18:54:11,887 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:54:12,017 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:54:12,052 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:54:12,057 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:54:12,160 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:54:12,195 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 291
+ERROR :: 2017-08-06 18:54:21,201 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:21,507 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:22,993 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:23,187 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:24,686 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:25,071 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:31,014 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:32,134 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:32,209 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:32,256 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:32,491 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:32,871 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:33,721 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:33,840 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:33,962 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:34,087 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:40,030 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:40,409 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:40,465 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:40,894 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:43,433 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:45,208 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:49,771 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:49,820 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:49,982 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:51,026 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:52,568 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:52,608 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:52,622 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:53,228 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:53,376 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:56,023 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 18:54:58,687 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:54:59,047 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+INFO :: 2017-08-06 18:55:00,293 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:55:00,410 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:55:00,445 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:55:00,449 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:55:00,552 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:55:00,589 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:55:00,906 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:55:01,011 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:55:01,050 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:55:01,054 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:55:01,172 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:55:01,209 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:55:01,893 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:55:02,011 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:55:02,063 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SGME HTTP/1.1" 200 293
+ERROR :: 2017-08-06 18:55:02,066 :: Critical error in get_METAR method; size of raw_metar_data - 468
+INFO :: 2017-08-06 18:55:02,242 :: Starting new HTTPS connection (1): aviationweather.gov
+INFO :: 2017-08-06 18:55:02,244 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:55:02,362 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:55:02,363 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:55:02,399 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SGME HTTP/1.1" 200 292
+DEBUG :: 2017-08-06 18:55:02,402 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SGME HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:55:06,127 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:55:06,243 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:55:06,281 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYUL HTTP/1.1" 200 691
+ERROR :: 2017-08-06 18:55:08,424 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:55:08,640 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+INFO :: 2017-08-06 18:55:10,779 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:55:10,892 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:55:10,966 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SGME HTTP/1.1" 200 291
+INFO :: 2017-08-06 18:55:16,735 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:55:16,861 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:55:16,902 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SCDA HTTP/1.1" 200 612
+ERROR :: 2017-08-06 18:56:08,902 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:56:09,085 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+INFO :: 2017-08-06 18:56:11,324 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:56:11,465 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:56:11,635 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 293
+ERROR :: 2017-08-06 18:56:11,637 :: Critical error in get_METAR method; size of raw_metar_data - 469
+INFO :: 2017-08-06 18:56:11,638 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:56:11,750 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:56:11,798 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 293
+ERROR :: 2017-08-06 18:57:09,031 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:57:09,217 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+INFO :: 2017-08-06 18:57:11,260 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:57:11,394 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:57:11,431 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 291
+INFO :: 2017-08-06 18:57:11,435 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:57:11,543 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:57:11,581 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 290
+ERROR :: 2017-08-06 18:58:09,082 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:58:09,312 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+INFO :: 2017-08-06 18:58:09,331 :: Center found - "MSP_A1_CTR"
+INFO :: 2017-08-06 18:58:12,096 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:58:12,223 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:58:12,259 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SABE HTTP/1.1" 200 596
+INFO :: 2017-08-06 18:58:12,264 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:58:12,374 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:58:12,425 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 293
+INFO :: 2017-08-06 18:58:12,430 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:58:12,536 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:58:12,574 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+WARNING :: 2017-08-06 18:59:08,408 :: Airline callsign provided to decode_airline in unexpected format - "A3600"
+ERROR :: 2017-08-06 18:59:09,169 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 18:59:09,414 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+INFO :: 2017-08-06 18:59:11,870 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:59:11,986 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:59:12,027 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 18:59:12,030 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 18:59:12,135 :: Setting read timeout to None
+DEBUG :: 2017-08-06 18:59:12,169 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:00:08,969 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 19:00:09,208 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+INFO :: 2017-08-06 19:00:11,710 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:00:11,851 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:00:12,174 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 293
+INFO :: 2017-08-06 19:00:12,179 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:00:12,289 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:00:12,326 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:01:09,068 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 19:01:09,269 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+ERROR :: 2017-08-06 19:02:08,928 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 19:02:09,115 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+INFO :: 2017-08-06 19:02:11,466 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:02:11,612 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:02:11,653 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ESOW HTTP/1.1" 200 687
+INFO :: 2017-08-06 19:02:11,658 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:02:11,779 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:02:11,915 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 294
+INFO :: 2017-08-06 19:02:11,919 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:02:12,040 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:02:12,101 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+WARNING :: 2017-08-06 19:03:08,782 :: Airline callsign provided to decode_airline in unexpected format - "D7NA"
+ERROR :: 2017-08-06 19:03:08,897 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 19:03:09,064 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "LH_INS"
+WARNING :: 2017-08-06 19:03:09,100 :: Airline callsign provided to decode_airline in unexpected format - "N254JS"
+INFO :: 2017-08-06 19:03:11,557 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:03:11,783 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:03:11,818 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:03:11,823 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:03:11,941 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:03:11,975 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:04:08,834 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:04:09,242 :: Center found - "SBBS_CTR"
+INFO :: 2017-08-06 19:04:11,453 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:04:11,584 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:04:11,624 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:04:11,627 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:04:11,731 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:04:11,764 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:05:09,024 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:05:11,647 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:05:11,779 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:05:11,825 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LEIB HTTP/1.1" 200 661
+INFO :: 2017-08-06 19:05:11,828 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:05:11,939 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:05:11,973 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 291
+INFO :: 2017-08-06 19:05:11,978 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:05:12,087 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:05:12,124 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:06:08,891 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:06:11,528 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:06:11,661 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:06:11,698 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:06:11,702 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:06:11,811 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:06:11,848 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:07:08,961 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 19:08:08,843 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:08:09,273 :: Center found - "SBAZ_CTR"
+INFO :: 2017-08-06 19:08:11,467 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:08:11,605 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:08:11,656 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LIML HTTP/1.1" 200 None
+INFO :: 2017-08-06 19:08:11,660 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:08:11,772 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:08:11,813 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 291
+INFO :: 2017-08-06 19:08:11,817 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:08:11,924 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:08:11,963 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 None
+WARNING :: 2017-08-06 19:09:08,892 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KOKV"
+ERROR :: 2017-08-06 19:09:09,032 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:09:11,806 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:09:11,918 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:09:11,960 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 293
+INFO :: 2017-08-06 19:09:11,965 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:09:12,073 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:09:12,118 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:10:08,956 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:10:11,572 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:10:11,695 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:10:11,749 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:10:11,755 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:10:11,874 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:10:11,909 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:11:08,903 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:11:11,727 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:11:11,849 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:11:11,886 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:11:11,890 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:11:12,002 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:11:12,038 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:12:08,878 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:12:11,581 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:12:11,699 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:12:11,737 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 None
+INFO :: 2017-08-06 19:12:11,743 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:12:11,861 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:12:11,896 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:13:08,977 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 19:14:08,869 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:14:11,363 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:14:11,667 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:14:11,705 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:14:11,709 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:14:11,815 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:14:11,852 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:14:11,856 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:14:11,965 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:14:12,002 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KSFB HTTP/1.1" 200 677
+ERROR :: 2017-08-06 19:15:08,943 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:15:11,422 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:15:11,532 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:15:11,567 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:15:11,573 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:15:11,686 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:15:11,725 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:16:08,842 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:16:11,397 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:16:11,550 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:16:11,592 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=OIII HTTP/1.1" 200 638
+INFO :: 2017-08-06 19:16:11,599 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:16:11,708 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:16:11,746 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:16:11,751 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:16:11,864 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:16:11,898 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 291
+ERROR :: 2017-08-06 19:17:09,126 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:17:12,203 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:17:12,308 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:17:12,341 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 291
+INFO :: 2017-08-06 19:17:12,345 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:17:12,472 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:17:12,507 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 291
+ERROR :: 2017-08-06 19:18:09,001 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:18:11,842 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:18:11,985 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:18:12,021 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:18:12,026 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:18:12,137 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:18:12,227 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 293
+ERROR :: 2017-08-06 19:19:09,264 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+ERROR :: 2017-08-06 19:20:08,896 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:20:09,437 :: Center found - "SACF_CTR"
+INFO :: 2017-08-06 19:20:12,165 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:12,292 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:12,338 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLGA HTTP/1.1" 200 769
+INFO :: 2017-08-06 19:20:12,341 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:12,488 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:12,537 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KDFW HTTP/1.1" 200 748
+INFO :: 2017-08-06 19:20:12,541 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:12,675 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:12,796 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KSLC HTTP/1.1" 200 715
+INFO :: 2017-08-06 19:20:12,802 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:12,918 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:12,974 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KPHX HTTP/1.1" 200 702
+INFO :: 2017-08-06 19:20:12,979 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:13,091 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:13,133 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KSEA HTTP/1.1" 200 698
+INFO :: 2017-08-06 19:20:13,137 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:13,269 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:13,311 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBUF HTTP/1.1" 200 776
+INFO :: 2017-08-06 19:20:13,315 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:13,440 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:13,493 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KMCO HTTP/1.1" 200 719
+INFO :: 2017-08-06 19:20:13,498 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:13,607 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:13,648 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGLL HTTP/1.1" 200 651
+INFO :: 2017-08-06 19:20:13,654 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:13,762 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:13,878 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=OMDB HTTP/1.1" 200 637
+INFO :: 2017-08-06 19:20:13,882 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:13,989 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:14,027 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLAX HTTP/1.1" 200 698
+INFO :: 2017-08-06 19:20:14,032 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:14,142 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:14,186 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGKK HTTP/1.1" 200 616
+INFO :: 2017-08-06 19:20:14,192 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:14,307 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:14,347 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGCC HTTP/1.1" 200 672
+INFO :: 2017-08-06 19:20:14,351 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:14,473 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:15,178 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFHK HTTP/1.1" 200 690
+INFO :: 2017-08-06 19:20:15,184 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:15,301 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:15,346 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=MKJP HTTP/1.1" 200 625
+INFO :: 2017-08-06 19:20:15,350 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:15,468 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:15,511 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=MKJS HTTP/1.1" 200 649
+INFO :: 2017-08-06 19:20:15,516 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:15,639 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:15,678 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=DGAA HTTP/1.1" 200 654
+INFO :: 2017-08-06 19:20:15,682 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:15,787 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:15,824 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KASE HTTP/1.1" 200 709
+INFO :: 2017-08-06 19:20:15,830 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:15,962 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:25,242 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LOWW HTTP/1.1" 200 678
+INFO :: 2017-08-06 19:20:25,246 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:25,354 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:25,634 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LWSK HTTP/1.1" 200 638
+INFO :: 2017-08-06 19:20:25,638 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:25,741 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:25,789 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LLBG HTTP/1.1" 200 635
+INFO :: 2017-08-06 19:20:25,795 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:25,908 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:25,952 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGPH HTTP/1.1" 200 None
+INFO :: 2017-08-06 19:20:25,958 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:26,084 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:26,122 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=UUDD HTTP/1.1" 200 660
+INFO :: 2017-08-06 19:20:26,126 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:26,243 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:26,288 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EHAM HTTP/1.1" 200 640
+INFO :: 2017-08-06 19:20:26,291 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:26,411 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:26,459 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ESSA HTTP/1.1" 200 636
+INFO :: 2017-08-06 19:20:26,463 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:26,578 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:26,850 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EKCH HTTP/1.1" 200 673
+INFO :: 2017-08-06 19:20:26,854 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:26,974 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:27,011 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EBBR HTTP/1.1" 200 633
+INFO :: 2017-08-06 19:20:27,015 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:27,126 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:27,166 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBHM HTTP/1.1" 200 741
+INFO :: 2017-08-06 19:20:27,171 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:27,294 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:27,333 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBEG HTTP/1.1" 200 633
+INFO :: 2017-08-06 19:20:27,337 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:27,461 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:27,504 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EPWA HTTP/1.1" 200 634
+INFO :: 2017-08-06 19:20:27,508 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:27,619 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:27,654 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KCLT HTTP/1.1" 200 734
+INFO :: 2017-08-06 19:20:27,658 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:27,774 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:27,822 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KDEN HTTP/1.1" 200 740
+INFO :: 2017-08-06 19:20:27,827 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:27,940 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:27,979 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EPGD HTTP/1.1" 200 593
+INFO :: 2017-08-06 19:20:27,983 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:28,329 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:28,704 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LZIB HTTP/1.1" 200 638
+INFO :: 2017-08-06 19:20:28,708 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:28,825 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:28,950 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=MUHA HTTP/1.1" 200 625
+INFO :: 2017-08-06 19:20:28,954 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:29,178 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:30,159 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=FAOR HTTP/1.1" 200 639
+INFO :: 2017-08-06 19:20:30,165 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:30,277 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:30,318 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=DIAP HTTP/1.1" 200 673
+INFO :: 2017-08-06 19:20:30,321 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:30,434 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:30,481 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ELLX HTTP/1.1" 200 632
+INFO :: 2017-08-06 19:20:30,485 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:30,602 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:30,641 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EETN HTTP/1.1" 200 681
+INFO :: 2017-08-06 19:20:30,645 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:30,752 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:30,890 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFKU HTTP/1.1" 200 651
+INFO :: 2017-08-06 19:20:30,894 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:31,007 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:31,050 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFMA HTTP/1.1" 200 676
+INFO :: 2017-08-06 19:20:31,053 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:31,161 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:31,806 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFOU HTTP/1.1" 200 661
+INFO :: 2017-08-06 19:20:31,810 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:31,913 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:31,949 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFRO HTTP/1.1" 200 627
+INFO :: 2017-08-06 19:20:31,952 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:32,074 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:32,119 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EFTP HTTP/1.1" 200 706
+INFO :: 2017-08-06 19:20:32,123 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:32,240 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:32,278 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGGW HTTP/1.1" 200 631
+INFO :: 2017-08-06 19:20:32,283 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:32,395 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:32,436 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EGSS HTTP/1.1" 200 629
+INFO :: 2017-08-06 19:20:32,439 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:32,545 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:32,594 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EIDW HTTP/1.1" 200 686
+INFO :: 2017-08-06 19:20:32,600 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:32,715 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:32,752 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KOKC HTTP/1.1" 200 709
+INFO :: 2017-08-06 19:20:32,756 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:32,869 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:32,906 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ESGG HTTP/1.1" 200 620
+INFO :: 2017-08-06 19:20:32,910 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:33,022 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:33,063 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LEPA HTTP/1.1" 200 649
+INFO :: 2017-08-06 19:20:33,069 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:33,184 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:33,227 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBFZ HTTP/1.1" 200 593
+INFO :: 2017-08-06 19:20:33,230 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:33,334 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:33,370 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=OMAA HTTP/1.1" 200 642
+INFO :: 2017-08-06 19:20:33,375 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:33,491 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:33,531 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:20:33,535 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:33,661 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:33,805 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 293
+INFO :: 2017-08-06 19:20:33,815 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:20:33,917 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:20:33,963 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=VABB HTTP/1.1" 200 702
+ERROR :: 2017-08-06 19:21:09,286 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+WARNING :: 2017-08-06 19:21:09,576 :: Airline callsign provided to decode_airline in unexpected format - "N2846A"
+INFO :: 2017-08-06 19:21:12,718 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:21:12,845 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:21:12,883 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KFLL HTTP/1.1" 200 713
+INFO :: 2017-08-06 19:21:12,888 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:21:13,008 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:21:13,048 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:21:13,051 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:21:13,164 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:21:13,201 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:22:09,149 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:22:12,428 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:22:12,576 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:22:12,612 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 291
+INFO :: 2017-08-06 19:22:12,616 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:22:12,725 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:22:12,762 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+WARNING :: 2017-08-06 19:23:08,516 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KDYT"
+ERROR :: 2017-08-06 19:23:09,137 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:23:12,399 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:23:12,503 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:23:12,538 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:23:12,542 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:23:12,654 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:23:12,688 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:24:09,138 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+WARNING :: 2017-08-06 19:24:09,356 :: Airline callsign provided to decode_airline in unexpected format - "N1537S"
+INFO :: 2017-08-06 19:24:12,501 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:24:12,604 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:24:12,879 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 294
+INFO :: 2017-08-06 19:24:12,883 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:24:12,993 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:24:13,032 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 291
+INFO :: 2017-08-06 19:25:08,824 :: Center found - "DEN_1S_CTR"
+ERROR :: 2017-08-06 19:25:08,927 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:25:09,182 :: Center found - "MMEX_CTR"
+INFO :: 2017-08-06 19:25:12,577 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:25:12,679 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:25:12,712 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:25:12,716 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:25:12,837 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:25:13,016 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 294
+ERROR :: 2017-08-06 19:26:08,977 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:26:12,156 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:26:12,270 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:26:12,309 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:26:12,312 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:26:12,421 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:26:12,459 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 291
+ERROR :: 2017-08-06 19:27:08,924 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+WARNING :: 2017-08-06 19:27:09,148 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KTME"
+INFO :: 2017-08-06 19:27:11,763 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:27:11,879 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:27:11,917 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:27:11,920 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:27:12,028 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:27:12,066 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:27:12,069 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:27:12,183 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:27:12,223 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZBAA HTTP/1.1" 200 637
+ERROR :: 2017-08-06 19:28:09,099 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:28:12,389 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:28:12,500 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:28:16,068 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SABE HTTP/1.1" 200 None
+INFO :: 2017-08-06 19:28:16,073 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:28:16,185 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:28:24,773 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 None
+INFO :: 2017-08-06 19:28:24,777 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:28:24,888 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:28:24,924 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 292
+ERROR :: 2017-08-06 19:29:09,023 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:29:12,166 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:29:12,287 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:29:12,329 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EPKT HTTP/1.1" 200 None
+INFO :: 2017-08-06 19:29:12,335 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:29:12,449 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:29:12,489 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 None
+INFO :: 2017-08-06 19:29:12,493 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:29:12,606 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:29:12,643 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 None
+ERROR :: 2017-08-06 19:30:09,202 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "ESSEX_APP"
+INFO :: 2017-08-06 19:30:09,362 :: Center found - "IND_CTR"
+INFO :: 2017-08-06 19:30:12,398 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:30:12,519 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:30:12,560 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWN HTTP/1.1" 200 292
+INFO :: 2017-08-06 19:30:12,565 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-08-06 19:30:12,672 :: Setting read timeout to None
+DEBUG :: 2017-08-06 19:30:12,715 :: "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SBWZ HTTP/1.1" 200 293

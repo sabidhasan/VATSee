@@ -287,109 +287,22 @@ Plus allow searching for METAR at a given airport
 
 
             <div id="planning" class="content-div">
-                <p>PLANNING</p>
-                <p>plan a real world flight
+                <h2>Planning</h2>
+                
+                
                     <br />On right side, have dropdown for equipment, desired duration/time (preference for Arrival vs. Departure ATC)
-                    <br />If logged in, populate with Users' "owned planes"
 
                     <br />It looks at current ATC'd airports' arrivals and departures with given equipment and duration.
                     <br />Ranks those routes, based on how muhc ATC there is with SCORE. REturn sorted list
                     <br />Real world route (from FA), callsign, number, duration, avg delay, gate, etc. Links to file flightplan, links to liveries.
                     
                     <strong>Duration</strong>
-                    <input type="range" min="0" max="50" value="0" step="5"
+                    <input type="range" min="0" max="50" value="0" step="5">
                     
                     <strong>Equipment</strong>
                     <input class="awesomplete" list="mylist" />
                     <datalist id="mylist">
-                        <option value="A306">A306  -  A300F4-600</option>
-                        <option value="A310">A310  -  A310-304</option>
-                        <option value="A318">A318  -  A318-100</option>
-                        <option value="A319">A319  -  A319-100</option>
-                        <option value="A320">A320  -  A320-200</option>
-                        <option value="A321">A321  -  A321-200</option>
-                        <option value="A333">A333  -  A330-300</option>
-                        <option value="A342">A342  -  A340-200</option>
-                        <option value="A343">A343  -  A340-300</option>
-                        <option value="A345">A345  -  A340-500</option>
-                        <option value="A346">A346  -  A340-600</option>
-                        <option value="A388">A388  -  A380-800</option>
-                        <option value="AT72">AT72  -  ATR72-500</option>
-                        <option value="B190">B190  -  B1900D</option>
-                        <option value="B350">B350  -  KINGAIR</option>
-                        <option value="B463">B463  -  BAE-146</option>
-                        <option value="B703">B703  -  B707-320B</option>
-                        <option value="B712">B712  -  B717-200</option>
-                        <option value="B722">B722  -  B727-200</option>
-                        <option value="B732">B732  -  B737-200</option>
-                        <option value="B733">B733  -  B737-300</option>
-                        <option value="B734">B734  -  B737-400</option>
-                        <option value="B735">B735  -  B737-500</option>
-                        <option value="B736">B736  -  B737-600</option>
-                        <option value="B737">B737  -  B737-700</option>
-                        <option value="B738">B738  -  B737-800</option>
-                        <option value="B739">B739  -  B737-900</option>
-                        <option value="B744">B744  -  B747-400</option>
-                        <option value="B748">B748  -  B747-8</option>
-                        <option value="B74F">B74F  -  B747-400F</option>
-                        <option value="B752">B752  -  B757-200</option>
-                        <option value="B753">B753  -  B757-300</option>
-                        <option value="B75F">B75F  -  B757-200PF</option>
-                        <option value="B763">B763  -  B767-300ER</option>
-                        <option value="B764">B764  -  B767-400ER</option>
-                        <option value="B76F">B76F  -  B767-300F</option>
-                        <option value="B772">B772  -  B777-200ER</option>
-                        <option value="B77F">B77F  -  B777-F</option>
-                        <option value="B77L">B77L  -  B777-200LR</option>
-                        <option value="B77W">B77W  -  B777-300ER</option>
-                        <option value="B788">B788  -  B787-800</option>
-                        <option value="B789">B789  -  B787-900</option>
-                        <option value="BBJ1">BBJ1  -  B737 BBJ</option>
-                        <option value="BBJ2">BBJ2  -  B737 BBJ2</option>
-                        <option value="BBJ3">BBJ3  -  B737 BBJ3</option>
-                        <option value="BE20">BE20  -  KINGAIR</option>
-                        <option value="C172">C172  -  CESSNA 172R</option>
-                        <option value="C208">C208  -  CESSNA 208</option>
-                        <option value="C404">C404  -  C404 TITAN</option>
-                        <option value="C510">C510  -  C510 MUSTANG</option>
-                        <option value="C550">C550  -  CITATION</option>
-                        <option value="C750">C750  -  CITATION X</option>
-                        <option value="CRJ2">CRJ2  -  CRJ-200</option>
-                        <option value="CRJ7">CRJ7  -  CRJ-700</option>
-                        <option value="CRJ9">CRJ9  -  CRJ-900</option>
-                        <option value="DC10">DC10  -  DC-10-30</option>
-                        <option value="DC6">DC6  -  DC-6</option>
-                        <option value="DH8A">DH8A  -  DHC8-102</option>
-                        <option value="DH8B">DH8B  -  DHC8-200</option>
-                        <option value="DH8C">DH8C  -  DHC8-311</option>
-                        <option value="DH8D">DH8D  -  DHC8-402</option>
-                        <option value="DHC2">DHC2  -  BEAVER</option>
-                        <option value="DHC6">DHC6  -  TWIN OTTER</option>
-                        <option value="E135">E135  -  ERJ-135LR</option>
-                        <option value="E13L">E13L  -  EMB-135BJ</option>
-                        <option value="E145">E145  -  EMB-145LR</option>
-                        <option value="E170">E170  -  EMB-170</option>
-                        <option value="E175">E175  -  EMB-175</option>
-                        <option value="E190">E190  -  EMB-190</option>
-                        <option value="E195">E195  -  EMB-195</option>
-                        <option value="F50">F50  -  FOKKER F50</option>
-                        <option value="GLF4">GLF4  -  GULFSTREAM</option>
-                        <option value="H25B">H25B  -  HAWKER 800A</option>
-                        <option value="JS41">JS41  -  BAE JS-41</option>
-                        <option value="L101">L101  -  L1011-500</option>
-                        <option value="LJ45">LJ45  -  LEAR 45</option>
-                        <option value="MD11">MD11  -  MD-11</option>
-                        <option value="MD1F">MD1F  -  MD-11F</option>
-                        <option value="MD82">MD82  -  DC-9-82</option>
-                        <option value="MD83">MD83  -  DC-9-83</option>
-                        <option value="MD88">MD88  -  MD-88</option>
-                        <option value="MD90">MD90  -  MD-90-30</option>
-                        <option value="RJ1H">RJ1H  -  AVRO RJ100</option>
-                        <option value="RJ70">RJ70  -  AVRO RJ70</option>
-                        <option value="RJ85">RJ85  -  AVRO RJ85</option>
-                        <option value="SF34">SF34  -  SAAB 340B</option>
-                        <option value="SW4">SW4  -  METROLINER</option>
-                        <option value="T154">T154  -  TU-154B2</option>
+                        
                     </datalist>
 
             </div>
