@@ -38,8 +38,9 @@ def update_db():
     final_len = len(c.execute("SELECT * FROM 'onlines'").fetchall())
     print ("%s old entries have been deleted" % str(init_len - final_len))
     
-    print ("Vacuuming database to reduce size...")
-    c.execute("VACUUM")
+    #print ("Vacuuming database to reduce size...")
+    #conn.commit
+    #c.execute("VACUUM")
     print("Vacuum complete.\nChecking whether update needed.")
     
     result = len(c.execute("SELECT * FROM 'onlines' WHERE %s - time_updated < 60" % time.time()).fetchall())
@@ -60,8 +61,9 @@ def update_db():
             "http://wazzup.flightoperationssystem.com/vatsim/vatsim-data.txt"]
         print("Downloading latest file")
         random_url = random.choice(vatsim_urls)
+        print("Downloaded from URL '{}'".format(random_url))
         r = requests.get(random_url).text
-        print("Downloaded successfully, now parsing")
+        print("Downloaded successfully (length {}), now parsing".format(len(r)))
         #TO--DO: tupleise this injection ot prevent db attacks
         for line in r.split("\n"):
             vals = line.split(":")

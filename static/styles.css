@@ -330,6 +330,10 @@ h5 {
     width: 160px;
 }
 
+#planningresults span{
+    margin-left: 9%;
+}
+
 #preferences select {
     display: block;
     margin: 0 25px 25px 25px;

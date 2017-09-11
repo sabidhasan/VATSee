@@ -56,8 +56,85 @@ var imgs = {0:   'data:image/gif;base64,R0lGODlhCgAKAIQWAA4ODp6enl1dXUZGRiUlJYuL
 17:  'data:image/gif;base64,R0lGODdhDAAMAIQAAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHNHR0TMzMwUFBS4uLujo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAADAAMAAAIhQABCBxIsOBACw4iEJAAAACFBQEeWBDAoMIECwAAWGhQwcCECiAPWAAAwEKACihRDrBgAQAACxIAVJhZgYIFCwAAWLAwoYLPCgkgWLAAAIAFCwgqKC1goSkAABaiDqgAQIKFqwAAWNhKoYIAC2AtAABgoawFAgosqLUAAICFtxYKAJg7NyAAOw==',
 18:  'data:image/gif;base64,R0lGODlhCgAKAIQWAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHNHR0TMzMwUFBS4uLujo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABYALAAAAAAKAAoAAAhcACksCPDAggUHEQhIsNCggoEJAhhUmGDBQoAKGDMesGBBAoAKICsMsEDSwoQKKCtQsMDSAoIKMBNAsECT5oAKFQpY2MmTQgUAEiwIHWqBgAALSJMiLaDAglMLAQEAOw==',
 19:  'data:image/gif;base64,R0lGODdhDAAMAIQAAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHNHR0TMzMwUFBS4uLujo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAADAAMAAAIhAABCBxIkCCFBQEeWADAsCEACw0qGJhgwUEEAhIAALAQoIJHAQwqTLAAAIAFCQAqqFR5wAIAABYsTKhAs8IACxYAWLCAoIJPnxQsWABgoeiAChUSQLBgAQAAC1ApVKhQwIJVAAAsaLVAAIAEC2ABALBA1kIBARbSWgDAti0ABRbiWgAQEAA7'
-    
-}
+};
+
+//Planning - add options
+var planeOptions = {
+   A306 : ['A306  -  A300F4-600', 470, 4150, []],
+   A310 : ['A310  -  A310-304', 480, 5100, []],
+   A318 : ['A318  -  A318-100', 460, 3100, []],
+   A319 : ['A319  -  A319-100', 450, 1800, []],
+   A320 : ['A320  -  A320-200', 450, 2700, []],
+   A321 : ['A321  -  A321-200', 450, 3300, []],
+   A333 : ['A333  -  A330-300', 475, 6100, []],
+   A342 : ['A342  -  A340-200', 490, 6700, []],
+   A343 : ['A343  -  A340-300', 490, 7400, []],
+   A345 : ['A345  -  A340-500', 480, 9000, []],
+   A346 : ['A346  -  A340-600', 480, 7900, []],
+   A388 : ['A388  -  A380-800', 520, 8500, []],
+   AT72 : ['AT72  -  ATR72-500', 275, 1500, []],
+   B190 : ['B190  -  B1900D', 280, 440, []],
+   B350 : ['B350  -  KINGAIR', 300, 1800, []],
+   B463 : ['B463  -  BAE-146', 426, 1800, []],
+   B703 : ['B703  -  B707-320B', 470, 5000, []],
+   B712 : ['B712  -  B717-200', 435, 2060, []],
+   B722 : ['B722  -  B727-200', 470, 2600, []],
+   B732 : ['B732  -  B737-200', 400, 1200, []],
+   B733 : ['B733  -  B737-300', 429, 1600, []],
+   B734 : ['B734  -  B737-400', 430, 2100, []],
+   B735 : ['B735  -  B737-500', 430, 1600, []],
+   B736 : ['B736  -  B737-600', 460, 3200, []],
+   B737 : ['B737  -  B737-700', 460, 2500, []],
+   B738 : ['B738  -  B737-800', 460, 2000, []],
+   B739 : ['B739  -  B737-900', 460, 2745, []],
+   B744 : ['B744  -  B747-400', 510, 7260, []],
+   B748 : ['B748  -  B747-8', 510, 8000, []],
+   B752 : ['B752  -  B757-200', 470, 3900, []],
+   B753 : ['B753  -  B757-300', 490, 3395, []],
+   B763 : ['B763  -  B767-300ER', 460, 6105, []],
+   B764 : ['B764  -  B767-400ER', 460, 5645, []],
+   B772 : ['B772  -  B777-200ER', 480, 5240, []],
+   B788 : ['B788  -  B787-800', 490, 7850, []],
+   B789 : ['B789  -  B787-900', 490, 8300, []],
+   BE20 : ['BE20  -  KINGAIR', 260, 1600, []],
+   C172 : ['C172  -  CESSNA 172R', 114, 580, []],
+   C208 : ['C208  -  CESSNA 208', 184, 940, []],
+   C404 : ['C404  -  C404 TITAN', 220, 550, []],
+   C510 : ['C510  -  C510 MUSTANG', 340, 1300, []],
+   C550 : ['C550  -  CITATION', 384, 1900, []],
+   C750 : ['C750  -  CITATION X', 550, 3250, []],
+   CRJ2 : ['CRJ2  -  CRJ-200', 420, 1340, []],
+   CRJ7 : ['CRJ7  -  CRJ-700', 442, 1430, []],
+   CRJ9 : ['CRJ9  -  CRJ-900', 458, 1600, []],
+   DC10 : ['DC10  -  DC-10-30', 510, 6220, []],
+   DC6  : ['DC6  -  DC-6', 265, 3980, []],
+   DH8A : ['DH8A  -  DHC8-102', 240, 970, []],
+   DH8B : ['DH8B  -  DHC8-200', 270, 1100, []],
+   DH8C : ['DH8C  -  DHC8-311', 220, 1950, []],
+   DH8D : ['DH8D  -  DHC8-402', 360, 1290, []],
+   DHC2 : ['DHC2  -  BEAVER', 109, 670, []],
+   DHC6 : ['DHC6  -  TWIN OTTER', 180, 900, []],
+   E135 : ['E135  -  ERJ-135LR', 450, 1480, []],
+   E145 : ['E145  -  EMB-145LR', 450, 1200, []],
+   E170 : ['E170  -  EMB-170', 460, 2100, []],
+   E175 : ['E175  -  EMB-175', 460, 2100, []],
+   E190 : ['E190  -  EMB-190', 460, 1850, []],
+   E195 : ['E195  -  EMB-195', 450, 1600, []],
+   F50  : ['50  -  FOKKER F50', 240, 1500, []],
+   GLF4 : ['GLF4  -  GULFSTREAM', 450, 4600, []],
+   H25B : ['H25B  -  HAWKER 800A', 463, 3000, []],
+   JS41 : ['JS41  -  BAE JS-41', 290, 1000, []],
+   L101 : ['L101  -  L1011-500', 480, 4360, []],
+   LJ45 : ['LJ45  -  LEAR 45', 457, 2098, []],
+   MD11 : ['MD11  -  MD-11', 500, 7100, []],
+   MD82 : ['MD82  -  DC-9-82', 440, 2052, []],
+   MD83 : ['MD83  -  DC-9-83', 440, 2504, []],
+   MD88 : ['MD88  -  MD-88', 450, 2055, []],
+   MD90 : ['MD90  -  MD-90-30', 440, 2200, []],
+   RJ85 : ['RJ85  -  AVRO RJ85', 420, 1100, []],
+   SF34 : ['SF34  -  SAAB 340B', 280, 1310, []],
+   SW4  : ['SW4  -  METROLINER', 270, 575, []],
+   T154 : ['T154  -  TU-154B2', 475, 1700, []]};
 
 // execute when the DOM is fully loaded
 $(document).ready(function() {
@@ -190,85 +267,22 @@ $(document).ready(function() {
        console.log(updateWorstWeather());
        //TO--DO: fix this thing later
     });
-
-    //Planning - add options
-    var planOpts = {
-       A306 : ['A306  -  A300F4-600', 470, 4150],
-       A310 : ['A310  -  A310-304', 480, 5100],
-       A318 : ['A318  -  A318-100', 460, 3100],
-       A319 : ['A319  -  A319-100', 450, 1800],
-       A320 : ['A320  -  A320-200', 450, 2700],
-       A321 : ['A321  -  A321-200', 450, 3300],
-       A333 : ['A333  -  A330-300', 475, 6100],
-       A342 : ['A342  -  A340-200', 490, 6700],
-       A343 : ['A343  -  A340-300', 490, 7400],
-       A345 : ['A345  -  A340-500', 480, 9000],
-       A346 : ['A346  -  A340-600', 480, 7900],
-       A388 : ['A388  -  A380-800', 520, 8500],
-       AT72 : ['AT72  -  ATR72-500', 275, 1500],
-       B190 : ['B190  -  B1900D', 280, 440],
-       B350 : ['B350  -  KINGAIR', 300, 1800],
-       B463 : ['B463  -  BAE-146', 426, 1800],
-       B703 : ['B703  -  B707-320B', 470, 5000],
-       B712 : ['B712  -  B717-200', 435, 2060],
-       B722 : ['B722  -  B727-200', 470, 2600],
-       B732 : ['B732  -  B737-200', 400, 1200],
-       B733 : ['B733  -  B737-300', 429, 1600],
-       B734 : ['B734  -  B737-400', 430, 2100],
-       B735 : ['B735  -  B737-500', 430, 1600],
-       B736 : ['B736  -  B737-600', 460, 3200],
-       B737 : ['B737  -  B737-700', 460, 2500],
-       B738 : ['B738  -  B737-800', 460, 2000],
-       B739 : ['B739  -  B737-900', 460, 2745],
-       B744 : ['B744  -  B747-400', 510, 7260],
-       B748 : ['B748  -  B747-8', 510, 8000],
-       B752 : ['B752  -  B757-200', 470, 3900],
-       B753 : ['B753  -  B757-300', 490, 3395],
-       B763 : ['B763  -  B767-300ER', 460, 6105],
-       B764 : ['B764  -  B767-400ER', 460, 5645],
-       B772 : ['B772  -  B777-200ER', 480, 5240],
-       B788 : ['B788  -  B787-800', 490, 7850],
-       B789 : ['B789  -  B787-900', 490, 8300],
-       BE20 : ['BE20  -  KINGAIR', 260, 1600],
-       C172 : ['C172  -  CESSNA 172R', 114, 580],
-       C208 : ['C208  -  CESSNA 208', 184, 940],
-       C404 : ['C404  -  C404 TITAN', 220, 550],
-       C510 : ['C510  -  C510 MUSTANG', 340, 1300],
-       C550 : ['C550  -  CITATION', 384, 1900],
-       C750 : ['C750  -  CITATION X', 550, 3250],
-       CRJ2 : ['CRJ2  -  CRJ-200', 420, 1340],
-       CRJ7 : ['CRJ7  -  CRJ-700', 442, 1430],
-       CRJ9 : ['CRJ9  -  CRJ-900', 458, 1600],
-       DC10 : ['DC10  -  DC-10-30', 510, 6220],
-       DC6  : ['DC6  -  DC-6', 265, 3980],
-       DH8A : ['DH8A  -  DHC8-102', 240, 970],
-       DH8B : ['DH8B  -  DHC8-200', 270, 1100],
-       DH8C : ['DH8C  -  DHC8-311', 220, 1950],
-       DH8D : ['DH8D  -  DHC8-402', 360, 1290],
-       DHC2 : ['DHC2  -  BEAVER', 109, 670],
-       DHC6 : ['DHC6  -  TWIN OTTER', 180, 900],
-       E135 : ['E135  -  ERJ-135LR', 450, 1480],
-       E145 : ['E145  -  EMB-145LR', 450, 1200],
-       E170 : ['E170  -  EMB-170', 460, 2100],
-       E175 : ['E175  -  EMB-175', 460, 2100],
-       E190 : ['E190  -  EMB-190', 460, 1850],
-       E195 : ['E195  -  EMB-195', 450, 1600],
-       F50  : ['50  -  FOKKER F50', 240, 1500],
-       GLF4 : ['GLF4  -  GULFSTREAM', 450, 4600],
-       H25B : ['H25B  -  HAWKER 800A', 463, 3000],
-       JS41 : ['JS41  -  BAE JS-41', 290, 1000],
-       L101 : ['L101  -  L1011-500', 480, 4360],
-       LJ45 : ['LJ45  -  LEAR 45', 457, 2098],
-       MD11 : ['MD11  -  MD-11', 500, 7100],
-       MD82 : ['MD82  -  DC-9-82', 440, 2052],
-       MD83 : ['MD83  -  DC-9-83', 440, 2504],
-       MD88 : ['MD88  -  MD-88', 450, 2055],
-       MD90 : ['MD90  -  MD-90-30', 440, 2200],
-       RJ85 : ['RJ85  -  AVRO RJ85', 420, 1100],
-       SF34 : ['SF34  -  SAAB 340B', 280, 1310],
-       SW4  : ['SW4  -  METROLINER', 270, 575],
-       T154 : ['T154  -  TU-154B2', 475, 1700]
-    };
+    
+    //Planning range bar range update and text update
+    $("#planningrangebar").on("change", function() {
+        //Determine hours
+        var hrs = Math.floor($(this).val() / 60);
+        var hrsUnit = hrs === 1 ? ' hour' : ' hours';
+        var hrsText = hrs === 0 ? '' : hrs + hrsUnit + ' ';
+        
+        var min = Math.round(($(this).val() / 60 % 1) * 60);
+        var minUnit = min === 1 ? ' minute' : ' minutes';
+        var minText = min === 0 ? '' : min + minUnit;
+        $("#planningrangevalue").text(hrsText + minText);
+        
+        //Figure out which planes can do this!
+        planFlight($(this).val());
+    });
 });
 
 //Add listener for global mouse position; used to display hover window next to mouse
@@ -1172,4 +1186,77 @@ function updateWorstWeather() {
             data[ind]['total_score'] = null;
         }
     });
+}
+
+function planFlight(duration) {
+    //This function looks at current possible routes (all airpports that are online) and determines which planes can be
+    //used to fly those routes!
+    $('#planningresults').html('')
+    for (var plane in planeOptions) {
+        planeOptions[plane][3] = [];
+    }
+    var activeAirports = [];
+    //Determine all active airports
+    for (var i = 0; i < latest_json[0].length; i++) {
+        //if the current airport is active (has ATC available)
+        if (latest_json[0][i]['atc'].length !== 0) {
+            //Add object to active airports (we can't add latest_json[0][i], because JS objects get passed by reference)
+            activeAirports.push({icao: latest_json[0][i]['icao'], lat: latest_json[0][i]['latitude'], 
+            lon: latest_json[0][i]['longitude'], id: latest_json[0][i]['id'], atcLength: latest_json[0][i]['atc'].length});
+        }
+    }
+    //Loop through every possible route (every airport to every other airport, subtracting repeats and )
+    for (var i = 0; i < activeAirports.length - 1; i++) {
+        for (var j = i + 1; j < activeAirports.length - 1; j++) {
+            //Calculate dictance for current route
+            var dist = distance(activeAirports[i]['lon'], activeAirports[i]['lat'], activeAirports[j]['lon'], activeAirports[j]['lat']);
+            
+            var titleAdded = false;
+            
+            //Loop through all planes
+            for (var plane in planeOptions) {
+                //  time      =   distance / speed (corrected for km/h to kts) + 20' takeoff, 20' landing, 10' taxi
+                var routeTime = (dist / (planeOptions[plane][1] * 1.852) * 60) + 50
+                //Check for distance (range)            and 
+                if (planeOptions[plane][2] > (dist * 0.5399) && (routeTime < $('#planningrangebar').val())) {
+                    //Draw title if needed
+                    //if (titleAdded === false) {
+                    //    planeOptions[plane][3] = []
+
+                    //    $('#planningresults').append('<strong>' + activeAirports[i]['icao'] + '  -  ' + activeAirports[j]['icao'] + '   -   ' + dist + '<br/></strong>');
+                    //    titleAdded = true;
+                    //};
+                    
+                    //NEW
+                    planeOptions[plane][3].push(activeAirports[i]['icao'] + '  -  ' + activeAirports[j]['icao']);
+                    ///NEW
+                    
+                    
+//                    $('#planningresults').append('<span>' + planeOptions[plane][0] + '</span><br/>');
+                }
+            }
+//            $('#planningresults').append(tmpCount + '<br/>');
+            
+            //Calculate time for current route
+            
+            
+            
+            
+        }
+    }
+    for (var plane in planeOptions) {
+        $('#planningresults').append('<strong>'+planeOptions[plane][0]+'</strong>');
+        var tmp = '';
+        planeOptions[plane][3].forEach(function(val) {
+            tmp  = tmp + val + '<br/>';
+        });
+        $('#planningresults').append('<span>'+ tmp +'</span>');
+    }
+    
+    
+    //Discard those PLANES for this route that :
+        // 1) Can't make this trip due to range
+        // 2) Can't make this trip due to user specified time (t = d / v)
+    //If no planes left for this route, then ignore route
+        //otherwise, wrtite those planes that are left
 }

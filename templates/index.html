@@ -288,16 +288,17 @@ Plus allow searching for METAR at a given airport
 
             <div id="planning" class="content-div">
                 <h2>Planning</h2>
-                
-                
-                    <br />On right side, have dropdown for equipment, desired duration/time (preference for Arrival vs. Departure ATC)
+                    <p>Specify duration</p>
+                    <input type="range" id = "planningrangebar" min="30" max="1050" value="0" step="30">
+                    <p id="planningrangevalue">30 minutes</p>
+
+                    <p id="planningresults"></p>
+                    
 
                     <br />It looks at current ATC'd airports' arrivals and departures with given equipment and duration.
                     <br />Ranks those routes, based on how muhc ATC there is with SCORE. REturn sorted list
                     <br />Real world route (from FA), callsign, number, duration, avg delay, gate, etc. Links to file flightplan, links to liveries.
                     
-                    <strong>Duration</strong>
-                    <input type="range" min="0" max="50" value="0" step="5">
                     
                     <strong>Equipment</strong>
                     <input class="awesomplete" list="mylist" />
