@@ -238,6 +238,26 @@ def haversine(lon1, lat1, lon2, lat2):
     return km
     
 
+def get_center_coords(name):
+    ''' Returns center coordinates as list of tuples given center name, or returns None (for logging) '''
+    #Check for empty string or something
+    if not(name):
+        return None
+    
+    #Name might be "LAX" or somethng like "LAX_EAST", in which case we need to search both
+    conn = sqlite3.connect('static_data.db')
+    c = conn.cursor()
+    result = c.execute("SELECT * FROM 'centers' WHERE name=? OR name=?", (name, name.split('_')[0])).fetchone()
+    if result:
+        #return the result  -  [ (x, y), (x, y), (x, y) ... ]
+        if len(result)!= 3:
+            print (0/0)
+#        return [r for r in result[2].split('\n')]
+        return [(line.split(',')[0], line.split(',')[1]) for line in result[2].split("\n") if line]
+    else:
+        #No result, return none
+        return None
+    
 def get_METAR(given_code):
     '''Returns METAR data from aviation weather website from US Government; code is a METAR weather station code.
     Uses 30 minute caching to prevent overaccessing of the Aviation Weather database'''
@@ -540,13 +560,11 @@ def update():
             #ASIA is a known non underscore/'CTR' based centre callsign
             elif ("_" in curr_callsign and "CTR" in curr_callsign) or (curr_callsign in ["ASIA"]):
                 #TO--DO LOGGING - log the newly found center
-                add_to_log('Center found - "%s"' % curr_callsign, logging.INFO)
-
                 callsign_initials = curr_callsign.split("_")[0]
-
+                
                 tmp_ctr_atc = {item: line[value] for item, value in ctr_indices.items()}
                 tmp_ctr_atc["atctype"] = 5
-
+        
                 #See if centre present or not
                 if not(callsign_initials in tmp_centres_ids):
                     #New airport! Make a new ID first
@@ -557,6 +575,15 @@ def update():
                     
                     #ATC_pic is which picture to use for the marker on the front end (it's a sorted concatenation of all available ATC). -1 is simple dot no atc
                     ctr_data = {"id": new_id, "icao": callsign_initials, "marker_lat": new_lat, "marker_lon": new_lon, "atc_pic": "0", "atc": [], "polygon": []}
+        
+                    curr_callsign_coords = get_center_coords(callsign_initials)
+                    if curr_callsign_coords is None:
+                        ctr_data["coordinates"] = None
+                        add_to_log('Center found - "%s, not present in database"' % curr_callsign, logging.INFO)
+                    else:
+                        ctr_data["coordinates"] = curr_callsign_coords
+
+        
                     jsondata[1].append(ctr_data)
     
                     #Add to tmp airport directory

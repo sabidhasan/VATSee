@@ -3,12 +3,14 @@ var map;
 //Stores all the airports and planes on map currently, as GoogleMap marker objects
 var airports = [];
 var planes = [];
+var centers = [];
 //Copy of the data fetched from server   //time of last update (stored in latest json)
 var latest_json = [];
 var update_time = 0;
 //Currently clicked on airport's index
 var selected_airport = -1;
 var selected_plane = -1;
+var selected_center = -1;
 //Global variable for current mouse position; Google map listeners supposedly don't supply event.pageX values?
 var mouseX;
 var mouseY;
@@ -308,8 +310,8 @@ function addPlane(data) {
 
     m.addListener('click', function() {
         //if clicked then show info
-        //hideHoverWindow();
       //  $("#hoverwindow").css("display", "inline")
+      hideHoverWindow();
         selected_plane = data["id"]
         showSelectedInfo();
     });
@@ -400,15 +402,10 @@ function addPlane(data) {
 
     m.addListener('mouseout', function() {
         //if nothing has been clicked on, then hide the info window (ALSO SEE CONFIGURE FUNCTION FOR CLICK EVENT LISTERNERS!)
-        // hideHoverWindow();
         flightPath.setMap(null);
 
        // if (selected_plane === -1 && selected_airport === -1) {
             $("#hoverwindow").css("display", "none");
-            //hideHoverWindow();
-        //}
-
-
     });
     //add current marker to airports array
     planes.push(m);
@@ -455,6 +452,47 @@ function addATCMarker(type, latitude, longitude){
     airportCircles.push(Circle);
 }
 
+//called as JSON is being parsed; this adds polygon for Center on map
+function addCenter(data) {
+    var tmp_coords = [];
+
+    if (data['coordinates'] === null) {
+        return;
+    }
+
+//    for (var i = 0; i < 3; i++) {
+//        tmp_coords.push({lat: parseFloat(data['coordinates'][i][1]), lng: parseFloat(data['coordinates'][i][0])});
+//    }
+    data['coordinates'].forEach(function(val) {
+//        console.log(parseFloat(val[0]) + '   ' + parseFloat(val[1]));
+//        var lls = new google.maps.LatLng(, );
+        tmp_coords.push({lat: parseFloat(val[1]), lng: parseFloat(val[0])});
+    });
+//    tmp_coords.push(tmp_coords[0]);
+//    console.log(tmp_coords)
+//    tmp_coords = [{lat: 49, lng: -123}, {lat: 30, lng: -123}, {lat: 30, lng: -90}]
+    
+    //Create polygon
+    var m = new google.maps.Polygon({
+        paths: tmp_coords,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35
+    });
+    
+    m.addListener('click', function(){
+        hideHoverWindow();
+        selected_center = data['id'];
+        showSelectedInfo();
+    });
+    
+    m.setMap(map)
+    centers.push(m)
+}
+
+
 //called as JSON data is being parsed, to add marker to map
 function addAirport(data) {
     //There is one special airport - for thjose planes with no arrival or departure. In this case, ignore it (don't draw on map)
@@ -490,6 +528,7 @@ function addAirport(data) {
     //Expected behavior: hover over marker ==> show window. Hover out ==> hide info window. Click on marker ==> show window until clicked elsewhere
     m.addListener('click', function() {
         //if clicked then show info
+        hideHoverWindow();
         selected_airport = data["id"];
         showSelectedInfo();
     });
@@ -571,9 +610,6 @@ function addAirport(data) {
         //if nothing has been clicked on, then hide the info window (ALSO SEE CONFIGURE FUNCTION FOR CLICK EVENT LISTERNERS!)
         $("#hoverwindow").css("display", "none");
 
-//        if (selected_plane === -1 && selected_airport === -1) {
-  //          hideHoverWindow();
-    //    }
         //Hide all airport lines
         for (var i = 0; i < airportLines.length; i++) {
             airportLines[i].setMap(null);
@@ -643,6 +679,7 @@ function showSelectedInfo() {
     //if an airport is selected, then ship its data out
     if (selected_airport !== -1) {
         $("#selectedairport").show();
+        $("#arrdeptable").show();
         $("#selectedplane").hide();
         
         //show the div containing data
@@ -764,8 +801,38 @@ function showSelectedInfo() {
                 $('#selectedarrivals tbody').html("<tr><td colspan = '8'>No scheduled arrivals</td></tr>");
             }
     
+    } else if (selected_center !== -1) {
+        $("#selectedairport").show();
+        $("#arrdeptable").hide();
+        $("#selectedplane").hide();
+        
+        //ICAO, range, 
+        //message, callsing, name, CID, frequecy, time logon, range
+        
+        //show the div containing data
+        $("#selectedairport").css("display", "block");
+        
+        //Loop through local JSON cache
+        for (var j = 0, l = latest_json[1].length; j < l; j++) {
+            if (latest_json[1][j]["id"] === selected_center) {
+                $("#poitext").text(latest_json[1][j]['icao'] + ' Center');
+                $("#help").text("");
+                //Populate ATC information
+                var atc_html = "";
+                var tmp = latest_json[1][j]['atc'];
+                tmp.forEach(function(val) {
+                    atc_html += "<h5>" + val['callsign'] + "</h5>";
+                    atc_html += "<p><strong>Frequency</strong>: " + val['freq'] + "</p>";
+                    atc_html += "<p><strong>Name and ID</strong>: " + val['name'] + " (CID " + val['cid'] + ")</p>";
+                    atc_html += "<p><strong>Message</strong>: " + val['atismsg'] + "</p>";
+                    atc_html += "<p><strong>Logon Time</strong>: " + val['timelogon'] + "</p>";
+                    });
+            }
+            $("#selectedatcdata").html(atc_html);
+        }
     } else if (selected_plane !== -1) {
         $("#selectedairport").hide();
+        $("#arrdeptable").hide();
         $("#selectedplane").show();
 
         for (var j = 0, l = latest_json[2].length; j < l; j++) {
@@ -918,6 +985,12 @@ function removeMarkers() {
     }
     planes = [];
 
+    for (var i = 0, clen = centers.length; i < clen; i++) {
+        centers[i].setMap(null);
+    }
+    centers = [];
+
+
     //Hide all airport lines
     for (var i = 0; i < airportLines.length; i++) {
         airportLines[i].setMap(null);
@@ -936,7 +1009,7 @@ function removeMarkers() {
 
 function hideHoverWindow() {
     //$("#hoverwindow").css("display", "none");
-    if (selected_airport !== -1 || selected_plane !== -1) {
+    if (selected_airport !== -1 || selected_plane !== -1 || selected_center !== -1) {
         //something is selected already, so let's reset the information pane
         $("#selectedairport").css("display", "none");
         $("#selectedplane").css("display", "none");
@@ -945,6 +1018,7 @@ function hideHoverWindow() {
     }
     selected_airport = -1;
     selected_plane = -1;
+    selected_center = -1;
 }
 
 
@@ -1012,7 +1086,10 @@ function update() {
             for (var i = 0, mlen = data[0].length; i < mlen; i++) {
                 addAirport(data[0][i]);
             }
-
+            //Draw centers
+            for (var i = 0, clen = data[1].length; i < clen; i++) {
+                addCenter(data[1][i]);
+            }
             //Update the planes!
             for (var i = 0, plen = data[2].length; i < plen; i++) {
                 addPlane(data[2][i]);
@@ -1079,12 +1156,6 @@ function filterOnlines(filtertext) {
                     //Hide the ATC; first column contains ID number of plane
                     planes[parseInt(row.cells[0].innerHTML) - 1].setMap(null)
                 }
-                 // Uncomment to allow hiding/showing on map of ATCs; comment to show hide planes ONLY
-                 //else {
-                 //       //Hide the Plane
-                 //       console.log('hiding plane' + row.cells[0].innerHTML)
-                 //       airports[parseInt(row.cells[0].innerHTML) - 1].setMap(null)
-                 //   }                    
             }
             //cssclass holds the even vs odd class for the current row
             var cssclass = counter % 2 === 0 ? "onlinetableeven" : "onlinetableodd"

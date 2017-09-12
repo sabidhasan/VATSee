@@ -3,7 +3,6 @@
           
       Logging                                       1 hr
 
-
       Get METAR link under airport for status       0.5 hr
       
       Styling - consult VATAWARE                    2 hr
