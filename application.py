@@ -179,30 +179,26 @@ def flightlevel_to_feet(flightlevel):
             
 def decode_airline(callsign):
     '''Gets a name like 'BAW156' or 'BA156' and returns a tuple such as ('British Airways', 'UK', 'Speedbird', 'BAW', '156')'''
-    airline_letter = ''
-    airline_num = ''
-    for c, letter in enumerate(callsign):
-        try:
-            #See if we are at the airline number part yet
-            int(letter)
-            if len(airline_letter) == 1:
-                #TO--DO LOGGING: airline callsign is weird; potentially log to improve handling of these in the future
-                add_to_log('Airline callsign provided to decode_airline in unexpected format - "%s"' % callsign, logging.WARNING)
-                return (callsign, callsign, callsign, callsign, callsign)
-            else:
-                #Found the airline number at a non-0 place
-                airline_num = str(callsign[c:])
-                break
-        except ValueError:
-            #Encountered letter; could improve by keeping index rather than regenerating a string each time TO--DO
-            airline_letter += letter
-            #TO--DO: add better support for VFR
-    #if no airline letter?
-    if not(airline_letter):
+    
+    #Check for VFR tail numbers
+    if re.findall(r"^[A-Z][A-Z0-9]{3,4}[A-Z]$", callsign):
         return (callsign, callsign, callsign, callsign, callsign)
-        #TO--DO LOGGING: callsign is weird
-        logging.error('Airline Callsign is very unexpected format for decode_airline - "%s"' % callsign)
-
+    
+    #Get flight number and airline
+    airline_letter = re.findall(r"^[A-Z]*", callsign)
+    if airline_letter:
+        airline_letter = airline_letter[0]
+    else:
+        #Couldnt find the callsign, so quit
+        add_to_log('Airline callsign provided to decode_airline not parsable - "%s"' % callsign, logging.WARNING)
+        return (callsign, callsign, callsign, callsign, callsign)
+    
+    #Try to find airline letter, starting at the position AFTER the airline letter ends (eg. BAW191, start at '1')
+    airline_num = callsign[len(airline_letter):]
+    if not(airline_num):
+        add_to_log('Airline flight number could not be parsed by decode_airline - "%s"' % callsign, logging.WARNING)
+        return (callsign, callsign, callsign, callsign, callsign)
+    
     #Now look in memoized data, and if not found then the DB
     if airline_letter in airlines:
         row = airlines[airline_letter]
@@ -216,9 +212,8 @@ def decode_airline(callsign):
             airlines[airline_letter] = (result[3], result[5], result[4])
             row = airlines[airline_letter]
         else:
-            return (callsign, callsign, callsign, callsign, callsign)
-            #TO--DO LOGGING: airline is new, so add it to database in future
             add_to_log('Airline callsign not found in database - "%s"' % callsign, logging.WARNING)
+            return (callsign, callsign, callsign, callsign, callsign)
     return (row[0], row[1], row[2], airline_letter, airline_num)
 
 
@@ -250,9 +245,6 @@ def get_center_coords(name):
     result = c.execute("SELECT * FROM 'centers' WHERE name=? OR name=?", (name, name.split('_')[0])).fetchone()
     if result:
         #return the result  -  [ (x, y), (x, y), (x, y) ... ]
-        if len(result)!= 3:
-            print (0/0)
-#        return [r for r in result[2].split('\n')]
         return [(line.split(',')[0], line.split(',')[1]) for line in result[2].split("\n") if line]
     else:
         #No result, return none
