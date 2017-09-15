@@ -131,7 +131,7 @@ def callsign_to_loc(callsign):
     conn = sqlite3.connect('static_data.db')
     c = conn.cursor()
 
-    if callsign is None:
+    if callsign is None or callsign.lower() == "none":
         return None
 
     #Determine the code friom the string
@@ -154,7 +154,6 @@ def callsign_to_loc(callsign):
         return tuple(list(result[6:9]) + [result[1]])
     except:
         #Likely result was none (aka nothing found in DB)
-        #TO--DO LOGGING: log this potential error
         add_to_log('Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "%s"' % callsign, logging.WARNING)
         return None
 
@@ -181,7 +180,7 @@ def decode_airline(callsign):
     '''Gets a name like 'BAW156' or 'BA156' and returns a tuple such as ('British Airways', 'UK', 'Speedbird', 'BAW', '156')'''
     
     #Check for VFR tail numbers
-    if re.findall(r"^[A-Z][A-Z0-9]{3,4}[A-Z]$", callsign):
+    if re.findall(r"^[A-Z][A-Z0-9]{3,5}$", callsign.replace('-', '')):
         return (callsign, callsign, callsign, callsign, callsign)
     
     #Get flight number and airline

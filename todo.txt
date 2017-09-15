@@ -1,34 +1,26 @@
 *  Critical Features to Add:
-      Centre polygons                               2 hr
-          
       Logging                                       1 hr
 
-      Get METAR link under airport for status       0.5 hr
-      
       Styling - consult VATAWARE                    2 hr
         add flags to status/ytable
         style ATC for selected airport d
-        style hover window
         style weather
-      
-      Tidy hover window:                            0.5 hr
-        Time online, freq, name, METAR, apt diagram
 
       Tab: Flight Planning                          4 hr
 
 *  Non Critical relatively Easy:
        Legend for map                               0.5 hr
            
-       Stats - users/ATC online, active airpts      0.5 hr
+       Stats - users/ATC online, active airpts
+            longest flight                          0.5 hr
       
-       Logon time for ATC should==> human readable  0.5 hr
-
-
-
 *  Nice to Have Features (hard):
         Make the backend into Class
-        Call class methods in the "/Update"
-
+          Call class methods in the "/Update"
+        
+        Make front end into class
+          All planes/airports/centers are objects, all children of parent that holds latest_json, etc.
+        
         Improve Performance
              Searching through latest_json array      should not be necessary for drawing airport/airplane lines (on hover)
 

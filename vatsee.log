@@ -25249,3 +25249,819 @@ DEBUG :: 2017-09-15 01:35:34,675 :: https://aviationweather.gov:443 "GET /adds/d
 DEBUG :: 2017-09-15 01:35:34,680 :: Starting new HTTPS connection (1): aviationweather.gov
 DEBUG :: 2017-09-15 01:35:34,814 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 608
 ERROR :: 2017-09-15 01:35:36,870 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 01:36:29,015 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 01:37:10,500 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+WARNING :: 2017-09-15 01:37:10,669 :: Airline flight number could not be parsed by decode_airline - "WAA"
+DEBUG :: 2017-09-15 01:37:15,002 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:37:15,472 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SAOU HTTP/1.1" 200 292
+DEBUG :: 2017-09-15 01:37:15,476 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:37:15,628 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 None
+ERROR :: 2017-09-15 01:37:28,587 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 01:38:28,350 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:38:30,561 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:38:30,697 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SAOU HTTP/1.1" 200 292
+DEBUG :: 2017-09-15 01:38:30,702 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:38:30,843 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 608
+WARNING :: 2017-09-15 01:39:28,255 :: Airline callsign not found in database - "HI857"
+ERROR :: 2017-09-15 01:39:28,383 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:39:32,516 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:39:33,697 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KCOS HTTP/1.1" 200 728
+DEBUG :: 2017-09-15 01:39:33,702 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:39:33,904 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SAOU HTTP/1.1" 200 293
+ERROR :: 2017-09-15 01:39:33,906 :: Critical error in get_METAR method; size of raw_metar_data - 468
+DEBUG :: 2017-09-15 01:39:33,908 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:39:34,050 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 608
+ERROR :: 2017-09-15 01:40:28,124 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:40:30,040 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:40:30,173 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SAOU HTTP/1.1" 200 292
+DEBUG :: 2017-09-15 01:40:30,179 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:40:30,315 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 01:40:30,318 :: METAR parsing error for airport YBBN with code "YBBN 150130Z 22008KT CAVOK 21/M06 Q1022 FM0200 04010KT CAVOK"
+WARNING :: 2017-09-15 01:41:28,887 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KBFE"
+WARNING :: 2017-09-15 01:41:28,889 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KPVW"
+ERROR :: 2017-09-15 01:41:28,926 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:41:34,580 :: Starting new HTTPS connection (1): aviationweather.gov
+INFO :: 2017-09-15 01:41:35,488 :: Application started
+WARNING :: 2017-09-15 01:42:27,734 :: Airline callsign not found in database - "6YMAL"
+INFO :: 2017-09-15 01:42:27,879 :: Center found - "BIRD_CTR, not present in database"
+INFO :: 2017-09-15 01:42:27,880 :: Center found - "BN-DOS_CTR, not present in database"
+WARNING :: 2017-09-15 01:42:27,896 :: Airline callsign not found in database - "BRA1718"
+WARNING :: 2017-09-15 01:42:27,906 :: Airline callsign not found in database - "C-GEHQ"
+WARNING :: 2017-09-15 01:42:27,997 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KDRN"
+WARNING :: 2017-09-15 01:42:28,028 :: Airline callsign not found in database - "ECO0006"
+WARNING :: 2017-09-15 01:42:28,035 :: Airline callsign not found in database - "EDV3406"
+WARNING :: 2017-09-15 01:42:28,037 :: Airline callsign not found in database - "EPV8015"
+WARNING :: 2017-09-15 01:42:28,044 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+WARNING :: 2017-09-15 01:42:28,064 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-09-15 01:42:28,069 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SNMX"
+WARNING :: 2017-09-15 01:42:28,112 :: Airline callsign not found in database - "IPG6969"
+WARNING :: 2017-09-15 01:42:28,124 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KOCH"
+WARNING :: 2017-09-15 01:42:28,177 :: Airline callsign not found in database - "MCA1478"
+WARNING :: 2017-09-15 01:42:28,211 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NONE"
+WARNING :: 2017-09-15 01:42:28,228 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KBFE"
+WARNING :: 2017-09-15 01:42:28,231 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KPVW"
+WARNING :: 2017-09-15 01:42:28,250 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "T60"
+WARNING :: 2017-09-15 01:42:28,259 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KEBS"
+ERROR :: 2017-09-15 01:42:28,277 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+INFO :: 2017-09-15 01:42:28,330 :: Center found - "SBCW_CTR, not present in database"
+INFO :: 2017-09-15 01:42:28,343 :: Center found - "SGFA_CTR, not present in database"
+WARNING :: 2017-09-15 01:42:28,393 :: Airline callsign not found in database - "SWEEPER22"
+WARNING :: 2017-09-15 01:42:28,417 :: Airline callsign not found in database - "TB-18"
+WARNING :: 2017-09-15 01:42:28,419 :: Airline callsign not found in database - "TB-20"
+INFO :: 2017-09-15 01:42:28,433 :: Center found - "TTZP_CTR, not present in database"
+WARNING :: 2017-09-15 01:42:28,469 :: Airline flight number could not be parsed by decode_airline - "WAA"
+WARNING :: 2017-09-15 01:42:28,471 :: Airline callsign not found in database - "WWA2683"
+WARNING :: 2017-09-15 01:42:28,476 :: Airline callsign not found in database - "ZETA442"
+ERROR :: 2017-09-15 01:43:28,426 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:43:29,648 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:29,795 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KMIA HTTP/1.1" 200 736
+DEBUG :: 2017-09-15 01:43:29,800 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:29,936 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KSFO HTTP/1.1" 200 720
+DEBUG :: 2017-09-15 01:43:29,941 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:30,080 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KJFK HTTP/1.1" 200 712
+DEBUG :: 2017-09-15 01:43:30,085 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:30,228 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KDFW HTTP/1.1" 200 679
+DEBUG :: 2017-09-15 01:43:30,232 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:30,377 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KPHX HTTP/1.1" 200 730
+DEBUG :: 2017-09-15 01:43:30,381 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:30,517 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLGA HTTP/1.1" 200 725
+DEBUG :: 2017-09-15 01:43:30,522 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:30,664 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBOS HTTP/1.1" 200 748
+DEBUG :: 2017-09-15 01:43:30,668 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:30,805 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYYZ HTTP/1.1" 200 691
+DEBUG :: 2017-09-15 01:43:30,809 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:30,951 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYHZ HTTP/1.1" 200 690
+DEBUG :: 2017-09-15 01:43:30,955 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:31,089 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SVMI HTTP/1.1" 200 608
+DEBUG :: 2017-09-15 01:43:31,093 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:31,236 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBDL HTTP/1.1" 200 815
+DEBUG :: 2017-09-15 01:43:31,240 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:31,384 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=BIKF HTTP/1.1" 200 672
+DEBUG :: 2017-09-15 01:43:31,388 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:31,525 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KCHA HTTP/1.1" 200 731
+DEBUG :: 2017-09-15 01:43:31,529 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:31,662 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KCOS HTTP/1.1" 200 725
+DEBUG :: 2017-09-15 01:43:31,667 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:31,802 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYTZ HTTP/1.1" 200 703
+DEBUG :: 2017-09-15 01:43:31,806 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:31,939 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KMKE HTTP/1.1" 200 697
+DEBUG :: 2017-09-15 01:43:31,944 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:32,076 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EDDW HTTP/1.1" 200 593
+DEBUG :: 2017-09-15 01:43:32,080 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:32,213 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLBB HTTP/1.1" 200 764
+DEBUG :: 2017-09-15 01:43:32,217 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:32,356 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KFLL HTTP/1.1" 200 711
+DEBUG :: 2017-09-15 01:43:32,361 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:32,496 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KTPA HTTP/1.1" 200 772
+DEBUG :: 2017-09-15 01:43:32,501 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:32,636 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SEGU HTTP/1.1" 200 651
+DEBUG :: 2017-09-15 01:43:32,641 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:32,776 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 613
+ERROR :: 2017-09-15 01:43:32,778 :: METAR parsing error for airport YBBN with code "YBBN 150130Z 22008KT CAVOK 21/M06 Q1022 FM0200 04010KT CAVOK"
+DEBUG :: 2017-09-15 01:43:32,780 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:43:32,922 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SGAS HTTP/1.1" 200 638
+WARNING :: 2017-09-15 01:44:28,729 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WRRR"
+ERROR :: 2017-09-15 01:44:28,811 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:44:30,224 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:44:30,377 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SAOC HTTP/1.1" 200 596
+DEBUG :: 2017-09-15 01:44:30,381 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:44:30,518 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 613
+ERROR :: 2017-09-15 01:45:28,048 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:45:29,028 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:45:29,160 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 612
+ERROR :: 2017-09-15 01:46:28,302 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:46:30,492 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:46:30,658 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 01:47:28,112 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+WARNING :: 2017-09-15 01:47:28,120 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NY22"
+DEBUG :: 2017-09-15 01:47:29,063 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:47:29,206 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 01:48:28,142 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 01:49:28,353 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:49:29,921 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:49:30,078 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+INFO :: 2017-09-15 01:49:37,633 :: Application started
+WARNING :: 2017-09-15 01:50:26,987 :: Airline callsign not found in database - "6YMAL"
+INFO :: 2017-09-15 01:50:27,158 :: Center found - "BIRD_CTR, not present in database"
+INFO :: 2017-09-15 01:50:27,159 :: Center found - "BN-DOS_CTR, not present in database"
+WARNING :: 2017-09-15 01:50:27,288 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KDRN"
+WARNING :: 2017-09-15 01:50:27,320 :: Airline callsign not found in database - "ECO0006"
+WARNING :: 2017-09-15 01:50:27,326 :: Airline callsign not found in database - "EDV3406"
+WARNING :: 2017-09-15 01:50:27,327 :: Airline callsign not found in database - "EPV8015"
+WARNING :: 2017-09-15 01:50:27,333 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+WARNING :: 2017-09-15 01:50:27,351 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-09-15 01:50:27,355 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SNMX"
+WARNING :: 2017-09-15 01:50:27,378 :: Airline callsign not found in database - "IPG6969"
+WARNING :: 2017-09-15 01:50:27,389 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KOCH"
+WARNING :: 2017-09-15 01:50:27,434 :: Airline callsign not found in database - "MCA1478"
+WARNING :: 2017-09-15 01:50:27,441 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "WRRR"
+WARNING :: 2017-09-15 01:50:27,461 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NONE"
+WARNING :: 2017-09-15 01:50:27,474 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KBFE"
+WARNING :: 2017-09-15 01:50:27,475 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KPVW"
+WARNING :: 2017-09-15 01:50:27,510 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KEBS"
+ERROR :: 2017-09-15 01:50:27,524 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+WARNING :: 2017-09-15 01:50:27,531 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NY22"
+INFO :: 2017-09-15 01:50:27,576 :: Center found - "SBCW_CTR, not present in database"
+INFO :: 2017-09-15 01:50:27,587 :: Center found - "SGFA_CTR, not present in database"
+WARNING :: 2017-09-15 01:50:27,621 :: Airline callsign not found in database - "SWEEPER22"
+INFO :: 2017-09-15 01:50:27,655 :: Center found - "TTZP_CTR, not present in database"
+WARNING :: 2017-09-15 01:50:27,689 :: Airline flight number could not be parsed by decode_airline - "WAA"
+WARNING :: 2017-09-15 01:50:27,692 :: Airline callsign not found in database - "WWA2683"
+WARNING :: 2017-09-15 01:50:27,702 :: Airline callsign not found in database - "ZETA442"
+DEBUG :: 2017-09-15 01:50:28,747 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:28,912 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KMIA HTTP/1.1" 200 735
+DEBUG :: 2017-09-15 01:50:28,917 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:29,059 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KSFO HTTP/1.1" 200 721
+DEBUG :: 2017-09-15 01:50:29,063 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:29,201 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KJFK HTTP/1.1" 200 714
+DEBUG :: 2017-09-15 01:50:29,206 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:29,338 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KDFW HTTP/1.1" 200 679
+DEBUG :: 2017-09-15 01:50:29,342 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:29,478 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KPHX HTTP/1.1" 200 732
+DEBUG :: 2017-09-15 01:50:29,483 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:29,622 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLGA HTTP/1.1" 200 727
+DEBUG :: 2017-09-15 01:50:29,627 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:29,768 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBOS HTTP/1.1" 200 749
+DEBUG :: 2017-09-15 01:50:29,773 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:29,902 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYYZ HTTP/1.1" 200 691
+DEBUG :: 2017-09-15 01:50:29,908 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:30,047 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYHZ HTTP/1.1" 200 689
+DEBUG :: 2017-09-15 01:50:30,052 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:30,182 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SVMI HTTP/1.1" 200 609
+DEBUG :: 2017-09-15 01:50:30,187 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:30,319 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBDL HTTP/1.1" 200 815
+DEBUG :: 2017-09-15 01:50:30,325 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:30,469 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=BIKF HTTP/1.1" 200 674
+DEBUG :: 2017-09-15 01:50:30,474 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:30,606 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KCHA HTTP/1.1" 200 732
+DEBUG :: 2017-09-15 01:50:30,611 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:30,753 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KCOS HTTP/1.1" 200 727
+DEBUG :: 2017-09-15 01:50:30,757 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:30,897 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYTZ HTTP/1.1" 200 704
+DEBUG :: 2017-09-15 01:50:30,901 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:31,039 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KMKE HTTP/1.1" 200 697
+DEBUG :: 2017-09-15 01:50:31,044 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:31,177 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=EDDW HTTP/1.1" 200 594
+DEBUG :: 2017-09-15 01:50:31,181 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:31,320 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLBB HTTP/1.1" 200 765
+DEBUG :: 2017-09-15 01:50:31,324 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:31,459 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KFLL HTTP/1.1" 200 712
+DEBUG :: 2017-09-15 01:50:31,464 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:31,606 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SAOC HTTP/1.1" 200 595
+DEBUG :: 2017-09-15 01:50:31,613 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:31,753 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KTPA HTTP/1.1" 200 773
+DEBUG :: 2017-09-15 01:50:31,758 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:31,887 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SEGU HTTP/1.1" 200 651
+DEBUG :: 2017-09-15 01:50:31,892 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:32,031 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 608
+ERROR :: 2017-09-15 01:50:32,034 :: METAR parsing error for airport YBBN with code "YBBN 150130Z 22008KT CAVOK 21/M06 Q1022 FM0200 04010KT CAVOK"
+DEBUG :: 2017-09-15 01:50:32,036 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:50:32,166 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SGAS HTTP/1.1" 200 637
+ERROR :: 2017-09-15 01:51:27,296 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:51:28,251 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:51:28,387 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 01:52:27,715 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:52:28,662 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:52:28,800 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 607
+ERROR :: 2017-09-15 01:53:27,350 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 01:54:28,393 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:54:30,472 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:54:30,633 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 01:55:27,501 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:55:28,920 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:55:29,060 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 01:56:27,654 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:56:28,870 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:56:29,009 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 01:57:28,386 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:57:30,779 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:57:30,945 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 01:58:28,878 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:58:30,250 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:58:30,417 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 608
+ERROR :: 2017-09-15 01:59:28,833 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 01:59:30,282 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 01:59:30,426 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 01:59:58,559 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 01:59:59,785 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:00:06,560 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:00:27,319 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:00:45,417 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:00:45,506 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:00:46,864 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:00:47,007 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 622
+ERROR :: 2017-09-15 02:00:47,011 :: METAR parsing error for airport YSSY with code "YSSY 150130Z 26016KT CAVOK 20/04 Q1018 FM0130 MOD TURB BLW 5000FT"
+DEBUG :: 2017-09-15 02:00:47,013 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:00:47,239 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 02:01:28,376 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:01:28,450 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+WARNING :: 2017-09-15 02:02:28,110 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAUN"
+WARNING :: 2017-09-15 02:02:28,344 :: Airline callsign not found in database - "ND606EA"
+ERROR :: 2017-09-15 02:02:28,350 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:02:28,419 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:02:29,533 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:02:29,668 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 623
+DEBUG :: 2017-09-15 02:02:29,672 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:02:29,808 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 608
+ERROR :: 2017-09-15 02:03:28,264 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:03:28,364 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:03:29,324 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:03:29,504 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 622
+DEBUG :: 2017-09-15 02:03:29,511 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:03:29,655 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 608
+ERROR :: 2017-09-15 02:04:28,267 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:04:28,339 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:04:30,259 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:04:30,417 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 623
+DEBUG :: 2017-09-15 02:04:30,424 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:04:30,567 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 02:04:54,491 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:04:54,575 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:04:56,567 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:04:56,634 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:04:57,574 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:04:57,645 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:01,133 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:01,204 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:01,954 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:02,032 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:02,745 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:02,817 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:05:03,599 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:05:03,737 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 623
+DEBUG :: 2017-09-15 02:05:03,742 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:05:03,882 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 02:05:04,232 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:04,304 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:05,562 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:05,628 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:28,294 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:28,358 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:05:29,214 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:05:29,361 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 624
+DEBUG :: 2017-09-15 02:05:29,366 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:05:29,551 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 608
+ERROR :: 2017-09-15 02:05:30,917 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:30,983 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:33,511 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:33,585 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:37,648 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:37,741 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:38,974 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:39,045 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:39,823 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:39,897 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:40,635 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:40,706 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:41,404 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:41,481 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:42,135 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:42,204 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:43,311 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:43,376 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:45,568 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:45,634 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:05:58,677 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:05:58,747 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:06:56,169 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+WARNING :: 2017-09-15 02:06:56,203 :: Airline flight number could not be parsed by decode_airline - "SBM"
+ERROR :: 2017-09-15 02:06:56,236 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:06:57,520 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:06:57,652 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 623
+DEBUG :: 2017-09-15 02:06:57,657 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:06:57,793 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 02:07:02,109 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:07:02,178 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:07:10,402 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:07:10,467 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:07:12,033 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:07:12,096 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:07:16,796 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:07:16,861 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:07:19,813 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:07:19,897 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+WARNING :: 2017-09-15 02:07:19,972 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZMP_EC"
+ERROR :: 2017-09-15 02:07:19,972 :: Unknown ATC type from callsign_to_ATC - "ZMP_EC"
+ERROR :: 2017-09-15 02:07:21,279 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 02:07:21,301 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:07:21,484 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 623
+DEBUG :: 2017-09-15 02:07:21,589 :: Starting new HTTPS connection (1): aviationweather.gov
+ERROR :: 2017-09-15 02:07:21,661 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:07:21,781 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 608
+ERROR :: 2017-09-15 02:07:22,387 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:07:22,433 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:07:22,670 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:07:22,790 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:07:23,396 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:07:23,478 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:07:30,622 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:07:30,701 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:07:56,942 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:07:57,012 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:08:29,257 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:08:29,325 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:08:56,296 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:08:56,380 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:08:57,277 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:08:57,422 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 623
+DEBUG :: 2017-09-15 02:08:57,427 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:08:57,566 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+ERROR :: 2017-09-15 02:09:55,864 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:09:55,934 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:09:58,357 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:10:05,447 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 None
+DEBUG :: 2017-09-15 02:10:05,454 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:10:05,610 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBUF HTTP/1.1" 200 697
+DEBUG :: 2017-09-15 02:10:05,617 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:10:05,769 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 609
+WARNING :: 2017-09-15 02:10:56,139 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "CA22"
+ERROR :: 2017-09-15 02:10:56,188 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:10:56,256 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:10:57,117 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:10:57,256 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+ERROR :: 2017-09-15 02:10:57,258 :: METAR parsing error for airport YSSY with code "YSSY 150200Z 27018KT CAVOK 20/03 Q1017 FM0200 MOD TURB BLW 5000FT"
+DEBUG :: 2017-09-15 02:10:57,260 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:10:57,404 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:10:57,407 :: METAR parsing error for airport YBBN with code "YBBN 150200Z 26004KT 210V330 CAVOK 21/M06 Q1021 FM0230 04010KT CAVOK"
+WARNING :: 2017-09-15 02:11:56,069 :: Airline callsign not found in database - "NAVAL11"
+ERROR :: 2017-09-15 02:11:56,080 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:11:56,144 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:11:57,012 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:11:57,143 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:11:57,147 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:11:57,292 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:12:56,658 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:12:56,723 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:12:58,309 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:12:58,440 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 622
+DEBUG :: 2017-09-15 02:12:58,445 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:12:58,575 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 619
+ERROR :: 2017-09-15 02:13:55,783 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:13:55,848 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:13:56,708 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:13:56,848 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 620
+DEBUG :: 2017-09-15 02:13:56,853 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:13:56,989 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 619
+ERROR :: 2017-09-15 02:14:19,831 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:14:19,919 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:14:21,057 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:14:21,143 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:14:22,576 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:14:22,644 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:14:23,352 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:14:23,442 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:14:24,273 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:14:24,463 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:14:24,954 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:14:25,033 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:14:25,980 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:14:26,061 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:14:27,754 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:14:27,823 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:14:30,633 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:14:30,719 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:14:56,393 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:14:56,460 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:14:58,426 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:14:58,566 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 621
+DEBUG :: 2017-09-15 02:14:58,571 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:14:58,713 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 614
+WARNING :: 2017-09-15 02:15:56,036 :: Airline callsign not found in database - "ASTRA92"
+ERROR :: 2017-09-15 02:15:56,334 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:15:56,402 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:15:57,321 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:15:57,519 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 618
+DEBUG :: 2017-09-15 02:15:57,523 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:15:57,654 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:16:55,777 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:16:55,844 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:16:56,760 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:16:56,895 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 616
+DEBUG :: 2017-09-15 02:16:56,899 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:16:57,036 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:17:56,482 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:17:56,574 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:18:06,525 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:18:06,602 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:18:07,601 :: Starting new HTTPS connection (1): aviationweather.gov
+ERROR :: 2017-09-15 02:18:07,846 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:18:07,936 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:18:07,953 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 618
+DEBUG :: 2017-09-15 02:18:07,959 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:18:08,092 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:18:08,845 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:18:08,924 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:18:56,094 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:18:56,164 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:19:55,834 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:19:55,914 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:19:57,572 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:19:57,733 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 616
+DEBUG :: 2017-09-15 02:19:57,738 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:19:57,879 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=ZSPD HTTP/1.1" 200 656
+DEBUG :: 2017-09-15 02:19:57,885 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:19:58,023 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:20:15,560 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:20:15,654 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:20:17,513 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:17,663 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:20:17,670 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:17,897 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 617
+ERROR :: 2017-09-15 02:20:20,546 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:20:20,618 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:20:22,268 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:20:22,381 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:20:31,617 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:20:31,697 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:20:34,096 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:20:34,180 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:20:35,847 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:35,994 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KJFK HTTP/1.1" 200 728
+DEBUG :: 2017-09-15 02:20:35,998 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:36,177 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KMIA HTTP/1.1" 200 736
+DEBUG :: 2017-09-15 02:20:36,183 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:36,323 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KDFW HTTP/1.1" 200 691
+DEBUG :: 2017-09-15 02:20:36,330 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:36,480 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KPHX HTTP/1.1" 200 703
+DEBUG :: 2017-09-15 02:20:36,490 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:36,903 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLGA HTTP/1.1" 200 716
+DEBUG :: 2017-09-15 02:20:36,913 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:37,053 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBOS HTTP/1.1" 200 730
+DEBUG :: 2017-09-15 02:20:37,059 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:37,229 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYYZ HTTP/1.1" 200 690
+DEBUG :: 2017-09-15 02:20:37,236 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:37,377 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLBB HTTP/1.1" 200 722
+DEBUG :: 2017-09-15 02:20:37,383 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:37,530 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYHZ HTTP/1.1" 200 687
+DEBUG :: 2017-09-15 02:20:37,537 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:37,678 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 616
+DEBUG :: 2017-09-15 02:20:37,687 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:37,827 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBDL HTTP/1.1" 200 765
+DEBUG :: 2017-09-15 02:20:37,831 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:37,981 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=BIKF HTTP/1.1" 200 666
+DEBUG :: 2017-09-15 02:20:37,987 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:38,182 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYTZ HTTP/1.1" 200 723
+DEBUG :: 2017-09-15 02:20:38,187 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:38,337 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KMKE HTTP/1.1" 200 None
+DEBUG :: 2017-09-15 02:20:38,344 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:38,754 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KFLL HTTP/1.1" 200 711
+DEBUG :: 2017-09-15 02:20:38,761 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:38,905 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KTPA HTTP/1.1" 200 734
+DEBUG :: 2017-09-15 02:20:38,911 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:39,052 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SEGU HTTP/1.1" 200 640
+DEBUG :: 2017-09-15 02:20:39,059 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:39,198 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+DEBUG :: 2017-09-15 02:20:39,205 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:39,350 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SGAS HTTP/1.1" 200 633
+DEBUG :: 2017-09-15 02:20:40,713 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:40,853 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:20:40,862 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:20:41,017 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:20:44,488 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:20:44,583 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:20:51,757 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:20:51,830 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:20:53,235 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:20:53,283 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:20:53,452 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:20:53,456 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:20:54,336 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:20:54,407 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:21:15,124 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:21:15,212 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:21:27,901 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:21:28,000 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:21:30,910 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:21:31,017 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:21:33,378 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:21:33,459 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:21:34,609 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:21:34,813 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:21:34,816 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:21:35,027 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:22:14,514 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+WARNING :: 2017-09-15 02:22:14,546 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+ERROR :: 2017-09-15 02:22:14,586 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:22:15,636 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:22:15,802 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 616
+DEBUG :: 2017-09-15 02:22:15,809 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:22:15,954 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:23:14,885 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:23:14,978 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:23:16,512 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:23:16,713 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:23:16,719 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:23:16,865 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+DEBUG :: 2017-09-15 02:23:17,852 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:23:17,993 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:23:18,003 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:23:18,146 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:23:37,526 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:23:37,599 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:23:38,938 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:23:39,010 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:23:40,534 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:23:40,607 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:23:41,368 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:23:41,442 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:23:42,500 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:23:42,574 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:23:45,541 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:23:45,615 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:23:46,185 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:23:46,261 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:23:47,587 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:23:47,662 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:24:15,200 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:24:15,275 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:24:36,297 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:24:36,375 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:24:37,332 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:24:37,515 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 616
+DEBUG :: 2017-09-15 02:24:37,519 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:24:37,661 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+DEBUG :: 2017-09-15 02:24:42,010 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:24:42,148 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:24:42,152 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:24:42,291 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:25:14,581 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:25:14,667 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:26:14,938 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:26:15,017 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:26:15,864 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:26:16,002 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 615
+DEBUG :: 2017-09-15 02:26:16,006 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:26:16,146 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:27:15,268 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:27:15,360 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:27:16,305 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:27:16,493 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:27:16,504 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:27:16,655 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:28:14,752 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:28:14,855 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:28:16,668 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:28:16,827 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:28:16,833 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:28:16,977 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:29:15,626 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:29:15,704 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:29:16,967 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:29:17,107 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:29:17,111 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:29:17,268 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:30:15,069 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:30:15,152 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:30:17,145 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:30:17,284 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:30:17,288 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:30:17,441 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:31:15,594 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:31:15,691 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:31:30,586 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:31:30,684 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:31:35,999 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+DEBUG :: 2017-09-15 02:31:36,049 :: Starting new HTTPS connection (1): aviationweather.gov
+ERROR :: 2017-09-15 02:31:36,095 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:31:36,195 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:31:36,200 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:31:36,344 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:31:39,452 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:31:39,546 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:32:30,474 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:32:30,595 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:33:49,930 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:33:50,022 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:33:50,926 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:33:51,073 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:33:51,079 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:33:51,227 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:33:51,413 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:33:51,520 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:33:52,136 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:33:52,233 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:33:55,453 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:33:55,574 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:33:56,853 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:33:56,955 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:34:49,599 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:34:49,681 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:35:04,695 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:35:04,834 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:35:04,838 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:35:04,988 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:35:49,243 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:35:49,329 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:35:50,372 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:35:50,520 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:35:50,526 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:35:50,677 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:35:57,921 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:35:58,007 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:35:59,549 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:35:59,686 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 616
+DEBUG :: 2017-09-15 02:35:59,695 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:35:59,838 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:36:00,711 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:36:00,803 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:36:02,084 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:36:02,175 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:36:07,713 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:36:07,859 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KCLT HTTP/1.1" 200 690
+DEBUG :: 2017-09-15 02:36:08,024 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:36:08,171 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:36:08,176 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:36:08,310 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 616
+ERROR :: 2017-09-15 02:36:57,234 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:36:57,307 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:36:58,505 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:36:58,640 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:36:58,645 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:36:58,787 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:37:57,256 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:37:57,334 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:37:58,539 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:37:58,700 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 616
+DEBUG :: 2017-09-15 02:37:58,705 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:37:58,849 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:38:46,904 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:38:46,981 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:38:47,797 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:38:47,936 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:38:47,941 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:38:48,080 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:38:49,935 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:38:50,011 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:38:50,967 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:38:51,115 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:38:51,119 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:38:51,266 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KPHL HTTP/1.1" 200 733
+DEBUG :: 2017-09-15 02:38:51,270 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:38:51,412 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:38:53,434 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:38:53,510 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:38:55,098 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:38:55,244 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=LPLA HTTP/1.1" 200 631
+ERROR :: 2017-09-15 02:39:09,994 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:39:10,072 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:39:12,979 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:39:13,120 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KDEN HTTP/1.1" 200 721
+ERROR :: 2017-09-15 02:39:43,994 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:39:44,073 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:39:45,695 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:39:45,829 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KMSY HTTP/1.1" 200 705
+ERROR :: 2017-09-15 02:39:46,374 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:39:46,460 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:40:47,480 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:40:47,564 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:40:48,386 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:40:48,523 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 618
+ERROR :: 2017-09-15 02:40:48,525 :: METAR parsing error for airport YSSY with code "YSSY 150230Z 27019KT CAVOK 21/03 Q1017 FM0230 MOD TURB BLW 5000FT"
+DEBUG :: 2017-09-15 02:40:48,527 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:40:48,658 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBUF HTTP/1.1" 200 696
+DEBUG :: 2017-09-15 02:40:48,663 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:40:48,798 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 614
+ERROR :: 2017-09-15 02:40:48,801 :: METAR parsing error for airport YBBN with code "YBBN 150230Z 26005KT 200V320 CAVOK 22/M05 Q1021 FM0235 04010KT CAVOK"
+INFO :: 2017-09-15 02:41:41,422 :: Application started
+INFO :: 2017-09-15 02:41:46,074 :: Center found - "BN-DOS_CTR, not present in database"
+WARNING :: 2017-09-15 02:41:46,114 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KAUN"
+WARNING :: 2017-09-15 02:41:46,200 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KDRN"
+WARNING :: 2017-09-15 02:41:46,234 :: Airline callsign not found in database - "ECO0006"
+WARNING :: 2017-09-15 02:41:46,238 :: Airline callsign not found in database - "EDV3406"
+WARNING :: 2017-09-15 02:41:46,239 :: Airline callsign not found in database - "EPV8015"
+WARNING :: 2017-09-15 02:41:46,249 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "UCFM"
+WARNING :: 2017-09-15 02:41:46,259 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "SPJC"
+WARNING :: 2017-09-15 02:41:46,291 :: Airline callsign not found in database - "IPG6969"
+WARNING :: 2017-09-15 02:41:46,297 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KOCH"
+WARNING :: 2017-09-15 02:41:46,422 :: Airline callsign not found in database - "MCA1478"
+WARNING :: 2017-09-15 02:41:46,456 :: Airline callsign not found in database - "NAVAL11"
+WARNING :: 2017-09-15 02:41:46,462 :: Airline callsign not found in database - "ND606EA"
+ERROR :: 2017-09-15 02:41:46,481 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+WARNING :: 2017-09-15 02:41:46,625 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "OTHH"
+INFO :: 2017-09-15 02:41:46,643 :: Center found - "SGFA_CTR, not present in database"
+ERROR :: 2017-09-15 02:41:46,847 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+WARNING :: 2017-09-15 02:41:47,063 :: Airline flight number could not be parsed by decode_airline - "WAA"
+WARNING :: 2017-09-15 02:41:47,064 :: Airline callsign not found in database - "WWA2683"
+WARNING :: 2017-09-15 02:41:47,068 :: Airline callsign not found in database - "ZETA442"
+WARNING :: 2017-09-15 02:41:47,072 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "ZMP_EC"
+ERROR :: 2017-09-15 02:41:47,072 :: Unknown ATC type from callsign_to_ATC - "ZMP_EC"
+ERROR :: 2017-09-15 02:41:48,651 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:41:48,735 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:41:49,641 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:49,785 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KMIA HTTP/1.1" 200 735
+DEBUG :: 2017-09-15 02:41:49,790 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:49,927 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KPHX HTTP/1.1" 200 702
+DEBUG :: 2017-09-15 02:41:49,932 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:50,075 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBOS HTTP/1.1" 200 732
+DEBUG :: 2017-09-15 02:41:50,080 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:50,225 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLGA HTTP/1.1" 200 714
+DEBUG :: 2017-09-15 02:41:50,232 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:50,368 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYYZ HTTP/1.1" 200 690
+DEBUG :: 2017-09-15 02:41:50,375 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:50,513 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KLBB HTTP/1.1" 200 721
+DEBUG :: 2017-09-15 02:41:50,517 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:50,657 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=CYHZ HTTP/1.1" 200 688
+DEBUG :: 2017-09-15 02:41:50,664 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:50,809 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 618
+ERROR :: 2017-09-15 02:41:50,812 :: METAR parsing error for airport YSSY with code "YSSY 150230Z 27019KT CAVOK 21/03 Q1017 FM0230 MOD TURB BLW 5000FT"
+DEBUG :: 2017-09-15 02:41:50,814 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:50,957 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBDL HTTP/1.1" 200 764
+DEBUG :: 2017-09-15 02:41:50,961 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:51,106 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KBUF HTTP/1.1" 200 697
+DEBUG :: 2017-09-15 02:41:51,111 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:51,252 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KJFK HTTP/1.1" 200 728
+DEBUG :: 2017-09-15 02:41:51,257 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:51,393 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KMKE HTTP/1.1" 200 699
+DEBUG :: 2017-09-15 02:41:51,397 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:51,534 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KFLL HTTP/1.1" 200 709
+DEBUG :: 2017-09-15 02:41:51,539 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:51,679 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KTPA HTTP/1.1" 200 733
+DEBUG :: 2017-09-15 02:41:51,686 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:51,818 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KPHL HTTP/1.1" 200 732
+DEBUG :: 2017-09-15 02:41:51,823 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:51,967 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:41:51,970 :: METAR parsing error for airport YBBN with code "YBBN 150230Z 26005KT 200V320 CAVOK 22/M05 Q1021 FM0235 04010KT CAVOK"
+DEBUG :: 2017-09-15 02:41:51,973 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:41:52,108 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=SGAS HTTP/1.1" 200 635
+ERROR :: 2017-09-15 02:41:53,508 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:41:53,582 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:41:54,866 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:41:54,943 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:42:12,027 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:42:12,119 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:42:17,473 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:42:17,564 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+WARNING :: 2017-09-15 02:42:22,132 :: Airline callsign not found in database - "EDV6101"
+WARNING :: 2017-09-15 02:42:22,235 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KBFE"
+WARNING :: 2017-09-15 02:42:22,237 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "KPVW"
+ERROR :: 2017-09-15 02:42:22,262 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+WARNING :: 2017-09-15 02:42:22,270 :: Could not find callsign in database even though it looks proper ICAO/IATA in callsign_to_loc - "NY22"
+ERROR :: 2017-09-15 02:42:22,341 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:42:23,347 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:42:23,485 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 617
+DEBUG :: 2017-09-15 02:42:23,490 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:42:23,623 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:42:24,579 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:42:24,659 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:42:25,687 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:42:25,766 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:42:32,024 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:42:32,104 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:42:48,009 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:42:48,094 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:42:49,661 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:42:49,768 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:43:15,791 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:43:15,873 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:43:30,905 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:43:30,991 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+ERROR :: 2017-09-15 02:43:37,722 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:43:37,809 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"
+DEBUG :: 2017-09-15 02:43:38,625 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:43:38,778 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=KMSP HTTP/1.1" 200 698
+DEBUG :: 2017-09-15 02:43:38,784 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:43:38,930 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YSSY HTTP/1.1" 200 None
+DEBUG :: 2017-09-15 02:43:38,935 :: Starting new HTTPS connection (1): aviationweather.gov
+DEBUG :: 2017-09-15 02:43:39,132 :: https://aviationweather.gov:443 "GET /adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=YBBN HTTP/1.1" 200 615
+ERROR :: 2017-09-15 02:43:47,809 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "NY_HRP_APP"
+ERROR :: 2017-09-15 02:43:47,928 :: Unknown prefix - cannot find geographical location for callsign from callsign_to_loc - "SY_TWR"

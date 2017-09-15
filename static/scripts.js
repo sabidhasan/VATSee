@@ -257,7 +257,6 @@ $(document).ready(function() {
         if(event.keyCode == 13){
             get_metar($("#metarquery").val());
         }
-        console.log($("#metarquery").val())
         if ($("#metarquery").val() === '') {
             $("#metardetails").hide();
         }
@@ -531,7 +530,7 @@ function addCenter(data) {
 //called as JSON data is being parsed, to add marker to map
 function addAirport(data) {
     //There is one special airport - for thjose planes with no arrival or departure. In this case, ignore it (don't draw on map)
-    if (data['longitude'] === 0 && data['latitude'] === 0 && data['name'] === null) {
+    if (data['longitude'] === 0 && data['latitude'] === 0) {//&& data['name'] === null) {
         return
     }
     //create latitude and longitude
@@ -688,6 +687,19 @@ function prettifyAirportData(data) {
     return "<h4>" + data['icao'] + "</h4> <p>" + data["name"] + "</p>";
 }
 
+function metarLink(metar) {
+    //Used for airports, wherein it gets auxiliary function to fetch METAR link and then
+    //switches focus to metar tab
+    get_metar(metar);
+    $("#metarquery").val(metar);
+    $(".content-buttons").removeClass("active");
+    $('#wx').addClass("active");
+    $(".content-div").fadeOut('fast');
+    $(".content-div#wx").fadeIn('fast');
+
+    
+}
+
 function showSelectedInfo() {
     ///This function writes the currently selected airplane or airport's iforation to the main tab!
     //Update the airplane data from JSON
@@ -708,7 +720,9 @@ function showSelectedInfo() {
         for (var j = 0, l = latest_json[0].length; j < l; j++) {
             if (latest_json[0][j]["id"] === selected_airport) {
                 $("#poitext").text(latest_json[0][j]['icao']);
-                $("#help").html(latest_json[0][j]['name'] + '<br/>Altitude: ' + latest_json[0][j]['altitude'] + ' ft');
+                var a = latest_json[0][j]['name'] + '<br/>Altitude: ' + latest_json[0][j]['altitude'] + ' ft'
+                a = a + '<br/>Get METAR for <a href = "#" onclick="metarLink(\'' + latest_json[0][j]['icao'] + '\')">' + latest_json[0][j]['icao'] + '</a>'
+                $("#help").html(a);
                 
                 //Set latitude and longitude
                 selectedlat = latest_json[0][j]['latitude'];
@@ -967,6 +981,11 @@ function showSelectedInfo() {
             }
         }
     }
+    //Focus on first tab
+    $(".content-buttons").removeClass("active");
+    $('#home').addClass("active");
+    $(".content-div").fadeOut('fast');
+    $(".content-div#home").fadeIn('fast');
 }
 
 function humanizeTime(time) {
