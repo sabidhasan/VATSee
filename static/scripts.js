@@ -291,6 +291,7 @@ $(document).ready(function() {
 $(document).on('mousemove', function(event) {
     mouseX = event.pageX;
     mouseY = event.pageY;
+    
 });
 
 //Called for each airplane. Throws up airplanes on the map
@@ -310,8 +311,7 @@ function addPlane(data) {
 
     m.addListener('click', function() {
         //if clicked then show info
-      //  $("#hoverwindow").css("display", "inline")
-      hideHoverWindow();
+        hideHoverWindow();
         selected_plane = data["id"]
         showSelectedInfo();
     });
@@ -319,7 +319,6 @@ function addPlane(data) {
 
     m.addListener('mouseover', function() {
         //only if no airport is clicked upon, then show the hover for this
-     //   if (selected_plane === -1 && selected_airport === -1) {
             $("#hoverinfo").html(prettifyPlaneData(data));
             $("#hoverwindow").css({
                 "display": "inline",
@@ -416,7 +415,7 @@ function addPlane(data) {
 
 
 
-function addATCMarker(type, latitude, longitude){
+function addATCMarker(type, latitude, longitude, airportID, icao, name){
     //This function adds a marker of the given size at the given latitude and longitude
     //Type definitions are as defined in the backend (0 for ATIS, 1 CLNC, etc.)
     //For radii of circles
@@ -449,6 +448,28 @@ function addATCMarker(type, latitude, longitude){
         baseSize: radii[type][0]
     });
     //Add airport to circle
+    
+    Circle.addListener('click', function(){
+        //if clicked then show info
+        hideHoverWindow();
+        selected_airport = airportID;
+        showSelectedInfo();
+    });
+    
+    Circle.addListener('mousemove', function() {
+        $("#hoverinfo").html(prettifyAirportData({'icao': icao, 'name': name}));
+        $("#hoverwindow").css({
+            "display": "inline",
+            "top": mouseY + 5,
+            "left": mouseX + 10
+        });
+
+    });
+    
+    Circle.addListener('mouseout', function() {
+       $("#hoverwindow").css("display", "none"); 
+    });
+    
     airportCircles.push(Circle);
 }
 
@@ -479,13 +500,27 @@ function addCenter(data) {
         strokeOpacity: 0.8,
         strokeWeight: 2,
         fillColor: '#FF0000',
-        fillOpacity: 0.35
+        fillOpacity: 0.35,
+        zIndex: 0
     });
     
     m.addListener('click', function(){
         hideHoverWindow();
         selected_center = data['id'];
         showSelectedInfo();
+    });
+
+    m.addListener('mousemove', function() {
+        $("#hoverinfo").html(prettifyCenterData(data));
+        $("#hoverwindow").css({
+            "display": "inline",
+            "top": mouseY + 5,
+            "left": mouseX + 10
+        });
+    });
+    
+    m.addListener('mouseout', function() {
+       $("#hoverwindow").css("display", "none"); 
     });
     
     m.setMap(map)
@@ -506,7 +541,7 @@ function addAirport(data) {
     if (data["atc"].length !== 0) {
         //There is ATC so lets draw circles!
         for (var i = data["atc_pic"].length - 1; i > -1; i--) {
-                addATCMarker(data["atc_pic"][i], data['latitude'], data['longitude']);
+                addATCMarker(data["atc_pic"][i], data['latitude'], data['longitude'], data['id'], data['icao'], data['name']);
         }
     }
         
@@ -535,13 +570,12 @@ function addAirport(data) {
 
     m.addListener('mouseover', function() {
     //only if no airport is clicked upon, then show the hover for this
-//        if (selected_plane === -1 && selected_airport === -1) {
-            $("#hoverinfo").html(prettifyAirportData(data));
-            $("#hoverwindow").css({
-                "display": "inline",
-                "top": mouseY + 5,
-                "left": mouseX + 10
-            });
+        $("#hoverinfo").html(prettifyAirportData(data));
+        $("#hoverwindow").css({
+            "display": "inline",
+            "top": mouseY + 5,
+            "left": mouseX + 10
+        });
 
         //Draw lines
         for (var i = 0, deplen = data["depplanes"].length; i < deplen; i++) {
@@ -644,31 +678,14 @@ function prettifyPlaneData(data) {
     return x;
 }
 
-
+function prettifyCenterData(data) {
+    //Returns displayable HTML for info window
+    return "<h4>" + data['icao'] + " Center</h4>";
+}
 
 function prettifyAirportData(data) {
     //Returns displayable HTML for info window
-    var r = "<span id='infoWindowTitle'>" + data["name"] + "</span></br>";
-    r += "<span>(" + data["icao"] + ")</span></br></br>";
-
-    r += "<table><tr><td><span>Altitude</span></td>" + "<td>" + data["altitude"] + " ft</td></tr>";
-    r += "<tr><td><span>Arrivals</span></td>" + "<td>" + data["arrplanes"].length + "</td></tr>";
-    r += "<tr><td><span>Departures</span></td>" + "<td>" + data["depplanes"].length + "</td></tr>";
-
-    //r += "<span>Arrivals</span> " + data["arrplanes"].length + "</br>";
-    //r += "<span>Departures</span> " + data["depplanes"].length + "</br>";
-
-    r += "<tr><td><span id='infowindowatc'>ATC</span></td></tr>";
-    if (data["atc"].length === 0) {
-        r += "<tr><td>No ATC currently online</td></tr>";
-    } else {
-        for (var i = 0, atclen = data["atc"].length; i < atclen; i++) {
-            r += "<tr><td><span>" + data["atc"][i]["callsign"] + "</span></td>" + "<td>" + data["atc"][i]["freq"] + "</td></tr>";
-            //    r += "<span> " + data["atc"][i]["callsign"] + "</span> " + data["atc"][i]["freq"]  + "</br>";
-        }
-    }
-    r += "</table>";
-    return r;
+    return "<h4>" + data['icao'] + "</h4> <p>" + data["name"] + "</p>";
 }
 
 function showSelectedInfo() {
@@ -709,7 +726,7 @@ function showSelectedInfo() {
                         atc_html += "<p><strong>Frequency</strong>: " + val['freq'] + "</p>";
                         atc_html += "<p><strong>Name and ID</strong>: " + val['name'] + " (CID " + val['cid'] + ")</p>";
                         atc_html += "<p><strong>Message</strong>: " + val['atismsg'] + "</p>";
-                        atc_html += "<p><strong>Logon Time</strong>: " + val['timelogon'] + "</p>";
+                        atc_html += "<p><strong>Logon Time</strong>: " + humanizeTime(val['timelogon']) + "</p>";
                        
                     });
                 }
@@ -825,7 +842,7 @@ function showSelectedInfo() {
                     atc_html += "<p><strong>Frequency</strong>: " + val['freq'] + "</p>";
                     atc_html += "<p><strong>Name and ID</strong>: " + val['name'] + " (CID " + val['cid'] + ")</p>";
                     atc_html += "<p><strong>Message</strong>: " + val['atismsg'] + "</p>";
-                    atc_html += "<p><strong>Logon Time</strong>: " + val['timelogon'] + "</p>";
+                    atc_html += "<p><strong>Logon Time</strong>: " + humanizeTime(val['timelogon']) + "</p>";
                     });
             }
             $("#selectedatcdata").html(atc_html);
@@ -894,7 +911,7 @@ function showSelectedInfo() {
                 $("#selecteddeparturetime").html('<span>Departure Time:</span> ' + latest_json[2][j]['deptime']);
 
                 $("#selectedpilotcid").html('<span>Pilot ID / Name:</span> ' + latest_json[2][j]['cid'] + ' ' + latest_json[2][j]['real_name']);
-                $("#selectedpilotlogontime").html('<span>Pilot Logon Time</span> ' + latest_json[2][j]['timelogon']);
+                $("#selectedpilotlogontime").html('<span>Pilot Logon Time</span> ' + humanizeTime(latest_json[2][j]['timelogon']));
                 $("#selectedpilotremarks").html('<span>Remarks</span> ' + latest_json[2][j]['remarks']);
 
                 //Set voice or text only method (based on remarks from vatsim)
@@ -941,11 +958,6 @@ function showSelectedInfo() {
                                   0: {title: 'Altitude (ft)'},
                                   1: {title: 'Speed (kts)'}
                                 },
-                                /*vAxis: {
-                                  viewWindow: {
-                                    max: 30
-                                  }
-                                }*/
                             };
 
                         var chart = new google.visualization.LineChart(document.getElementById('selectedplanehistory'));
@@ -955,6 +967,12 @@ function showSelectedInfo() {
             }
         }
     }
+}
+
+function humanizeTime(time) {
+    //Make time human readable
+    var t = time.substr(0, 4) + '-' + time.substr(4, 2) + '-' + time.substr(6, 2) + ' ';
+    return t + time.substr(8, 2) + ':' + time.substr(10, 2) + ':' + time.substr(12, 4) + ' Z';
 }
 
 function distance(lon1, lat1, lon2, lat2) {
@@ -1032,10 +1050,6 @@ function configure() {
         hideHoverWindow();
     });
 
-    //Hide hvoer window if starting drag
-/*    google.maps.event.addListener(map, "dragstart", function() {
-        hideHoverWindow();
-    });*/
 
     // update UI after map has been dragged
     google.maps.event.addListener(map, "dragend", function() {
