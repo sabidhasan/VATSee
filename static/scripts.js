@@ -486,7 +486,7 @@ function addCenter(data) {
         strokeWeight: 2,
         fillColor: '#FF0000',
         fillOpacity: 0.35,
-        zIndex: 0
+        zIndex: -100
     });
     
     m.addListener('click', function(){
@@ -1380,30 +1380,17 @@ function planFlight(duration) {
                 var routeTime = (dist / (planeOptions[plane][1] * 1.852) * 60) + 50;
                 //Check for distance (range)            and 
                 if (planeOptions[plane][2] > (dist * 0.5399) && (routeTime < $('#planningrangebar').val())) {
-                    //Draw title if needed
-                    //if (titleAdded === false) {
-                    //    planeOptions[plane][3] = []
-
-                    //    $('#planningresults').append('<strong>' + activeAirports[i]['icao'] + '  -  ' + activeAirports[j]['icao'] + '   -   ' + dist + '<br/></strong>');
-                    //    titleAdded = true;
-                    //};
-                    
-                    //NEW
                     planeOptions[plane][3].push(activeAirports[i]['icao'] + '  -  ' + activeAirports[j]['icao']);
-                    ///NEW
-                    
-                    
-//                    $('#planningresults').append('<span>' + planeOptions[plane][0] + '</span><br/>');
                 }
             }
-//            $('#planningresults').append(tmpCount + '<br/>');
-            
-            //Calculate time for current route
-            
         }
     }
     for (var plane in planeOptions) {
-        $('#planningresults').append('<strong>'+planeOptions[plane][0]+'</strong>');
+        if (planeOptions[plane][3].length === 0) {
+            continue;
+        }
+        
+        $('#planningresults').append('<strong>'+planeOptions[plane][0]+'</strong></br>');
         var tmp = '';
         planeOptions[plane][3].forEach(function(val) {
             tmp  = tmp + val + '<br/>';
