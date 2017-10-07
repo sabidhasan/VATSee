@@ -55,8 +55,8 @@
                     <li class="content-buttons" id="online"><a href="#">Online</a></li>
                     <li class="content-buttons" id="planning"><a href="#">Plan</a></li>
                     <li class="content-buttons" id="wx"><a href="#">Wx</a></li>
-                    <!--<li class="content-buttons" id="events"><a href="#">Events</a></li>-->
                     <li class="content-buttons" id="preferences"><a href="#">Options</a></li>
+                    <!--<li class="content-buttons" id="events"><a href="#">Events</a></li>-->
                     <!--<li class="content-buttons" id="enroute"><a href="#">Enroute</a></li>-->
                 </ul>
             </div>
@@ -64,7 +64,7 @@
             <!-- Holds selected point and enroute information -->
             <div id="home" class="content-div">
                 <div id="selectedpointinfo">
-                    <h2 id="poitext"><!-- Javascript will put title of selected point here--></h2>
+                    <h2 id="poitext"><!-- JS will put title of selected point here--></h2>
                     <p id="help">Click on a plane or airport to show more information here!</p>
 
                     <div id="selectedairport">
@@ -77,9 +77,6 @@
                                         <td>Origin</td>
                                         <td>Dist. (km)</td>
                                         <td>Alt (ft)</td>
-                                        <td>Speed (kts)</td>
-                                        <td>Heading</td>
-                                        <td>Aircraft</td>
                                         <td>Status</td>
                                     </tr>
                                 </thead>
@@ -87,19 +84,23 @@
                                     <!-- Will be populated by JS -->
                                 </tbody>
                             </table>
-    
+
                             </br>
                             <h4>Departures</h4>
                             <table id="selecteddepartures">
                                 <thead>
                                     <tr>
                                         <td>Flight #</td>
-                                        <td>Dep Time</td>
+
+                                        <!--<td>Dep Time</td>-->
+
                                         <td>Dest</td>
                                         <td>Alt (ft)</td>
                                         <td>Spd (kts)</td>
-                                        <td>Hdg</td>
-                                        <td>A/crft</td>
+
+                                        <!--<td>Hdg</td>
+                                        <td>A/crft</td>-->
+
                                         <td>Status</td>
                                     </tr>
                                 </thead>
@@ -108,14 +109,16 @@
                                 </tbody>
                             </table>
                         </div>
+
                         </br>
+
                         <h4>ATC</h4>
                         <div id="selectedatcdata">
                             <!-- populated by JS -->
                         </div>
 
                     </div>
-                    
+
                     <!--
                     <br />For a plane, show Flightaware type summary
                     <br />for airport, delay, how many : (on ground, taxiing, within 15 nm)</p> -->
@@ -125,27 +128,27 @@
                             <span class="deparricao"></span>
                             <span class="deparrname"></span>
                             <span class="deparrtime"></span>
-                        </div> 
+                        </div>
                         <img id="selectedrouteimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAN5AAADeQELGyzWAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAR1QTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGXzGQAAAF50Uk5TAAMFBwkKDBATFBkaHyAlJicoKissLzA5P0BBQkVGR01OT1BbXF9gYWhvcHN0d3+AgYKDhI6PkJien6ChpK2vsLy9vr/Awc7P0NjZ2tze3+Dh5Onq6+zt9fb4+fz9/s9AlesAAAKbSURBVHja7ZvXUgMxDEUJvffQO4RO6ITQIfTeO/v/nwEkQNYbO3icQQdmuO/aOQPWjSxLeXn/+hsa2vepHwAIez7dlAEEJ36CZQBg3g/gtcsDtCgARwXiAKFrhWBK/k8QVwAe68QBehUAb1scoPBOJRgSJ1hTAeTNIKICyJtB6VOAQNwMEgGAQ2kzGAkAiJtBZRBA3Az2ggTSZhANAkibQTgDQNoMTjMIlsiiIKk2sCgAzCB0k0kwCRYFKTOoBYuCpBJkUZDUIFgUyJtBRAMgagYZRYG4GSR0AJJmMKIDkDSDKi3Ag6AZ7GkJBM0gqgUQNIOwHkDQDE71BHExgAU9gNcqBdBqADiQMgNdUZBU1LH/NfyhbtuIJQOAoxlsfsa/dFlG9BkAvC0ngPGv+KsKu4iiexNBxAWgIR2/E7ILWTcBXJe6EJynPzBrFzFoAnAzg1g6/qUzh6LA2Qz8hablMdg2AriYQfGj/75rdQxGjQBOZrDp/8CMe1GQMoOaXBLxTc8dNiH7ZgIHM6hXPnBZbhEyaQZwMYNztbixOAZNWQAczCCmfmHaIuQsC0E8p0R8PwaLsW917GUj+D5+bqDalIhiup3J/yLY8BDtNn4CjDEA3kOHNhEFdVGiTURBregTUVDNKYAeDGCCTMR3rbKJ+HYMfwkA/i/ADyGehrQR4VaM/xjRP8d4QYKXZHhRSpfl+MUEv5rRl1P8eo43KPAWDd2kwtt0eKMSb9XizWq8Xf/3HizwJxv60Qp/tsMfLumnW/zxGn++pwcY8BEOfIiFHuPBB5nwUS56mA0f58MHGvGRTnqoFR/rxQeb6dFufLgdH++nFxzwFQ98yYVe88EXnfBVL3rZDV/3wxce8ZVPeukVX/vFF5//9XN6Baqm1LuueiTlAAAAAElFTkSuQmCC" alt=""/>
                         <div id="selectedplaneright">
                             <!-- Arrival ICAO, City-->
                             <span class="deparricao"></span>
                             <span class="deparrname"></span>
                         </div>
-                        
+
                         <div id="selectedplaneinfo">
                             <h4>Progress</h4>
                             <div id="selectedprogbar">
                                 <div id="selectedprog"></div>
                                 <span><!-- Show total distance, distance to go, distance elapsed--></span>
                             </div>
-                            
+
                             <h4>Airline and Airport</h4>
                             <p id="selectedalt">Alternate</p>
                             <p id="selectedaircraft"><!-- Populated by JS --></p>
                             <p id="selectedairline"><!-- Populated by JS --></p>
                             <p id="selectedairlinecountry"><!-- Populated by JS --></p>
-                            
+
                             <h4>Flight Data</h4>
                             <p id="selectedspeed"></p>
                             <p id="selectedheading"></p>
@@ -155,7 +158,7 @@
                             <p id="selecteddeparturetime"></p>
                             <p id="selectedflighttype"></p>
                             <p id="selectedroute"></p>
-                            
+
                             <h4>Pilot</h4>
                             <span id="selectedcomm">
                                 <img class = "selectedcommunication" id = "selectedcommtext" src = "data:image/png;base64,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"/>
@@ -177,7 +180,7 @@
                 <h2>Online Activity</h2>
                 <!-- Filter options -->
                 <input id="filtertext" type="text" placeholder="Filter ATC and Pilots">
-                
+
                 <h4>Currently Online ATC
                     <img class = "showHideATC" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH4QgBFSos3l6PcwAAAf5JREFUSMe9lj9PVFEQxX9zWHYpsCHBUtZEE0pDKaVLacKHwNrKiJ9hKysLg8HOTo0Rv8IWmFhog42JVGghG5cYIDyLd3b3vj8blohMMsnbeXPOuW/unbkLFWsRiECtQHcDdQN9DNQPlNn7jnWd0woELFfYovhDw9gd4CFwH5gDvgFfgR9OXQRuA23gD/AOeAp8ArKMM2qURKBmoI1A+4EOA70I1Am0GKiR5DYc6zjn0JgNc9SSzwbaDDQI1At0z0RMMuMazu0Zu2muQhKBHjjhfaD2MH6eJfi2sQN/SY73w0qg717F1OQTRHrmWhkKNANtB/rlml6IvEakY67tQE0CrQb6GWhrUs01Bl+zo5q8ZE+2zLkqYN1H8RVwGmQVckeWgJf2pczvigIZwKm55oB1Au0G+hLoenn1ycpvBNoJdGzfcaxGRJjrc6Bd3JVvy+UpkX/w6XhsHzhWEUnK9CZQH7f+82BmtLkTyB/5fM/6uVYkx82QcyqrCJxDnjZlrUidQKFE9vlArwMdpeSlMgxFjpw7n+BHJWoAe8AtYAE4SPZrH3gCPANO0gGWcUagE/IBd2x8aguO7eGR+zvQWr7Kwio0xSzS+ICMsGvm7E7VaBfs5kKjXcmoKA+7m5NGwRTktcPu/47r0rG7/AunlHzpV+bVXfpjW/6Hvy1V+wsvE5xVmVMGWAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wOC0wMVQyMTo0Mjo0NC0wNDowMBmDDa8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDgtMDFUMjE6NDI6NDQtMDQ6MDBo3rUTAAAAAElFTkSuQmCC"/>
                     <img id = "showhideATChidden" class = "showHideATC" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH4QgBFSgrcgx4UgAAAelJREFUSMe9lj9PFFEUxX/nMLIUWEK5rIUJpbGU0qU04UNgvRWR77CVsTQaSivRGPErUGBioZWNCXZSyMY1xhDHgju782bfhDUgL3nJ5OXc33l/7n1vINOEEe4I3xMeCr8XHgmX0UcxNgxNRxhYz7Aa4Bi7AwyAB8AS8AX4DHwL6QpwG+gBv4A3wGPgA1CW/Gmd9aLwtvBX4VPh58J94RXhoqYtYqwfmtOI2Q5GFn5DeFd4LHwofD9AtLWIK0J7GLG7wUpEhPtY+K1wrxq/qNXiexE7Fn44iY+Pu8LHMYu54VXz1ORWMI6DSbXve8LfY0//CZ5ZST9Ye8KLCG8Inwg/u2jP5zQpgnUivGFgK1LxBXBWpkLPcciuJlaeD58FawnYQvhI+KPwam2Zy8JPhAfZtCNJ60Fol2vxq8KfhI+IqnxVzaJmsC/8U3gnSTuStN4JzX7DoBB+LTwiSv+pWEC4nhFd4XeRdhOTBnwcmm4au8A50+WMQSPtciat8OnqUoNkizK5XTd5FD0Lb2TSZIuSQ24poK7wgfDv6Ac5eM0gOeSh8A/hTQWyxWRN+GX0tRzcqNJuBnM4V6HVTG5Gn4G3Fdq1XBWXvuwaN+rMZfd/r+tGZV79g9MQX/mTeX2P/rStX+K3pTND+wvkuZOwL8fkhgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wOC0wMVQyMTo0MDo0My0wNDowMNjR4xwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDgtMDFUMjE6NDA6NDMtMDQ6MDCpjFugAAAAAElFTkSuQmCC"/>
@@ -194,7 +197,7 @@
                     </thead>
                     <tbody></tbody>
                 </table>
-                
+
                 <h4>Currently Online Pilots
                     <img class = "showHidePilot" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH4QgBFSos3l6PcwAAAf5JREFUSMe9lj9PVFEQxX9zWHYpsCHBUtZEE0pDKaVLacKHwNrKiJ9hKysLg8HOTo0Rv8IWmFhog42JVGghG5cYIDyLd3b3vj8blohMMsnbeXPOuW/unbkLFWsRiECtQHcDdQN9DNQPlNn7jnWd0woELFfYovhDw9gd4CFwH5gDvgFfgR9OXQRuA23gD/AOeAp8ArKMM2qURKBmoI1A+4EOA70I1Am0GKiR5DYc6zjn0JgNc9SSzwbaDDQI1At0z0RMMuMazu0Zu2muQhKBHjjhfaD2MH6eJfi2sQN/SY73w0qg717F1OQTRHrmWhkKNANtB/rlml6IvEakY67tQE0CrQb6GWhrUs01Bl+zo5q8ZE+2zLkqYN1H8RVwGmQVckeWgJf2pczvigIZwKm55oB1Au0G+hLoenn1ycpvBNoJdGzfcaxGRJjrc6Bd3JVvy+UpkX/w6XhsHzhWEUnK9CZQH7f+82BmtLkTyB/5fM/6uVYkx82QcyqrCJxDnjZlrUidQKFE9vlArwMdpeSlMgxFjpw7n+BHJWoAe8AtYAE4SPZrH3gCPANO0gGWcUagE/IBd2x8aguO7eGR+zvQWr7Kwio0xSzS+ICMsGvm7E7VaBfs5kKjXcmoKA+7m5NGwRTktcPu/47r0rG7/AunlHzpV+bVXfpjW/6Hvy1V+wsvE5xVmVMGWAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wOC0wMVQyMTo0Mjo0NC0wNDowMBmDDa8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDgtMDFUMjE6NDI6NDQtMDQ6MDBo3rUTAAAAAElFTkSuQmCC"/>
                     <img id = "showHidePilothidden" class = "showHidePilot" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH4QgBFSgrcgx4UgAAAelJREFUSMe9lj9PFFEUxX/nMLIUWEK5rIUJpbGU0qU04UNgvRWR77CVsTQaSivRGPErUGBioZWNCXZSyMY1xhDHgju782bfhDUgL3nJ5OXc33l/7n1vINOEEe4I3xMeCr8XHgmX0UcxNgxNRxhYz7Aa4Bi7AwyAB8AS8AX4DHwL6QpwG+gBv4A3wGPgA1CW/Gmd9aLwtvBX4VPh58J94RXhoqYtYqwfmtOI2Q5GFn5DeFd4LHwofD9AtLWIK0J7GLG7wUpEhPtY+K1wrxq/qNXiexE7Fn44iY+Pu8LHMYu54VXz1ORWMI6DSbXve8LfY0//CZ5ZST9Ye8KLCG8Inwg/u2jP5zQpgnUivGFgK1LxBXBWpkLPcciuJlaeD58FawnYQvhI+KPwam2Zy8JPhAfZtCNJ60Fol2vxq8KfhI+IqnxVzaJmsC/8U3gnSTuStN4JzX7DoBB+LTwiSv+pWEC4nhFd4XeRdhOTBnwcmm4au8A50+WMQSPtciat8OnqUoNkizK5XTd5FD0Lb2TSZIuSQ24poK7wgfDv6Ac5eM0gOeSh8A/hTQWyxWRN+GX0tRzcqNJuBnM4V6HVTG5Gn4G3Fdq1XBWXvuwaN+rMZfd/r+tGZV79g9MQX/mTeX2P/rStX+K3pTND+wvkuZOwL8fkhgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wOC0wMVQyMTo0MDo0My0wNDowMNjR4xwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDgtMDFUMjE6NDA6NDMtMDQ6MDCpjFugAAAAAElFTkSuQmCC"/>
@@ -210,21 +213,22 @@
                     </thead>
                     <tbody></tbody>
                 </table>
-  
+
             </div>
+
 
             <div id="wx" class="content-div">
                 <h2>Weather</h2>
                 <br /><input id="metarquery" type="text" placeholder="Search for METAR (ICAO code)">
 
                 <div id="metarresults">
-                    
+
                     <div id = "metardetails">
                         <p>
                             <span id="metarresults_stationID"></span>
                         </p>
                         <span id="metarresults_category"></span>
-                        
+
                         <span id="metarresults_rawtext">
                             <blockquote>Raw METAR Data:<br/><br/><span></span></blockquote>
                         </span>
@@ -275,39 +279,39 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- 
-
-
-
-
-(show VFR vs IFR) - especially on Clicked airports (also show METAR on clicked airports 
-Plus allow searching for METAR at a given airport
--->
-
             </div>
 
+            <div id="preferences" class="content-div">
+                <h2>Options</h2>
+                <p><input type="checkbox" id="showplanes" name="showplanes" value="Show Planes" checked> Show Planes on Map</p>
+                <p><input type="checkbox" id="autoupdate" name="autoupdate" value="Auto Update" checked> Auto-update from server every minute</p>
+            </div>
 
             <div id="planning" class="content-div">
                 <h2>Planning</h2>
                     <p>Specify duration</p>
                     <input type="range" id = "planningrangebar" min="30" max="1050" value="0" step="30">
-                    <p id="planningrangevalue">30 minutes</p>
+                    <p id="planningrangevalue">30 minutes or lower</p>
 
-                    <p id="planningresults"></p>
-                    
+                    <p>Specify plane type</p>
+                    <select id="planningplanes">
+                        <!-- Options for planes types; populated in javascript -->
+                    </select>
+
+                    <!-- This will hold results for planning -->
+                    <table id="planningresults"></p>
 
                     <br />It looks at current ATC'd airports' arrivals and departures with given equipment and duration.
                     <br />Ranks those routes, based on how muhc ATC there is with SCORE. REturn sorted list
                     <br />Real world route (from FA), callsign, number, duration, avg delay, gate, etc. Links to file flightplan, links to liveries.
-                    
-                    
-                    <strong>Equipment</strong>
-                    <input class="awesomplete" list="mylist" />
-                    <datalist id="mylist">
-                        
-                    </datalist>
-
             </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
 
 
             <!--<div id="events" class="content-div">
@@ -316,10 +320,14 @@ Plus allow searching for METAR at a given airport
                 <br />(if ATC message says "Online until XXXX zulu" take that into consideration)
             </div>-->
 
-            <div id="preferences" class="content-div">
-                <h2>Options</h2>
-                <p><input type="checkbox" id="showplanes" name="showplanes" value="Show Planes" checked> Show Planes on Map</p>
-                <p><input type="checkbox" id="autoupdate" name="autoupdate" value="Auto Update" checked> Auto-update</p>
+
+            <!--<div id="enrouteinfo" class="content-div">
+                <h2>Enroute</h2>
+                <p>if LOGGED IN, show current plane, location, speed, direction, etc.
+                    <br />LINKS to current airport's METAR, airport diagram, ILS freq, runway heading, chartsetc.</p>
+            </div> -->
+
+
 
                 <!--<p>show incoming flights on hover
 
@@ -331,22 +339,3 @@ Plus allow searching for METAR at a given airport
                     <br />Show all
                     <br />Airborne only/ground/all flights
                     <br />Airline - filter by airline</p> -->
-            </div>
-            
-            <!--<div id="enrouteinfo" class="content-div">
-                <h2>Enroute</h2>
-                <p>if LOGGED IN, show current plane, location, speed, direction, etc.
-                    <br />LINKS to current airport's METAR, airport diagram, ILS freq, runway heading, chartsetc.</p>
-            </div> -->
-        </div>
-        <!-- http://getbootstrap.com/css/#forms -->
-        <!--            <form id="form">
-                <div class="form-group">
-                    <label class="sr-only" for="q">City, State, Postal Code</label>
-                    <input class="form-control" id="q" placeholder="City, State, Postal Code" type="text"/>
-                </div>
-            </form> -->
-    </div>
-</body>
-
-</html>
