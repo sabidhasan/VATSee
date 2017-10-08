@@ -136,7 +136,7 @@ var planeOptions = {
    T154 : ['Other', 'T154  -  TU-154B2', 475, 1700, []]};
 //This will hold Google map markers for planning purposes
 var planningRoutes = [];
-//holds old zoom/center location, so after hovering on planning table, it can zoom back to old position 
+//holds old zoom/center location, so after hovering on planning table, it can zoom back to old position
 var planningOldZoom =  {center: null, zoom: null};;
 
 // execute when the DOM is fully loaded
@@ -217,15 +217,15 @@ $(document).ready(function() {
         $(".content-div#" + this.id).fadeIn('fast');
 
     });
-    
+
     //Make sure the map stays put when scrolling page
     $(window).scroll(function() {
        $("#map-canvas").css('top', $(window).scrollTop() + 65 + 'px');
     });
 
-    //Charting function for plotting speed and altiitude vs time    
+    //Charting function for plotting speed and altiitude vs time
     google.charts.load('current', {packages: ['corechart', 'line']});
-    
+
     //show hide ATC and Pilots on ONLINE page
     $('.showHideATC').on('click', function () {
         $('.showHideATC').toggle();
@@ -236,7 +236,7 @@ $(document).ready(function() {
         $('.showHidePilot').toggle();
         $('#tablefilterpilot').fadeToggle('fast');
     });
-    
+
     $("#filtertext").on("keyup", function() {
         //Filter the list with the current value of the textbox
         filterOnlines($("#filtertext").val());
@@ -263,41 +263,41 @@ $(document).ready(function() {
         }
     });
 
-    
+
     //Get worst weather when weather is clicked
     $("#wx").on('click', function() {
        console.log(updateWorstWeather());
        //TO--DO: fix this thing later
     });
-    
+
     //Planning range bar range update and text update
     $("#planningrangebar").on("change", function() {
         //Determine hours
         var hrs = Math.floor($(this).val() / 60);
         var hrsUnit = hrs === 1 ? ' hour' : ' hours';
         var hrsText = hrs === 0 ? '' : hrs + hrsUnit + ' ';
-        
+
         var min = Math.round(($(this).val() / 60 % 1) * 60);
         var minUnit = min === 1 ? ' minute' : ' minutes';
         var minText = min === 0 ? '' : min + minUnit;
         $("#planningrangevalue").text(hrsText + minText + ' or less');
-        
+
         //Figure out which planes can do this!
         planFlight($(this).val());
     });
-    
+
     //populate plane options in planning tab
     var planesWritten = [];
     var tmp = '';
     for (var plane in planeOptions) {
-        
+
         if (planesWritten.indexOf(planeOptions[plane][0]) === -1) {
             tmp += "<option value='" + planeOptions[plane][0] + "'>" + planeOptions[plane][0] + "</option>";
             planesWritten.push(planeOptions[plane][0]);
-        } 
+        }
     }
     $("#planningplanes").html(tmp);
-    
+
     $("#planningplanes").on("change", function() {
         planFlight();
     });
@@ -307,7 +307,7 @@ $(document).ready(function() {
 $(document).on('mousemove', function(event) {
     mouseX = event.pageX;
     mouseY = event.pageY;
-    
+
 });
 
 //Called for each airplane. Throws up airplanes on the map
@@ -341,8 +341,8 @@ function addPlane(data) {
                 "top": mouseY + 5,
                 "left": mouseX + 10
             });
-    
-    
+
+
 
         //Get origin and destination locations
         for (var j = 0; j < latest_json[0].length; j++) {
@@ -359,7 +359,7 @@ function addPlane(data) {
             lng: parseFloat(data["longitude"])
         };
         var flightPlanCoordinates = [d_coord];
-        
+
         for (var j = 0; j < data["detailedroute"].length; j++) {
             var tmppush = {
                 lat: parseFloat(data["detailedroute"][j][1]),
@@ -373,7 +373,7 @@ function addPlane(data) {
             var prev_point_lng = flightPlanCoordinates[flightPlanCoordinates.length - 1]['lng'];
             var curr_point_lat = tmppush['lat'];
             var curr_point_lng = tmppush['lng'];
-            
+
             //Define Bounding Box, we will check if plane is within this box!
             var latLogBox = {
                 ix : (Math.min(prev_point_lng, curr_point_lng)) - 0,
@@ -389,10 +389,10 @@ function addPlane(data) {
             }
             flightPlanCoordinates.push(tmppush);
         }
-        
+
         //add arrival airport coordinates
         flightPlanCoordinates.push(a_coord);
-        
+
 
         flightPath = new google.maps.Polyline({
             path: flightPlanCoordinates,
@@ -453,14 +453,14 @@ function addATCMarker(type, latitude, longitude, airportID, icao, name) {
         baseSize: radii[type][0]
     });
     //Add airport to circle
-    
+
     Circle.addListener('click', function(){
         //if clicked then show info
         hideHoverWindow();
         selected_airport = airportID;
         showSelectedInfo();
     });
-    
+
     Circle.addListener('mousemove', function() {
         $("#hoverinfo").html(prettifyAirportData({'icao': icao, 'name': name}));
         $("#hoverwindow").css({
@@ -470,11 +470,11 @@ function addATCMarker(type, latitude, longitude, airportID, icao, name) {
         });
 
     });
-    
+
     Circle.addListener('mouseout', function() {
-       $("#hoverwindow").css("display", "none"); 
+       $("#hoverwindow").css("display", "none");
     });
-    
+
     airportCircles.push(Circle);
 }
 
@@ -497,7 +497,7 @@ function addCenter(data) {
 //    tmp_coords.push(tmp_coords[0]);
 //    console.log(tmp_coords)
 //    tmp_coords = [{lat: 49, lng: -123}, {lat: 30, lng: -123}, {lat: 30, lng: -90}]
-    
+
     //Create polygon
     var m = new google.maps.Polygon({
         paths: tmp_coords,
@@ -508,7 +508,7 @@ function addCenter(data) {
         fillOpacity: 0.35,
         zIndex: -100
     });
-    
+
     m.addListener('click', function(){
         hideHoverWindow();
         selected_center = data['id'];
@@ -523,11 +523,11 @@ function addCenter(data) {
             "left": mouseX + 10
         });
     });
-    
+
     m.addListener('mouseout', function() {
-       $("#hoverwindow").css("display", "none"); 
+       $("#hoverwindow").css("display", "none");
     });
-    
+
     m.setMap(map);
     centers.push(m);
 }
@@ -542,7 +542,7 @@ function addAirport(data) {
     //create latitude and longitude
     var lls = new google.maps.LatLng(parseFloat(data["latitude"]), parseFloat(data["longitude"]));
     var image = "http://conferences.shrm.org/sites/all/themes/sessions/images/dot76923C.png";
-    
+
     if (data["atc"].length !== 0) {
         //There is ATC so lets draw circles!
         for (var i = data["atc_pic"].length - 1; i > -1; i--) {
@@ -675,7 +675,7 @@ function prettifyPlaneData(data) {
     //Returns displayable HTML for info window
     var depair = data['depairport'] === '' ? 'None' : data['depairport'];
     var arrair = data['arrairport'] === '' ? 'None' : data['arrairport'];
-    var x = "<h4>" + data["callsign"] + "</h4>" + "<p>" + depair; 
+    var x = "<h4>" + data["callsign"] + "</h4>" + "<p>" + depair;
     x += " <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAN5AAADeQELGyzWAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAR1QTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGXzGQAAAF50Uk5TAAMFBwkKDBATFBkaHyAlJicoKissLzA5P0BBQkVGR01OT1BbXF9gYWhvcHN0d3+AgYKDhI6PkJien6ChpK2vsLy9vr/Awc7P0NjZ2tze3+Dh5Onq6+zt9fb4+fz9/s9AlesAAAKbSURBVHja7ZvXUgMxDEUJvffQO4RO6ITQIfTeO/v/nwEkQNYbO3icQQdmuO/aOQPWjSxLeXn/+hsa2vepHwAIez7dlAEEJ36CZQBg3g/gtcsDtCgARwXiAKFrhWBK/k8QVwAe68QBehUAb1scoPBOJRgSJ1hTAeTNIKICyJtB6VOAQNwMEgGAQ2kzGAkAiJtBZRBA3Az2ggTSZhANAkibQTgDQNoMTjMIlsiiIKk2sCgAzCB0k0kwCRYFKTOoBYuCpBJkUZDUIFgUyJtBRAMgagYZRYG4GSR0AJJmMKIDkDSDKi3Ag6AZ7GkJBM0gqgUQNIOwHkDQDE71BHExgAU9gNcqBdBqADiQMgNdUZBU1LH/NfyhbtuIJQOAoxlsfsa/dFlG9BkAvC0ngPGv+KsKu4iiexNBxAWgIR2/E7ILWTcBXJe6EJynPzBrFzFoAnAzg1g6/qUzh6LA2Qz8hablMdg2AriYQfGj/75rdQxGjQBOZrDp/8CMe1GQMoOaXBLxTc8dNiH7ZgIHM6hXPnBZbhEyaQZwMYNztbixOAZNWQAczCCmfmHaIuQsC0E8p0R8PwaLsW917GUj+D5+bqDalIhiup3J/yLY8BDtNn4CjDEA3kOHNhEFdVGiTURBregTUVDNKYAeDGCCTMR3rbKJ+HYMfwkA/i/ADyGehrQR4VaM/xjRP8d4QYKXZHhRSpfl+MUEv5rRl1P8eo43KPAWDd2kwtt0eKMSb9XizWq8Xf/3HizwJxv60Qp/tsMfLumnW/zxGn++pwcY8BEOfIiFHuPBB5nwUS56mA0f58MHGvGRTnqoFR/rxQeb6dFufLgdH++nFxzwFQ98yYVe88EXnfBVL3rZDV/3wxce8ZVPeukVX/vFF5//9XN6Baqm1LuueiTlAAAAAElFTkSuQmCC' alt=''> ";
     x += arrair + "</p>";
     return x;
@@ -701,20 +701,20 @@ function metarLink(metar) {
     $(".content-div").fadeOut('fast');
     $(".content-div#wx").fadeIn('fast');
 
-    
+
 }
 
 function showSelectedInfo() {
     ///This function writes the currently selected airplane or airport's iforation to the main tab!
     //Update the airplane data from JSON
     update();
-    
+
     //if an airport is selected, then ship its data out
     if (selected_airport !== -1) {
         $("#selectedairport").show();
         $("#arrdeptable").show();
         $("#selectedplane").hide();
-        
+
         //show the div containing data
         $("#selectedairport").css("display", "block");
         //Make loiading gif visible
@@ -727,12 +727,12 @@ function showSelectedInfo() {
                 var a = latest_json[0][j]['name'] + '<br/>Altitude: ' + latest_json[0][j]['altitude'] + ' ft';
                 a = a + '<br/>Get METAR for <a href = "#" onclick="metarLink(\'' + latest_json[0][j]['icao'] + '\')">' + latest_json[0][j]['icao'] + '</a>';
                 $("#help").html(a);
-                
+
                 //Set latitude and longitude
                 selectedlat = latest_json[0][j]['latitude'];
                 selectedlon = latest_json[0][j]['longitude'];
                 selectedalt = latest_json[0][j]['altitude'];
-                
+
                 //Populate ATC information
                 var atc_html = "";
                 if (latest_json[0][j]['atc'].length === 0) {
@@ -745,23 +745,23 @@ function showSelectedInfo() {
                         atc_html += "<p><strong>Name and ID</strong>: " + val['name'] + " (CID " + val['cid'] + ")</p>";
                         atc_html += "<p><strong>Message</strong>: " + val['atismsg'] + "</p>";
                         atc_html += "<p><strong>Logon Time</strong>: " + humanizeTime(val['timelogon']) + "</p>";
-                       
+
                     });
                 }
                 $("#selectedatcdata").html(atc_html);
-                
+
                 //NOW, lETS LOOK FOR PLANE DATA LOCALLY
                 var departures = latest_json[0][j]['depplanes'];
                 var arrivals = latest_json[0][j]['arrplanes'];
                 break;
             }
         }
-        
+
         var depCount = 0;
         $('#selecteddepartures tbody').html("");
         var arrCount = 0;
         $('#selectedarrivals tbody').html("");
-        
+
         for (var j = 0, l = latest_json[2].length; j < l; j++) {
             //distance for current airplane from airport (really only used if in departures or arrivals array)
             var dist = parseInt(distance(parseFloat(latest_json[2][j]['longitude']), parseFloat(latest_json[2][j]['latitude']), parseFloat(selectedlon), parseFloat(selectedlat)));
@@ -770,7 +770,7 @@ function showSelectedInfo() {
                 var tmpPlaneAlt = latest_json[2][j]['altitude'];
                 var selectedalt = latest_json[2][j]['altitude'];
                 var status;
-                
+
             //Calculate status
             if (dist < 20 && tmpSpeed === 0 && Math.abs(selectedalt - tmpPlaneAlt) < 50) {
                 status = "In terminal";
@@ -784,7 +784,7 @@ function showSelectedInfo() {
             } else {
                 status = "Enroute";
             }
-            
+
             //Find arrivals and departures
             if ($.inArray(latest_json[2][j]['id'], departures) !== -1) {
                 if (status === "*") {
@@ -806,7 +806,7 @@ function showSelectedInfo() {
                 $('#selecteddepartures tbody').append("<tr>" + tmp + "</tr>");
 
                 depCount++;
-                            
+
             }
             if ($.inArray(latest_json[2][j]['id'], arrivals) !== -1) {
                 if (status === "*") {
@@ -814,37 +814,37 @@ function showSelectedInfo() {
                 } else if (status === "*2") {
                     status = "Not yet departed";
                 }
-            
+
                 tmp = '<td><a href="#" onclick = "centerMap(' + latest_json[2][j]['id'] + ', 2)">';
                 tmp += latest_json[2][j]['callsign'] + "</a></td>";
                 tmp += "<td>" + latest_json[2][j]['depairport'] + "</td>";
                 tmp += "<td>" + dist + "</td>";
                 tmp += "<td>" + latest_json[2][j]['altitude'] + "</td>";
                 tmp += "<td>" + status + " </td>";
-                
+
                 $('#selectedarrivals tbody').append("<tr>" + tmp + "</tr>");
                 arrCount++;
             }
         }
-            
+
             if (depCount === 0) {
                 $('#selecteddepartures tbody').html("<tr><td colspan = '8'>No scheduled departures</td></tr>");
             }
             if (arrCount === 0) {
                 $('#selectedarrivals tbody').html("<tr><td colspan = '8'>No scheduled arrivals</td></tr>");
             }
-    
+
     } else if (selected_center !== -1) {
         $("#selectedairport").show();
         $("#arrdeptable").hide();
         $("#selectedplane").hide();
-        
-        //ICAO, range, 
+
+        //ICAO, range,
         //message, callsing, name, CID, frequecy, time logon, range
-        
+
         //show the div containing data
         $("#selectedairport").css("display", "block");
-        
+
         //Loop through local JSON cache
         for (var j = 0, l = latest_json[1].length; j < l; j++) {
             if (latest_json[1][j]["id"] === selected_center) {
@@ -879,7 +879,7 @@ function showSelectedInfo() {
                 $("#selectedplaneright .deparricao").html(latest_json[2][j]["arrairport"]);
                 //latitude and long for arriving departing airpott
                 var arrlong, arrlat, deplong, deplat;
-                //Find the airport for its name 
+                //Find the airport for its name
                 for (var k = 0; k < latest_json[0].length; k++) {
                     if (latest_json[0][k]['id'] === latest_json[2][j]['depairport_id']) {
                         //found the departure airport
@@ -905,9 +905,9 @@ function showSelectedInfo() {
 
                 //update the progress bar
                 $("#selectedprog").css("width", dist_left / (dist_trav + dist_left)*100 + "%");
-                
+
                 $("#selectedprogbar span").text(Math.round(dist_left) + ' / ' + Math.round(dist_trav + dist_left) + ' km flown');
-                
+
                 $("#selectedalt").html('<span>Alternate Airport:</span> ' + latest_json[2][j]['altairport']);
                 $("#selectedaircraft").html('<span>Aircraft:</span> ' + latest_json[2][j]['aircraft']);
                 $("#selectedairline").html('<span>Airline Name:</span> ' + latest_json[2][j]['airline_name']);
@@ -944,17 +944,17 @@ function showSelectedInfo() {
                         google.charts.setOnLoadCallback(function() {
                             //To hold the data
                             var chart_data = new google.visualization.DataTable();
-                            
+
                             //Add columns
                             chart_data.addColumn('number', 'Time');
                             chart_data.addColumn('number', 'Altitude');
                             chart_data.addColumn('number', 'Speed');
-                            
+
                             //Loop through JSON data to add rows
                             for (var m = 0; m < data.length; m++) {
                                 chart_data.addRows([[data[m][0]/3600, data[m][1], data[m][2]]]);
                             }
-                            
+
                             //Options for the chart
                             var chart_options = {
                                 title: 'History',
@@ -974,7 +974,7 @@ function showSelectedInfo() {
                         var chart = new google.visualization.LineChart(document.getElementById('selectedplanehistory'));
                         chart.draw(chart_data, chart_options);
                         });
-                    });      
+                    });
             }
         }
     }
@@ -993,15 +993,15 @@ function humanizeTime(time) {
 
 function distance(lon1, lat1, lon2, lat2) {
     //Haversine formula for calculating the great circle distance between two points Copied from backend version
-    //convert decimal degrees to radians 
+    //convert decimal degrees to radians
     var orig = [lon1, lat1, lon2, lat2];
     var rad_lats = orig.map(function(x) {
         return x * Math.PI / 180;
     });
-    
+
     var dlon = rad_lats[2] - rad_lats[0];
     var dlat = rad_lats[3] - rad_lats[1];
-    
+
     var a = (Math.sin(dlat/2)*Math.sin(dlat/2)) + Math.cos(rad_lats[1]) * Math.cos(rad_lats[3]) * (Math.sin(dlon/2)*Math.sin(dlon/2));
     var c = 2 * Math.asin(Math.sqrt(a));
     var km = 6367 * c;
@@ -1074,7 +1074,7 @@ function configure() {
 
     // update UI after zoom level changes
     google.maps.event.addListener(map, "zoom_changed", function() {
-        //Zoom the map Circles proportionately to the current zoom level 
+        //Zoom the map Circles proportionately to the current zoom level
         if (map.getZoom() !== 0) {
             airportCircles.forEach(function(airport) {
                 airport.setRadius(airport.baseSize * (1 / map.getZoom()) * 6);
@@ -1101,7 +1101,7 @@ function update() {
 //                console.log("No change detected!")
                 return null;
             }
-            
+
             //Update local cache
             latest_json = data;
 
@@ -1111,7 +1111,7 @@ function update() {
             //Clear the onlines tables
             $("#tablefilterATC tbody").html("");
             $("#tablefilterpilot tbody").html("");
-            
+
             // update the airports
             for (var i = 0, mlen = data[0].length; i < mlen; i++) {
                 addAirport(data[0][i]);
@@ -1128,7 +1128,11 @@ function update() {
 
             //Filter the online users, based on what was entered in filter box
             filterOnlines($("#filtertext").val());
-            
+
+            //Update stats
+            updateStats();
+
+            //Update worst weather table
             updateWorstWeather();
 
             console.log("Redrew map at " + data[3][0]["time_updated"]);
@@ -1168,7 +1172,7 @@ function filterOnlines(filtertext) {
             //Increment the counter if this row is being shown
             if (show === true) {
                 counter += 1;
-    
+
                 //This row's plane must be shown
                 if (val === "tablefilterpilot") {
                     //Show the ATC; first column contains ID number of plane (in planes[] array)
@@ -1188,7 +1192,7 @@ function filterOnlines(filtertext) {
             } else {
                 row.className = "onlinetablehide " + cssclass;
             }
-       }  
+       }
     });
 }
 
@@ -1207,7 +1211,7 @@ function get_metar(stationid) {
             $("#metarresults_category").text(data['category']);
             $("#metarresults_rawtext blockquote span").text(data['raw_text']);
             $("#metarresults_time").text(data['time']);
-            
+
             $("#metarresults_winddirspeed").html('<img src="' + imgs[Math.round(data["wind_dir"] / 10) % 36] + '"/>   (' + data['wind_dir'] + ')  ' +  data['wind']);
             $("#metarresults_clouds").text(data['clouds']);
             $("#metarresults_visibility").text(data['visibility']);
@@ -1225,7 +1229,7 @@ setInterval(function(){
     var min = d.getUTCMinutes() > 9 ? d.getUTCMinutes() : '0' + d.getUTCMinutes();
     var sec = d.getUTCSeconds() > 9 ? d.getUTCSeconds() : '0' + d.getUTCSeconds();
     $("#time").text(hrs + ':' + min + ":" + sec + ' Z ');
-    
+
 }, 1000);
 
 //Auto update
@@ -1309,7 +1313,7 @@ setInterval(function() {
 
             newLon = oldLon + longitudnalDisplacement(distX, oldLat, currAngle);
             newLat = oldLat + latitudnalDisplacement(distY, oldLat, currAngle);
-            
+
             latest_json[2][i]['latitude'] = newLat;
             latest_json[2][i]['longitude'] = newLon;
 
@@ -1339,7 +1343,7 @@ function updateWorstWeather() {
             var max = -10;
             var ind = null;
             var table_data = '';
-    
+
             for (var k = 0; k < data.length; k++) {
                 if (data[k]['total_score'] > max) { // || max === null) {
                     if (data[k]['precipitation'] === null) {
@@ -1355,37 +1359,34 @@ function updateWorstWeather() {
             table_data += '<td>' + tmp['precipitation_score'] + '<span class = "worstweatherhover">' + tmp['precipitation'] + '</span></td>';
             table_data += '<td>' + tmp['temperature_score'] + '<span class = "worstweatherhover">' + tmp['temperature'] + '</span></td>';
             table_data += '<td>' + tmp['visibility_score'] + '<span class = "worstweatherhover">' + tmp['visibility'] + '</span></td>';
-            
-            
+
+
             table_data += '<td>' + tmp['wind_score'] + '<span class = "worstweatherhover">' + tmp['wind'] + '</span></td>';
             table_data += '<td>' + tmp['total_score'] + '</td>';
             $("#worstweather tbody").append(table_data);
-            
+
             data[ind]['total_score'] = null;
         }
     });
 }
 
 function planFlight() {
-    //Looks at current possible routes (all online airports) and determines which planes can be
-    //used to fly those routes!
-    
+    //Looks at current possible routes (all online airports) and determines which planes can fly those routes!
+
     //temporary variable with all airports
     var activeAirports = [];
-    //This array will store arrays of text and google map polylines (used for hovering over routes)
+    //This array will store objects of text and google map polylines (used for hovering over routes)
     //[{text: 'KLGA-KDCA', dist: 1000, marker: map_object}, ...]
     planningRoutes = [];
     //Reset all planes (planes[4] holds route indices of planningRoutes object based on which routes are active)
-    for (var plane in planeOptions) {
-        planeOptions[plane][4] = [];
-    }
+    for (var plane in planeOptions) { planeOptions[plane][4] = []; }
 
     //Determine all active airports
     for (var i = 0; i < latest_json[0].length; i++) {
         //if the current airport is active (has ATC available)
         if (latest_json[0][i]['atc'].length !== 0) {
             //Add object to active airports
-            activeAirports.push({icao: latest_json[0][i]['icao'], lat: latest_json[0][i]['latitude'], 
+            activeAirports.push({icao: latest_json[0][i]['icao'], lat: latest_json[0][i]['latitude'],
             lon: latest_json[0][i]['longitude'], id: latest_json[0][i]['id'], atcLength: latest_json[0][i]['atc'].length,
             name: latest_json[0][i]['name']});
         }
@@ -1406,21 +1407,21 @@ function planFlight() {
                 map: null,
                 zIndex: 999
             });
-            if (tmpDis < 15) {
-                continue;
-            }
+            if (tmpDis < 15) { continue; }
+
             planningRoutes.push({text: tmpTxt, dist: tmpDis, names: tmpNames, marker: tmpMarker});
-            
+
             //Loop through all planes
             for (var plane in planeOptions) {
                 var routeTime = (tmpDis / (planeOptions[plane][2] * 1.852) * 60) + 50;
+                console.log(routeTime);
                 if (planeOptions[plane][3] > (tmpDis * 0.5399) && (routeTime < $('#planningrangebar').val())) {
                     planeOptions[plane][4].push(planningRoutes.length - 1);
                 }
             }
         }
     }
-    
+
     //Write planes (the header row of the planning table)
     $('#planningresults').html('');
     var tmp = '<thead><tr><td>&nbsp;&nbsp;&nbsp;</td>';
@@ -1436,18 +1437,18 @@ function planFlight() {
     planningRoutes.sort(function(a, b) {
         return (a['dist'] - b['dist']);
     });
-    
+
     //Loop through routes, and write planes as needed - this isthe body of the table
     for (var i = 0; i < planningRoutes.length; i++) {
         var writePlane = false;
         var rows = '';
-    
+
         for (var plane in planeOptions) {
             //Only write those planes
             if (planeOptions[plane][0] !== $("#planningplanes").val()) {
                 continue;
             }
-            
+
             if (planeOptions[plane][4].indexOf(i) !== -1) {
                 rows += '<td class = \'planninggreen\'>&nbsp;</td>';
                 writePlane = true;
@@ -1462,11 +1463,11 @@ function planFlight() {
             tmp += planningRoutes[i]['names'] + '</span>' + planningRoutes[i]['text'] + '</td>' + rows + '</tr>';
         }
     }
-    
+
     tmp += '</tbody>';
-    
+
     $('#planningresults').append(tmp);
-    
+
     $('.planningroutetext').hover(function() {
         //Show the route, and zoom the map in
         planningRoutes[parseInt($(this).find('span')[0]['innerHTML'])]['marker'].setMap(map);
@@ -1476,7 +1477,7 @@ function planFlight() {
         //Record old zoom and location
         planningOldZoom['center'] = map.getCenter();
         planningOldZoom['zoom'] = map.getZoom();
-        
+
         //Create bound and add position of markers to it
         var tmpBounds = new google.maps.LatLngBounds();
         planningRoutes[parseInt($(this).find('span')[0]['innerHTML'])]['marker'].getPath().forEach(function(e){
@@ -1484,7 +1485,7 @@ function planFlight() {
             tmpBounds.extend(e);
         });
         map.fitBounds(tmpBounds);
-        
+
         //Zoom out a bit from fitBounds
         map.setZoom(map.getZoom() - 2);
     }, function() {
@@ -1498,4 +1499,38 @@ function planFlight() {
         map.setCenter(planningOldZoom['center']);
         map.setZoom(planningOldZoom['zoom']);
     });
+}
+
+function updateStats() {
+    //This updates the STATS id paragraph with number of users online, etc.
+    var updateText = "";
+
+    var untowered = 0;
+    var busiest = {name: '', arrivals: 0, departures: 0, index: null};
+
+    for (var i = 0; i < latest_json[0].length; i++) {
+        if (latest_json[0][i]['atc'].length === 0) {
+            untowered += 1;
+        }
+        if ((busiest.arrivals + busiest.departures) < (latest_json[0][i]['arrplanes'].length + latest_json[0][i]['depplanes'].length) && latest_json[0][i]['icao'] !== null) {
+            busiest.name = latest_json[0][i]['icao'];
+            busiest.arrivals = latest_json[0][i]['arrplanes'].length;
+            busiest.departures = latest_json[0][i]['depplanes'].length;
+            busiest.index = latest_json[0][i]['id'];
+        }
+    }
+    var atc = latest_json[0].length - untowered;
+    updateText += "<p><span>Towered Airports</span> " + atc + "</p>";
+    updateText += "<p><span>Untowered Airports</span> " + untowered + "</p>";
+    updateText += "<p><span>Busiest Airport</span> <a href=\"#\" onclick=\"centerMap(" + busiest['index'] + ",0);\">" + busiest['name'] + '</a>  - ' + busiest['arrivals']   + ' Arrivals, ' + busiest['departures'] + ' Departures</p>';
+
+    //Centers online; 0 is the initial value of array
+    var tot = latest_json[1].reduce(function(accumulator, currentVal) {
+        return accumulator + currentVal['atc'].length;
+    }, 0);
+    updateText += "<p><span>Center ATC Online</span> " + tot + "</p>";
+    updateText += "<p><span>Total Pilots Online</span> " + latest_json[2].length + "</p>";
+
+    $('#stats').html(updateText);
+
 }
