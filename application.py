@@ -49,7 +49,7 @@ airlines = {}
 waypoints = {}
 #List of countries (as Country objects) for purposes of testing whether a certian geographical point (that plane is at)
 #is within that country
-#nations = []        
+#nations = []
 #Logging Messages written
 log_msgs = []
 
@@ -66,8 +66,8 @@ for line in result:
         waypoints[line[1]] = []
     #Append to dictionary
     waypoints[line[1]].append((float(line[2])/1000000.0, float(line[3])/1000000.0))
-    
-    
+
+
 ##############################################
 ###Standard function definitions start here###
 ##############################################
@@ -85,14 +85,14 @@ def add_to_log(message, value):
         elif value == logging.WARNING:
             logging.warning(message)
         log_msgs.append(message)
-        
+
 def callsign_to_icao(callsign):
     ''' Gets a IATA callsign like SEA and return ICAO callsign like KSEA'''
     #Something like "ASIA"
     #TO--DO LOGGING: Log an unnatural callsign (4 letter callsigns are not normal)
     if not(callsign):
         return None
-        
+
     if len(callsign.split("_")[0]) == 4:
         return callsign.split("_")[0]
         add_to_log('Unknown IATA from callsign_to_icao (4 letters long) - "%s"' % callsign, logging.ERROR)
@@ -113,7 +113,7 @@ def callsign_to_icao(callsign):
 def callsign_to_ATC(callsign):
     '''Gets callsign like 'ATL_GND' and returns a type code:
     0   ATIS    1   CLNC    2   GND    3   TWR    4   APP/DEP    5   CTR    6   UNKNOWN    '''
-    
+
     codes = {"ATIS": 0, "DEL" : 1, "GND" : 2, "TWR" : 3, "APP" : 4, "DEP" : 4, "CTR" : 5, "OBS" : 6}
     if callsign.split("_")[-1] in codes:
         #Foudn the type, return the proper code (This is used by front end to display )
@@ -162,7 +162,7 @@ def flightlevel_to_feet(flightlevel):
     '''Function recieves something like 'FL360' and returns 36000'''
     if not(flightlevel):
         return 0
-        
+
     flightlevel = str(flightlevel).lower()
     if "fl" in flightlevel or "f" in flightlevel:
         return int(flightlevel.replace("fl", "").replace("f", "")) * 100
@@ -174,15 +174,15 @@ def flightlevel_to_feet(flightlevel):
             #TO--DO LOGGING: unknown altitude filed
             add_to_log('Could not convert filed altitude to numeric in flightlevel_to_feet - "%s"' % flightlevel, logging.INFO)
             return 0
-         
-            
+
+
 def decode_airline(callsign):
     '''Gets a name like 'BAW156' or 'BA156' and returns a tuple such as ('British Airways', 'UK', 'Speedbird', 'BAW', '156')'''
-    
+
     #Check for VFR tail numbers
     if re.findall(r"^[A-Z][A-Z0-9]{3,5}$", callsign.replace('-', '')):
         return (callsign, callsign, callsign, callsign, callsign)
-    
+
     #Get flight number and airline
     airline_letter = re.findall(r"^[A-Z]*", callsign)
     if airline_letter:
@@ -191,13 +191,13 @@ def decode_airline(callsign):
         #Couldnt find the callsign, so quit
         add_to_log('Airline callsign provided to decode_airline not parsable - "%s"' % callsign, logging.WARNING)
         return (callsign, callsign, callsign, callsign, callsign)
-    
+
     #Try to find airline letter, starting at the position AFTER the airline letter ends (eg. BAW191, start at '1')
     airline_num = callsign[len(airline_letter):]
     if not(airline_num):
         add_to_log('Airline flight number could not be parsed by decode_airline - "%s"' % callsign, logging.WARNING)
         return (callsign, callsign, callsign, callsign, callsign)
-    
+
     #Now look in memoized data, and if not found then the DB
     if airline_letter in airlines:
         row = airlines[airline_letter]
@@ -218,26 +218,26 @@ def decode_airline(callsign):
 
 def haversine(lon1, lat1, lon2, lat2):
     """
-    Haversine formula for calculating the great circle distance between two points 
+    Haversine formula for calculating the great circle distance between two points
     on earth. From https://stackoverflow.com/questions/15736995/how-can-i-quickly-estimate-the-distance-between-two-latitude-longitude-points
     """
-    # convert decimal degrees to radians 
+    # convert decimal degrees to radians
     lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
-    # haversine formula 
-    dlon = lon2 - lon1 
-    dlat = lat2 - lat1 
+    # haversine formula
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
     a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
-    c = 2 * asin(sqrt(a)) 
+    c = 2 * asin(sqrt(a))
     km = 6367 * c
     return km
-    
+
 
 def get_center_coords(name):
     ''' Returns center coordinates as list of tuples given center name, or returns None (for logging) '''
     #Check for empty string or something
     if not(name):
         return None
-    
+
     #Name might be "LAX" or somethng like "LAX_EAST", in which case we need to search both
     conn = sqlite3.connect('static_data.db')
     c = conn.cursor()
@@ -248,13 +248,13 @@ def get_center_coords(name):
     else:
         #No result, return none
         return None
-    
+
 def get_METAR(given_code):
     '''Returns METAR data from aviation weather website from US Government; code is a METAR weather station code.
     Uses 30 minute caching to prevent overaccessing of the Aviation Weather database'''
     #Convert to upper case
     given_code = given_code.upper()
-    
+
     if not(given_code) or len(given_code) != 4:
         return None
 
@@ -265,10 +265,10 @@ def get_METAR(given_code):
             #Return the saved information, indicating that it is indeed from the cache (more for debugging purposes)
             metars[given_code][1]["cached"] = "True"
             return metars[given_code][1]
-        
+
     url = 'https://aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=5&mostRecent=true&stationString=%s' % given_code
     raw_metar_data = requests.get(url).text
-    
+
     #Try to get code and flight conditions
     #TO--DO: potentially use an XML parser here, rather than regex to improve speed of parsing
     code_data = re.findall(r"<raw_text>(.*)<\/raw_text>", raw_metar_data)
@@ -281,7 +281,7 @@ def get_METAR(given_code):
         #TO--DO LOGGING: either website is down (perhaps include size of raw_metar_data to see if we even got anything!), or something is wrong
         add_to_log("Critical error in get_METAR method; size of raw_metar_data - %s" % len(raw_metar_data), logging.ERROR)
         return None
-        
+
     try:
         flight_cat = flight_category_data[0]
     except IndexError:
@@ -293,15 +293,15 @@ def get_METAR(given_code):
     except Metar.ParserError:
         add_to_log('METAR parsing error for airport %s with code "%s"' % (given_code, code), logging.ERROR)
         return None
-    
+
     #Return dictionary, with some default values filled in
     ret = {"category": flight_cat, "raw_text": code, "clouds": obs.sky_conditions(), "time": None, "wind": None, "wind_value": None, "wind_gust_value": None, \
         "wind_dir": None, "visibility": None, "visibility_value": None, "temp": None, "temp_value": None, "altimeter": None, "sealevelpressure": None}
-        
+
     #Build return dictionary
     if obs.station_id:
         ret["stationID"] = obs.station_id
-    
+
     if obs.time:
         ret["time"] = obs.time.ctime()
     if obs.wind_speed:
@@ -323,11 +323,11 @@ def get_METAR(given_code):
         ret["altimeter"] = obs.press.string("in")
     if obs.press_sea_level:
         ret["sealevelpressure"] = obs.press_sea_level.string("mb")
-    
+
     #Cache it
     ret["cached"] = "False"
     metars[given_code] = (time.time(), ret)
-    
+
     return ret
 
 
@@ -342,19 +342,19 @@ def decode_route(route, departure_airport):
 
     #set previous waypoint to the departure
     previous_waypoint = departure_airport
-    
+
     #Some pilots file their routes with periods!
     route = route.replace(".", " ").upper()
-    
+
     #Loop through the waypoints as they are now all space-separated
     for count, waypoint in enumerate(route.split(' ')):
         #In case it's not upper case, and get rid of extraneous information
         waypoint = waypoint.split("/")[0]
-        
+
         #If the waypoint is not 3 or 5, then we should move on.
         if not(len(waypoint) in [3,5]):
             continue
-        
+
         #Look for airways (e.g. A56, B38, etc) and ignore them
         if len(waypoint) == 3:
             if (waypoint[0].isalpha() == True and waypoint[1:].isalpha() == False) or waypoint == "DCT":
@@ -366,7 +366,7 @@ def decode_route(route, departure_airport):
             #Initially, closest distance is first point in the dictionary, whose index is 0
             closest_dist = haversine(waypoints[waypoint][0][1], waypoints[waypoint][0][0], previous_waypoint[1], previous_waypoint[0])
             closest_index = 0
-            
+
             #Loop through rest of list of same-named waypoints
             for count, candidates in enumerate(waypoints[waypoint]):
                 #Compare the distance for current
@@ -376,7 +376,7 @@ def decode_route(route, departure_airport):
                     #update the closest dist, and index to current candidate waypoint
                     closest_dist = candidate_dist
                     closest_index = count
-                
+
             #TO--DO: what is the best candidate waypoint??
             if closest_dist < 1000000:
                 ret.append((waypoint, waypoints[waypoint][closest_index][0], waypoints[waypoint][closest_index][1]))
@@ -389,14 +389,14 @@ def decode_route(route, departure_airport):
             #This is a waypoint that wasnt found (probably log it)
             #TO-DO LOGGING: log an unknown waypoint?, unless it has "/" in it
             continue
-        
+
     return ret
 
 #Country memebership (for detemining whether plane is in certain country)
 #class countries():
 #    ''' This class represents a country, containing its name, polygonal coordinates, and an 'outer box' containing the
 #        country in its entirety. The purpose of it is to allow testing of membership of a point within a certain nation '''
-#        
+#
 #    def __init__(self, name, data):
 #        #Name is country name, data is specialized data obtained from Longitude Latitude Dataset for Countries
 #        #https://fusiontables.google.com/DataSource?docid=1uL8KJV0bMb7A8-SkrIe0ko2DMtSypHX52DatEE4#rows:id=1
@@ -413,16 +413,16 @@ def decode_route(route, departure_airport):
 #        #First we do a rough test to see whether this point is within the outer box (this is a fast calculation)
 #        if (float(x) >= self.xmin and float(x) <= self.xmax and float(y) >= self.ymin and float(y) <= self.ymax) == False:
 #            return False
-#        
+#
 #        #This is the RAY CASTING method, adapted from :
 #        #https://stackoverflow.com/questions/36399381/whats-the-fastest-way-of-checking-if-a-point-is-inside-a-polygon-in-python
-#        
+#
 #        n = len(self.coords)
 #        inside = False
-#        
+#
 #        x = float(x)
 #        y = float(y)
-#        
+#
 #        p1x, p1y = self.coords[0]
 #        for i in range(n + 1):
 #            p2x, p2y = self.coords[i % n]
@@ -434,7 +434,7 @@ def decode_route(route, departure_airport):
 #                        if p1x == p2x or x <= xints:
 #                            inside = not inside
 #            p1x, p1y = p2x, p2y
-#        return inside        
+#        return inside
 #
 #with open('countries.txt') as f:
 #    for line in f.readlines():
@@ -450,28 +450,28 @@ def decode_route(route, departure_airport):
 #    ''' This function loops through countries generated above to determine which country contains the given geographical point '''
 #    lat = float(lat)
 #    lon = float(lon)
-#    
+#
 #    for nation in nations:
 ##        return lat
 #        #return nation.test_membership()
 #        if nation.test_membership(lon, lat) == True:
 #            return nation.name
 #    return "International territory"
-    
-    
+
+
 ##############################################
 ###       Flask route definitions          ###
 ##############################################
-    
+
 @app.route("/")
 def index():
    # if not os.environ.get("API_KEY"):
     #    raise RuntimeError("API_KEY not set")
     return render_template("index.html", key="AIzaSyBTK9GUrd7sMxjt6EUlHyN9TXPkqb6R0VA")     #os.environ.get("API_KEY"))
-    
-    
-@app.route("/update")    
-def update():    
+
+
+@app.route("/update")
+def update():
     ''' This is called by AJAX to return a full update of the plane data '''
 
     #Open file that is continuously updated by cronupdater.py
@@ -481,20 +481,20 @@ def update():
     #Data structure that will be returned;
     #   holds [ATC, Planes, Centres, administrative data]
     jsondata = [[], [], [], []]
-    
+
     #This keeps id mapping for airports and centres as they are parsed
     tmp_airport_ids = {}
     tmp_centres_ids = {}
     #new pilots get assigned this ID
     pilot_counter = 0
-    
+
     #Get results from DB; returned as tuples; orderby TYPE (type is ATC or PILOT)
     result = c.execute("""SELECT * FROM "onlines" WHERE "latest"=1 ORDER BY 'type'""").fetchall()
-    
+
     #TO--DO LOGGING: if result set length is 0
     if len(result) == 0:
         pass
-    
+
     #Index map for results from database
     atc_indices = {"callsign":2, "cid":3, "name":4, "freq":5, "latitude":6, "longitude":7, "visrange":8, "atismsg":9, "timelogon":10}
     ctr_indices = {"callsign":2, "cid":3, "name":4, "freq":5, "visrange":8, "atismsg":9, "timelogon":10}
@@ -512,14 +512,14 @@ def update():
                 #Get icao callsign (SEA --> KSEA)
                 icao = callsign_to_icao(curr_callsign)
                 #TO--DO : ppotentially make curr callsign an object
-                
+
                 #See if we have run into the ICAO before
                 if not(icao in tmp_airport_ids):
                     #New airport! Make a new ID first
                     new_id = len(jsondata[0])
                     #Returns some data about airport from database, like latitude, long, altitude, full name
                     tmp = callsign_to_loc(curr_callsign)
-                    
+
                     if not(tmp is None):
                         new_lat, new_long, new_alt, new_name = tmp
                     else:
@@ -528,34 +528,34 @@ def update():
                         new_long = line[atc_indices["longitude"]]
                         new_alt = 0
                         new_name = line[atc_indices["cid"]]
-                    
+
                     #ATC_pic is which picture to use for the marker on the front end (it's a sorted concatenation of all available ATC). -1 is simple dot no atc
                     new_data = {"id" : new_id, "icao": icao, "name": new_name, "longitude": new_long, "latitude": new_lat, "altitude": new_alt, "atc": [], "atc_pic" : "-1", "depplanes": [], "arrplanes": []}
                     jsondata[0].append(new_data)
-    
+
                     #Add to tmp airport directory
                     tmp_airport_ids[icao] = new_id
                 else:
                     #Airport already exists
                     new_id = tmp_airport_ids[icao]
 
-                #Now, lets update the ATC dictionary of airports with current row's data    
+                #Now, lets update the ATC dictionary of airports with current row's data
                 tmp_atc = {item: line[value] for item, value in atc_indices.items()}
                 tmp_atc["atctype"] = callsign_to_ATC(curr_callsign)
-    
+
                 jsondata[0][new_id]["atc"].append(tmp_atc)
-                
+
                 #5 is center which is plotted spearately
                 jsondata[0][new_id]["atc_pic"] = ''.join(sorted(list({str(item["atctype"]) for item in jsondata[0][new_id]["atc"] if item["atctype"] != 5})))
-            
+
             #ASIA is a known non underscore/'CTR' based centre callsign
             elif ("_" in curr_callsign and "CTR" in curr_callsign) or (curr_callsign in ["ASIA"]):
                 #TO--DO LOGGING - log the newly found center
                 callsign_initials = curr_callsign.split("_")[0]
-                
+
                 tmp_ctr_atc = {item: line[value] for item, value in ctr_indices.items()}
                 tmp_ctr_atc["atctype"] = 5
-        
+
                 #See if centre present or not
                 if not(callsign_initials in tmp_centres_ids):
                     #New airport! Make a new ID first
@@ -563,10 +563,10 @@ def update():
                     #Use ATC-idices because we dont want lat/long in ctr_indices (becuase they are kept at a differnet level that dictionarhy comprehension line)
                     new_lat = line[atc_indices["latitude"]]
                     new_lon = line[atc_indices["longitude"]]
-                    
+
                     #ATC_pic is which picture to use for the marker on the front end (it's a sorted concatenation of all available ATC). -1 is simple dot no atc
                     ctr_data = {"id": new_id, "icao": callsign_initials, "marker_lat": new_lat, "marker_lon": new_lon, "atc_pic": "0", "atc": [], "polygon": []}
-        
+
                     curr_callsign_coords = get_center_coords(callsign_initials)
                     if curr_callsign_coords is None:
                         ctr_data["coordinates"] = None
@@ -574,35 +574,35 @@ def update():
                     else:
                         ctr_data["coordinates"] = curr_callsign_coords
 
-        
+
                     jsondata[1].append(ctr_data)
-    
+
                     #Add to tmp airport directory
                     tmp_centres_ids[callsign_initials] = new_id
                 else:
                     #Airport already exists
                     new_id = tmp_centres_ids[callsign_initials]
 
-            
+
                 jsondata[1][new_id]["atc"].append(tmp_ctr_atc)
-                
+
         elif row_type == "PILOT":
-            
+
             #Check for airport, create dummy if needed
             #{ callsign      cid    real_name   VATSIMlatitude  	VATSIMlongitude     time_logon      altitude    groundspeed     heading     planned_deptime 	planned_altairport
             #planned_aircraft   planned_tascruise	planned_depairport	planned_altitude	planned_destairport	planned_flighttype  planned_remarks 	planned_route
             #Arrivial_apt_id        dep_apt_id
             #}
-            
+
             #plane_indices = {"callsign": 2, "cid": 3, "real_name": 4, "latitude": 6, "longitude": 7, "timelogon": 10, "altitude": 12, "speed": 13, "heading": 24, "deptime": 20, "altairport" : 21, \
             #"aircraft": 14, "tascruise": 15, "depairport" :16, "arrairport": 18, "plannedaltitude": 17, "flighttype": 19, "remarks": 22, "route": 23}
-            
+
             pilot_counter += 1
             departure_icao = callsign_to_icao(line[plane_indices["depairport"]])
             arrival_icao = callsign_to_icao(line[plane_indices["arrairport"]])
-            
-            
-            
+
+
+
             if not(departure_icao in tmp_airport_ids):
                 #Create dummy airport
                 dep_new_id = len(jsondata[0])
@@ -616,20 +616,20 @@ def update():
                     new_alt = 0
                     new_name = departure_icao
                     #TO--DO: log here because airport was not found
-                    
+
                 #ATC_pic is which picture to use for the marker on the front end (it's a sorted concatenation of all available ATC). -1 is simple dot no atc
                 new_data = {"id" : dep_new_id, "icao": departure_icao, "name": new_name, "longitude": new_long, "latitude": new_lat, "altitude": new_alt, "atc": [], "atc_pic" : "-1", "depplanes": [], "arrplanes": []}
                 jsondata[0].append(new_data)
-    
+
                 #Add to tmp airport directory
                 tmp_airport_ids[departure_icao] = dep_new_id
             else:
                 #Airport already exists
                 dep_new_id = tmp_airport_ids[departure_icao]
-          
+
             #Add this plane to the airport, whether newly created or not
             jsondata[0][dep_new_id]["depplanes"].append(pilot_counter)
-            
+
             if not(arrival_icao in tmp_airport_ids):
                 #Create dummy airport
                 arr_new_id = len(jsondata[0])
@@ -642,11 +642,11 @@ def update():
                     new_long = 0
                     new_alt = 0
                     new_name = arrival_icao
-                    
+
                 #ATC_pic is which picture to use for the marker on the front end (it's a sorted concatenation of all available ATC). -1 is simple dot no atc
                 new_data = {"id" : arr_new_id, "icao": arrival_icao, "name": new_name, "longitude": new_long, "latitude": new_lat, "altitude": new_alt, "atc": [], "atc_pic" : "-1", "depplanes": [], "arrplanes": []}
                 jsondata[0].append(new_data)
-    
+
                 #Add to tmp airport directory
                 tmp_airport_ids[arrival_icao] = arr_new_id
             else:
@@ -655,16 +655,16 @@ def update():
 
             #Add this plane to the airport, whether newly created or not
             jsondata[0][arr_new_id]["arrplanes"].append(pilot_counter)
-        
+
             #Get airline name (eg. BAW ==> British Airways)
             airline_name, airline_country, airline_callsign, airline_short, flight_num = decode_airline(curr_callsign)
-            
+
             #add plane to plane list
             tmp_pilot = {item: line[value] for item, value in plane_indices.items()}
             tmp_pilot["id"] = pilot_counter     #JSON id, tjat is reffrerd to by airports!
             tmp_pilot["depairport_id"] = dep_new_id
             tmp_pilot["arrairport_id"] = arr_new_id
-            
+
             tmp_pilot["airline_name"] = airline_name
             tmp_pilot["airline_country"] = airline_country
             tmp_pilot["airline_callsign"] = airline_callsign
@@ -675,7 +675,7 @@ def update():
             #TO--DO: WORKING!!!
             tmp_pilot["detailedroute"] = decode_route(line[23], (jsondata[0][dep_new_id]["latitude"], jsondata[0][dep_new_id]["longitude"]))
             jsondata[2].append(tmp_pilot)
-            
+
     #Add admin stuff to final json column
     jsondata[3].append({"time_updated": result[0][1], "number_of_records": len(result), "size_bytes": sys.getsizeof(jsondata)})
 
@@ -691,9 +691,9 @@ def update():
 
   #  memo = airports
     return jsonify(jsondata)
-    
-@app.route("/history")    
-def history():    
+
+@app.route("/history")
+def history():
     ''' This recieves a parameter (basically a JSON of either a plane or ATC), and returns an JSON to put with airport data '''
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
@@ -703,28 +703,28 @@ def history():
 
         #Arriving / departing
         jsondata = [[], []]
-        #THis is Airport, so show how many ground, taxxing, within 15 nm 
+        #THis is Airport, so show how many ground, taxxing, within 15 nm
         x = """SELECT * FROM 'onlines' WHERE "latest" = '1' AND type = 'PILOT'"""
         result = c.execute(x).fetchall()
-        
+
         for row in result:
             #If not arriving or departing from the given airport, then move on
             if not(j['data[icao]'][0] in [callsign_to_icao(row[18]), callsign_to_icao(row[16])] ): continue
-            
+
             #Calculate distance, speed, altitude
             dist = haversine(float(j['data[longitude]'][0]), float(j['data[latitude]'][0]), float(row[7]), float(row[6]))
             speed = row[13]
             airport_altitude = int(j['data[altitude]'][0])
             plane_altitude = row[12]
-            
+
             #create pilot dictionary to be appended
             tmp_pilot = {'callsign': row[2], 'cid': row[3], 'altitude': row[12], 'groundspeed': row[13], 'planned_aircraft': row[14], 'planned_tascruise': row[15], \
             'planned_depairport': row[16], 'planned_altitude': row[17], 'planned_destairport': row[18], 'planned_deptime': row[20], 'heading': row[24], \
             'airline_name': decode_airline(row[2])[0], 'airline_callsign': decode_airline(row[2])[2], 'airline_short': decode_airline(row[2])[3], 'airline_flightnum': decode_airline(row[2])[4], 'id':row[0]}
-            
+
             #Distance from airport
             tmp_pilot['distance_from_airport'] = int(dist)
-            
+
             #close by (<10), speed 0 (menaing parked), and on the ground (altitude same)
             if dist < 15 and speed == 0 and abs(airport_altitude - plane_altitude) < 50:
                 status = "In terminal"
@@ -744,24 +744,24 @@ def history():
             else:
                 status = "Enroute"
             tmp_pilot['status'] = status
-            
+
             #If arriving
             if j['data[icao]'][0] == callsign_to_icao(row[18]):
                 jsondata[0].append(tmp_pilot)
             elif j['data[icao]'][0] == callsign_to_icao(row[16]):
                 #departing aircraft
                 jsondata[1].append(tmp_pilot)
-        
+
         return jsonify(jsondata)
     elif j['type'][0] == "PLANE":
         # [distance from origin, distance to destination], [{time: altitude}], [{time: speed}]
         jsondata = []
-        
+
         #DO SQL search - TO--DO: limit this to one day hisotry only or something like that TO--DO: prevetnt database injections!
-        x = "SELECT * FROM 'onlines' WHERE cid = '%s' AND type = 'PILOT' AND ABS(time_updated - %s) < 50000 ORDER BY time_updated" % (j['data[cid]'][0], time.time())
+        x = "SELECT * FROM 'onlines' WHERE cid = '%s' AND type = 'PILOT' AND ABS(time_updated - %s) < 50000 ORDER BY time_updated" % (j['cid'][0], time.time())
         print(x)
         result = c.execute(x).fetchall()
-        
+
         #Do time delta for plotting
         orig_time = 0
         for row in result:
@@ -772,9 +772,9 @@ def history():
             jsondata.append([float(time_delta), row[12], row[13]])
 
         return jsonify(jsondata)
-        
-@app.route("/metar")    
-def metar():    
+
+@app.route("/metar")
+def metar():
     ''' This route returns JSON of requested METAR '''
     #Get the METAR ID'
     try:
@@ -785,7 +785,7 @@ def metar():
     return jsonify(ret)
 
 
-@app.route("/worstweather")    
+@app.route("/worstweather")
 def worstweather():
     '''Looks through currently online airports, and returns the worst weather '''
 
@@ -795,17 +795,17 @@ def worstweather():
     except KeyError:
         #log this; no METAR shouldnt be requested
         return jsonify(None)
-    
+
     ret = []
-    
+
     #Loop through airports and get METARs on them, calculate wind, visibility, precipitation, temperature SCORES
     for airport in worst_weather_airports:
         #No airport given!
         if not(airport): continue
-    
-        #get METAR 
+
+        #get METAR
         curr_metar = get_METAR(airport)
-        
+
         #Check to see if nothing was returned
         if curr_metar is None:
             continue
@@ -818,7 +818,7 @@ def worstweather():
             #No wind gust data exist (it is None)
             pass
         curr_wind = round(curr_wind, 1)
-        
+
         #Calculate visibility score
         if 'meter' in curr_metar['visibility']:
             #convert to feet; in metric units
@@ -846,7 +846,7 @@ def worstweather():
             curr_temp = round((curr_metar['temp_value'] * (-5 / 20)) + 5, 1)
         elif 25 < curr_metar['temp_value'] <= 40:
             curr_temp = round((curr_metar['temp_value'] * (5 / 15)) - 8.33333, 1)
-            
+
         #Calculate precipitation score
         curr_weather = 0
         curr_weather_remark = ""
@@ -863,4 +863,3 @@ def worstweather():
             'precipitation_score': curr_weather, 'precipitation': curr_weather_remark, 'temperature_score': curr_temp, 'temperature': curr_metar['temp'], \
             'total_score': round(curr_wind + curr_visi + curr_weather + curr_temp, 1)})
     return jsonify(ret)
-        

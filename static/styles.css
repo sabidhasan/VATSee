@@ -12,15 +12,17 @@ body {
 
 /*    HEADERS    */
 h4 {
-    font-weight: 300; /*bold*/
+    font-weight: bold; /*bold*/
     font-size:170%;
     margin-top:20px;
 }
 h2 {
-    font-weight: 300; /*bold*/
+    font-weight: bold; /*bold*/
     text-align: center;
 }
-
+table {
+    width: 100%;
+}
 
 #topbar {
     float:left;
@@ -57,7 +59,7 @@ h2 {
 }
 #info-bar span {
     float: right;
-    font-weight: 300; /*bold*/
+    font-weight: bold; /*bold*/
     font-size: 110%;
 }
 #right {
@@ -139,7 +141,7 @@ h2 {
     clear: both; /*some p's have no text in them, so they float left of the spans screws things up*/
 }
 #selectedplaneinfo span, #stats span {
-    font-weight: 300; /*bold*/
+    font-weight: bold; /*bold*/
     float:left;
 }
 #selectedprogbar {
@@ -172,7 +174,7 @@ h2 {
 
     display: block;
     font-size: 165%;
-    font-weight: 300; /*bold*/
+    font-weight: bold; /*bold*/
 
 }
 .deparrname {
@@ -196,7 +198,7 @@ h2 {
 }
 
 #selectedarrivals thead, #selecteddepartures thead {
-    font-weight: 300; /*bold*/
+    font-weight: bold; /*bold*/
 }
 #selectedarrivals tr:nth-child(odd), #selecteddepartures tr:nth-child(odd) {
     background-color: lightgray;
@@ -244,7 +246,7 @@ h2 {
 }
 #tablefilterpilot tbody, #tablefilterATC tbody {
     font-size:80%;
-    font-weight: 300;
+    font-weight: bold;
 }
 #tablefilterpilot thead tr, #tablefilterATC thead tr {
     background-color:navy;
@@ -272,7 +274,7 @@ h2 {
 }
 h5 {
     font-size: 115%;
-    font-weight: 300; /*bold*/
+    font-weight: bold; /*bold*/
 }
 /*METAR page styling*/
 #metardetails {
@@ -280,7 +282,7 @@ h5 {
 }
 #metarresults p{
     font-size: 125%;
-    font-weight: 300; /*bold*/
+    font-weight: bold; /*bold*/
 }
 #metarresults table{
     width: 100%;
@@ -296,7 +298,7 @@ h5 {
     float: right;
     display: inline;
     font-size: 300%;
-    font-weight: 300; /*bold*/
+    font-weight: bold; /*bold*/
     margin: 0;
     background-color: lightseagreen;
     border-radius: 15%;
@@ -360,19 +362,26 @@ h5 {
     visibility: visible;
 }
 .planningvertical {
-    transform: rotate(270deg);
+    transform: rotate(270deg) translate(15%, 0px);
 }
 .planningred {
     background-color: red;
+    border-bottom: 15px solid white;
+    border-top: 15px solid white;
+    border-left: 5px solid white;
+    border-right: 5px solid white;
 }
 .planninggreen {
-    background-color: green;
+    text-align: center;
 }
 #planningrangebar, #planningrangevalue {
     width:80%;
     margin: 0 auto;
 }
-
+#planningplanes {
+    margin-left: 11%;
+    width: 80%;
+}
 
 
 

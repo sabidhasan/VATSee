@@ -312,25 +312,32 @@
                 <h2>Options</h2>
                 <p><input type="checkbox" id="showplanes" name="showplanes" value="Show Planes" checked> Show Planes on Map</p>
                 <p><input type="checkbox" id="autoupdate" name="autoupdate" value="Auto Update" checked> Auto-update from server every minute</p>
+                <p><input type="checkbox" id="hidestopped" name="hidestopped" value="Hide Stopped" checked> Hide non-moving planes</p>
             </div>
 
             <div id="planning" class="content-div">
                 <h2>Planning</h2>
-                    <h5>Specify duration</h5>
+                <p>Specify a duration and type of aircraft, and this tool will find routes you can fly</p>
+                    <h5>Duration</h5>
                     <input type="range" id = "planningrangebar" min="30" max="1050" value="0" step="30">
                     <p id="planningrangevalue">30 minutes or lower</p>
 
-                    <p>Specify plane type</p>
+                    <h5>Plane Type</h5>
                     <select id="planningplanes">
                         <!-- Options for planes types; populated in javascript -->
                     </select>
 
+                    <h5>Results</h5>
+                    <p>The following flights match</p>
                     <!-- This will hold results for planning -->
-                    <table id="planningresults"></p>
+                    <table id="planningresults"></table>
 
-                    <br />It looks at current ATC'd airports' arrivals and departures with given equipment and duration.
-                    <br />Ranks those routes, based on how muhc ATC there is with SCORE. REturn sorted list
-                    <br />Real world route (from FA), callsign, number, duration, avg delay, gate, etc. Links to file flightplan, links to liveries.
+                    <a name="realworldflights"></a>
+                    <h5>Real World Flights</h5>
+                    <p>Select a flight above to see corresponding real world flights</p>
+
+                    <h5>SIMBrief</h5>
+                    <p>You must have a SIMBrief account to use this feature</p>
             </div>
 
 

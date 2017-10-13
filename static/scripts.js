@@ -253,6 +253,13 @@ $(document).ready(function() {
         }
     });
 
+    $("hidestopped").on("click", function() {
+       for (var i = 0; i < planes.length; i++) {
+           //see if plane is stopped; if so, hide it
+
+       }
+    });
+
     //METAR textbox
     $("#metarquery").keyup(function(event){
         if(event.keyCode == 13){
@@ -288,7 +295,7 @@ $(document).ready(function() {
 
     //populate plane options in planning tab
     var planesWritten = [];
-    var tmp = '';
+    var tmp = '<option value=\'None\'></option>';
     for (var plane in planeOptions) {
 
         if (planesWritten.indexOf(planeOptions[plane][0]) === -1) {
@@ -939,7 +946,7 @@ function showSelectedInfo() {
                 //TO--DO : add status (similar to backend) Status
 
                 //History - ping the server
-                $.getJSON(Flask.url_for("history"), {'cid' : latest_json[2][j]['cid']})
+                $.getJSON(Flask.url_for("history"), {'cid' : latest_json[2][j]['cid'], 'type': 'PLANE'})
                     .done(function(data, textStatus, jqXHR) {
                         google.charts.setOnLoadCallback(function() {
                             //To hold the data
@@ -1098,7 +1105,7 @@ function update() {
             //check to see if update needed
             if (data[3][0]["time_updated"] - update_time === 0) {
                 //No change
-//                console.log("No change detected!")
+                console.log("No change detected!")
                 return null;
             }
 
@@ -1387,8 +1394,8 @@ function planFlight() {
         if (latest_json[0][i]['atc'].length !== 0) {
             //Add object to active airports
             activeAirports.push({icao: latest_json[0][i]['icao'], lat: latest_json[0][i]['latitude'],
-            lon: latest_json[0][i]['longitude'], id: latest_json[0][i]['id'], atcLength: latest_json[0][i]['atc'].length,
-            name: latest_json[0][i]['name']});
+                lon: latest_json[0][i]['longitude'], id: latest_json[0][i]['id'], atcLength: latest_json[0][i]['atc'].length,
+                name: latest_json[0][i]['name']});
         }
     }
 
@@ -1407,15 +1414,15 @@ function planFlight() {
                 map: null,
                 zIndex: 999
             });
-            if (tmpDis < 15) { continue; }
+            if (tmpDis < 20) { continue; }
 
             planningRoutes.push({text: tmpTxt, dist: tmpDis, names: tmpNames, marker: tmpMarker});
 
             //Loop through all planes
             for (var plane in planeOptions) {
-                var routeTime = (tmpDis / (planeOptions[plane][2] * 1.852) * 60) + 50;
-                console.log(routeTime);
-                if (planeOptions[plane][3] > (tmpDis * 0.5399) && (routeTime < $('#planningrangebar').val())) {
+                //Round the route time to nearest 10
+                var routeTime = Math.floor(((tmpDis / (planeOptions[plane][2] * 1.852) * 60) + 50) / 10) * 10;
+                if ((planeOptions[plane][3] >= (tmpDis * 0.5399)) && (routeTime <= $('#planningrangebar').val())) {
                     planeOptions[plane][4].push(planningRoutes.length - 1);
                 }
             }
@@ -1423,20 +1430,15 @@ function planFlight() {
     }
 
     //Write planes (the header row of the planning table)
-    $('#planningresults').html('');
-    var tmp = '<thead><tr><td>&nbsp;&nbsp;&nbsp;</td>';
+    //$('#planningresults').html('');
+    var tmp = '<form action=\'\'><thead><tr><td>&nbsp;&nbsp;&nbsp;</td>';
     for (var plane in planeOptions) {
-        if (planeOptions[plane][0] !== $("#planningplanes").val() || planeOptions[plane][4].length === 0) {
+        if (planeOptions[plane][0] !== $("#planningplanes").val() || planeOptions[plane][4].length === 0 || $("#planningplanes").val() === "None") {
             continue;
         }
         tmp += '<td class=\'planningvertical\'>' + plane + '</td>';
     }
     tmp += '</tr></thead><tbody>';
-
-    //Sort the body
-    planningRoutes.sort(function(a, b) {
-        return (a['dist'] - b['dist']);
-    });
 
     //Loop through routes, and write planes as needed - this isthe body of the table
     for (var i = 0; i < planningRoutes.length; i++) {
@@ -1450,7 +1452,7 @@ function planFlight() {
             }
 
             if (planeOptions[plane][4].indexOf(i) !== -1) {
-                rows += '<td class = \'planninggreen\'>&nbsp;</td>';
+                rows += '<td class = \'planninggreen\'><input type=\'radio\' class = \'blah\' name=\'planningtable\' value=\'' + i + '\'></td>';
                 writePlane = true;
             } else {
                 rows += '<td class = \'planningred\'>&nbsp;</td>';
@@ -1464,9 +1466,9 @@ function planFlight() {
         }
     }
 
-    tmp += '</tbody>';
+    tmp += '</tbody></form>';
 
-    $('#planningresults').append(tmp);
+    $('#planningresults').html(tmp);
 
     $('.planningroutetext').hover(function() {
         //Show the route, and zoom the map in
@@ -1484,10 +1486,18 @@ function planFlight() {
             //can't do polyline.getPath()[i] because it's a MVCArray
             tmpBounds.extend(e);
         });
+
+        //Fit the bounds
         map.fitBounds(tmpBounds);
 
-        //Zoom out a bit from fitBounds
-        map.setZoom(map.getZoom() - 2);
+        //Zoom out, depending on distance (for nice view)
+        if (planningRoutes[parseInt($(this).find('span')[0]['innerHTML'])]['dist'] < 1500) {
+            map.setZoom(map.getZoom() - 3);
+        } else if (planningRoutes[parseInt($(this).find('span')[0]['innerHTML'])]['dist'] < 3000) {
+            map.setZoom(map.getZoom() - 2);
+        } else {
+            map.setZoom(map.getZoom() - 1);
+        }
     }, function() {
         //Hide the marker
         planningRoutes[parseInt($(this).find('span')[0]['innerHTML'])]['marker'].setMap(null);
@@ -1499,6 +1509,12 @@ function planFlight() {
         map.setCenter(planningOldZoom['center']);
         map.setZoom(planningOldZoom['zoom']);
     });
+
+        //When a route is picked on planmning screen
+    $(".planninggreen input").on("click", function() {
+       $('html').scrollTop();
+    });
+
 }
 
 function updateStats() {
@@ -1532,5 +1548,4 @@ function updateStats() {
     updateText += "<p><span>Total Pilots Online</span> " + latest_json[2].length + "</p>";
 
     $('#stats').html(updateText);
-
 }
