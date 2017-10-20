@@ -1,21 +1,16 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta -->
     <meta charset="utf-8" />
     <meta content="initial-scale=1, width=device-width" name="viewport" />
 
-    <!-- For SIMBRIEF API - experimental -->
-    <script type="text/javascript" src="simbrief.apiv1.js"></script>
-
     <!-- http://jquery.com/ -->
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
     <!-- app's own CSS -->
     <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
@@ -37,30 +32,35 @@
 
 <body>
     <!-- top log in and logo bar -->
-    <div id="topbar"><img src = "http://i.imgur.com/w09teHe.png"/><p>See inside VATSIM</p></div>
+    <div class="headerfooter">
+        <img src="http://i.imgur.com/w09teHe.png"/>
+        <p>See inside VATSIM</p>
+    </div>
 
     <!-- invisible hover window -->
-    <div id="hoverwindow">
-        <div id="hoverinfo"></div>
+    <div class="hoverwindow">
+        <div class="hoverinfo"></div>
     </div>
 
     <!-- holds main content -->
-    <div class="container-fluid">
-        <div id = "info-bar"><span id = "time"></span></div>
-        <!-- https://developers.google.com/maps/documentation/javascript/tutorial -->
-        <div id="map-canvas"></div>
+    <div class="container">
+        <div class="left">
+            <div class="info-bar">
+                <span class="time text-bold"></span>
+            </div>
+            <!-- https://developers.google.com/maps/documentation/javascript/tutorial -->
+            <div id="map-canvas"></div>
+        </div>
 
         <!-- holds right details pane -->
-        <div id="right">
-            <div id="navigation-bar">
-                <ul class="nav nav-pills nav-justified" role="tablist">
+        <div class="right">
+            <div class="navigation-bar">
+                <ul class="navigation-bar-list">
                     <li class="content-buttons" id="home" class="active"><a href="#">Home</a></li>
                     <li class="content-buttons" id="online"><a href="#">Online</a></li>
                     <li class="content-buttons" id="planning"><a href="#">Plan</a></li>
                     <li class="content-buttons" id="wx"><a href="#">Wx</a></li>
                     <li class="content-buttons" id="preferences"><a href="#">Options</a></li>
-                    <!--<li class="content-buttons" id="events"><a href="#">Events</a></li>-->
-                    <!--<li class="content-buttons" id="enroute"><a href="#">Enroute</a></li>-->
                 </ul>
             </div>
 

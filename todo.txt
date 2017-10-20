@@ -4,12 +4,6 @@
       Flight Planning                               5 hr
         CSS clean
 
-        Convert SIMBRIEF from PHP to Python
-                See Desktop for API
-                http://www.simbrief.com/forum/viewforum.php?f=6
-
-        Add Sim breif support (generate PDF)
-
       Route draw                                    3 hr
         Far away points, no connect to planes
 
@@ -17,14 +11,16 @@
         Show arrivals only / departures only
         Airborne only/ground/all flights
 
+line 222-224 should be reinstated
+
+
 *  Nice to Have Features (hard):
         1   Make the backend into Class
             Call class methods in the "/Update"
 
         2   Make front end into class
             All planes/airports/centers are objects, all children of parent that holds latest_json, etc.
-
-        3   Improve Performance
+            Improve Performance
             Searching through latest_json array      should not be necessary for drawing airport/airplane lines (on hover)
 
         4   Tab: Events

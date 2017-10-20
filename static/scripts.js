@@ -219,9 +219,9 @@ $(document).ready(function() {
     });
 
     //Make sure the map stays put when scrolling page
-    $(window).scroll(function() {
-       $("#map-canvas").css('top', $(window).scrollTop() + 65 + 'px');
-    });
+    // $(window).scroll(function() {
+    //   $("#map-canvas").css('top', $(window).scrollTop() + 65 + 'px');
+    // });
 
     //Charting function for plotting speed and altiitude vs time
     google.charts.load('current', {packages: ['corechart', 'line']});
@@ -310,6 +310,7 @@ $(document).on('mousemove', function(event) {
 
 });
 
+
 //Called for each airplane. Throws up airplanes on the map
 function addPlane(data) {
     //create latitude and longitude
@@ -335,14 +336,7 @@ function addPlane(data) {
 
     m.addListener('mouseover', function() {
         //only if no airport is clicked upon, then show the hover for this
-            $("#hoverinfo").html(prettifyPlaneData(data));
-            $("#hoverwindow").css({
-                "display": "inline",
-                "top": mouseY + 5,
-                "left": mouseX + 10
-            });
-
-
+        showHoverWindow(prettifyPlaneData(data));
 
         //Get origin and destination locations
         for (var j = 0; j < latest_json[0].length; j++) {
@@ -407,9 +401,7 @@ function addPlane(data) {
     m.addListener('mouseout', function() {
         //if nothing has been clicked on, then hide the info window (ALSO SEE CONFIGURE FUNCTION FOR CLICK EVENT LISTERNERS!)
         flightPath.setMap(null);
-
-       // if (selected_plane === -1 && selected_airport === -1) {
-            $("#hoverwindow").css("display", "none");
+        $(".hoverwindow").css("display", "none");
     });
     //add current marker to airports array
     planes.push(m);
@@ -462,17 +454,11 @@ function addATCMarker(type, latitude, longitude, airportID, icao, name) {
     });
 
     Circle.addListener('mousemove', function() {
-        $("#hoverinfo").html(prettifyAirportData({'icao': icao, 'name': name}));
-        $("#hoverwindow").css({
-            "display": "inline",
-            "top": mouseY + 5,
-            "left": mouseX + 10
-        });
-
+        showHoverWindow(prettifyAirportData({'icao': icao, 'name': name}));
     });
 
     Circle.addListener('mouseout', function() {
-       $("#hoverwindow").css("display", "none");
+       $(".hoverwindow").css("display", "none");
     });
 
     airportCircles.push(Circle);
@@ -516,16 +502,11 @@ function addCenter(data) {
     });
 
     m.addListener('mousemove', function() {
-        $("#hoverinfo").html(prettifyCenterData(data));
-        $("#hoverwindow").css({
-            "display": "inline",
-            "top": mouseY + 5,
-            "left": mouseX + 10
-        });
+        showHoverWindow(prettifyCenterData(data));
     });
 
     m.addListener('mouseout', function() {
-       $("#hoverwindow").css("display", "none");
+       $(".hoverwindow").css("display", "none");
     });
 
     m.setMap(map);
@@ -572,12 +553,7 @@ function addAirport(data) {
 
     m.addListener('mouseover', function() {
     //only if no airport is clicked upon, then show the hover for this
-        $("#hoverinfo").html(prettifyAirportData(data));
-        $("#hoverwindow").css({
-            "display": "inline",
-            "top": mouseY + 5,
-            "left": mouseX + 10
-        });
+        showHoverWindow(prettifyAirportData(data));
 
         //Draw lines
         var coord, flightPlanCoordinates;
@@ -645,7 +621,7 @@ function addAirport(data) {
 
     m.addListener('mouseout', function() {
         //if nothing has been clicked on, then hide the info window (ALSO SEE CONFIGURE FUNCTION FOR CLICK EVENT LISTERNERS!)
-        $("#hoverwindow").css("display", "none");
+        $(".hoverwindow").css("display", "none");
 
         //Hide all airport lines
         for (var i = 0; i < airportLines.length; i++) {
@@ -1039,10 +1015,16 @@ function removeMarkers() {
 }
 
 
-
+function showHoverWindow(data) {
+    $(".hoverinfo").html(data);
+    $(".hoverwindow").css({
+        "display": "inline",
+        "top": mouseY + 5,
+        "left": mouseX + 10
+    });
+}
 
 function hideHoverWindow() {
-    //$("#hoverwindow").css("display", "none");
     if (selected_airport !== -1 || selected_plane !== -1 || selected_center !== -1) {
         //something is selected already, so let's reset the information pane
         $("#selectedairport").css("display", "none");
@@ -1228,7 +1210,7 @@ setInterval(function(){
     var hrs = d.getUTCHours() > 9 ? d.getUTCHours() : '0' + d.getUTCHours();
     var min = d.getUTCMinutes() > 9 ? d.getUTCMinutes() : '0' + d.getUTCMinutes();
     var sec = d.getUTCSeconds() > 9 ? d.getUTCSeconds() : '0' + d.getUTCSeconds();
-    $("#time").text(hrs + ':' + min + ":" + sec + ' Z ');
+    $(".time").text(hrs + ':' + min + ":" + sec + ' Z ');
 
 }, 1000);
 

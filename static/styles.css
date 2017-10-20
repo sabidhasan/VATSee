@@ -1,0 +1,92 @@
+/* GENERAL STYLES */
+body, p {
+    font-family: 'Helvetica Neue',Tahoma,Arial,'Helvetica',sans-serif;
+    margin: 0;
+}
+.text-bold {
+    font-weight: bold;
+}
+
+
+#map-canvas {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.headerfooter {
+    width: 100%;
+    background-color:pink;
+}
+.container {
+    margin-top: 0.5%;
+    width: 100%;
+}
+.hoverwindow {
+    position: absolute;
+    background-color: white;
+    opacity: 0.85;
+    border: 1px solid black;
+    border-radius: 4px;
+    display: none;
+    text-align: center;
+    font-size: 110%;
+    width: 150px;
+}
+/*.hoverwindow h4 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.hoverwindow img {
+    width: 10%;
+}*/
+.info-bar {
+    background-color: salmon;
+    margin: 0;
+    height: 1.5em;
+    /*position:relative;*/
+    /*top: 65px;*/
+    border-radius: 2px;
+}
+.time {
+    float: right;
+}
+.left {
+    margin-right: 0.5%;
+    float: left;
+    width: 70%;
+}
+.right {
+    float: right;
+    width: 29%;
+}
+.navigation-bar {
+
+}
+.navigation-bar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.content-buttons {
+    float: left;
+    padding: 3%;
+    margin: 0 2% 0 2%;
+    background-color: pink;
+    border-radius: 5px;
+    width: 8%;
+}
+.content-buttons a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+.active {
+    background-color: red;
+}
+.content-div {
+    display: none;
+    /*width: 100%;*/
+    /*margin: 1% auto;*/
+}
