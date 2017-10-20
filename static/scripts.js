@@ -253,13 +253,6 @@ $(document).ready(function() {
         }
     });
 
-    $("hidestopped").on("click", function() {
-       for (var i = 0; i < planes.length; i++) {
-           //see if plane is stopped; if so, hide it
-
-       }
-    });
-
     //METAR textbox
     $("#metarquery").keyup(function(event){
         if(event.keyCode == 13){
@@ -1379,8 +1372,11 @@ function updateWorstWeather() {
 
 function planFlight() {
     //Looks at current possible routes (all online airports) and determines which planes can fly those routes!
+    $("#planningplane").css("display","none");
+    //Reset the Selected Plane text (because we are redrawing the table with options, and nothing will be selected after this functin)
+    //$("#planningselectedflight").html("");
 
-    //temporary variable with all airports
+    //temporary variable with all active airports (with ATC)
     var activeAirports = [];
     //This array will store objects of text and google map polylines (used for hovering over routes)
     //[{text: 'KLGA-KDCA', dist: 1000, marker: map_object}, ...]
@@ -1393,9 +1389,7 @@ function planFlight() {
         //if the current airport is active (has ATC available)
         if (latest_json[0][i]['atc'].length !== 0) {
             //Add object to active airports
-            activeAirports.push({icao: latest_json[0][i]['icao'], lat: latest_json[0][i]['latitude'],
-                lon: latest_json[0][i]['longitude'], id: latest_json[0][i]['id'], atcLength: latest_json[0][i]['atc'].length,
-                name: latest_json[0][i]['name']});
+            activeAirports.push(latest_json[0][i]);
         }
     }
 
@@ -1404,9 +1398,9 @@ function planFlight() {
             //Add route to array
             var tmpTxt = activeAirports[i]['icao'] + '-' + activeAirports[j]['icao'];
             var tmpNames = activeAirports[i]['name'] + '</br>to</br>' + activeAirports[j]['name'];
-            var tmpDis = distance(activeAirports[i]['lon'], activeAirports[i]['lat'], activeAirports[j]['lon'], activeAirports[j]['lat']);
+            var tmpDis = distance(activeAirports[i]['longitude'], activeAirports[i]['latitude'], activeAirports[j]['longitude'], activeAirports[j]['latitude']);
             var tmpMarker = new google.maps.Polyline({
-                path: [{lat: activeAirports[i]['lat'], lng: activeAirports[i]['lon']}, {lat: activeAirports[j]['lat'], lng: activeAirports[j]['lon']}],
+                path: [{lat: activeAirports[i]['latitude'], lng: activeAirports[i]['longitude']}, {lat: activeAirports[j]['latitude'], lng: activeAirports[j]['longitude']}],
                 geodesic: false,
                 strokeColor: '#0000FF',
                 strokeOpacity: 1.0,
@@ -1452,7 +1446,7 @@ function planFlight() {
             }
 
             if (planeOptions[plane][4].indexOf(i) !== -1) {
-                rows += '<td class = \'planninggreen\'><input type=\'radio\' class = \'blah\' name=\'planningtable\' value=\'' + i + '\'></td>';
+                rows += '<td class = \'planninggreen\'><input type=\'radio\' class = \'blah\' name=\'planningtable\' value=\'' + i + ';' + plane + '\'></td>';
                 writePlane = true;
             } else {
                 rows += '<td class = \'planningred\'>&nbsp;</td>';
@@ -1510,15 +1504,39 @@ function planFlight() {
         map.setZoom(planningOldZoom['zoom']);
     });
 
+
         //When a route is picked on planmning screen
     $(".planninggreen input").on("click", function() {
-       $('html').scrollTop();
+        //.get(0) gets the JavaScript DOM element rather than jQuery object
+        $("#planningplane").css("display","block");
+        $("#planningselectedflight").get(0).scrollIntoView();
+
+        $("#planningplaneleft .deparricao").html(planningRoutes[ parseInt( $(this).val().split(";")[0] ) ]['text'].split("-")[0]);
+        $("#planningplaneleft .deparrname").html(planningRoutes[ parseInt( $(this).val().split(";")[0] )   ]['names'].split("to")[0]);
+
+        $("#planningplaneright .deparricao").html(planningRoutes[ parseInt( $(this).val().split(";")[0] ) ]['text'].split('-')[1]);
+        $("#planningplaneright .deparrname").html(planningRoutes[ parseInt( $(this).val().split(";")[0] )   ]['names'].split("to")[1]);
+
+        tmp = "<strong>Distance</strong>: " + parseInt(planningRoutes[parseInt($(this).val().split(";")[0])]['dist']) + ' km';
+        tmp += '<br><strong>Plane Chosen</strong>: ' + planeOptions[$(this).val().split(";")[1]][1];
+        tmp += '<br><strong>Range for Plane</strong>: ~' + parseInt(planeOptions[$(this).val().split(";")[1]][3] / 0.52) + ' km';
+        $("#planningplane p").html(tmp);
     });
 
 }
+function clearPlanning() {
+    //Reset dropdown for planning planes
+    document.getElementById("planningplanes").selectedIndex = 0;
+    //Reset planning range bar
+    $("#planningrangebar").val(30);
+    //Force change event (so value can get updated)
+    $("#planningrangebar").trigger("change");
+    //Plan "new flight"
+    planFlight();
 
+}
 function updateStats() {
-    //This updates the STATS id paragraph with number of users online, etc.
+    //This updates the STATS paragraph on Main tab with number of users online, etc.
     var updateText = "";
 
     var untowered = 0;

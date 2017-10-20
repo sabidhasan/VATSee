@@ -4,9 +4,6 @@
       Flight Planning                               5 hr
         CSS clean
 
-        FlightAWARE Incorporation for Real World Flights
-                570878da54d13e807d091abf1b5bfd086245605d API KEY
-
         Convert SIMBRIEF from PHP to Python
                 See Desktop for API
                 http://www.simbrief.com/forum/viewforum.php?f=6
