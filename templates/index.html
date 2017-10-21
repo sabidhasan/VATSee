@@ -199,8 +199,8 @@
                     <img class = "floatright showHideATC hidden" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH4QgBFSgrcgx4UgAAAelJREFUSMe9lj9PFFEUxX/nMLIUWEK5rIUJpbGU0qU04UNgvRWR77CVsTQaSivRGPErUGBioZWNCXZSyMY1xhDHgju782bfhDUgL3nJ5OXc33l/7n1vINOEEe4I3xMeCr8XHgmX0UcxNgxNRxhYz7Aa4Bi7AwyAB8AS8AX4DHwL6QpwG+gBv4A3wGPgA1CW/Gmd9aLwtvBX4VPh58J94RXhoqYtYqwfmtOI2Q5GFn5DeFd4LHwofD9AtLWIK0J7GLG7wUpEhPtY+K1wrxq/qNXiexE7Fn44iY+Pu8LHMYu54VXz1ORWMI6DSbXve8LfY0//CZ5ZST9Ye8KLCG8Inwg/u2jP5zQpgnUivGFgK1LxBXBWpkLPcciuJlaeD58FawnYQvhI+KPwam2Zy8JPhAfZtCNJ60Fol2vxq8KfhI+IqnxVzaJmsC/8U3gnSTuStN4JzX7DoBB+LTwiSv+pWEC4nhFd4XeRdhOTBnwcmm4au8A50+WMQSPtciat8OnqUoNkizK5XTd5FD0Lb2TSZIuSQ24poK7wgfDv6Ac5eM0gOeSh8A/hTQWyxWRN+GX0tRzcqNJuBnM4V6HVTG5Gn4G3Fdq1XBWXvuwaN+rMZfd/r+tGZV79g9MQX/mTeX2P/rStX+K3pTND+wvkuZOwL8fkhgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wOC0wMVQyMTo0MDo0My0wNDowMNjR4xwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDgtMDFUMjE6NDA6NDMtMDQ6MDCpjFugAAAAAElFTkSuQmCC"/>
                 </h1>
                 <!-- content tables -->
-                <table class="table-white text-smaller text-bold" id="tablefilterATC">
-                    <thead class="table-white-head">
+                <table class="table-white text-smaller" id="tablefilterATC">
+                    <thead class="table-white-head text-bold">
                         <tr>
                             <td class="table-white-td">Name</td>
                             <td class="table-white-td">Callsign</td>
@@ -211,22 +211,21 @@
                     <tbody></tbody>
                 </table>
 
-                <h4>Currently Online Pilots
-                    <img class = "showHidePilot" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH4QgBFSos3l6PcwAAAf5JREFUSMe9lj9PVFEQxX9zWHYpsCHBUtZEE0pDKaVLacKHwNrKiJ9hKysLg8HOTo0Rv8IWmFhog42JVGghG5cYIDyLd3b3vj8blohMMsnbeXPOuW/unbkLFWsRiECtQHcDdQN9DNQPlNn7jnWd0woELFfYovhDw9gd4CFwH5gDvgFfgR9OXQRuA23gD/AOeAp8ArKMM2qURKBmoI1A+4EOA70I1Am0GKiR5DYc6zjn0JgNc9SSzwbaDDQI1At0z0RMMuMazu0Zu2muQhKBHjjhfaD2MH6eJfi2sQN/SY73w0qg717F1OQTRHrmWhkKNANtB/rlml6IvEakY67tQE0CrQb6GWhrUs01Bl+zo5q8ZE+2zLkqYN1H8RVwGmQVckeWgJf2pczvigIZwKm55oB1Au0G+hLoenn1ycpvBNoJdGzfcaxGRJjrc6Bd3JVvy+UpkX/w6XhsHzhWEUnK9CZQH7f+82BmtLkTyB/5fM/6uVYkx82QcyqrCJxDnjZlrUidQKFE9vlArwMdpeSlMgxFjpw7n+BHJWoAe8AtYAE4SPZrH3gCPANO0gGWcUagE/IBd2x8aguO7eGR+zvQWr7Kwio0xSzS+ICMsGvm7E7VaBfs5kKjXcmoKA+7m5NGwRTktcPu/47r0rG7/AunlHzpV+bVXfpjW/6Hvy1V+wsvE5xVmVMGWAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wOC0wMVQyMTo0Mjo0NC0wNDowMBmDDa8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDgtMDFUMjE6NDI6NDQtMDQ6MDBo3rUTAAAAAElFTkSuQmCC"/>
-                    <img id = "showHidePilothidden" class = "showHidePilot" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH4QgBFSgrcgx4UgAAAelJREFUSMe9lj9PFFEUxX/nMLIUWEK5rIUJpbGU0qU04UNgvRWR77CVsTQaSivRGPErUGBioZWNCXZSyMY1xhDHgju782bfhDUgL3nJ5OXc33l/7n1vINOEEe4I3xMeCr8XHgmX0UcxNgxNRxhYz7Aa4Bi7AwyAB8AS8AX4DHwL6QpwG+gBv4A3wGPgA1CW/Gmd9aLwtvBX4VPh58J94RXhoqYtYqwfmtOI2Q5GFn5DeFd4LHwofD9AtLWIK0J7GLG7wUpEhPtY+K1wrxq/qNXiexE7Fn44iY+Pu8LHMYu54VXz1ORWMI6DSbXve8LfY0//CZ5ZST9Ye8KLCG8Inwg/u2jP5zQpgnUivGFgK1LxBXBWpkLPcciuJlaeD58FawnYQvhI+KPwam2Zy8JPhAfZtCNJ60Fol2vxq8KfhI+IqnxVzaJmsC/8U3gnSTuStN4JzX7DoBB+LTwiSv+pWEC4nhFd4XeRdhOTBnwcmm4au8A50+WMQSPtciat8OnqUoNkizK5XTd5FD0Lb2TSZIuSQ24poK7wgfDv6Ac5eM0gOeSh8A/hTQWyxWRN+GX0tRzcqNJuBnM4V6HVTG5Gn4G3Fdq1XBWXvuwaN+rMZfd/r+tGZV79g9MQX/mTeX2P/rStX+K3pTND+wvkuZOwL8fkhgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wOC0wMVQyMTo0MDo0My0wNDowMNjR4xwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDgtMDFUMjE6NDA6NDMtMDQ6MDCpjFugAAAAAElFTkSuQmCC"/>
-                </h4>
-                <table id="tablefilterpilot">
-                    <thead>
+                <h1 class="text-larger">Currently Online Pilots
+                    <img class = "floatright showHideATC" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH4QgBFSos3l6PcwAAAf5JREFUSMe9lj9PVFEQxX9zWHYpsCHBUtZEE0pDKaVLacKHwNrKiJ9hKysLg8HOTo0Rv8IWmFhog42JVGghG5cYIDyLd3b3vj8blohMMsnbeXPOuW/unbkLFWsRiECtQHcDdQN9DNQPlNn7jnWd0woELFfYovhDw9gd4CFwH5gDvgFfgR9OXQRuA23gD/AOeAp8ArKMM2qURKBmoI1A+4EOA70I1Am0GKiR5DYc6zjn0JgNc9SSzwbaDDQI1At0z0RMMuMazu0Zu2muQhKBHjjhfaD2MH6eJfi2sQN/SY73w0qg717F1OQTRHrmWhkKNANtB/rlml6IvEakY67tQE0CrQb6GWhrUs01Bl+zo5q8ZE+2zLkqYN1H8RVwGmQVckeWgJf2pczvigIZwKm55oB1Au0G+hLoenn1ycpvBNoJdGzfcaxGRJjrc6Bd3JVvy+UpkX/w6XhsHzhWEUnK9CZQH7f+82BmtLkTyB/5fM/6uVYkx82QcyqrCJxDnjZlrUidQKFE9vlArwMdpeSlMgxFjpw7n+BHJWoAe8AtYAE4SPZrH3gCPANO0gGWcUagE/IBd2x8aguO7eGR+zvQWr7Kwio0xSzS+ICMsGvm7E7VaBfs5kKjXcmoKA+7m5NGwRTktcPu/47r0rG7/AunlHzpV+bVXfpjW/6Hvy1V+wsvE5xVmVMGWAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wOC0wMVQyMTo0Mjo0NC0wNDowMBmDDa8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDgtMDFUMjE6NDI6NDQtMDQ6MDBo3rUTAAAAAElFTkSuQmCC"/>
+                    <img class = "floatright showHideATC hidden" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH4QgBFSgrcgx4UgAAAelJREFUSMe9lj9PFFEUxX/nMLIUWEK5rIUJpbGU0qU04UNgvRWR77CVsTQaSivRGPErUGBioZWNCXZSyMY1xhDHgju782bfhDUgL3nJ5OXc33l/7n1vINOEEe4I3xMeCr8XHgmX0UcxNgxNRxhYz7Aa4Bi7AwyAB8AS8AX4DHwL6QpwG+gBv4A3wGPgA1CW/Gmd9aLwtvBX4VPh58J94RXhoqYtYqwfmtOI2Q5GFn5DeFd4LHwofD9AtLWIK0J7GLG7wUpEhPtY+K1wrxq/qNXiexE7Fn44iY+Pu8LHMYu54VXz1ORWMI6DSbXve8LfY0//CZ5ZST9Ye8KLCG8Inwg/u2jP5zQpgnUivGFgK1LxBXBWpkLPcciuJlaeD58FawnYQvhI+KPwam2Zy8JPhAfZtCNJ60Fol2vxq8KfhI+IqnxVzaJmsC/8U3gnSTuStN4JzX7DoBB+LTwiSv+pWEC4nhFd4XeRdhOTBnwcmm4au8A50+WMQSPtciat8OnqUoNkizK5XTd5FD0Lb2TSZIuSQ24poK7wgfDv6Ac5eM0gOeSh8A/hTQWyxWRN+GX0tRzcqNJuBnM4V6HVTG5Gn4G3Fdq1XBWXvuwaN+rMZfd/r+tGZV79g9MQX/mTeX2P/rStX+K3pTND+wvkuZOwL8fkhgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wOC0wMVQyMTo0MDo0My0wNDowMNjR4xwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDgtMDFUMjE6NDA6NDMtMDQ6MDCpjFugAAAAAElFTkSuQmCC"/>
+                </h1>
+                <table class="table-white text-smaller" id="tablefilterpilot">
+                    <thead class="table-white-head text-bold">
                         <tr>
-                            <td>Callsign</td>
-                            <td>Name</td>
-                            <td>Dep</td>
-                            <td>Arr</td>
+                            <td class="table-white-td">Callsign</td>
+                            <td class="table-white-td">Name</td>
+                            <td class="table-white-td">Dep</td>
+                            <td class="table-white-td">Arr</td>
                         </tr>
                     </thead>
-                    <tbody class="text-bold text-smaller"></tbody>
+                    <tbody></tbody>
                 </table>
-
             </div>
 
 

@@ -1149,7 +1149,6 @@ function filterOnlines(filtertext) {
             //See if there is a match
                 if (col.innerHTML.toString().toLowerCase().indexOf(filtertext.toLowerCase()) !== -1) {
                     show = true;
-                    console.log('found a match  '  + col.innerHTML.toString().toLowerCase())
                 }
             }
             //Increment the counter if this row is being shown
@@ -1168,13 +1167,8 @@ function filterOnlines(filtertext) {
                     planes[parseInt(row.cells[0].innerHTML) - 1].setMap(null);
                 }
             }
+            //add hide to the row if needed
             row.className = (show === true ? "" : "hidden");
-
-            // if (show === true) {
-            //     row.className = "";//"onlinetableshow " + cssclass;
-            // } else {
-            //     row.className = "hidden"; //"onlinetablehide " + cssclass;
-            // }
        }
     });
 }
