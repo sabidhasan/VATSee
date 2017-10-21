@@ -3,15 +3,62 @@ body, p {
     font-family: 'Helvetica Neue',Tahoma,Arial,'Helvetica',sans-serif;
     margin: 0;
 }
+input[type=text] {
+    width: 90%;
+    padding: 1% 1% 1% 7%;
+    margin: 1% 0 1% 0;
+    border: 1px solid black;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAAHeEJUAAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUIwMDlCRDdCNzkxMTFFNkIxRkI4QTNFQzcxNDgyM0EiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUIwMDlCRDhCNzkxMTFFNkIxRkI4QTNFQzcxNDgyM0EiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxQjAwOUJENUI3OTExMUU2QjFGQjhBM0VDNzE0ODIzQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxQjAwOUJENkI3OTExMUU2QjFGQjhBM0VDNzE0ODIzQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpiTdMQAAAKvSURBVHjaYvj//z9DbW3tQxDN8O3bN0swg4HhPwOIwc7O/g/EAQggRqgoGDAxIAEwZ9++fVtBNEAAgfUsW7bsFIgG4c2bN+8HawURf//+5YVJ5OfnPwPRKAYjA4AAAqt69epVand39y2YLgZLS8uvMA6MzSQoKPgHpuvYsWPcYAYrK+s/mMp169Ydgbuira3troaGxo/3798HwgWRMchSgACCcyQlJX8rKyv/2rBhw6G5c+deAAVGZmbmC2QNYD8wMoKo/4zYvIIsBw4vLi4uHL7GEgiwCIGFJQhXV1c/hEgjnIHhEXR87969FpCmf//+8QIEEIrE0qVLT5WUlDw5cuTIOnRNYPdevnx5NsgT9+/fF/H09Lw4depUexAfxZP4QgElBEJDQ989evSoBpuHU1NTX506dWoZUgBg98yFCxfmlZaWPgG70czM7DvYV1jA2bNnjYyNjZ+COaBIFxcX/4PNRGTbwERVVdVDeXn5X7B0C04YQKmIiIi3GIH+5s2beKAzvoF8ClMA0hwTE/OGqNgRERH5ExYW9g53jkADAAGGYcK7d+8iQWkTnHuxYHV19Z9r1qw5hs8VcMaTJ0/KuLm5wbm/q6vrNi4NwKQxHeRvkLqsrKznOA3dvn37bpCi+Pj414TCAoZfvnyZCgpQJSWlXxiGgiIclD1VVFR+EmsgDG/ZsmU/yDE9PT23UFL7nz9/JD5+/MgMSiQMJAIxMbHnIPrDhw/sGBHV0dFxB8QkFAHo2MLC4itIH6y4woio+fPnnwMpcHFx+fT7928pfIaBMjgbG9s/5GIUbxEye/bsi7DkIyAg8DcgIOA9KEWbmJh8g4kHBga+BxkIYoeHh78jaCg6/vHjh/7379/1scmBkiEokkGGJyQkvCbaUGLwlStXpoOyXUZGxgtQagIAMN+oZm7WR8IAAAAASUVORK5CYII=');
+    background-position: 5px;
+    background-repeat: no-repeat;
+    background-color: lightgray;
+}
+input[type=text]:focus {
+    background-color: darkgray;
+    border: 3px solid black;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline:none;
+}
 .text-bold {
     font-weight: bold;
 }
-
+.text-larger {
+    font-size: 150%;
+}
+.text-largest {
+    font-size: 225%;
+    margin: 3% 0 3% 0;
+}
+.text-smaller {
+    font-size: 85%;
+}
+.text-center {
+    text-align: center;
+}
+.hidden {
+    display: none;
+}
+.block {
+    display: block;
+}
+.planelogolarge {
+    width: 9%;
+}
+.planelogosmall {
+    width: 20px;
+}
+.floatright {
+    float: right;
+}
 
 #map-canvas {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+    height: 500px;            /*TEMPORARY --> FIX!!*/
+    margin: 0 auto;
+    width: 100%;
 }
 .headerfooter {
     width: 100%;
@@ -27,29 +74,20 @@ body, p {
     opacity: 0.85;
     border: 1px solid black;
     border-radius: 4px;
-    display: none;
     text-align: center;
     font-size: 110%;
     width: 150px;
+    z-index: 999;
 }
-/*.hoverwindow h4 {
-    text-align: center;
+.hoverwindow h1 {
     margin: 0;
     padding: 0;
 }
-.hoverwindow img {
-    width: 10%;
-}*/
 .info-bar {
     background-color: salmon;
     margin: 0;
     height: 1.5em;
-    /*position:relative;*/
-    /*top: 65px;*/
     border-radius: 2px;
-}
-.time {
-    float: right;
 }
 .left {
     margin-right: 0.5%;
@@ -60,9 +98,6 @@ body, p {
     float: right;
     width: 29%;
 }
-.navigation-bar {
-
-}
 .navigation-bar-list {
     list-style-type: none;
     margin: 0;
@@ -72,10 +107,10 @@ body, p {
 .content-buttons {
     float: left;
     padding: 3%;
-    margin: 0 2% 0 2%;
+    margin: 0 1% 0 1%;
     background-color: pink;
     border-radius: 5px;
-    width: 8%;
+    width: 10%;
 }
 .content-buttons a {
     display: block;
@@ -85,8 +120,55 @@ body, p {
 .active {
     background-color: red;
 }
-.content-div {
-    display: none;
-    /*width: 100%;*/
-    /*margin: 1% auto;*/
+.table-white {
+    width: 100%;
+}
+.table-white-td, .table-white.tr {
+    padding: 1% 0 1% 0;
+    border: 1px solid black;
+
+}
+.table-white tbody tr:nth-child(odd) {
+    background-color: lightgray;
+}
+.table-white-head {
+    color: white;
+    background-color: navy;
+    border-radius: 2px;
+}
+.route-float-left {
+    float: left;
+    width: 40%;
+    display: block;
+}
+.route-float-right {
+    float: right;
+    width: 40%;
+    display: block;
+}
+.selectedprogbar {
+    height: 5px;
+    background-color: lightgreen;
+    width: 90%;
+}
+.selectedprogbar span {
+    position: relative;
+}
+.selectedprog {
+    width: 0%;
+    background-color: darkgreen;
+    height: 5px;
+}
+.compact-table {
+    width: 95%;
+    text-align: right;
+    margin: 1% 0 1% 2%;
+    clear: both; /*some p's have no text in them, so they float left of the spans screws things up*/
+}
+.compact-table span {
+    font-weight: bold;
+    float: left;
+}
+.selected-communication {
+    width: 10%;
 }

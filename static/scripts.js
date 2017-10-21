@@ -407,7 +407,7 @@ function addPlane(data) {
     planes.push(m);
 
     //Update online table
-    $("#tablefilterpilot tbody").append("<tr><td class='tablefilterhide'>" + data['id'] + "</td><td class='tablefilterhide'>" + data['airline_name'] + "</td><td><a href=\"#\" onclick=\"centerMap("+data['id']+", 2)\">"+data['callsign']+"</a></td><td>"+data['real_name']+"</td><td>"+data['depairport']+"</td><td>"+data['arrairport']+"</td></tr>");
+    $("#tablefilterpilot tbody").append("<tr><td class='hidden'>" + data['id'] + "</td><td class='hidden'>" + data['airline_name'] + "</td><td><a href=\"#\" onclick=\"centerMap("+data['id']+", 2)\">"+data['callsign']+"</a></td><td>"+data['real_name']+"</td><td>"+data['depairport']+"</td><td>"+data['arrairport']+"</td></tr>");
 }
 
 
@@ -533,7 +533,7 @@ function addAirport(data) {
     //Loop through each ATC and add to online table
     data['atc'].forEach(function(val) {
         //Update online table
-        $("#tablefilterATC tbody").append("<tr><td class='tablefilterhide'>" + data['id'] +  "</td><td><a href='#' onclick='centerMap("+data['id']+",0);'>"+data['name']+"</a></td><td>"+val['callsign']+"</td><td>"+val['freq']+"</td><td>"+val['name']+"</td></tr>");
+        $("#tablefilterATC tbody").append("<tr><td class='hidden'>" + data['id'] +  "</td><td><a href='#' onclick='centerMap("+data['id']+",0);'>"+data['name']+"</a></td><td>"+val['callsign']+"</td><td>"+val['freq']+"</td><td>"+val['name']+"</td></tr>");
     });
 
     //create the marker, attach to map
@@ -651,20 +651,20 @@ function prettifyPlaneData(data) {
     //Returns displayable HTML for info window
     var depair = data['depairport'] === '' ? 'None' : data['depairport'];
     var arrair = data['arrairport'] === '' ? 'None' : data['arrairport'];
-    var x = "<h4>" + data["callsign"] + "</h4>" + "<p>" + depair;
-    x += " <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAN5AAADeQELGyzWAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAR1QTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGXzGQAAAF50Uk5TAAMFBwkKDBATFBkaHyAlJicoKissLzA5P0BBQkVGR01OT1BbXF9gYWhvcHN0d3+AgYKDhI6PkJien6ChpK2vsLy9vr/Awc7P0NjZ2tze3+Dh5Onq6+zt9fb4+fz9/s9AlesAAAKbSURBVHja7ZvXUgMxDEUJvffQO4RO6ITQIfTeO/v/nwEkQNYbO3icQQdmuO/aOQPWjSxLeXn/+hsa2vepHwAIez7dlAEEJ36CZQBg3g/gtcsDtCgARwXiAKFrhWBK/k8QVwAe68QBehUAb1scoPBOJRgSJ1hTAeTNIKICyJtB6VOAQNwMEgGAQ2kzGAkAiJtBZRBA3Az2ggTSZhANAkibQTgDQNoMTjMIlsiiIKk2sCgAzCB0k0kwCRYFKTOoBYuCpBJkUZDUIFgUyJtBRAMgagYZRYG4GSR0AJJmMKIDkDSDKi3Ag6AZ7GkJBM0gqgUQNIOwHkDQDE71BHExgAU9gNcqBdBqADiQMgNdUZBU1LH/NfyhbtuIJQOAoxlsfsa/dFlG9BkAvC0ngPGv+KsKu4iiexNBxAWgIR2/E7ILWTcBXJe6EJynPzBrFzFoAnAzg1g6/qUzh6LA2Qz8hablMdg2AriYQfGj/75rdQxGjQBOZrDp/8CMe1GQMoOaXBLxTc8dNiH7ZgIHM6hXPnBZbhEyaQZwMYNztbixOAZNWQAczCCmfmHaIuQsC0E8p0R8PwaLsW917GUj+D5+bqDalIhiup3J/yLY8BDtNn4CjDEA3kOHNhEFdVGiTURBregTUVDNKYAeDGCCTMR3rbKJ+HYMfwkA/i/ADyGehrQR4VaM/xjRP8d4QYKXZHhRSpfl+MUEv5rRl1P8eo43KPAWDd2kwtt0eKMSb9XizWq8Xf/3HizwJxv60Qp/tsMfLumnW/zxGn++pwcY8BEOfIiFHuPBB5nwUS56mA0f58MHGvGRTnqoFR/rxQeb6dFufLgdH++nFxzwFQ98yYVe88EXnfBVL3rZDV/3wxce8ZVPeukVX/vFF5//9XN6Baqm1LuueiTlAAAAAElFTkSuQmCC' alt=''> ";
+    var x = "<h1 class='text-center text-larger'>" + data["callsign"] + "</h1>" + "<p>" + depair;
+    x += " <img class='planelogosmall' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAN5AAADeQELGyzWAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAR1QTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGXzGQAAAF50Uk5TAAMFBwkKDBATFBkaHyAlJicoKissLzA5P0BBQkVGR01OT1BbXF9gYWhvcHN0d3+AgYKDhI6PkJien6ChpK2vsLy9vr/Awc7P0NjZ2tze3+Dh5Onq6+zt9fb4+fz9/s9AlesAAAKbSURBVHja7ZvXUgMxDEUJvffQO4RO6ITQIfTeO/v/nwEkQNYbO3icQQdmuO/aOQPWjSxLeXn/+hsa2vepHwAIez7dlAEEJ36CZQBg3g/gtcsDtCgARwXiAKFrhWBK/k8QVwAe68QBehUAb1scoPBOJRgSJ1hTAeTNIKICyJtB6VOAQNwMEgGAQ2kzGAkAiJtBZRBA3Az2ggTSZhANAkibQTgDQNoMTjMIlsiiIKk2sCgAzCB0k0kwCRYFKTOoBYuCpBJkUZDUIFgUyJtBRAMgagYZRYG4GSR0AJJmMKIDkDSDKi3Ag6AZ7GkJBM0gqgUQNIOwHkDQDE71BHExgAU9gNcqBdBqADiQMgNdUZBU1LH/NfyhbtuIJQOAoxlsfsa/dFlG9BkAvC0ngPGv+KsKu4iiexNBxAWgIR2/E7ILWTcBXJe6EJynPzBrFzFoAnAzg1g6/qUzh6LA2Qz8hablMdg2AriYQfGj/75rdQxGjQBOZrDp/8CMe1GQMoOaXBLxTc8dNiH7ZgIHM6hXPnBZbhEyaQZwMYNztbixOAZNWQAczCCmfmHaIuQsC0E8p0R8PwaLsW917GUj+D5+bqDalIhiup3J/yLY8BDtNn4CjDEA3kOHNhEFdVGiTURBregTUVDNKYAeDGCCTMR3rbKJ+HYMfwkA/i/ADyGehrQR4VaM/xjRP8d4QYKXZHhRSpfl+MUEv5rRl1P8eo43KPAWDd2kwtt0eKMSb9XizWq8Xf/3HizwJxv60Qp/tsMfLumnW/zxGn++pwcY8BEOfIiFHuPBB5nwUS56mA0f58MHGvGRTnqoFR/rxQeb6dFufLgdH++nFxzwFQ98yYVe88EXnfBVL3rZDV/3wxce8ZVPeukVX/vFF5//9XN6Baqm1LuueiTlAAAAAElFTkSuQmCC' alt=''> ";
     x += arrair + "</p>";
     return x;
 }
 
 function prettifyCenterData(data) {
     //Returns displayable HTML for info window
-    return "<h4>" + data['icao'] + " Center</h4>";
+    return "<h1 class='text-center text-larger'>" + data['icao'] + " Center</h4>";
 }
 
 function prettifyAirportData(data) {
     //Returns displayable HTML for info window
-    return "<h4>" + data['icao'] + "</h4> <p>" + data["name"] + "</p>";
+    return "<h1 class='text-center text-larger'>" + data['icao'] + "</h4> <p>" + data["name"] + "</p>";
 }
 
 function metarLink(metar) {
@@ -851,7 +851,7 @@ function showSelectedInfo() {
 
                 //Found the plane, lets build up data
                 $("#selectedplaneleft .deparricao").html(latest_json[2][j]["depairport"]);
-                $("#selectedplaneleft .deparrtime").html(latest_json[2][j]["deptime"]);
+                // $("#selectedplaneleft .deparrtime").html(latest_json[2][j]["deptime"]);
                 $("#selectedplaneright .deparricao").html(latest_json[2][j]["arrairport"]);
                 //latitude and long for arriving departing airpott
                 var arrlong, arrlat, deplong, deplat;
@@ -880,9 +880,9 @@ function showSelectedInfo() {
                 var dist_left = distance(plong, plat, arrlong, arrlat);
 
                 //update the progress bar
-                $("#selectedprog").css("width", dist_left / (dist_trav + dist_left)*100 + "%");
+                $(".selectedprog").css("width", dist_left / (dist_trav + dist_left)*100 + "%");
 
-                $("#selectedprogbar span").text(Math.round(dist_left) + ' / ' + Math.round(dist_trav + dist_left) + ' km flown');
+                $(".selectedprogbar span").text(Math.round(dist_left) + ' / ' + Math.round(dist_trav + dist_left) + ' km flown');
 
                 $("#selectedalt").html('<span>Alternate Airport:</span> ' + latest_json[2][j]['altairport']);
                 $("#selectedaircraft").html('<span>Aircraft:</span> ' + latest_json[2][j]['aircraft']);
@@ -1139,7 +1139,7 @@ function filterOnlines(filtertext) {
         for (var i = 0, row; row = table.rows[i]; i++) {
         //if header row, then don't filter (continue), and force it to show block
             if (i === 0) {
-                row.style.display = "block";
+                row.style.display = "table-row";
                 continue;
             }
             //show keeps track of whethter to show the current row or not
@@ -1149,6 +1149,7 @@ function filterOnlines(filtertext) {
             //See if there is a match
                 if (col.innerHTML.toString().toLowerCase().indexOf(filtertext.toLowerCase()) !== -1) {
                     show = true;
+                    console.log('found a match  '  + col.innerHTML.toString().toLowerCase())
                 }
             }
             //Increment the counter if this row is being shown
@@ -1167,13 +1168,13 @@ function filterOnlines(filtertext) {
                     planes[parseInt(row.cells[0].innerHTML) - 1].setMap(null);
                 }
             }
-            //cssclass holds the even vs odd class for the current row
-            var cssclass = counter % 2 === 0 ? "onlinetableeven" : "onlinetableodd";
-            if (show === true) {
-                row.className = "onlinetableshow " + cssclass;
-            } else {
-                row.className = "onlinetablehide " + cssclass;
-            }
+            row.className = (show === true ? "" : "hidden");
+
+            // if (show === true) {
+            //     row.className = "";//"onlinetableshow " + cssclass;
+            // } else {
+            //     row.className = "hidden"; //"onlinetablehide " + cssclass;
+            // }
        }
     });
 }
@@ -1536,16 +1537,16 @@ function updateStats() {
         }
     }
     var atc = latest_json[0].length - untowered;
-    updateText += "<p><span>Towered Airports</span> " + atc + "</p>";
-    updateText += "<p><span>Untowered Airports</span> " + untowered + "</p>";
-    updateText += "<p><span>Busiest Airport</span> <a href=\"#\" onclick=\"centerMap(" + busiest['index'] + ",0);\">" + busiest['name'] + '</a>  - ' + busiest['arrivals']   + ' Arrivals, ' + busiest['departures'] + ' Departures</p>';
+    updateText += "<p class='compact-table text-smaller'><span>Towered Airports</span> " + atc + "</p>";
+    updateText += "<p class='compact-table text-smaller'><span>Untowered Airports</span> " + untowered + "</p>";
+    updateText += "<p class='compact-table text-smaller'><span>Busiest Airport</span> <a href=\"#\" onclick=\"centerMap(" + busiest['index'] + ",0);\">" + busiest['name'] + '</a>  - ' + busiest['arrivals']   + ' Arrivals, ' + busiest['departures'] + ' Departures</p>';
 
     //Centers online; 0 is the initial value of array
     var tot = latest_json[1].reduce(function(accumulator, currentVal) {
         return accumulator + currentVal['atc'].length;
     }, 0);
-    updateText += "<p><span>Center ATC Online</span> " + tot + "</p>";
-    updateText += "<p><span>Total Pilots Online</span> " + latest_json[2].length + "</p>";
+    updateText += "<p class='compact-table text-smaller'><span>Center ATC Online</span> " + tot + "</p>";
+    updateText += "<p class='compact-table text-smaller'><span>Total Pilots Online</span> " + latest_json[2].length + "</p>";
 
     $('#stats').html(updateText);
 }

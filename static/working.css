@@ -70,13 +70,10 @@ table {
     font-size: 110%;
     width: 150px;
 }
-#hoverwindow h4 {
+#hoverwindow h1 {
     text-align: center;
     margin: 0;
     padding: 0;
-}
-#hoverwindow img {
-    width: 10%;
 }
 
 #legendtable img {
@@ -89,9 +86,7 @@ table {
     font-size: 0.85em;
 
 }
-#selectedplane, #selectedairport, #planningplane {
-    display: none;
-}
+
 #planningplane p {
     clear: both;
 }
@@ -115,33 +110,18 @@ table {
     display: block;
     clear: both;
 }
-#selectedplaneinfo p, #stats p {
+#stats p {
     width: 100%;
     text-align: right;
     margin: 0;
     clear: both; /*some p's have no text in them, so they float left of the spans screws things up*/
 }
-#selectedplaneinfo span, #stats span {
+#stats span {
     font-weight: bold; /*bold*/
     float:left;
 }
-#selectedprogbar {
-    height: 5px;
-    background-color: lightgreen;
-}
-#selectedprogbar span {
-    position: relative;
-}
-#selectedprog {
-    width: 0%;
-    background-color: darkgreen;
-    height: 5px;
-}
 #selectedpilotcid, #selectedlogontime {
     float:left;
-}
-#selectedcomm {
-    width: 100%;
 }
 .selectedcommunication {
     float: right;
@@ -151,40 +131,23 @@ table {
 #selectedplanehistory {
     clear:both;
 }
-.deparricao {
 
-    display: block;
-    font-size: 165%;
-    font-weight: bold; /*bold*/
-
-}
-.deparrname {
-    display: block;
-    font-size: 85%;
-}
-.deparrtime {
-    display:none;
-}
-
-#selectedairport {
-    display:none;
-}
-#selectedarrivals, #selecteddepartures{
+#selecteddepartures{
     width:100%;
 }
-#selectedarrivals td, #selecteddepartures td {
+#selecteddepartures td {
     padding: 0 8px 0 8px;
     font-size: 90%;
     border: 1px solid black;
 }
 
-#selectedarrivals thead, #selecteddepartures thead {
+#selecteddepartures thead {
     font-weight: bold; /*bold*/
 }
-#selectedarrivals tr:nth-child(odd), #selecteddepartures tr:nth-child(odd) {
+#selecteddepartures tr:nth-child(odd) {
     background-color: lightgray;
 }
-#selectedarrivals thead tr, #selecteddepartures thead tr {
+#selecteddepartures thead tr {
     color: white;
     background-color: navy!important;
     border-radius: 2px;
