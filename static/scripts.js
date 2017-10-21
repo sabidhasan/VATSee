@@ -18,6 +18,8 @@ var mouseY;
 var airportLines = [];
 var flightPath;
 var airportCircles = [];
+
+var updateCounter = 0;
 //How often to update
 var imgs = {0:   'data:image/gif;base64,R0lGODlhCgAKAIQWAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHNHR0TMzMwUFBS4uLujo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABYALAAAAAAKAAoAAAhcAC0ItKCggIWDCA8KIGChoUMLEgBUoGChosUCFSoMsMCRI4QEFUIisEDSAoUKKCtMsMDSwoAKMCsAkGDBwoEKOHMGsGBhQgUGAiYYqNDAggQCERxYsPAgwAIKAQEAOw==',
 1: 'data:image/gif;base64,R0lGODdhDAAMAIQAAA4ODp6enl1dXUZGRiUlJYuLixMTE9XV1d/f3xwcHNHR0TMzMwUFBS4uLujo6Pb29vr6+oaGhvHx8XR0dLm5uQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAADAAMAAAIhAABCBxIkKCFgxYUAFjIEICFhxYEFLBA0QIAABYySgBAwIJHCwAAWBhZoEIFChZSAgBgwQKEBBUqDLBAE4AFCxQq6NSJwIIFABYsDKhAtMIECxYAALBwoIJTpwAkWAAAwMKECgwEVNgawAIAABIIRHBgYYKBCg0sAFjLFoCFBwEWUAAQEAA7',
@@ -641,7 +643,7 @@ function centerMap(id, type) {
     for (var i = 0; i < latest_json[type].length; i++) {
         if (latest_json[type][i]['id'] === id) {
             //Found the plane in question, lets center the map onto it!
-            map.setZoom(9);
+            map.setZoom(8);
             map.setCenter(new google.maps.LatLng(parseFloat(latest_json[type][i]['latitude']), parseFloat(latest_json[type][i]['longitude'])));
         }
     }
@@ -1187,14 +1189,14 @@ function get_metar(stationid) {
             $("#metarresults_stationID").text('METAR for ' + data['stationID']);
             $("#metarresults_category").text(data['category']);
             $("#metarresults_rawtext blockquote span").text(data['raw_text']);
-            $("#metarresults_time").text(data['time']);
 
-            $("#metarresults_winddirspeed").html('<img src="' + imgs[Math.round(data["wind_dir"] / 10) % 36] + '"/>   (' + data['wind_dir'] + ')  ' +  data['wind']);
-            $("#metarresults_clouds").text(data['clouds']);
-            $("#metarresults_visibility").text(data['visibility']);
-            $("#metarresults_tempdewpoint").text(data['temp']);
-            $("#metarresults_altimeter").text(data['altimeter']);
-            $("#metarresults_sealevelpressure").text(data['sealevelpressure']);
+            $("#metarresults_time").append(data['time']);
+            $("#metarresults_winddirspeed").append('<img src="' + imgs[Math.round(data["wind_dir"] / 10) % 36] + '"/>   (' + data['wind_dir'] + ')  ' +  data['wind']);
+            $("#metarresults_clouds").append(data['clouds']);
+            $("#metarresults_visibility").append(data['visibility']);
+            $("#metarresults_tempdewpoint").append(data['temp']);
+            $("#metarresults_altimeter").append(data['altimeter']);
+            $("#metarresults_sealevelpressure").append(data['sealevelpressure']);
             $("#metardetails").show();
         }
     });
@@ -1206,6 +1208,18 @@ setInterval(function(){
     var min = d.getUTCMinutes() > 9 ? d.getUTCMinutes() : '0' + d.getUTCMinutes();
     var sec = d.getUTCSeconds() > 9 ? d.getUTCSeconds() : '0' + d.getUTCSeconds();
     $(".time").text(hrs + ':' + min + ":" + sec + ' Z ');
+
+    updateCounter += 1
+    if (updateCounter > 60) {
+        updateCounter = 0;
+    }
+    //Set autoupdate counter
+    if (document.getElementById('autoupdate').checked) {
+        $("#autoupdatecounter").removeClass("hidden");
+        $("#autoupdatecounter").text(60 - parseInt(updateCounter));
+    } else {
+        $("#autoupdatecounter").addClass("hidden");
+    }
 
 }, 1000);
 
@@ -1333,13 +1347,13 @@ function updateWorstWeather() {
             var tmp = data[ind];
             //Draw max one in table
             table_data += '<tr><td><a href = "#" onclick="centerMap(' + apts_tmp[tmp['airport']][0] + ', 0);">' + tmp['airport'] + '</a><span class = "worstweatherhover">' + apts_tmp[tmp['airport']][1] + '</span></td>';
-            table_data += '<td>' + tmp['precipitation_score'] + '<span class = "worstweatherhover">' + tmp['precipitation'] + '</span></td>';
-            table_data += '<td>' + tmp['temperature_score'] + '<span class = "worstweatherhover">' + tmp['temperature'] + '</span></td>';
-            table_data += '<td>' + tmp['visibility_score'] + '<span class = "worstweatherhover">' + tmp['visibility'] + '</span></td>';
+            table_data += '<td class="text-center">' + tmp['precipitation_score'] + '<span class = "worstweatherhover">' + tmp['precipitation'] + '</span></td>';
+            table_data += '<td class="text-center">' + tmp['temperature_score'] + '<span class = "worstweatherhover">' + tmp['temperature'].replace('/', '<br>/<br>') + '</span></td>';
+            table_data += '<td class="text-center">' + tmp['visibility_score'] + '<span class = "worstweatherhover">' + tmp['visibility'] + '</span></td>';
 
 
-            table_data += '<td>' + tmp['wind_score'] + '<span class = "worstweatherhover">' + tmp['wind'] + '</span></td>';
-            table_data += '<td>' + tmp['total_score'] + '</td>';
+            table_data += '<td class="text-center">' + tmp['wind_score'] + '<span class = "worstweatherhover">' + tmp['wind'] + '</span></td>';
+            table_data += '<td class="text-center">' + tmp['total_score'] + '</td>';
             $("#worstweather tbody").append(table_data);
 
             data[ind]['total_score'] = null;

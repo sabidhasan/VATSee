@@ -8,16 +8,6 @@
     margin-left: 2%;
 }
 #map-canvas {
-    /* height of these elements */
-    height: 90%;
-}
-
-.container-fluid {
-    /*display: flex;*/
-    width: 100%;
-}
-
-#map-canvas {
     float:left;
     width: 73%;
     margin-right: 0.5%;
@@ -36,12 +26,6 @@
     font-weight: bold; /*bold*/
     font-size: 110%;
 }
-#right {
-    /*flex-grow:1;*/
-    float:right;
-    width:26%;
-}
-
 
 
 #planningplane p {
@@ -112,41 +96,6 @@ h5 {
     font-weight: bold;
 }
 /*METAR page styling*/
-#metardetails {
-    display:none;
-}
-#metarresults p{
-    font-size: 125%;
-    font-weight: bold; /*bold*/
-}
-#metarresults table{
-    width: 100%;
-    font-size:110%;
-}
-#metarresults table td{
-    padding: 1% 0 1% 0;
-}
-#metarresults_stationID {
-    font-weight: 600;
-}
-#metarresults_category {
-    float: right;
-    display: inline;
-    font-size: 300%;
-    font-weight: bold; /*bold*/
-    margin: 0;
-    background-color: lightseagreen;
-    border-radius: 15%;
-    padding: 15px;
-}
-#metarresults_rawtext blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
-}
-
 #worstweather tbody td {
     padding: 2px 0 2px 0;
 }
