@@ -1365,7 +1365,6 @@ function planFlight() {
     //Looks at current possible routes (all online airports) and determines which planes can fly those routes!
     $("#planningplane").css("display","none");
     //Reset the Selected Plane text (because we are redrawing the table with options, and nothing will be selected after this functin)
-    //$("#planningselectedflight").html("");
 
     //temporary variable with all active airports (with ATC)
     var activeAirports = [];
@@ -1415,7 +1414,6 @@ function planFlight() {
     }
 
     //Write planes (the header row of the planning table)
-    //$('#planningresults').html('');
     var tmp = '<form action=\'\'><thead><tr><td>&nbsp;&nbsp;&nbsp;</td>';
     for (var plane in planeOptions) {
         if (planeOptions[plane][0] !== $("#planningplanes").val() || planeOptions[plane][4].length === 0 || $("#planningplanes").val() === "None") {
