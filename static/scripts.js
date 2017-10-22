@@ -1444,7 +1444,7 @@ function planFlight() {
         //Should we write it?
         if (writePlane === true) {
             tmp += '<tr><td class=\'planningroutetext\'><span class=\'hidden\'>' + i;
-            tmp += '</span><span class=\'hoverwindow text-center hidden\'>Distance: ' + parseInt(planningRoutes[i]['dist']) + ' km</br> ';
+            tmp += '</span><span class=\'planningtabletext hoverwindowstyle hidden\'>Distance: ' + parseInt(planningRoutes[i]['dist']) + ' km</br> ';
             // tmp += '</span><span class=\'planningtabletext\'>Distance: ' + parseInt(planningRoutes[i]['dist']) + ' km</br> ';
             tmp += planningRoutes[i]['names'] + '</span>' + planningRoutes[i]['text'] + '</td>' + rows + '</tr>';
         }
@@ -1455,6 +1455,9 @@ function planFlight() {
     $('#planningresults').html(tmp);
 
     $('.planningroutetext').hover(function() {
+        $(".planningroutetext .planningtabletext").css("top", mouseY + 5 + 'px')
+        console.log(mouseX)
+
         //Show the route, and zoom the map in
         planningRoutes[parseInt($(this).find('span')[0]['innerHTML'])]['marker'].setMap(map);
         for (var i = 0; i < planes.length; i++) {
