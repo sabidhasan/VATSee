@@ -1443,14 +1443,15 @@ function planFlight() {
         }
         //Should we write it?
         if (writePlane === true) {
-            tmp += '<tr><td class=\'planningroutetext\'><span class=\'planningtableid\'>' + i;
-            tmp += '</span><span class=\'planningtabletext\'>Distance: ' + parseInt(planningRoutes[i]['dist']) + ' km</br> ';
+            tmp += '<tr><td class=\'planningroutetext\'><span class=\'hidden\'>' + i;
+            tmp += '</span><span class=\'hoverwindow text-center hidden\'>Distance: ' + parseInt(planningRoutes[i]['dist']) + ' km</br> ';
+            // tmp += '</span><span class=\'planningtabletext\'>Distance: ' + parseInt(planningRoutes[i]['dist']) + ' km</br> ';
             tmp += planningRoutes[i]['names'] + '</span>' + planningRoutes[i]['text'] + '</td>' + rows + '</tr>';
         }
     }
 
     tmp += '</tbody></form>';
-
+    console.log(tmp);
     $('#planningresults').html(tmp);
 
     $('.planningroutetext').hover(function() {

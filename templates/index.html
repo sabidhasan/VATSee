@@ -287,20 +287,24 @@
             <div id="planning" class="content-div hidden">
                 <h1 class="text-largest text-center">Planning</h1>
                 <p>Specify a duration and aircraft type, and this will find routes you can fly</p>
+
                 <h1 class="text-larger">Duration</h1>
                 <input type="range" id = "planningrangebar" min="30" max="1050" value="0" step="30">
-                <p id="planningrangevalue">30 minutes or lower</p>
+                <p id="planningrangevalue">30 minutes or less</p>
 
                 <h1 class="text-larger">Plane Type</h1>
                 <select id="planningplanes">
-                    <!-- Options for planes types; populated in javascript -->
+                    <!-- Options for planes types; populated in Javascript -->
                 </select>
 
-                <h1 class="text-larger">Results <a href="#" onclick="clearPlanning()">Clear</a></h1>
+                <h1 class="text-larger">Results <a href="#" onclick="clearPlanning()" class="clear-link">Clear</a></h1>
                 <p>The following flights match</p>
                 <!-- This will hold results for planning -->
                 <table id="planningresults">
                     <!-- populated dynamically -->
+                    <form action=""></form>
+                    <thead><tr><td>&nbsp;&nbsp;&nbsp;</td></tr></thead>
+                    <tbody></tbody>
                 </table>
 
                 <h1 class="text-larger">Selected Flight</h1>

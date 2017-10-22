@@ -6,10 +6,48 @@ body, p {
 input[type=range] {
     width:90%;
     margin: 0 auto;
+    -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-moz-range-track {
+    height: 5px;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 20px;
+    width: 12px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -10px;
+    -webkit-appearance: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    height: 5px;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 20px;
+    width: 12px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -10px;
+    -webkit-appearance: none;
 }
 input[type=text] {
     width: 90%;
-    padding: 1% 1% 1% 7%;
+    padding: 2% 1% 2% 7%;
     margin: 1% 0 1% 0;
     border: 1px solid black;
     -webkit-appearance: none;
@@ -66,6 +104,7 @@ p, .text-smaller {
     float: right;
 }
 
+
 #map-canvas {
     height: 500px;            /*TEMPORARY --> FIX!!*/
     margin: 0 auto;
@@ -87,7 +126,7 @@ p, .text-smaller {
     border-radius: 4px;
     text-align: center;
     font-size: 110%;
-    width: 150px;
+    max-width: 150px;
     z-index: 999;
 }
 .hoverwindow h1 {
@@ -193,3 +232,51 @@ p, .text-smaller {
     border-radius: 15%;
     padding: 15px;
 }
+.clear-link {
+    float: right;
+    font-size: 50%;
+    text-decoration: none;
+    margin-right: 2%;
+}
+#planningrangevalue {
+    margin-top: 2%;
+}
+#planningplanes {
+    margin-left: 11%;
+    width: 80%;
+}
+.planningroutetext:hover .hoverwindow {
+    display: inline;
+    /*position: absolute;*/
+}
+#worstweather tbody td:hover .worstweatherhover{
+    visibility: visible;
+}
+
+
+
+.planningroutetext .planningtabletext {
+    visibility: hidden;
+    /*position: absolute;*/
+                    /*color: white;*/
+    /*background-color: black;*/
+                    /*border-radius: 6px;*/
+    /*opacity: 0.6;*/
+    /*border: 2px solid black;*/
+                    /*padding: 0 15px 0 15px;*/
+                    /*margin: 20px 5px 0 -80px;*/
+    /*width: auto;*/
+}
+
+
+/*.hoverwindow {
+    /*position: absolute;*/
+    /*background-color: white;*/
+    /*opacity: 0.85;*/
+    /*border: 1px solid black;*/
+    /*                    border-radius: 4px;*/
+    /*                    text-align: center;*/
+    /*                    font-size: 110%;*/
+    /*width: 150px;*/
+    /*z-index: 999;*/
+/*}*/
