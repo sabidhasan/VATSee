@@ -295,8 +295,8 @@ def get_METAR(given_code):
         return None
 
     #Return dictionary, with some default values filled in
-    ret = {"category": flight_cat, "raw_text": code, "clouds": obs.sky_conditions(), "time": None, "wind": None, "wind_value": None, "wind_gust_value": None, \
-        "wind_dir": None, "visibility": None, "visibility_value": None, "temp": None, "temp_value": None, "altimeter": None, "sealevelpressure": None}
+    ret = {"category": flight_cat, "raw_text": code, "clouds": obs.sky_conditions(), "time": None, "wind": 0, "wind_value": 0, "wind_gust_value": 0, \
+        "wind_dir": 0, "visibility": 0, "visibility_value": 0, "temp": 0, "temp_value": 0, "altimeter": 0, "sealevelpressure": 0}
 
     #Build return dictionary
     if obs.station_id:

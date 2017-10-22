@@ -10,6 +10,7 @@ body, p {
     font-family: 'Helvetica Neue',Tahoma,Arial,'Helvetica',sans-serif;
     color: #474448;
     margin: 0;
+    box-sizing: border-box;
 }
 a {
     color: #28587B;
@@ -126,6 +127,11 @@ p, .text-smaller {
     width: 100%;
     background-color: #73937E;
 }
+.headerfooter p {
+    font-weight: bold;
+    color: #CEB992
+    letter-spacing: 0.1em;
+}
 .container {
     margin-top: 0.5%;
     width: 100%;
@@ -148,17 +154,11 @@ p, .text-smaller {
     padding: 0;
 }
 .info-bar {
-            /*#CEB992    light brown
-#73937E    green
-#474448    dark 1
-#28587B    blue
-#471323    dark 2*/
-
-
     color: #28587B;
     margin: 0;
     height: 1.5em;
     border-radius: 2px;
+    letter-spacing: 0.15em;
 }
 .left {
     margin-right: 0.5%;
