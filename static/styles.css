@@ -4,8 +4,6 @@
 #474448    dark 1
 #28587B    blue
 #471323    dark 2*/
-
-
 body, p {
     font-family: 'Helvetica Neue',Tahoma,Arial,'Helvetica',sans-serif;
     color: #474448;
@@ -116,6 +114,9 @@ p, .text-smaller {
 .floatright {
     float: right;
 }
+.floatleft {
+    float: left;
+}
 
 
 #map-canvas {
@@ -162,12 +163,12 @@ p, .text-smaller {
 }
 .left {
     margin-right: 0.5%;
-    float: left;
     width: 70%;
+    float: left;
 }
 .right {
-    float: right;
     width: 29%;
+    float: right;
 }
 .navigation-bar-list {
     list-style-type: none;
@@ -178,10 +179,11 @@ p, .text-smaller {
 .content-buttons {
     float: left;
     padding: 3%;
-    margin: 0 1% 0 1%;
-    background-color: pink;
+    margin: 0 0.5% 0 0.5%;
+    background-color: #28587B;
     border-radius: 5px;
-    width: 12%;
+    width: 11%;
+    border: 2px solid black;
 }
 .content-buttons a {
     display: block;
@@ -189,39 +191,44 @@ p, .text-smaller {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 70%;
+    letter-spacing: 0.1em;
+    color: #CEB992;
 }
 .active {
-    background-color: red;
+    background-color: #73937E;
+}
+.active a {
+    color: #474448;
+    font-weight: bold;
 }
 .table-white {
     width: 100%;
 }
 .table-white-td, .table-white.tr {
     padding: 1% 0 1% 0;
-    border: 1px solid black;
+    border: 1px solid #474448;
 
 }
 .table-white tbody tr:nth-child(odd) {
-    background-color: lightgray;
+    background-color: #73937E;
+    opacity: 0.9;
+}
+.table-white tbody tr:nth-child(odd) a {
+    color: #474448;
 }
 .table-white-head {
-    color: white;
-    background-color: navy;
-    border-radius: 2px;
+    color: #CEB992;
+    background-color: #28587B;
+    text-align: center;
 }
-.route-float-left {
-    float: left;
-    width: 40%;
-    display: block;
-}
-.route-float-right {
-    float: right;
+.route {
+    /*float: left;*/
     width: 40%;
     display: block;
 }
 .selectedprogbar {
     height: 5px;
-    background-color: lightgreen;
+    background-color: #73937E;
     width: 90%;
 }
 .selectedprogbar span {
@@ -229,14 +236,14 @@ p, .text-smaller {
 }
 .selectedprog {
     width: 0%;
-    background-color: darkgreen;
+    background-color: #471323;
     height: 5px;
 }
 .compact-table {
     width: 95%;
     text-align: right;
     margin: 1% 0 1% 2%;
-    clear: both; /*some p's have no text in them, so they float left of the spans screws things up*/
+    clear: both;
 }
 .compact-table span {
     font-weight: bold;
@@ -248,10 +255,13 @@ p, .text-smaller {
 #metarresults_category {
     float: right;
     font-size: 300%;
-    font-weight: bold; /*bold*/
-    background-color: lightseagreen;
-    border-radius: 15%;
-    padding: 15px;
+    font-weight: bold;
+    background-color: #73937E;
+    border-radius: 5%;
+    padding: 2%;
+}
+.planningtabletext:hover {
+    display: none;
 }
 .clear-link {
     float: right;
@@ -309,4 +319,20 @@ p, .text-smaller {
 .planningroutetext:hover .planningtabletext {
     display: inline;
     visibility: visible;
+}
+
+@media only screen and (max-width: 768px) {
+    .right {
+        clear:both;
+        margin-top: 2%;
+        float: left;
+        width: 100%;
+    }
+    .left {
+        width: 100%;
+    }
+    .content-buttons {
+        padding: 2%;
+        width: 14%;
+    }
 }

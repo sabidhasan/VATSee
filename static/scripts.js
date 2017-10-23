@@ -169,7 +169,7 @@ $(document).ready(function() {
             featureType: 'water',
             elementType: 'geometry',
             stylers: [{
-                color: '#17263c'
+                color: '#28587B'
             }]
         },
         {
@@ -184,10 +184,7 @@ $(document).ready(function() {
     // options for map
     // https://developers.google.com/maps/documentation/javascript/reference#MapOptions
     var options = {
-        center: {
-            lat: 0,
-            lng: 0
-        }, // Stanford, California
+        center: {lat: 0, lng: 0},
         disableDefaultUI: true,
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         maxZoom: 14,

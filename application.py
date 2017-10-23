@@ -106,7 +106,6 @@ def callsign_to_icao(callsign):
         except TypeError:
             #No results were found
             return callsign.split("_")[0]
-            #TO--DO LOGGING: An IATA code not present in the database, might be interesting to log
             add_to_log('Unknown IATA from callsign_to_icao. Not found in database - "%s"' % callsign, logging.ERROR)
 
 
