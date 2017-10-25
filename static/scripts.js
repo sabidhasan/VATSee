@@ -1411,7 +1411,7 @@ function planFlight() {
     }
 
     //Write planes (the header row of the planning table)
-    var tmp = '<form action=\'\'><thead><tr><td>&nbsp;&nbsp;&nbsp;</td>';
+    var tmp = '<form action=\'#\'><thead><tr><td>&nbsp;&nbsp;&nbsp;</td>';
     for (var plane in planeOptions) {
         if (planeOptions[plane][0] !== $("#planningplanes").val() || planeOptions[plane][4].length === 0 || $("#planningplanes").val() === "None") {
             continue;
@@ -1432,28 +1432,26 @@ function planFlight() {
             }
 
             if (planeOptions[plane][4].indexOf(i) !== -1) {
-                rows += '<td class = \'planninggreen\'><input type=\'radio\' class = \'blah\' name=\'planningtable\' value=\'' + i + ';' + plane + '\'></td>';
+                rows += '<td class = \'planninggreen\'><input type=\'radio\' name=\'planningtable\' value=\'' + i + ';' + plane + '\'></td>';
                 writePlane = true;
             } else {
-                rows += '<td class = \'planningred\'>&nbsp;</td>';
+                rows += '<td class = \'planningred font-bold\'>X</td>';
             }
         }
         //Should we write it?
         if (writePlane === true) {
             tmp += '<tr><td class=\'planningroutetext\'><span class=\'hidden\'>' + i;
             tmp += '</span><span class=\'planningtabletext hoverwindowstyle hidden\'>Distance: ' + parseInt(planningRoutes[i]['dist']) + ' km</br> ';
-            // tmp += '</span><span class=\'planningtabletext\'>Distance: ' + parseInt(planningRoutes[i]['dist']) + ' km</br> ';
             tmp += planningRoutes[i]['names'] + '</span>' + planningRoutes[i]['text'] + '</td>' + rows + '</tr>';
         }
     }
 
     tmp += '</tbody></form>';
-    console.log(tmp);
     $('#planningresults').html(tmp);
 
     $('.planningroutetext').hover(function() {
+        //Mouse on
         $(".planningroutetext .planningtabletext").css("top", mouseY + 5 + 'px')
-        console.log(mouseX)
 
         //Show the route, and zoom the map in
         planningRoutes[parseInt($(this).find('span')[0]['innerHTML'])]['marker'].setMap(map);
@@ -1483,7 +1481,7 @@ function planFlight() {
             map.setZoom(map.getZoom() - 1);
         }
     }, function() {
-        //Hide the marker
+        //Mouse off
         planningRoutes[parseInt($(this).find('span')[0]['innerHTML'])]['marker'].setMap(null);
         //Show the planes
         for (var i = 0; i < planes.length; i++) {
@@ -1495,10 +1493,10 @@ function planFlight() {
     });
 
 
-        //When a route is picked on planmning screen
+    //When a route is picked on planmning screen
     $(".planninggreen input").on("click", function() {
-        //.get(0) gets the JavaScript DOM element rather than jQuery object
         $("#planningplane").css("display","block");
+        //.get(0) gets the JavaScript DOM element rather than jQuery object
         $("#planningselectedflight").get(0).scrollIntoView();
 
         $("#planningplaneleft .deparricao").html(planningRoutes[ parseInt( $(this).val().split(";")[0] ) ]['text'].split("-")[0]);
