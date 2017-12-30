@@ -1,12 +1,16 @@
 *  Critical Features to Add:
-      Logging                                       2 hr
+      Logging
 
-      Route draw                                    3 hr
+      Route draw
         Far away points, no connect to planes
 
       Options
         Show arrivals only / departures only
         Airborne only/ground/all flights
+        
+      Refactoring
+        1. Cronupdater should move use new REST project to get new data
+        2. All functions should be moved into other dependencies to keep code clean
 
 *  Nice to Have Features (hard):
         1   Make the backend into Class
