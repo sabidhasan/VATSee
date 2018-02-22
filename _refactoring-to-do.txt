@@ -1,0 +1,7 @@
+#To Do
+
+MAJOR TASKS
+
+- Make page mobile friendly (responsive layout, BEM, CSS Grid, accessibilty standards)
+- Use react framework for rendering
+- Refactor front end code for readability/speed (current JS file too long)
